@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.main_panel = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.poisonLabel1 = new ReaLTaiizor.Controls.PoisonLabel();
+            this.btnGithub = new Guna.UI2.WinForms.Guna2Button();
+            this.btnLinkedin = new Guna.UI2.WinForms.Guna2Button();
+            this.btnTelegram = new Guna.UI2.WinForms.Guna2Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -36,19 +40,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.poisonLabel1 = new ReaLTaiizor.Controls.PoisonLabel();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.main_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // main_panel
             // 
             this.main_panel.Controls.Add(this.poisonLabel1);
-            this.main_panel.Controls.Add(this.guna2Button2);
-            this.main_panel.Controls.Add(this.guna2Button1);
-            this.main_panel.Controls.Add(this.guna2Button4);
+            this.main_panel.Controls.Add(this.btnGithub);
+            this.main_panel.Controls.Add(this.btnLinkedin);
+            this.main_panel.Controls.Add(this.btnTelegram);
             this.main_panel.Controls.Add(this.label7);
             this.main_panel.Controls.Add(this.label6);
             this.main_panel.Controls.Add(this.label5);
@@ -67,6 +67,88 @@
             this.main_panel.ShadowDecoration.Parent = this.main_panel;
             this.main_panel.Size = new System.Drawing.Size(1775, 1028);
             this.main_panel.TabIndex = 3;
+            this.main_panel.Tag = "0";
+            // 
+            // poisonLabel1
+            // 
+            this.poisonLabel1.AutoSize = true;
+            this.poisonLabel1.Location = new System.Drawing.Point(-19, -19);
+            this.poisonLabel1.Name = "poisonLabel1";
+            this.poisonLabel1.Size = new System.Drawing.Size(88, 20);
+            this.poisonLabel1.TabIndex = 10;
+            this.poisonLabel1.Text = "poisonLabel1";
+            // 
+            // btnGithub
+            // 
+            this.btnGithub.Animated = true;
+            this.btnGithub.BackColor = System.Drawing.Color.Transparent;
+            this.btnGithub.CheckedState.Parent = this.btnGithub;
+            this.btnGithub.CustomImages.Parent = this.btnGithub;
+            this.btnGithub.FillColor = System.Drawing.Color.Transparent;
+            this.btnGithub.Font = new System.Drawing.Font("Gadugi", 9F, System.Drawing.FontStyle.Bold);
+            this.btnGithub.ForeColor = System.Drawing.Color.Black;
+            this.btnGithub.HoverState.Parent = this.btnGithub;
+            this.btnGithub.Image = global::DVLD.Properties.Resources.github;
+            this.btnGithub.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnGithub.ImageOffset = new System.Drawing.Point(35, -20);
+            this.btnGithub.ImageSize = new System.Drawing.Size(50, 50);
+            this.btnGithub.Location = new System.Drawing.Point(1317, 904);
+            this.btnGithub.Name = "btnGithub";
+            this.btnGithub.ShadowDecoration.Parent = this.btnGithub;
+            this.btnGithub.Size = new System.Drawing.Size(139, 112);
+            this.btnGithub.TabIndex = 9;
+            this.btnGithub.Tag = "https://github.com/MostafaShraief";
+            this.btnGithub.Text = "GitHub";
+            this.btnGithub.TextOffset = new System.Drawing.Point(0, 30);
+            this.btnGithub.Click += new System.EventHandler(this.btnOpenURL_Click);
+            // 
+            // btnLinkedin
+            // 
+            this.btnLinkedin.Animated = true;
+            this.btnLinkedin.BackColor = System.Drawing.Color.Transparent;
+            this.btnLinkedin.CheckedState.Parent = this.btnLinkedin;
+            this.btnLinkedin.CustomImages.Parent = this.btnLinkedin;
+            this.btnLinkedin.FillColor = System.Drawing.Color.Transparent;
+            this.btnLinkedin.Font = new System.Drawing.Font("Gadugi", 9F, System.Drawing.FontStyle.Bold);
+            this.btnLinkedin.ForeColor = System.Drawing.Color.Black;
+            this.btnLinkedin.HoverState.Parent = this.btnLinkedin;
+            this.btnLinkedin.Image = global::DVLD.Properties.Resources.linkedin;
+            this.btnLinkedin.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnLinkedin.ImageOffset = new System.Drawing.Point(35, -20);
+            this.btnLinkedin.ImageSize = new System.Drawing.Size(50, 50);
+            this.btnLinkedin.Location = new System.Drawing.Point(815, 904);
+            this.btnLinkedin.Name = "btnLinkedin";
+            this.btnLinkedin.ShadowDecoration.Parent = this.btnLinkedin;
+            this.btnLinkedin.Size = new System.Drawing.Size(139, 112);
+            this.btnLinkedin.TabIndex = 8;
+            this.btnLinkedin.Tag = "https://www.linkedin.com/in/mostafa-shraief/";
+            this.btnLinkedin.Text = "LinkedIn";
+            this.btnLinkedin.TextOffset = new System.Drawing.Point(0, 30);
+            this.btnLinkedin.Click += new System.EventHandler(this.btnOpenURL_Click);
+            // 
+            // btnTelegram
+            // 
+            this.btnTelegram.Animated = true;
+            this.btnTelegram.BackColor = System.Drawing.Color.Transparent;
+            this.btnTelegram.CheckedState.Parent = this.btnTelegram;
+            this.btnTelegram.CustomImages.Parent = this.btnTelegram;
+            this.btnTelegram.FillColor = System.Drawing.Color.Transparent;
+            this.btnTelegram.Font = new System.Drawing.Font("Gadugi", 9F, System.Drawing.FontStyle.Bold);
+            this.btnTelegram.ForeColor = System.Drawing.Color.Black;
+            this.btnTelegram.HoverState.Parent = this.btnTelegram;
+            this.btnTelegram.Image = global::DVLD.Properties.Resources.telegram;
+            this.btnTelegram.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnTelegram.ImageOffset = new System.Drawing.Point(35, -20);
+            this.btnTelegram.ImageSize = new System.Drawing.Size(50, 50);
+            this.btnTelegram.Location = new System.Drawing.Point(313, 904);
+            this.btnTelegram.Name = "btnTelegram";
+            this.btnTelegram.ShadowDecoration.Parent = this.btnTelegram;
+            this.btnTelegram.Size = new System.Drawing.Size(139, 112);
+            this.btnTelegram.TabIndex = 7;
+            this.btnTelegram.Tag = "https://t.me/Mostafa_Shraief";
+            this.btnTelegram.Text = "Telegram";
+            this.btnTelegram.TextOffset = new System.Drawing.Point(0, 30);
+            this.btnTelegram.Click += new System.EventHandler(this.btnOpenURL_Click);
             // 
             // label7
             // 
@@ -151,81 +233,6 @@
             this.label1.Text = "Welcome To Driving And Vehicle License Department";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // poisonLabel1
-            // 
-            this.poisonLabel1.AutoSize = true;
-            this.poisonLabel1.Location = new System.Drawing.Point(-19, -19);
-            this.poisonLabel1.Name = "poisonLabel1";
-            this.poisonLabel1.Size = new System.Drawing.Size(88, 20);
-            this.poisonLabel1.TabIndex = 10;
-            this.poisonLabel1.Text = "poisonLabel1";
-            // 
-            // guna2Button2
-            // 
-            this.guna2Button2.Animated = true;
-            this.guna2Button2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
-            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
-            this.guna2Button2.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button2.Font = new System.Drawing.Font("Gadugi", 9F, System.Drawing.FontStyle.Bold);
-            this.guna2Button2.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button2.HoverState.Parent = this.guna2Button2;
-            this.guna2Button2.Image = global::DVLD.Properties.Resources.github;
-            this.guna2Button2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button2.ImageOffset = new System.Drawing.Point(35, -20);
-            this.guna2Button2.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2Button2.Location = new System.Drawing.Point(1317, 904);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
-            this.guna2Button2.Size = new System.Drawing.Size(139, 112);
-            this.guna2Button2.TabIndex = 9;
-            this.guna2Button2.Text = "GitHub";
-            this.guna2Button2.TextOffset = new System.Drawing.Point(0, 30);
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.Animated = true;
-            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
-            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
-            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.Font = new System.Drawing.Font("Gadugi", 9F, System.Drawing.FontStyle.Bold);
-            this.guna2Button1.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Image = global::DVLD.Properties.Resources.linkedin;
-            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button1.ImageOffset = new System.Drawing.Point(35, -20);
-            this.guna2Button1.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2Button1.Location = new System.Drawing.Point(820, 904);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(139, 112);
-            this.guna2Button1.TabIndex = 8;
-            this.guna2Button1.Text = "LinkedIn";
-            this.guna2Button1.TextOffset = new System.Drawing.Point(0, 30);
-            // 
-            // guna2Button4
-            // 
-            this.guna2Button4.Animated = true;
-            this.guna2Button4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button4.CheckedState.Parent = this.guna2Button4;
-            this.guna2Button4.CustomImages.Parent = this.guna2Button4;
-            this.guna2Button4.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button4.Font = new System.Drawing.Font("Gadugi", 9F, System.Drawing.FontStyle.Bold);
-            this.guna2Button4.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button4.HoverState.Parent = this.guna2Button4;
-            this.guna2Button4.Image = global::DVLD.Properties.Resources.telegram;
-            this.guna2Button4.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button4.ImageOffset = new System.Drawing.Point(35, -20);
-            this.guna2Button4.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2Button4.Location = new System.Drawing.Point(313, 904);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.ShadowDecoration.Parent = this.guna2Button4;
-            this.guna2Button4.Size = new System.Drawing.Size(139, 112);
-            this.guna2Button4.TabIndex = 7;
-            this.guna2Button4.Text = "Telegram";
-            this.guna2Button4.TextOffset = new System.Drawing.Point(0, 30);
-            // 
             // Main_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -251,9 +258,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btnTelegram;
+        private Guna.UI2.WinForms.Guna2Button btnGithub;
+        private Guna.UI2.WinForms.Guna2Button btnLinkedin;
         private ReaLTaiizor.Controls.PoisonLabel poisonLabel1;
     }
 }
