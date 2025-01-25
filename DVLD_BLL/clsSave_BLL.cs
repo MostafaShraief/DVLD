@@ -1,0 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DVLD_BLL
+{
+    internal class clsSave_BLL
+    {
+        public enum enMode { New, Existing } // this modes refers to the status of data in the object.
+
+        public static bool Save(ref enMode mode, Func <bool> Add, Func <bool> Update)
+        {
+            bool IsSaved = false;
+
+            switch (mode)
+            {
+                case enMode.New:
+                    if (Add())
+                    {
+                        mode = enMode.Existing;
+                        IsSaved = true;
+                    }
+                    break;
+                case enMode.Existing:
+                    IsSaved = Update();
+                    break;
+            }
+
+            return IsSaved;
+        }
+    }
+}
