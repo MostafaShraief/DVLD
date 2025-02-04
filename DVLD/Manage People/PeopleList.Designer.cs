@@ -40,7 +40,6 @@
             this.cbFilterCriterion = new Guna.UI2.WinForms.Guna2ComboBox();
             this.tbFilter = new Guna.UI2.WinForms.Guna2TextBox();
             this.dtpDateOfBirth = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.button1 = new ReaLTaiizor.Controls.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeopleList)).BeginInit();
             this.flpTools.SuspendLayout();
             this.SuspendLayout();
@@ -245,34 +244,12 @@
             this.dtpDateOfBirth.Value = new System.DateTime(2025, 1, 27, 23, 33, 22, 811);
             this.dtpDateOfBirth.Visible = false;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.button1.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button1.Image = null;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.button1.Location = new System.Drawing.Point(223, 273);
-            this.button1.Name = "button1";
-            this.button1.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.button1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.button1.Size = new System.Drawing.Size(120, 40);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "button1";
-            this.button1.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // PeopleList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LavenderBlush;
             this.ClientSize = new System.Drawing.Size(1775, 1028);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.flpTools);
             this.Controls.Add(this.dgvPeopleList);
             this.Controls.Add(this.guna2Panel1);
@@ -298,6 +275,5 @@
         private Guna.UI2.WinForms.Guna2ComboBox cbFilterCriterion;
         private System.Windows.Forms.Label lblDateOfBirthFilter;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpDateOfBirth;
-        private ReaLTaiizor.Controls.Button button1;
     }
 }
