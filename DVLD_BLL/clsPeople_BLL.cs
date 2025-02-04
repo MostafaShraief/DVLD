@@ -232,10 +232,10 @@ namespace DVLD_BLL
             return clsPeople_DAL.IsPersonExist(NationalNo);
         }
 
-        public DataRow ConvertToDataRow(ref DataTable dataTable)
+        public void AddToTable(ref DataTable dataTable)
         {
             if (_Mode == clsSave_BLL.enMode.New)
-                return null;
+                return;
 
             // Create a new DataRow and fill it with the Person's data
             DataRow row = dataTable.NewRow();
@@ -253,7 +253,7 @@ namespace DVLD_BLL
             row["CountryName"] = NationalityCountryID;
             row["ImagePath"] = ImagePath;
 
-            return row;
+            dataTable.Rows.Add(row);
         }
     }
 }

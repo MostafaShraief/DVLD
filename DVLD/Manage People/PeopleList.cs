@@ -6,6 +6,7 @@ using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,10 +15,13 @@ namespace DVLD.Manage_People
 {
     public partial class PeopleList : Form
     {
+        private const string DefaultCountry = "Syria";
+        private const string DefaultFilter = "None";
+
         public PeopleList()
         {
             InitializeComponent();
-            cbFilter.SelectedItem = "None";
+            cbFilter.SelectedItem = DefaultFilter;
         }
 
         private enum _enFilterMode { None, PersonID, NationalNo, FirstName,
@@ -27,6 +31,7 @@ namespace DVLD.Manage_People
         _enFilterMode _FilterMode = _enFilterMode.None;
 
         DataTable dtPeople;
+        bool IsLoad = true; // this important to ignore filling table twice at the same time when loading the form.
 
         void _FillDataTable()
         {
@@ -36,6 +41,37 @@ namespace DVLD.Manage_People
         void _FillDataGridViewWithData()
         {
             dgvPeopleList.DataSource = dtPeople;
+        }
+
+        void _RenewDataTable()
+        {
+            if (dgvPeopleList.DataSource 
+                is DataTable currentDataSource && 
+                currentDataSource != dtPeople)
+                currentDataSource.Dispose();
+
+            dtPeople.Dispose();
+            _FillDataTable();
+            _FillDataGridViewWithData();
+        }
+
+        void _DisposeUnusedDataTable()
+        {
+            if ((DataTable)dgvPeopleList.DataSource != dtPeople) // check if dt is not the main table.
+                ((DataTable)dgvPeopleList.DataSource).Dispose();
+        }
+
+        void _SwitchToAnotherDataTable(ref DataTable newdt)
+        {
+            _DisposeUnusedDataTable(); // Dispose old table.
+            dgvPeopleList.DataSource = newdt;
+        }
+
+        void _FillDataTableWithPeopleColumns(ref DataTable dt)
+        {
+            foreach (DataColumn col in dtPeople.Columns)
+                dt.Columns.Add(
+                    new DataColumn(col.ColumnName, col.DataType));
         }
 
         void _FillComboBoxWithColumnNames()
@@ -61,36 +97,33 @@ namespace DVLD.Manage_People
 
         void _LoadCountryToComboBox()
         {
-            //DataTable dtCountry;
-            // Code...
+            DataTable dtCountries = clsCountry_BLL.GetListofCountries();
+
+            foreach (DataRow row in dtCountries.Rows)
+                cbFilterCriterion.Items.Add(row["CountryName"]);
+
+            cbFilterCriterion.SelectedItem = DefaultCountry;
+
+            dtCountries.Dispose();
         }
 
         void _CountryFilterMode()
         {
-            _FilterMode = _enFilterMode.CountryName;
-            _DisableAllFilterControls();
-
             cbFilterCriterion.Visible = true;
             _LoadCountryToComboBox();
         }
 
         void _GenedrFilterMode()
         {
-            _FilterMode = _enFilterMode.Gender;
-            _DisableAllFilterControls();
-
             cbFilterCriterion.Visible = true;
             cbFilterCriterion.Items.Add("None");
-            cbFilterCriterion.SelectedItem = "None";
             cbFilterCriterion.Items.Add("Male");
             cbFilterCriterion.Items.Add("Female");
+            cbFilterCriterion.SelectedItem = DefaultFilter;
         }
 
         void _DateOfBirthFilterMode()
         {
-            _FilterMode = _enFilterMode.DateOfBirth;
-            _DisableAllFilterControls();
-
             lblDateOfBirthFilter.Visible = true;
             cbFilterCriterion.Visible = true;
             cbFilterCriterion.Items.Add("Day");
@@ -101,56 +134,32 @@ namespace DVLD.Manage_People
             tbFilter.Visible = true;
         }
 
-        void _TextFilterMode(string FilterType)
+        void _TextFilterMode()
         {
             _DisableAllFilterControls();
 
             tbFilter.Visible = true;
-
-            if (FilterType == "PersonID")
-                _FilterMode = _enFilterMode.PersonID;
-            else if (FilterType == "NationalNo")
-                _FilterMode = _enFilterMode.NationalNo;
-            else if (FilterType == "FirstName")
-                _FilterMode = _enFilterMode.FirstName;
-            else if (FilterType == "SecondName")
-                _FilterMode = _enFilterMode.SecondName;
-            else if (FilterType == "ThirdName")
-                _FilterMode = _enFilterMode.ThirdName;
-            else if (FilterType == "LastName")
-                _FilterMode = _enFilterMode.LastName;
-            else if (FilterType == "Gender")
-                _FilterMode = _enFilterMode.Gender;
-            else if (FilterType == "Address")
-                _FilterMode = _enFilterMode.Address;
-            else if (FilterType == "Phone")
-                _FilterMode = _enFilterMode.Phone;
-            else if (FilterType == "Email")
-                _FilterMode = _enFilterMode.Email;
-            else
-                _FilterMode = _enFilterMode.ImagePath;
         }
 
         private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
+            _DisableAllFilterControls();
+
             if (cbFilter.SelectedItem == null ||
-                cbFilter.SelectedItem.ToString() == "None")
-            {
-                _FilterMode = _enFilterMode.None;
-                _DisableAllFilterControls();
-                return;
-            }
-
-            string FilterType = cbFilter.SelectedItem.ToString();
-
-            if (FilterType == "CountryName")
+                Enum.TryParse(cbFilter.SelectedItem.ToString(),
+                out _FilterMode) == false ||
+                (_FilterMode == _enFilterMode.None && IsLoad == false))
+                _RenewDataTable();
+            else if (_FilterMode == _enFilterMode.CountryName)
                 _CountryFilterMode();
-            else if (FilterType == "Gender")
+            else if (_FilterMode == _enFilterMode.Gender)
                 _GenedrFilterMode();
-            else if (FilterType == "DateOfBirth")
+            else if (_FilterMode == _enFilterMode.DateOfBirth)
                 _DateOfBirthFilterMode();
             else
-                _TextFilterMode(FilterType);
+                _TextFilterMode();
+
+            IsLoad = false;
         }
 
         private void cbFilterByValue_VisibleChanged(object sender, EventArgs e)
@@ -165,44 +174,43 @@ namespace DVLD.Manage_People
                 tbFilter.Text = string.Empty;
         }
 
-        void _DisposeUnusedDataTable()
-        {
-            if ((DataTable)dgvPeopleList.DataSource != dtPeople)
-                ((DataTable)dgvPeopleList.DataSource).Dispose();
-        }
-
         void FilterPeopleByExpression(Func <DataRow, bool> exp)
         {
-            if (tbFilter.Text == null ||
-                tbFilter.Text == string.Empty)
+            if (string.IsNullOrEmpty(tbFilter.Text))
                 dgvPeopleList.DataSource = dtPeople;
 
             DataTable dataTableFilter = new DataTable();
 
-            foreach (DataColumn col in dtPeople.Columns)
-                dataTableFilter.Columns.Add(
-                    new DataColumn(col.ColumnName, col.DataType));
+            _FillDataTableWithPeopleColumns(ref dataTableFilter);
 
             foreach (DataRow row in dtPeople.Rows)
                 if (exp(row))
                     dataTableFilter.Rows.Add(row.ItemArray);
-
-            _DisposeUnusedDataTable();
-
-            dgvPeopleList.DataSource = dataTableFilter;
+            
+            _SwitchToAnotherDataTable(ref dataTableFilter);
         }
 
-        void _RenewDataTable()
+        void _StartWithFilter(string objectName)
         {
-            dtPeople.Dispose();
-            _FillDataTable();
-            _FillDataGridViewWithData();
+            FilterPeopleByExpression((r) =>
+                r[objectName].ToString().ToLower().StartsWith(tbFilter.Text.ToLower()));
         }
 
-        void _FilterPersonIDOrNationalNo(bool ByID)
+        void _FilterByGender()
         {
-            dtPeople.Rows.Clear();
+            if (!string.IsNullOrEmpty(cbFilterCriterion.Text) &&
+                cbFilterCriterion.SelectedIndex != 0)
+                FilterPeopleByExpression(r =>
+                (r["Gender"].ToString()[0] == cbFilterCriterion.Text[0]));
+            else
+            {
+                _DisposeUnusedDataTable();
+                dgvPeopleList.DataSource = dtPeople;
+            }
+        }
 
+        void _FilterPersonIDOrNationalNo()
+        {
             if (tbFilter.Text == null ||
                 tbFilter.Text == string.Empty)
             {
@@ -212,7 +220,7 @@ namespace DVLD.Manage_People
 
             clsPeople_BLL person;
 
-            if (ByID)
+            if (_FilterMode == _enFilterMode.PersonID)
             {
                 if (int.TryParse(tbFilter.Text,
                     out int ID) == false)
@@ -222,44 +230,30 @@ namespace DVLD.Manage_People
             else
                 person = clsPeople_BLL.Find(tbFilter.Text);
 
+            DataTable dtFilterd = new DataTable();
 
-            if (person.PersonID == -1) 
-                return;
+            _FillDataTableWithPeopleColumns(ref dtFilterd);
 
-            DataRow row = person.ConvertToDataRow(ref dtPeople);
+            dgvPeopleList.DataSource = dtFilterd;
 
-            if (row != null)
-                dtPeople.Rows.Add(row);
+            if (person.PersonID == -1)
+                return; // Show empty table of people
+            else
+                person.AddToTable(ref dtFilterd);
         }
 
-        bool _CompareStrings(List<string> list1, List<string> list2)
+        void _FilterByCountry()
         {
-            // this function will split both string then
-            // compare each word of str1 with each word of str2,
-            // all words will be convert to lower characters.
-            bool IsOk = false;
-
-            foreach (string substr1 in list1)
+            if (cbFilterCriterion.Text != null &&
+                    cbFilterCriterion.Text != string.Empty &&
+                    cbFilterCriterion.SelectedIndex != 0)
+                FilterPeopleByExpression(r =>
+                    (r["CountryName"].ToString() == cbFilterCriterion.Text));
+            else
             {
-                foreach (string substr2 in list2)
-                {
-                    if (substr1.Contains(substr2))
-                    {
-                        IsOk = true;
-                        break;
-                    }
-                }
+                _DisposeUnusedDataTable();
+                dgvPeopleList.DataSource = dtPeople;
             }
-
-            return IsOk;
-        }
-
-        bool CompareExperssion(string RowItem, List<string> List2)
-        {
-            List<string> List1 = 
-                clsUtility.ConvertStringToListOfLowerCaseWords(RowItem);
-
-            return _CompareStrings(List1 , List2);
         }
 
         private void tbFilter_TextChanged(object sender, EventArgs e)
@@ -270,59 +264,35 @@ namespace DVLD.Manage_People
                     _RenewDataTable();
                     break;
                 case _enFilterMode.PersonID:
-                    _FilterPersonIDOrNationalNo(true);
+                    _FilterPersonIDOrNationalNo();
                     break;
                 case _enFilterMode.NationalNo:
-                    _FilterPersonIDOrNationalNo(false);
+                    _FilterPersonIDOrNationalNo();
                     break;
                 case _enFilterMode.FirstName:
-                    FilterPeopleByExpression(r =>
-                        r["SecondName"].ToString().ToLower().StartsWith(tbFilter.Text.ToLower()));
-                    break;
                 case _enFilterMode.SecondName:
-                    FilterPeopleByExpression((r) =>
-                        r["SecondName"].ToString().ToLower().StartsWith(tbFilter.Text.ToLower()));
-                    break;
                 case _enFilterMode.ThirdName:
-                    FilterPeopleByExpression((r) =>
-                        r["ThirdName"].ToString().ToLower().StartsWith(tbFilter.Text.ToLower()));
-                    break;
                 case _enFilterMode.LastName:
-                    FilterPeopleByExpression((r) =>
-                        r["LastName"].ToString().ToLower().StartsWith(tbFilter.Text.ToLower()));
-                    break;
                 case _enFilterMode.Address:
-                    FilterPeopleByExpression((r) =>
-                        r["Address"].ToString().ToLower().StartsWith(tbFilter.Text.ToLower()));
-                    break;
                 case _enFilterMode.Phone:
-                    FilterPeopleByExpression((r) =>
-                        r["Phone"].ToString().ToLower().StartsWith(tbFilter.Text.ToLower()));
-                    break;
                 case _enFilterMode.Email:
-                    FilterPeopleByExpression((r) =>
-                        r["Email"].ToString().ToLower().StartsWith(tbFilter.Text.ToLower()));
-                    break;
                 case _enFilterMode.ImagePath:
-                    FilterPeopleByExpression((r) =>
-                        r["ImagePath"].ToString().ToLower().StartsWith(tbFilter.Text.ToLower()));
+                    _StartWithFilter(_FilterMode.ToString());
                     break;
                 case _enFilterMode.Gender:
-                    if (cbFilterCriterion.Text != null &&
-                        cbFilterCriterion.Text != string.Empty &&
-                        cbFilterCriterion.SelectedIndex != 0)
-                        FilterPeopleByExpression(r =>
-                        (r["Gender"].ToString()[0] == cbFilterCriterion.Text[0]));
-                    else
-                    {
-                        _DisposeUnusedDataTable();
-                        dgvPeopleList.DataSource = dtPeople;
-                    }
+                    _FilterByGender();
+                    break;
+                case _enFilterMode.CountryName:
+                    _FilterByCountry();
                     break;
                 default:
-                    FilterPeopleByExpression((r) => true);
                     break;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dtPeople.Rows.Clear();
         }
     }
 }

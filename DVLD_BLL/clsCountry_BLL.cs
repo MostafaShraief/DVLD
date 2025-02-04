@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DVLD_BLL
 {
-    internal class clsCountry_BLL
+    public class clsCountry_BLL
     {
         public int CountryID { get; }
         public string CountryName { get; set; }
