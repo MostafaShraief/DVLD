@@ -45,7 +45,7 @@ namespace DVLD_BLL
             ImagePath = string.Empty;
         }
 
-        private clsPeople_BLL(int PersonID,string NationalNo, string FirstName, string SecondName,
+        private clsPeople_BLL(int PersonID, string NationalNo, string FirstName, string SecondName,
             string ThirdName, string LastName, DateTime DateOfBirth, Byte Gender,
             string Address, string Phone, string Email, int NationalityCountryID,
             string ImagePath)
@@ -125,9 +125,11 @@ namespace DVLD_BLL
             if (_CheckData() == false || clsPeople_DAL.IsPersonExist(NationalNo))
                 return false; // check if data is valid and national No is not exist before.
 
-            clsPeople_DAL.AddPerson(NationalNo, FirstName, SecondName,
+            int PersonID = clsPeople_DAL.AddPerson(NationalNo, FirstName, SecondName,
                 ThirdName, LastName, DateOfBirth, Gender,
                 Address, Phone, Email, NationalityCountryID, ImagePath);
+
+            IsAdded = (PersonID != -1);
 
             return IsAdded;
         }
@@ -148,9 +150,7 @@ namespace DVLD_BLL
 
         public bool Save()
         {
-            bool IsSave = clsSave_BLL.Save(ref _Mode, _AddPerson, _UpdatePerson);
-
-            return IsSave;
+            return clsSave_BLL.Save(ref _Mode, _AddPerson, _UpdatePerson);
         }
 
         public static clsPeople_BLL Find(int PersonID)

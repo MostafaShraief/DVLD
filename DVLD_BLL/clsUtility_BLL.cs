@@ -11,6 +11,9 @@ namespace DVLD_BLL
     {
         public static bool CheckOnlyLettersAndSpaces(string str)
         {
+            if (str == null)
+                return false;
+
             bool IsOk = true;
 
             foreach (char ch in str)

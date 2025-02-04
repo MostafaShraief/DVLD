@@ -12,6 +12,7 @@ namespace DVLD_BLL
 
         public static bool Save(ref enMode mode, Func <bool> Add, Func <bool> Update)
         {
+            // save new record or update record in database table specified.
             bool IsSaved = false;
 
             switch (mode)

@@ -13,12 +13,12 @@ namespace DVLD_DAL
 
         DataTable GetAllItems();
 
-        void GetItemByID();
+        bool GetItemByID();
 
         bool UpdateItem();
 
-        bool DeleteItem();
+        bool DeleteItem(int ID);
 
-        bool IsItemExist();
+        bool IsItemExist(int ID);
     }
 }

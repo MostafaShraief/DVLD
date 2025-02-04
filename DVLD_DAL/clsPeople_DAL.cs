@@ -66,7 +66,7 @@ namespace DVLD_DAL
             {
                 connection.Open();
                 object result = command.ExecuteScalar();
-                PersonID = clsUtility_DAL.ConvertObjectToInt(result);
+                PersonID = clsUtility_DAL.ConvertObjectToIntID(result);
             }
             finally
             {

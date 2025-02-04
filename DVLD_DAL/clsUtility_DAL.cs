@@ -13,7 +13,7 @@ namespace DVLD_DAL
         public static Func<string, object> ConvertEmptyAndNullableString =
             (str) => ((str != null && str != string.Empty) ? (object)str : DBNull.Value);
 
-        public static int ConvertObjectToInt (object result)
+        public static int ConvertObjectToIntID (object result)
         {
             int Value;
             return ((result != null &&
@@ -22,7 +22,7 @@ namespace DVLD_DAL
         }
 
         public static Func<object, string> ConvertObjectToString =
-            (obj) => ((obj != DBNull.Value) ? obj.ToString() : string.Empty);
+            (obj) => ((obj != DBNull.Value && obj != null) ? obj.ToString() : string.Empty);
 
         public static bool DeleteRecord(string TableName, string WordFilter,
             object objArgument, bool IsInt)
@@ -35,7 +35,7 @@ namespace DVLD_DAL
 
             if (IsInt)
             {
-                int Value = ConvertObjectToInt(objArgument);
+                int Value = ConvertObjectToIntID(objArgument);
                 command.Parameters.AddWithValue("@" + WordFilter, Value);
             }
             else
@@ -71,7 +71,7 @@ namespace DVLD_DAL
 
             if (IsInt)
             {
-                int Value = ConvertObjectToInt(objArgument);
+                int Value = ConvertObjectToIntID(objArgument);
                 command.Parameters.AddWithValue("@" + WordFilter, Value);
             }
             else
