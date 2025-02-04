@@ -17,8 +17,7 @@ namespace DVLD.Manage_People
             InitializeComponent();
         }
 
-        public delegate void delLinker();
-
+        public delegate void delLinker(Form frm);
         public event delLinker Linker;
 
         private void btnListPeople_MouseHover(object sender, EventArgs e)
@@ -39,16 +38,26 @@ namespace DVLD.Manage_People
                 " national number of the person.";
         }
 
-        private void btnEditPerson_MouseHover(object sender, EventArgs e)
+        private void btnEditPerson_MouseEnter(object sender, EventArgs e)
         {
             lblDescription.Text = "Find the person then edit all details directly.";
         }
 
-        private void btnRemovePerson_MouseHover(object sender, EventArgs e)
+        private void btnRemovePerson_MouseEnter(object sender, EventArgs e)
         {
             lblDescription.Text = "Remove person from the system at all, " +
                 "the person who have any driving license or linked with at least" +
                 " one user can not removed!";
+        }
+
+        private void btnOption_MouseLeave(object sender, EventArgs e)
+        {
+            lblDescription.Text = "Hover on any option to show details.";
+        }
+
+        private void btnListPeople_Click(object sender, EventArgs e)
+        {
+            Linker(new PeopleList());
         }
     }
 }

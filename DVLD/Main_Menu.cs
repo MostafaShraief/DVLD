@@ -1,4 +1,5 @@
-﻿using Guna.UI2.WinForms;
+﻿using DVLD.Manage_People;
+using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +19,9 @@ namespace DVLD
             InitializeComponent();
         }
 
+        public delegate void delLinker(Form frm);
+        public event delLinker Linker;
+
         void OpenURL(string URL)
         {
             System.Diagnostics.Process.Start(URL);
@@ -26,6 +30,11 @@ namespace DVLD
         private void btnOpenURL_Click(object sender, EventArgs e)
         {
             OpenURL((sender as Guna2Button).Tag.ToString());
+        }
+
+        private void lblManagePeople_Click(object sender, EventArgs e)
+        {
+            Linker(new ManagePeople());
         }
     }
 }

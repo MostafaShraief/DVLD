@@ -28,29 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblFormTitle = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnListPeople = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddPerson = new Guna.UI2.WinForms.Guna2Button();
+            this.btnFindPerson = new Guna.UI2.WinForms.Guna2Button();
             this.btnEditPerson = new Guna.UI2.WinForms.Guna2Button();
             this.btnRemovePerson = new Guna.UI2.WinForms.Guna2Button();
-            this.btnFindPerson = new Guna.UI2.WinForms.Guna2Button();
             this.lblDescriptionTitle = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
+            this.ucTitleScreen1 = new ucTitleScreen("People List");
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lblFormTitle
-            // 
-            this.lblFormTitle.AutoSize = true;
-            this.lblFormTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblFormTitle.Font = new System.Drawing.Font("Gadugi", 30F, System.Drawing.FontStyle.Bold);
-            this.lblFormTitle.Location = new System.Drawing.Point(42, 51);
-            this.lblFormTitle.Name = "lblFormTitle";
-            this.lblFormTitle.Size = new System.Drawing.Size(390, 60);
-            this.lblFormTitle.TabIndex = 1;
-            this.lblFormTitle.Text = "Manage People";
-            this.lblFormTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // flowLayoutPanel1
             // 
@@ -86,7 +74,9 @@
             this.btnListPeople.TabIndex = 1;
             this.btnListPeople.Text = "List Of People";
             this.btnListPeople.TextOffset = new System.Drawing.Point(0, 100);
-            this.btnListPeople.MouseHover += new System.EventHandler(this.btnListPeople_MouseHover);
+            this.btnListPeople.Click += new System.EventHandler(this.btnListPeople_Click);
+            this.btnListPeople.MouseEnter += new System.EventHandler(this.btnListPeople_MouseHover);
+            this.btnListPeople.MouseLeave += new System.EventHandler(this.btnOption_MouseLeave);
             // 
             // btnAddPerson
             // 
@@ -110,55 +100,8 @@
             this.btnAddPerson.TabIndex = 2;
             this.btnAddPerson.Text = "Add Person";
             this.btnAddPerson.TextOffset = new System.Drawing.Point(0, 100);
-            this.btnAddPerson.MouseHover += new System.EventHandler(this.btnAddPerson_MouseHover);
-            // 
-            // btnEditPerson
-            // 
-            this.btnEditPerson.Animated = true;
-            this.btnEditPerson.BackColor = System.Drawing.Color.Transparent;
-            this.btnEditPerson.CheckedState.Parent = this.btnEditPerson;
-            this.btnEditPerson.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.btnEditPerson.CustomImages.Parent = this.btnEditPerson;
-            this.btnEditPerson.FillColor = System.Drawing.Color.Transparent;
-            this.btnEditPerson.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
-            this.btnEditPerson.ForeColor = System.Drawing.Color.Black;
-            this.btnEditPerson.HoverState.Parent = this.btnEditPerson;
-            this.btnEditPerson.Image = global::DVLD.Properties.Resources.Remove_Person;
-            this.btnEditPerson.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnEditPerson.ImageOffset = new System.Drawing.Point(40, -20);
-            this.btnEditPerson.ImageSize = new System.Drawing.Size(200, 200);
-            this.btnEditPerson.Location = new System.Drawing.Point(3, 309);
-            this.btnEditPerson.Name = "btnEditPerson";
-            this.btnEditPerson.ShadowDecoration.Parent = this.btnEditPerson;
-            this.btnEditPerson.Size = new System.Drawing.Size(300, 300);
-            this.btnEditPerson.TabIndex = 4;
-            this.btnEditPerson.Text = "Edit Person Card";
-            this.btnEditPerson.TextOffset = new System.Drawing.Point(0, 100);
-            this.btnEditPerson.MouseHover += new System.EventHandler(this.btnEditPerson_MouseHover);
-            // 
-            // btnRemovePerson
-            // 
-            this.btnRemovePerson.Animated = true;
-            this.btnRemovePerson.BackColor = System.Drawing.Color.Transparent;
-            this.btnRemovePerson.CheckedState.Parent = this.btnRemovePerson;
-            this.btnRemovePerson.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.btnRemovePerson.CustomImages.Parent = this.btnRemovePerson;
-            this.btnRemovePerson.FillColor = System.Drawing.Color.Transparent;
-            this.btnRemovePerson.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
-            this.btnRemovePerson.ForeColor = System.Drawing.Color.Black;
-            this.btnRemovePerson.HoverState.Parent = this.btnRemovePerson;
-            this.btnRemovePerson.Image = global::DVLD.Properties.Resources.Remove_Person;
-            this.btnRemovePerson.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnRemovePerson.ImageOffset = new System.Drawing.Point(40, -20);
-            this.btnRemovePerson.ImageSize = new System.Drawing.Size(200, 200);
-            this.btnRemovePerson.Location = new System.Drawing.Point(309, 309);
-            this.btnRemovePerson.Name = "btnRemovePerson";
-            this.btnRemovePerson.ShadowDecoration.Parent = this.btnRemovePerson;
-            this.btnRemovePerson.Size = new System.Drawing.Size(300, 300);
-            this.btnRemovePerson.TabIndex = 5;
-            this.btnRemovePerson.Text = "Remove Person";
-            this.btnRemovePerson.TextOffset = new System.Drawing.Point(0, 100);
-            this.btnRemovePerson.MouseHover += new System.EventHandler(this.btnRemovePerson_MouseHover);
+            this.btnAddPerson.MouseEnter += new System.EventHandler(this.btnAddPerson_MouseHover);
+            this.btnAddPerson.MouseLeave += new System.EventHandler(this.btnOption_MouseLeave);
             // 
             // btnFindPerson
             // 
@@ -182,7 +125,58 @@
             this.btnFindPerson.TabIndex = 3;
             this.btnFindPerson.Text = "Find Person";
             this.btnFindPerson.TextOffset = new System.Drawing.Point(0, 100);
-            this.btnFindPerson.MouseHover += new System.EventHandler(this.btnFindPerson_MouseHover);
+            this.btnFindPerson.MouseEnter += new System.EventHandler(this.btnFindPerson_MouseHover);
+            this.btnFindPerson.MouseLeave += new System.EventHandler(this.btnOption_MouseLeave);
+            // 
+            // btnEditPerson
+            // 
+            this.btnEditPerson.Animated = true;
+            this.btnEditPerson.BackColor = System.Drawing.Color.Transparent;
+            this.btnEditPerson.CheckedState.Parent = this.btnEditPerson;
+            this.btnEditPerson.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btnEditPerson.CustomImages.Parent = this.btnEditPerson;
+            this.btnEditPerson.FillColor = System.Drawing.Color.Transparent;
+            this.btnEditPerson.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
+            this.btnEditPerson.ForeColor = System.Drawing.Color.Black;
+            this.btnEditPerson.HoverState.Parent = this.btnEditPerson;
+            this.btnEditPerson.Image = global::DVLD.Properties.Resources.Edit_Person;
+            this.btnEditPerson.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnEditPerson.ImageOffset = new System.Drawing.Point(40, -20);
+            this.btnEditPerson.ImageSize = new System.Drawing.Size(200, 200);
+            this.btnEditPerson.Location = new System.Drawing.Point(3, 309);
+            this.btnEditPerson.Name = "btnEditPerson";
+            this.btnEditPerson.ShadowDecoration.Parent = this.btnEditPerson;
+            this.btnEditPerson.Size = new System.Drawing.Size(300, 300);
+            this.btnEditPerson.TabIndex = 4;
+            this.btnEditPerson.Text = "Edit Person Card";
+            this.btnEditPerson.TextOffset = new System.Drawing.Point(0, 100);
+            this.btnEditPerson.MouseEnter += new System.EventHandler(this.btnEditPerson_MouseEnter);
+            this.btnEditPerson.MouseLeave += new System.EventHandler(this.btnOption_MouseLeave);
+            // 
+            // btnRemovePerson
+            // 
+            this.btnRemovePerson.Animated = true;
+            this.btnRemovePerson.BackColor = System.Drawing.Color.Transparent;
+            this.btnRemovePerson.CheckedState.Parent = this.btnRemovePerson;
+            this.btnRemovePerson.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btnRemovePerson.CustomImages.Parent = this.btnRemovePerson;
+            this.btnRemovePerson.FillColor = System.Drawing.Color.Transparent;
+            this.btnRemovePerson.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
+            this.btnRemovePerson.ForeColor = System.Drawing.Color.Black;
+            this.btnRemovePerson.HoverState.Parent = this.btnRemovePerson;
+            this.btnRemovePerson.Image = global::DVLD.Properties.Resources.Remove_Person;
+            this.btnRemovePerson.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnRemovePerson.ImageOffset = new System.Drawing.Point(40, -20);
+            this.btnRemovePerson.ImageSize = new System.Drawing.Size(200, 200);
+            this.btnRemovePerson.Location = new System.Drawing.Point(309, 309);
+            this.btnRemovePerson.Name = "btnRemovePerson";
+            this.btnRemovePerson.ShadowDecoration.Parent = this.btnRemovePerson;
+            this.btnRemovePerson.Size = new System.Drawing.Size(300, 300);
+            this.btnRemovePerson.TabIndex = 5;
+            this.btnRemovePerson.Text = "Remove Person";
+            this.btnRemovePerson.TextOffset = new System.Drawing.Point(0, 100);
+            this.btnRemovePerson.MouseEnter += new System.EventHandler(this.btnRemovePerson_MouseEnter);
+            this.btnRemovePerson.MouseLeave += new System.EventHandler(this.btnOption_MouseLeave);
             // 
             // lblDescriptionTitle
             // 
@@ -206,16 +200,25 @@
             this.lblDescription.TabIndex = 4;
             this.lblDescription.Text = "Hover on any option to show details.";
             // 
+            // ucTitleScreen1
+            // 
+            this.ucTitleScreen1.BackColor = System.Drawing.Color.LavenderBlush;
+            this.ucTitleScreen1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ucTitleScreen1.Location = new System.Drawing.Point(0, 0);
+            this.ucTitleScreen1.Name = "ucTitleScreen1";
+            this.ucTitleScreen1.Size = new System.Drawing.Size(1775, 145);
+            this.ucTitleScreen1.TabIndex = 5;
+            // 
             // ManagePeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LavenderBlush;
             this.ClientSize = new System.Drawing.Size(1775, 1028);
+            this.Controls.Add(this.ucTitleScreen1);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblDescriptionTitle);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.lblFormTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ManagePeople";
             this.Tag = "1";
@@ -227,8 +230,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblFormTitle;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private Guna.UI2.WinForms.Guna2Button btnListPeople;
         private Guna.UI2.WinForms.Guna2Button btnAddPerson;
@@ -237,5 +238,6 @@
         private Guna.UI2.WinForms.Guna2Button btnFindPerson;
         private System.Windows.Forms.Label lblDescriptionTitle;
         private System.Windows.Forms.Label lblDescription;
+        private ucTitleScreen ucTitleScreen1;
     }
 }

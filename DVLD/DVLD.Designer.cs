@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DVLD));
             this.ElipseForm = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.gpnlTop = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.btnForward = new Guna.UI2.WinForms.Guna2Button();
             this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
@@ -54,6 +55,7 @@
             // 
             // gpnlTop
             // 
+            this.gpnlTop.Controls.Add(this.btnForward);
             this.gpnlTop.Controls.Add(this.btnBack);
             this.gpnlTop.Controls.Add(this.guna2Button3);
             this.gpnlTop.Controls.Add(this.btnMinimize);
@@ -66,6 +68,28 @@
             this.gpnlTop.ShadowDecoration.Parent = this.gpnlTop;
             this.gpnlTop.Size = new System.Drawing.Size(1920, 52);
             this.gpnlTop.TabIndex = 2;
+            // 
+            // btnForward
+            // 
+            this.btnForward.BackColor = System.Drawing.Color.Transparent;
+            this.btnForward.CheckedState.Parent = this.btnForward;
+            this.btnForward.CustomImages.Parent = this.btnForward;
+            this.btnForward.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnForward.Enabled = false;
+            this.btnForward.FillColor = System.Drawing.Color.Transparent;
+            this.btnForward.Font = new System.Drawing.Font("Freestyle Script", 25.8F);
+            this.btnForward.ForeColor = System.Drawing.Color.Black;
+            this.btnForward.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(200)))), ((int)(((byte)(205)))));
+            this.btnForward.HoverState.Parent = this.btnForward;
+            this.btnForward.Image = global::DVLD.Properties.Resources.Right_Arrow_Current;
+            this.btnForward.ImageSize = new System.Drawing.Size(50, 50);
+            this.btnForward.Location = new System.Drawing.Point(203, 0);
+            this.btnForward.Name = "btnForward";
+            this.btnForward.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(170)))), ((int)(((byte)(175)))));
+            this.btnForward.ShadowDecoration.Parent = this.btnForward;
+            this.btnForward.Size = new System.Drawing.Size(58, 52);
+            this.btnForward.TabIndex = 4;
+            this.btnForward.Click += new System.EventHandler(this.btnForward_Click);
             // 
             // btnBack
             // 
@@ -292,6 +316,7 @@
         private Guna.UI2.WinForms.Guna2Button btnManageUsers;
         private Guna.UI2.WinForms.Guna2VSeparator guna2VSeparator1;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
+        private Guna.UI2.WinForms.Guna2Button btnForward;
     }
 }
 

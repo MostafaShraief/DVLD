@@ -231,5 +231,29 @@ namespace DVLD_BLL
         {
             return clsPeople_DAL.IsPersonExist(NationalNo);
         }
+
+        public DataRow ConvertToDataRow(ref DataTable dataTable)
+        {
+            if (_Mode == clsSave_BLL.enMode.New)
+                return null;
+
+            // Create a new DataRow and fill it with the Person's data
+            DataRow row = dataTable.NewRow();
+            row["PersonID"] = PersonID;
+            row["NationalNo"] = NationalNo;
+            row["FirstName"] = FirstName;
+            row["SecondName"] = SecondName;
+            row["ThirdName"] = ThirdName;
+            row["LastName"] = LastName;
+            row["DateOfBirth"] = DateOfBirth;
+            row["Gender"] = Gender;
+            row["Address"] = Address;
+            row["Phone"] = Phone;
+            row["Email"] = Email;
+            row["CountryName"] = NationalityCountryID;
+            row["ImagePath"] = ImagePath;
+
+            return row;
+        }
     }
 }

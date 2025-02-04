@@ -24,7 +24,8 @@ namespace DVLD_DAL
         public static Func<object, string> ConvertObjectToString =
             (obj) => ((obj != DBNull.Value) ? obj.ToString() : string.Empty);
 
-        public static bool DeleteRecord(string TableName, string WordFilter, object objArgument)
+        public static bool DeleteRecord(string TableName, string WordFilter,
+            object objArgument, bool IsInt)
         {
             bool IsDeleted = false;
 
@@ -32,14 +33,16 @@ namespace DVLD_DAL
             string query = string.Format($"DELETE FROM {TableName} WHERE {WordFilter} = @{WordFilter};");
             SqlCommand command = new SqlCommand(query, connection);
 
-            int Value = ConvertObjectToInt(objArgument);
-
-            if (Value != -1)
+            if (IsInt)
+            {
+                int Value = ConvertObjectToInt(objArgument);
                 command.Parameters.AddWithValue("@" + WordFilter, Value);
-            else if (objArgument != null || objArgument != DBNull.Value)
-                command.Parameters.AddWithValue("@" + WordFilter, objArgument.ToString());
+            }
             else
-                return false;
+            {
+                if (objArgument != null || objArgument != DBNull.Value)
+                    command.Parameters.AddWithValue("@" + WordFilter, Convert.ToString(objArgument));
+            }
 
             try
             {
@@ -57,22 +60,25 @@ namespace DVLD_DAL
             return IsDeleted;
         }
 
-        public static bool CheckIsExist(string TableName, string WordFilter, object objArgument)
+        public static bool CheckIsExist(string TableName, string WordFilter,
+            object objArgument, bool IsInt)
         {
             bool IsExist = false;
 
             SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
-            string query = String.Format($"Select Top 1 a = 0 From {TableName} Where {WordFilter} = @{WordFilter};");
+            string query = String.Format($"Use DVLD; Select Top 1 a = 0 From {TableName} Where {WordFilter} = @{WordFilter};");
             SqlCommand command = new SqlCommand(query, connection);
 
-            int Value = ConvertObjectToInt(objArgument);
-
-            if (Value != -1)
+            if (IsInt)
+            {
+                int Value = ConvertObjectToInt(objArgument);
                 command.Parameters.AddWithValue("@" + WordFilter, Value);
-            else if (objArgument != null || objArgument != DBNull.Value)
-                command.Parameters.AddWithValue("@" + WordFilter, Convert.ToString(objArgument));
+            }
             else
-                return false;
+            {
+                if (objArgument != null || objArgument != DBNull.Value)
+                    command.Parameters.AddWithValue("@" + WordFilter, Convert.ToString(objArgument));
+            }
 
             try
             {

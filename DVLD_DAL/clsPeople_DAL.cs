@@ -47,7 +47,7 @@ namespace DVLD_DAL
             int PersonID = -1;
 
             SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
-            string query = "INSERT INTO [dbo].[People]([NationalNo],[FirstName]," +
+            string query = "Use DVLD; INSERT INTO [dbo].[People]([NationalNo],[FirstName]," +
                 "[SecondName],[ThirdName],[LastName],[DateOfBirth],[Gender],[Address]," +
                 "[Phone],[Email],[NationalityCountryID],[ImagePath]) VALUES(@NationalNo," +
                 "@FirstName,@SecondName,@ThirdName,@LastName,@DateOfBirth,@Gender,@Address," +
@@ -81,7 +81,13 @@ namespace DVLD_DAL
             DataTable dt = new DataTable();
 
             SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
-            string query = "Select * From People;";
+            string query = "Use DVLD; SELECT People.PersonID, People.NationalNo," +
+                " People.FirstName, People.SecondName, People.ThirdName, " +
+                "People.LastName, People.DateOfBirth, Gender = Case " +
+                "When Gender = 0 Then 'Male' When Gender = 1 Then 'Female' Else 'Unkown' End, " +
+                "People.Address, People.Phone, People.Email, " +
+                "Countries.CountryName,People.ImagePath FROM People INNER JOIN " +
+                "Countries ON People.NationalityCountryID = Countries.CountryID";
             SqlCommand command = new SqlCommand(query, connection);
 
             try
@@ -113,7 +119,7 @@ namespace DVLD_DAL
             bool IsFound = false;
 
             SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
-            string query = "Select * From People Where PersonID = @PersonID;";
+            string query = "Use DVLD; Select * From People Where PersonID = @PersonID;";
 
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@PersonID", PersonID);
@@ -162,7 +168,7 @@ namespace DVLD_DAL
             bool IsFound = false;
 
             SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
-            string query = "Select * From People Where NationalNo = @NationalNo;";
+            string query = "Use DVLD; Select * From People Where NationalNo = @NationalNo;";
 
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@NationalNo", NationalNo);
@@ -211,7 +217,7 @@ namespace DVLD_DAL
             bool IsUpdated = false;
 
             SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
-            string query = "UPDATE [dbo].[People] SET [NationalNo] = @NationalNo," +
+            string query = "Use DVLD; UPDATE [dbo].[People] SET [NationalNo] = @NationalNo," +
                 "[FirstName] = @FirstName,[SecondName] = @SecondName," +
                 "[ThirdName] = @ThirdName,[LastName] = @LastName,[DateOfBirth] = @DateOfBirth," +
                 "[Gender] = @Gender,[Address] = @Address,[Phone] = @Phone," +
@@ -246,22 +252,56 @@ namespace DVLD_DAL
 
         public static bool DeletePerson(int PersonID)
         {
-            return clsUtility_DAL.DeleteRecord("People", "PersonID", PersonID);
+            return clsUtility_DAL.DeleteRecord("People", "PersonID", PersonID, true);
         }
 
         public static bool DeletePerson(string NationalNo)
         {
-            return clsUtility_DAL.DeleteRecord("People", "PersonID", NationalNo);
+            return clsUtility_DAL.DeleteRecord("People", "PersonID", NationalNo, false);
         }
 
         public static bool IsPersonExist(int PersonID)
         {
-            return clsUtility_DAL.CheckIsExist("People", "PersonID", PersonID);
+            return clsUtility_DAL.CheckIsExist("People", "PersonID", PersonID, true);
         }
 
         public static bool IsPersonExist(string NationalNo)
         {
-            return clsUtility_DAL.CheckIsExist("People", "NationalNo", NationalNo);
+            return clsUtility_DAL.CheckIsExist("People", "NationalNo", NationalNo, false);
         }
+
+        //private DataTable GetAllPeopleFilterdByExperssion(string WordFilter, object objArgument)
+        //{
+
+        //    DataTable dt = new DataTable();
+
+        //    SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
+        //    string query = "Use DVLD; SELECT People.PersonID, People.NationalNo," +
+        //        " People.FirstName, People.SecondName, People.ThirdName, " +
+        //        "People.LastName, People.DateOfBirth, People.Gender, " +
+        //        "People.Address, People.Phone, People.Email, " +
+        //        "Countries.CountryName,People.ImagePath FROM People INNER JOIN " +
+        //        "Countries ON People.NationalityCountryID = Countries.CountryID " +
+        //        String.Format($"Where {WordFilter} = @{WordFilter}");
+        //    SqlCommand command = new SqlCommand(query, connection);
+
+
+        //    try
+        //    {
+        //        connection.Open();
+
+        //        SqlDataReader reader = command.ExecuteReader();
+
+        //        dt.Load(reader);
+
+        //        reader.Close();
+        //    }
+        //    finally
+        //    {
+        //        connection.Close();
+        //    }
+
+        //    return dt;
+        //}
     }
 }

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,62 +17,52 @@ namespace DVLD
         public DVLD()
         {
             InitializeComponent();
-            PushForm(new Main_Menu());
+            stackfroms = new clsStackForms();
+            Main_Menu main_Menu = new Main_Menu();
+            main_Menu.Linker += PushNewForm;
+            stackfroms.PushNewForm(main_Menu, main_panel);
         }
 
-        private Stack<Form> stkForms = new Stack<Form>();
+        clsStackForms stackfroms;
 
-        private void LoadForm(Form form, Panel panel)
+        private void PushNewForm(Form frm)
         {
-            if (panel.Controls.Count > 0)
-                panel.Controls.Clear();
-
-            panel.Enabled = true;
-            if (form != null)
+            if (stackfroms.PushNewForm(frm, main_panel))
             {
-                form.Dock = DockStyle.Fill;
-                form.TopLevel = false;
-                panel.Controls.Add(form);
-                form.Focus();
-                form.Show();
+                if (stackfroms.FormsBackwardCount > 1)
+                    btnBack.Enabled = true;
+
+                    btnForward.Enabled = false;
             }
-        }
-
-        private void PushForm(Form frm)
-        {
-            if (frm == null)
-                return;
-
-            if (stkForms.Count > 0 && frm.Tag == stkForms.First().Tag)
-                return;
-
-            stkForms.Push(frm);
-            LoadForm(stkForms.First(), main_panel);
-
-            if (stkForms.Count > 1)
-                btnBack.Enabled = true;
         }
 
         private void PopForm()
         {
-            byte count = (Byte)stkForms.Count;
+            if (stackfroms.PopForm(main_panel))
+            {
+                if (stackfroms.FormsBackwardCount <= 1)
+                    btnBack.Enabled = false;
 
-            if (count == 0)
-                return;
+                btnForward.Enabled = Enabled;
+            }
+        }
 
-            stkForms.First().Dispose();
-            stkForms.Pop();
-            --count;
+        private void ForwardForm()
+        {
+            if (stackfroms.RestoreForm_Forwarding(main_panel))
+            {
+                if (stackfroms.FormsForwardCount == 0)
+                    btnForward.Enabled = false;
 
-            if (count > 0)
-                LoadForm(stkForms.First(), main_panel);
-            if (count <= 1)
-                btnBack.Enabled = false;
+                btnBack.Enabled = true;
+            }
         }
 
         private void btnManagePeople_Click(object sender, EventArgs e)
         {
-            PushForm(new ManagePeople());
+            ManagePeople managePeople = new ManagePeople();
+            managePeople.Linker += PushNewForm;
+            PushNewForm(managePeople);
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -87,6 +78,11 @@ namespace DVLD
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnForward_Click(object sender, EventArgs e)
+        {
+            ForwardForm();
         }
     }
 }

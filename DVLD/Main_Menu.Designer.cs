@@ -1,4 +1,6 @@
-﻿namespace DVLD
+﻿using DVLD;
+
+namespace DVLD
 {
     partial class Main_Menu
     {
@@ -29,45 +31,54 @@
         private void InitializeComponent()
         {
             this.main_panel = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.ucTitleScreen1 = new ucTitleScreen();
             this.poisonLabel1 = new ReaLTaiizor.Controls.PoisonLabel();
             this.btnGithub = new Guna.UI2.WinForms.Guna2Button();
             this.btnLinkedin = new Guna.UI2.WinForms.Guna2Button();
             this.btnTelegram = new Guna.UI2.WinForms.Guna2Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblManageLicenses = new System.Windows.Forms.Label();
+            this.lblManageUsers = new System.Windows.Forms.Label();
+            this.lblManagePeople = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.main_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // main_panel
             // 
+            this.main_panel.Controls.Add(this.ucTitleScreen1);
             this.main_panel.Controls.Add(this.poisonLabel1);
             this.main_panel.Controls.Add(this.btnGithub);
             this.main_panel.Controls.Add(this.btnLinkedin);
             this.main_panel.Controls.Add(this.btnTelegram);
             this.main_panel.Controls.Add(this.label7);
             this.main_panel.Controls.Add(this.label6);
-            this.main_panel.Controls.Add(this.label5);
-            this.main_panel.Controls.Add(this.label4);
-            this.main_panel.Controls.Add(this.label3);
+            this.main_panel.Controls.Add(this.lblManageLicenses);
+            this.main_panel.Controls.Add(this.lblManageUsers);
+            this.main_panel.Controls.Add(this.lblManagePeople);
             this.main_panel.Controls.Add(this.label2);
-            this.main_panel.Controls.Add(this.label1);
             this.main_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.main_panel.FillColor = System.Drawing.Color.LavenderBlush;
-            this.main_panel.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(190)))), ((int)(((byte)(195)))));
+            this.main_panel.FillColor2 = System.Drawing.Color.LavenderBlush;
             this.main_panel.FillColor3 = System.Drawing.Color.LavenderBlush;
             this.main_panel.FillColor4 = System.Drawing.Color.LavenderBlush;
             this.main_panel.Location = new System.Drawing.Point(0, 0);
             this.main_panel.Name = "main_panel";
-            this.main_panel.Quality = 30;
+            this.main_panel.Quality = 1;
             this.main_panel.ShadowDecoration.Parent = this.main_panel;
             this.main_panel.Size = new System.Drawing.Size(1775, 1028);
             this.main_panel.TabIndex = 3;
             this.main_panel.Tag = "0";
+            // 
+            // ucTitleScreen1
+            // 
+            this.ucTitleScreen1.BackColor = System.Drawing.Color.LavenderBlush;
+            this.ucTitleScreen1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ucTitleScreen1.Location = new System.Drawing.Point(0, 0);
+            this.ucTitleScreen1.Name = "ucTitleScreen1";
+            this.ucTitleScreen1.Size = new System.Drawing.Size(1775, 145);
+            this.ucTitleScreen1.TabIndex = 11;
             // 
             // poisonLabel1
             // 
@@ -174,41 +185,45 @@
             this.label6.Text = "Developed By:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label5
+            // lblManageLicenses
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(1222, 414);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(308, 40);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "• Manage Licenses";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblManageLicenses.AutoSize = true;
+            this.lblManageLicenses.BackColor = System.Drawing.Color.Transparent;
+            this.lblManageLicenses.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblManageLicenses.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
+            this.lblManageLicenses.Location = new System.Drawing.Point(1222, 414);
+            this.lblManageLicenses.Name = "lblManageLicenses";
+            this.lblManageLicenses.Size = new System.Drawing.Size(308, 40);
+            this.lblManageLicenses.TabIndex = 4;
+            this.lblManageLicenses.Text = "• Manage Licenses";
+            this.lblManageLicenses.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label4
+            // lblManageUsers
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(746, 414);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(265, 40);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "• Manage Users";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblManageUsers.AutoSize = true;
+            this.lblManageUsers.BackColor = System.Drawing.Color.Transparent;
+            this.lblManageUsers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblManageUsers.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
+            this.lblManageUsers.Location = new System.Drawing.Point(746, 414);
+            this.lblManageUsers.Name = "lblManageUsers";
+            this.lblManageUsers.Size = new System.Drawing.Size(265, 40);
+            this.lblManageUsers.TabIndex = 3;
+            this.lblManageUsers.Text = "• Manage Users";
+            this.lblManageUsers.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // lblManagePeople
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(248, 414);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(287, 40);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "• Manage People";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblManagePeople.AutoSize = true;
+            this.lblManagePeople.BackColor = System.Drawing.Color.Transparent;
+            this.lblManagePeople.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblManagePeople.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
+            this.lblManagePeople.Location = new System.Drawing.Point(248, 414);
+            this.lblManagePeople.Name = "lblManagePeople";
+            this.lblManagePeople.Size = new System.Drawing.Size(287, 40);
+            this.lblManagePeople.TabIndex = 2;
+            this.lblManagePeople.Text = "• Manage People";
+            this.lblManagePeople.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblManagePeople.Click += new System.EventHandler(this.lblManagePeople_Click);
             // 
             // label2
             // 
@@ -221,17 +236,6 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Available Services:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Gadugi", 30F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(245, 124);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1285, 73);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Welcome To Driving And Vehicle License Department";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Main_Menu
             // 
@@ -251,16 +255,16 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2CustomGradientPanel main_panel;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblManagePeople;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblManageLicenses;
+        private System.Windows.Forms.Label lblManageUsers;
         private Guna.UI2.WinForms.Guna2Button btnTelegram;
         private Guna.UI2.WinForms.Guna2Button btnGithub;
         private Guna.UI2.WinForms.Guna2Button btnLinkedin;
         private ReaLTaiizor.Controls.PoisonLabel poisonLabel1;
+        private ucTitleScreen ucTitleScreen1;
     }
 }

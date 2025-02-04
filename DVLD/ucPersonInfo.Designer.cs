@@ -1,4 +1,4 @@
-﻿namespace DVLD.User_Control
+﻿namespace DVLD.UserControl
 {
     partial class ucPersonInfo
     {

@@ -8,23 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DVLD.User_Control
+namespace DVLD
 {
-    public partial class ucPersonInfo : UserControl
+    public partial class ucTitleScreen : System.Windows.Forms.UserControl
     {
-        public ucPersonInfo()
+        public ucTitleScreen(string Title = "")
         {
             InitializeComponent();
+            lblFormTitle.Text = Title;
         }
 
-        private void guna2PictureBox1_Click(object sender, EventArgs e)
+        public ucTitleScreen()
         {
-
-        }
-
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-
+            InitializeComponent();
         }
     }
 }

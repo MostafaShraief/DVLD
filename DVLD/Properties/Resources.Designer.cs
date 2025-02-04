@@ -113,6 +113,16 @@ namespace DVLD.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Edit_Person {
+            get {
+                object obj = ResourceManager.GetObject("Edit Person", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Find_Person {
             get {
                 object obj = ResourceManager.GetObject("Find Person", resourceCulture);
@@ -336,6 +346,26 @@ namespace DVLD.Properties {
         internal static System.Drawing.Bitmap Remove_Person {
             get {
                 object obj = ResourceManager.GetObject("Remove Person", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Right_Arrow {
+            get {
+                object obj = ResourceManager.GetObject("Right Arrow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Right_Arrow_Current {
+            get {
+                object obj = ResourceManager.GetObject("Right Arrow Current", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
