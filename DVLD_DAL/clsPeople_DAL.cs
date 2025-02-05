@@ -10,15 +10,15 @@ namespace DVLD_DAL
 {
     public class clsPeople_DAL
     {
-        private enum _enGender { enMale, enFemale }
+        public enum _enGender { Male, Female }
 
         private static void _FillCommandWithParameters(ref SqlCommand command, string NationalNo, string FirstName, string SecondName,
             string ThirdName, string LastName, DateTime DateOfBirth, Byte Gender,
             string Address, string Phone, string Email, int NationalityCountryID,
             string ImagePath)
         {
-            if (Gender == ((Byte)_enGender.enMale) ||
-                Gender == ((Byte)_enGender.enFemale))
+            if (Gender == ((Byte)_enGender.Male) ||
+                Gender == ((Byte)_enGender.Female))
                 command.Parameters.AddWithValue("@Gender", Gender);
             else
             {

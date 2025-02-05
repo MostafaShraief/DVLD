@@ -69,7 +69,7 @@ namespace DVLD_BLL
 
             foreach (string str in list)
             {
-                if (CheckStringNotNullableOrEmpty(str))
+                if (String.IsNullOrEmpty(str))
                 {
                     IsOk = false;
                     break;

@@ -40,6 +40,7 @@
             this.cbFilterCriterion = new Guna.UI2.WinForms.Guna2ComboBox();
             this.tbFilter = new Guna.UI2.WinForms.Guna2TextBox();
             this.dtpDateOfBirth = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.ucTitleScreen1 = new ucTitleScreen();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeopleList)).BeginInit();
             this.flpTools.SuspendLayout();
             this.SuspendLayout();
@@ -139,7 +140,7 @@
             this.cbFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFilter.FocusedColor = System.Drawing.Color.Empty;
             this.cbFilter.FocusedState.Parent = this.cbFilter;
-            this.cbFilter.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbFilter.Font = new System.Drawing.Font("Gadugi", 10F, System.Drawing.FontStyle.Bold);
             this.cbFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbFilter.FormattingEnabled = true;
             this.cbFilter.HoverState.Parent = this.cbFilter;
@@ -163,9 +164,9 @@
             this.flpTools.Controls.Add(this.tbFilter);
             this.flpTools.Controls.Add(this.dtpDateOfBirth);
             this.flpTools.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flpTools.Location = new System.Drawing.Point(0, 349);
+            this.flpTools.Location = new System.Drawing.Point(0, 363);
             this.flpTools.Name = "flpTools";
-            this.flpTools.Size = new System.Drawing.Size(1775, 59);
+            this.flpTools.Size = new System.Drawing.Size(1775, 45);
             this.flpTools.TabIndex = 7;
             // 
             // lblDateOfBirthFilter
@@ -188,7 +189,7 @@
             this.cbFilterCriterion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFilterCriterion.FocusedColor = System.Drawing.Color.Empty;
             this.cbFilterCriterion.FocusedState.Parent = this.cbFilterCriterion;
-            this.cbFilterCriterion.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbFilterCriterion.Font = new System.Drawing.Font("Gadugi", 10F, System.Drawing.FontStyle.Bold);
             this.cbFilterCriterion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbFilterCriterion.FormattingEnabled = true;
             this.cbFilterCriterion.HoverState.Parent = this.cbFilterCriterion;
@@ -213,6 +214,7 @@
             this.tbFilter.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbFilter.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbFilter.FocusedState.Parent = this.tbFilter;
+            this.tbFilter.Font = new System.Drawing.Font("Gadugi", 10F, System.Drawing.FontStyle.Bold);
             this.tbFilter.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbFilter.HoverState.Parent = this.tbFilter;
             this.tbFilter.Location = new System.Drawing.Point(921, 4);
@@ -244,12 +246,22 @@
             this.dtpDateOfBirth.Value = new System.DateTime(2025, 1, 27, 23, 33, 22, 811);
             this.dtpDateOfBirth.Visible = false;
             // 
+            // ucTitleScreen1
+            // 
+            this.ucTitleScreen1.BackColor = System.Drawing.Color.LavenderBlush;
+            this.ucTitleScreen1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ucTitleScreen1.Location = new System.Drawing.Point(0, 0);
+            this.ucTitleScreen1.Name = "ucTitleScreen1";
+            this.ucTitleScreen1.Size = new System.Drawing.Size(1775, 145);
+            this.ucTitleScreen1.TabIndex = 8;
+            // 
             // PeopleList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LavenderBlush;
             this.ClientSize = new System.Drawing.Size(1775, 1028);
+            this.Controls.Add(this.ucTitleScreen1);
             this.Controls.Add(this.flpTools);
             this.Controls.Add(this.dgvPeopleList);
             this.Controls.Add(this.guna2Panel1);
@@ -275,5 +287,6 @@
         private Guna.UI2.WinForms.Guna2ComboBox cbFilterCriterion;
         private System.Windows.Forms.Label lblDateOfBirthFilter;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpDateOfBirth;
+        private ucTitleScreen ucTitleScreen1;
     }
 }

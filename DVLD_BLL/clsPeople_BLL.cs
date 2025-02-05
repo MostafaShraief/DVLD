@@ -80,7 +80,7 @@ namespace DVLD_BLL
                 (ThirdName == null || ThirdName.Length <= 20) &&
                 LastName.Length <= 20 &&
                 Address.Length <= 500 && Phone.Length <= 20 &&
-                (Email == null || Email.Length <= 20) &&
+                (Email == null || Email.Length <= 50) &&
                 (ImagePath == null || ImagePath.Length <= 250))
                 IsOk = true;
 
@@ -90,6 +90,7 @@ namespace DVLD_BLL
         private bool _CheckOnlyLettersInStrings(ref List<string> list)
         {
             list.Remove(NationalNo);
+            list.Remove(Address);
             return clsUtility_BLL.CheckOnlyLettersInListOfString(ref list);
         }
 
@@ -98,7 +99,7 @@ namespace DVLD_BLL
             List<string> list = new List<string> { NationalNo, FirstName,
                 SecondName, LastName, Address };
 
-            if (ThirdName != null)
+            if (!String.IsNullOrEmpty(ThirdName))
                 list.Add(ThirdName);
 
             return CheckIsStringsNotNullableOrEmpty(ref list) &&

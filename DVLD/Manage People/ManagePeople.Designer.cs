@@ -36,7 +36,7 @@
             this.btnRemovePerson = new Guna.UI2.WinForms.Guna2Button();
             this.lblDescriptionTitle = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
-            this.ucTitleScreen1 = new ucTitleScreen("People List");
+            this.ucTitleScreen1 = new ucTitleScreen();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,6 +100,7 @@
             this.btnAddPerson.TabIndex = 2;
             this.btnAddPerson.Text = "Add Person";
             this.btnAddPerson.TextOffset = new System.Drawing.Point(0, 100);
+            this.btnAddPerson.Click += new System.EventHandler(this.btnAddPerson_Click);
             this.btnAddPerson.MouseEnter += new System.EventHandler(this.btnAddPerson_MouseHover);
             this.btnAddPerson.MouseLeave += new System.EventHandler(this.btnOption_MouseLeave);
             // 

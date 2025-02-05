@@ -1,13 +1,21 @@
-﻿using System;
+﻿using DVLD_BLL;
+using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DVLD
 {
     internal class clsUtility
     {
+        public static string DefaultCountry { get { return "Syria"; } }
+        public static string DefaultFilter { get { return "None"; } }
+        public static string DeffaultGender { get { return "Male"; } }
+
         public static List<string> ConvertStringToListOfLowerCaseWords(string str)
         {
             List<string> strings = new List<string>();
@@ -33,6 +41,19 @@ namespace DVLD
             }
 
             return strings;
+        }
+
+        public static void _LoadCountryToComboBox(Guna2ComboBox cb, string DefaultCountry = null)
+        {
+            DataTable dtCountries = clsCountry_BLL.GetListofCountries();
+
+            foreach (DataRow row in dtCountries.Rows)
+                cb.Items.Add(row["CountryName"]);
+
+            if (!String.IsNullOrEmpty(DefaultCountry))
+                cb.SelectedItem = DefaultCountry;
+
+            dtCountries.Dispose();
         }
     }
 }

@@ -18,6 +18,11 @@ namespace DVLD
             lblFormTitle.Text = Title;
         }
 
+        public void ChangeTitle(string Title)
+        {
+            lblFormTitle.Text = Title;
+        }
+
         public ucTitleScreen()
         {
             InitializeComponent();

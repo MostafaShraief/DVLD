@@ -17,6 +17,7 @@ namespace DVLD
         public Main_Menu()
         {
             InitializeComponent();
+            ((ucTitleScreen)ucTitleScreen1).ChangeTitle("Main Menu");
         }
 
         public delegate void delLinker(Form frm);

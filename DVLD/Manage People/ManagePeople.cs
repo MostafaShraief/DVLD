@@ -15,6 +15,7 @@ namespace DVLD.Manage_People
         public ManagePeople()
         {
             InitializeComponent();
+            ((ucTitleScreen)ucTitleScreen1).ChangeTitle("Manage People");
         }
 
         public delegate void delLinker(Form frm);
@@ -58,6 +59,11 @@ namespace DVLD.Manage_People
         private void btnListPeople_Click(object sender, EventArgs e)
         {
             Linker(new PeopleList());
+        }
+
+        private void btnAddPerson_Click(object sender, EventArgs e)
+        {
+            Linker(new AddPerson());
         }
     }
 }

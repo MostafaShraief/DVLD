@@ -15,18 +15,20 @@ namespace DVLD.Manage_People
 {
     public partial class PeopleList : Form
     {
-        private const string DefaultCountry = "Syria";
-        private const string DefaultFilter = "None";
+
 
         public PeopleList()
         {
             InitializeComponent();
-            cbFilter.SelectedItem = DefaultFilter;
+            ((ucTitleScreen)ucTitleScreen1).ChangeTitle("People List");
+            cbFilter.SelectedItem = clsUtility.DefaultFilter;
         }
 
         private enum _enFilterMode { None, PersonID, NationalNo, FirstName,
             SecondName, ThirdName, LastName, DateOfBirth,
             Gender, Address, Phone, Email, CountryName, ImagePath}
+
+        private enum _enDateFilterMode { All, Day, Month, Year }
 
         _enFilterMode _FilterMode = _enFilterMode.None;
 
@@ -95,22 +97,10 @@ namespace DVLD.Manage_People
             dtpDateOfBirth.Visible = false;
         }
 
-        void _LoadCountryToComboBox()
-        {
-            DataTable dtCountries = clsCountry_BLL.GetListofCountries();
-
-            foreach (DataRow row in dtCountries.Rows)
-                cbFilterCriterion.Items.Add(row["CountryName"]);
-
-            cbFilterCriterion.SelectedItem = DefaultCountry;
-
-            dtCountries.Dispose();
-        }
-
         void _CountryFilterMode()
         {
             cbFilterCriterion.Visible = true;
-            _LoadCountryToComboBox();
+            clsUtility._LoadCountryToComboBox(cbFilterCriterion, clsUtility.DefaultCountry);
         }
 
         void _GenedrFilterMode()
@@ -119,7 +109,7 @@ namespace DVLD.Manage_People
             cbFilterCriterion.Items.Add("None");
             cbFilterCriterion.Items.Add("Male");
             cbFilterCriterion.Items.Add("Female");
-            cbFilterCriterion.SelectedItem = DefaultFilter;
+            cbFilterCriterion.SelectedItem = clsUtility.DefaultFilter;
         }
 
         void _DateOfBirthFilterMode()
@@ -137,7 +127,7 @@ namespace DVLD.Manage_People
         void _TextFilterMode()
         {
             _DisableAllFilterControls();
-
+            _SwitchToAnotherDataTable(ref dtPeople);
             tbFilter.Visible = true;
         }
 
@@ -147,8 +137,12 @@ namespace DVLD.Manage_People
 
             if (cbFilter.SelectedItem == null ||
                 Enum.TryParse(cbFilter.SelectedItem.ToString(),
-                out _FilterMode) == false ||
-                (_FilterMode == _enFilterMode.None && IsLoad == false))
+                out _FilterMode) == false)
+                return;
+
+            if (IsLoad == true)
+                IsLoad = false;
+            else if (_FilterMode == _enFilterMode.None)
                 _RenewDataTable();
             else if (_FilterMode == _enFilterMode.CountryName)
                 _CountryFilterMode();
@@ -158,8 +152,6 @@ namespace DVLD.Manage_People
                 _DateOfBirthFilterMode();
             else
                 _TextFilterMode();
-
-            IsLoad = false;
         }
 
         private void cbFilterByValue_VisibleChanged(object sender, EventArgs e)
@@ -244,9 +236,7 @@ namespace DVLD.Manage_People
 
         void _FilterByCountry()
         {
-            if (cbFilterCriterion.Text != null &&
-                    cbFilterCriterion.Text != string.Empty &&
-                    cbFilterCriterion.SelectedIndex != 0)
+            if (!String.IsNullOrEmpty(cbFilterCriterion.Text))
                 FilterPeopleByExpression(r =>
                     (r["CountryName"].ToString() == cbFilterCriterion.Text));
             else
@@ -254,6 +244,11 @@ namespace DVLD.Manage_People
                 _DisposeUnusedDataTable();
                 dgvPeopleList.DataSource = dtPeople;
             }
+        }
+
+        void _FilterByDateofBirth()
+        {
+
         }
 
         private void tbFilter_TextChanged(object sender, EventArgs e)
@@ -285,14 +280,12 @@ namespace DVLD.Manage_People
                 case _enFilterMode.CountryName:
                     _FilterByCountry();
                     break;
+                case _enFilterMode.DateOfBirth:
+                    _FilterByDateofBirth();
+                    break;
                 default:
                     break;
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            dtPeople.Rows.Clear();
         }
     }
 }
