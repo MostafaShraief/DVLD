@@ -20,7 +20,12 @@ namespace DVLD_BLL
         public string ThirdName { get; set; }
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public Byte Gender { get; set; }
+        public enum enGender
+        {
+            Male = 0,
+            Female = 1
+        }
+        public enGender Gender { get; set; }
         public string Address { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
@@ -46,7 +51,7 @@ namespace DVLD_BLL
         }
 
         private clsPeople_BLL(int PersonID, string NationalNo, string FirstName, string SecondName,
-            string ThirdName, string LastName, DateTime DateOfBirth, Byte Gender,
+            string ThirdName, string LastName, DateTime DateOfBirth, enGender Gender,
             string Address, string Phone, string Email, int NationalityCountryID,
             string ImagePath)
         {
@@ -113,7 +118,7 @@ namespace DVLD_BLL
 
             if (_CheckStrings() &&
                 (DateOfBirth.Year > DateTime.Now.Year - 100 && DateOfBirth.Year <= DateTime.Now.Year - 10) &&
-                (Email == null || clsUtility_BLL.CheckEmail(Email)))
+                (String.IsNullOrEmpty(Email) || clsUtility_BLL.CheckEmail(Email)))
                 IsOk = true;
 
             return IsOk;
@@ -126,8 +131,8 @@ namespace DVLD_BLL
             if (_CheckData() == false || clsPeople_DAL.IsPersonExist(NationalNo))
                 return false; // check if data is valid and national No is not exist before.
 
-            int PersonID = clsPeople_DAL.AddPerson(NationalNo, FirstName, SecondName,
-                ThirdName, LastName, DateOfBirth, Gender,
+            PersonID = clsPeople_DAL.AddPerson(NationalNo, FirstName, SecondName,
+                ThirdName, LastName, DateOfBirth, ((Byte)Gender),
                 Address, Phone, Email, NationalityCountryID, ImagePath);
 
             IsAdded = (PersonID != -1);
@@ -142,8 +147,8 @@ namespace DVLD_BLL
             if (_CheckData() == false)
                 return false; // check if data is valid and national No is not exist before.
 
-            clsPeople_DAL.UpdatePerson(PersonID ,NationalNo, FirstName, SecondName,
-                ThirdName, LastName, DateOfBirth, Gender,
+            IsUpdated = clsPeople_DAL.UpdatePerson(PersonID ,NationalNo, FirstName, SecondName,
+                ThirdName, LastName, DateOfBirth, ((Byte)Gender),
                 Address, Phone, Email, NationalityCountryID, ImagePath);
 
             return IsUpdated;
@@ -174,7 +179,7 @@ namespace DVLD_BLL
                 Address, ref Phone, ref Email, ref NationalityCountryID,
                 ref ImagePath))
                 return new clsPeople_BLL(PersonID, NationalNo, FirstName, SecondName,
-                    ThirdName, LastName, DateOfBirth, Gender,
+                    ThirdName, LastName, DateOfBirth, ((enGender)Gender),
                     Address, Phone, Email, NationalityCountryID,
                     ImagePath);
             else
@@ -201,7 +206,7 @@ namespace DVLD_BLL
                 Address, ref Phone, ref Email, ref NationalityCountryID,
                 ref ImagePath))
                 return new clsPeople_BLL(PersonID, NationalNo, FirstName, SecondName,
-                    ThirdName, LastName, DateOfBirth, Gender,
+                    ThirdName, LastName, DateOfBirth, ((enGender)Gender),
                     Address, Phone, Email, NationalityCountryID,
                     ImagePath);
             else

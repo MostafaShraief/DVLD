@@ -10,15 +10,20 @@ namespace DVLD_DAL
 {
     public class clsPeople_DAL
     {
-        public enum _enGender { Male, Female }
+        public enum _enGender { Male = 0, Female = 1 }
+
+        static bool _CheckGender(Byte Gender)
+        {
+            return (Gender == ((Byte)_enGender.Male) ||
+                Gender == ((Byte)_enGender.Female));
+        }
 
         private static void _FillCommandWithParameters(ref SqlCommand command, string NationalNo, string FirstName, string SecondName,
             string ThirdName, string LastName, DateTime DateOfBirth, Byte Gender,
             string Address, string Phone, string Email, int NationalityCountryID,
             string ImagePath)
         {
-            if (Gender == ((Byte)_enGender.Male) ||
-                Gender == ((Byte)_enGender.Female))
+            if (_CheckGender(Gender))
                 command.Parameters.AddWithValue("@Gender", Gender);
             else
             {
@@ -269,39 +274,5 @@ namespace DVLD_DAL
         {
             return clsUtility_DAL.CheckIsExist("People", "NationalNo", NationalNo, false);
         }
-
-        //private DataTable GetAllPeopleFilterdByExperssion(string WordFilter, object objArgument)
-        //{
-
-        //    DataTable dt = new DataTable();
-
-        //    SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
-        //    string query = "Use DVLD; SELECT People.PersonID, People.NationalNo," +
-        //        " People.FirstName, People.SecondName, People.ThirdName, " +
-        //        "People.LastName, People.DateOfBirth, People.Gender, " +
-        //        "People.Address, People.Phone, People.Email, " +
-        //        "Countries.CountryName,People.ImagePath FROM People INNER JOIN " +
-        //        "Countries ON People.NationalityCountryID = Countries.CountryID " +
-        //        String.Format($"Where {WordFilter} = @{WordFilter}");
-        //    SqlCommand command = new SqlCommand(query, connection);
-
-
-        //    try
-        //    {
-        //        connection.Open();
-
-        //        SqlDataReader reader = command.ExecuteReader();
-
-        //        dt.Load(reader);
-
-        //        reader.Close();
-        //    }
-        //    finally
-        //    {
-        //        connection.Close();
-        //    }
-
-        //    return dt;
-        //}
     }
 }

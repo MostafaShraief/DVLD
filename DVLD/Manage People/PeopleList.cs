@@ -15,8 +15,6 @@ namespace DVLD.Manage_People
 {
     public partial class PeopleList : Form
     {
-
-
         public PeopleList()
         {
             InitializeComponent();
@@ -91,9 +89,8 @@ namespace DVLD.Manage_People
 
         void _DisableAllFilterControls()
         {
-            tbFilter.Visible = false;
-            cbFilterCriterion.Visible = false;
-            lblDateOfBirthFilter.Visible = false;
+            tbFilter.Visible = 
+                Visible = false;
             dtpDateOfBirth.Visible = false;
         }
 
@@ -259,8 +256,6 @@ namespace DVLD.Manage_People
                     _RenewDataTable();
                     break;
                 case _enFilterMode.PersonID:
-                    _FilterPersonIDOrNationalNo();
-                    break;
                 case _enFilterMode.NationalNo:
                     _FilterPersonIDOrNationalNo();
                     break;

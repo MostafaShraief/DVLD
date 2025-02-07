@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnRemoveImage = new Guna.UI2.WinForms.Guna2Button();
             this.btnSetImage = new Guna.UI2.WinForms.Guna2Button();
             this.tbLastName = new Guna.UI2.WinForms.Guna2TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -53,10 +54,10 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbPersonID = new System.Windows.Forms.PictureBox();
             this.lblPersonID = new System.Windows.Forms.Label();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pbProfileImage = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -65,8 +66,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblPersonIDTitle = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.tooltipHint = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.fileDialog = new System.Windows.Forms.OpenFileDialog();
             this.guna2Panel1.SuspendLayout();
@@ -79,8 +80,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPersonID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProfileImage)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -88,6 +89,7 @@
             this.guna2Panel1.BackColor = System.Drawing.Color.LavenderBlush;
             this.guna2Panel1.BorderColor = System.Drawing.Color.Black;
             this.guna2Panel1.BorderThickness = 3;
+            this.guna2Panel1.Controls.Add(this.btnRemoveImage);
             this.guna2Panel1.Controls.Add(this.btnSetImage);
             this.guna2Panel1.Controls.Add(this.tbLastName);
             this.guna2Panel1.Controls.Add(this.label13);
@@ -112,10 +114,10 @@
             this.guna2Panel1.Controls.Add(this.pictureBox4);
             this.guna2Panel1.Controls.Add(this.pictureBox3);
             this.guna2Panel1.Controls.Add(this.pictureBox2);
-            this.guna2Panel1.Controls.Add(this.pictureBox1);
+            this.guna2Panel1.Controls.Add(this.pbPersonID);
             this.guna2Panel1.Controls.Add(this.lblPersonID);
             this.guna2Panel1.Controls.Add(this.btnSave);
-            this.guna2Panel1.Controls.Add(this.guna2PictureBox1);
+            this.guna2Panel1.Controls.Add(this.pbProfileImage);
             this.guna2Panel1.Controls.Add(this.label10);
             this.guna2Panel1.Controls.Add(this.label9);
             this.guna2Panel1.Controls.Add(this.label8);
@@ -124,14 +126,39 @@
             this.guna2Panel1.Controls.Add(this.label5);
             this.guna2Panel1.Controls.Add(this.label4);
             this.guna2Panel1.Controls.Add(this.label1);
-            this.guna2Panel1.Controls.Add(this.label3);
-            this.guna2Panel1.Controls.Add(this.label2);
+            this.guna2Panel1.Controls.Add(this.lblPersonIDTitle);
+            this.guna2Panel1.Controls.Add(this.lblTitle);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
             this.guna2Panel1.Size = new System.Drawing.Size(1500, 557);
             this.guna2Panel1.TabIndex = 1;
+            // 
+            // btnRemoveImage
+            // 
+            this.btnRemoveImage.Animated = true;
+            this.btnRemoveImage.BackColor = System.Drawing.Color.Transparent;
+            this.btnRemoveImage.BorderThickness = 2;
+            this.btnRemoveImage.CheckedState.Parent = this.btnRemoveImage;
+            this.btnRemoveImage.CustomImages.Parent = this.btnRemoveImage;
+            this.btnRemoveImage.FillColor = System.Drawing.Color.Transparent;
+            this.btnRemoveImage.Font = new System.Drawing.Font("Gadugi", 9F, System.Drawing.FontStyle.Bold);
+            this.btnRemoveImage.ForeColor = System.Drawing.Color.Black;
+            this.btnRemoveImage.HoverState.Parent = this.btnRemoveImage;
+            this.btnRemoveImage.Image = global::DVLD.Properties.Resources.trash_bin;
+            this.btnRemoveImage.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnRemoveImage.ImageOffset = new System.Drawing.Point(-6, 0);
+            this.btnRemoveImage.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnRemoveImage.Location = new System.Drawing.Point(1300, 226);
+            this.btnRemoveImage.Name = "btnRemoveImage";
+            this.btnRemoveImage.ShadowDecoration.Parent = this.btnRemoveImage;
+            this.btnRemoveImage.Size = new System.Drawing.Size(160, 38);
+            this.btnRemoveImage.TabIndex = 57;
+            this.btnRemoveImage.Text = "Remove Image";
+            this.btnRemoveImage.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnRemoveImage.Visible = false;
+            this.btnRemoveImage.Click += new System.EventHandler(this.btnRemoveImage_Click);
             // 
             // btnSetImage
             // 
@@ -155,6 +182,7 @@
             this.btnSetImage.TabIndex = 12;
             this.btnSetImage.Text = "Set Image";
             this.btnSetImage.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnSetImage.Click += new System.EventHandler(this.btnSetImage_Click);
             // 
             // tbLastName
             // 
@@ -386,7 +414,7 @@
             this.tbAddress.PlaceholderText = "";
             this.tbAddress.SelectedText = "";
             this.tbAddress.ShadowDecoration.Parent = this.tbAddress;
-            this.tbAddress.Size = new System.Drawing.Size(363, 44);
+            this.tbAddress.Size = new System.Drawing.Size(1014, 44);
             this.tbAddress.TabIndex = 11;
             // 
             // tbEmail
@@ -437,6 +465,7 @@
             this.cbGender.ShadowDecoration.Parent = this.cbGender;
             this.cbGender.Size = new System.Drawing.Size(296, 36);
             this.cbGender.TabIndex = 7;
+            this.cbGender.SelectedValueChanged += new System.EventHandler(this.cbGender_SelectedValueChanged);
             // 
             // tbNationalNo
             // 
@@ -563,17 +592,16 @@
             this.pictureBox2.TabIndex = 26;
             this.pictureBox2.TabStop = false;
             // 
-            // pictureBox1
+            // pbPersonID
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::DVLD.Properties.Resources.ID;
-            this.pictureBox1.Location = new System.Drawing.Point(657, 9);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 25;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Visible = false;
+            this.pbPersonID.BackColor = System.Drawing.Color.Transparent;
+            this.pbPersonID.Image = global::DVLD.Properties.Resources.ID;
+            this.pbPersonID.Location = new System.Drawing.Point(657, 9);
+            this.pbPersonID.Name = "pbPersonID";
+            this.pbPersonID.Size = new System.Drawing.Size(50, 50);
+            this.pbPersonID.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPersonID.TabIndex = 25;
+            this.pbPersonID.TabStop = false;
             // 
             // lblPersonID
             // 
@@ -586,7 +614,6 @@
             this.lblPersonID.TabIndex = 24;
             this.lblPersonID.Text = "-1";
             this.lblPersonID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblPersonID.Visible = false;
             // 
             // btnSave
             // 
@@ -612,14 +639,15 @@
             this.btnSave.TextOffset = new System.Drawing.Point(10, 0);
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // guna2PictureBox1
+            // pbProfileImage
             // 
-            this.guna2PictureBox1.Location = new System.Drawing.Point(1274, 9);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
-            this.guna2PictureBox1.Size = new System.Drawing.Size(212, 212);
-            this.guna2PictureBox1.TabIndex = 21;
-            this.guna2PictureBox1.TabStop = false;
+            this.pbProfileImage.Location = new System.Drawing.Point(1274, 9);
+            this.pbProfileImage.Name = "pbProfileImage";
+            this.pbProfileImage.ShadowDecoration.Parent = this.pbProfileImage;
+            this.pbProfileImage.Size = new System.Drawing.Size(212, 212);
+            this.pbProfileImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbProfileImage.TabIndex = 21;
+            this.pbProfileImage.TabStop = false;
             // 
             // label10
             // 
@@ -717,39 +745,34 @@
             this.label1.Text = "First Name:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // lblPersonIDTitle
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(713, 14);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(181, 40);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Person ID:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label3.Visible = false;
+            this.lblPersonIDTitle.AutoSize = true;
+            this.lblPersonIDTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblPersonIDTitle.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
+            this.lblPersonIDTitle.Location = new System.Drawing.Point(713, 14);
+            this.lblPersonIDTitle.Name = "lblPersonIDTitle";
+            this.lblPersonIDTitle.Size = new System.Drawing.Size(181, 40);
+            this.lblPersonIDTitle.TabIndex = 12;
+            this.lblPersonIDTitle.Text = "Person ID:";
+            this.lblPersonIDTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // lblTitle
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Gadugi", 25F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(70, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(251, 50);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Add Person";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitle.Font = new System.Drawing.Font("Gadugi", 25F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.Location = new System.Drawing.Point(70, 9);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(251, 50);
+            this.lblTitle.TabIndex = 11;
+            this.lblTitle.Text = "Add Person";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tooltipHint
             // 
             this.tooltipHint.AllowLinksHandling = true;
             this.tooltipHint.MaximumSize = new System.Drawing.Size(0, 0);
-            // 
-            // fileDialog
-            // 
-            this.fileDialog.FileName = "openFileDialog1";
             // 
             // ucAddPerson
             // 
@@ -770,8 +793,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPersonID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProfileImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -788,9 +811,9 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbPersonID;
         private Guna.UI2.WinForms.Guna2Button btnSave;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private Guna.UI2.WinForms.Guna2PictureBox pbProfileImage;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
@@ -799,8 +822,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblPersonIDTitle;
+        private System.Windows.Forms.Label lblTitle;
         private Guna.UI2.WinForms.Guna2TextBox tbNationalNo;
         private System.Windows.Forms.Label lblPersonID;
         private Guna.UI2.WinForms.Guna2ComboBox cbGender;
@@ -819,5 +842,6 @@
         private Guna.UI2.WinForms.Guna2Button btnSetImage;
         private Guna.UI2.WinForms.Guna2HtmlToolTip tooltipHint;
         private System.Windows.Forms.OpenFileDialog fileDialog;
+        private Guna.UI2.WinForms.Guna2Button btnRemoveImage;
     }
 }

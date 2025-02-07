@@ -15,6 +15,7 @@ namespace DVLD
         public static string DefaultCountry { get { return "Syria"; } }
         public static string DefaultFilter { get { return "None"; } }
         public static string DeffaultGender { get { return "Male"; } }
+        public static string DestinationFolder { get { return "D:\\DVLD\\Profile-Images"; } }
 
         public static List<string> ConvertStringToListOfLowerCaseWords(string str)
         {
