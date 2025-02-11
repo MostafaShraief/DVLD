@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucAddPerson));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnRemoveImage = new Guna.UI2.WinForms.Guna2Button();
             this.btnSetImage = new Guna.UI2.WinForms.Guna2Button();
@@ -70,6 +72,10 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.tooltipHint = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.fileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.errorProviderNationalNo = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderLettersAndSpaces = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderEmail = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderPhoneNumber = new System.Windows.Forms.ErrorProvider(this.components);
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -82,6 +88,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfileImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderNationalNo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderLettersAndSpaces)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderEmail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPhoneNumber)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -210,6 +220,7 @@
             this.tbLastName.Size = new System.Drawing.Size(336, 44);
             this.tbLastName.TabIndex = 4;
             this.tbLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AllowLetters_KeyPress);
+            this.tbLastName.Validating += new System.ComponentModel.CancelEventHandler(this.tbCheckOnlyGlobalLetters_Validating);
             // 
             // label13
             // 
@@ -249,6 +260,7 @@
             this.tbThirdName.Size = new System.Drawing.Size(303, 44);
             this.tbThirdName.TabIndex = 3;
             this.tbThirdName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AllowLetters_KeyPress);
+            this.tbThirdName.Validating += new System.ComponentModel.CancelEventHandler(this.tbThirdName_Validating);
             // 
             // label12
             // 
@@ -288,6 +300,7 @@
             this.tbSecondName.Size = new System.Drawing.Size(292, 44);
             this.tbSecondName.TabIndex = 2;
             this.tbSecondName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AllowLetters_KeyPress);
+            this.tbSecondName.Validating += new System.ComponentModel.CancelEventHandler(this.tbCheckOnlyGlobalLetters_Validating);
             // 
             // label11
             // 
@@ -327,6 +340,7 @@
             this.tbFirstName.Size = new System.Drawing.Size(321, 44);
             this.tbFirstName.TabIndex = 1;
             this.tbFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AllowLetters_KeyPress);
+            this.tbFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.tbCheckOnlyGlobalLetters_Validating);
             // 
             // dtpDateOfBirth
             // 
@@ -390,6 +404,8 @@
             this.tbPhone.ShadowDecoration.Parent = this.tbPhone;
             this.tbPhone.Size = new System.Drawing.Size(400, 44);
             this.tbPhone.TabIndex = 8;
+            this.tbPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhone_KeyPress);
+            this.tbPhone.Validating += new System.ComponentModel.CancelEventHandler(this.tbPhone_Validating);
             // 
             // tbAddress
             // 
@@ -442,6 +458,7 @@
             this.tbEmail.ShadowDecoration.Parent = this.tbEmail;
             this.tbEmail.Size = new System.Drawing.Size(404, 44);
             this.tbEmail.TabIndex = 9;
+            this.tbEmail.Validating += new System.ComponentModel.CancelEventHandler(this.tbEmail_Validating);
             // 
             // cbGender
             // 
@@ -492,6 +509,7 @@
             this.tbNationalNo.ShadowDecoration.Parent = this.tbNationalNo;
             this.tbNationalNo.Size = new System.Drawing.Size(296, 44);
             this.tbNationalNo.TabIndex = 5;
+            this.tbNationalNo.TextChanged += new System.EventHandler(this.tbNationalNo_TextChanged);
             // 
             // pictureBox10
             // 
@@ -774,6 +792,26 @@
             this.tooltipHint.AllowLinksHandling = true;
             this.tooltipHint.MaximumSize = new System.Drawing.Size(0, 0);
             // 
+            // errorProviderNationalNo
+            // 
+            this.errorProviderNationalNo.ContainerControl = this;
+            this.errorProviderNationalNo.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderNationalNo.Icon")));
+            // 
+            // errorProviderLettersAndSpaces
+            // 
+            this.errorProviderLettersAndSpaces.ContainerControl = this;
+            this.errorProviderLettersAndSpaces.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderLettersAndSpaces.Icon")));
+            // 
+            // errorProviderEmail
+            // 
+            this.errorProviderEmail.ContainerControl = this;
+            this.errorProviderEmail.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderEmail.Icon")));
+            // 
+            // errorProviderPhoneNumber
+            // 
+            this.errorProviderPhoneNumber.ContainerControl = this;
+            this.errorProviderPhoneNumber.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderPhoneNumber.Icon")));
+            // 
             // ucAddPerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -795,6 +833,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfileImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderNationalNo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderLettersAndSpaces)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderEmail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPhoneNumber)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -843,5 +885,9 @@
         private Guna.UI2.WinForms.Guna2HtmlToolTip tooltipHint;
         private System.Windows.Forms.OpenFileDialog fileDialog;
         private Guna.UI2.WinForms.Guna2Button btnRemoveImage;
+        private System.Windows.Forms.ErrorProvider errorProviderNationalNo;
+        private System.Windows.Forms.ErrorProvider errorProviderLettersAndSpaces;
+        private System.Windows.Forms.ErrorProvider errorProviderEmail;
+        private System.Windows.Forms.ErrorProvider errorProviderPhoneNumber;
     }
 }

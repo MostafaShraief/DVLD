@@ -86,6 +86,12 @@
     <Compile Include="Manage People\AddEditPerson.Designer.cs">
       <DependentUpon>AddEditPerson.cs</DependentUpon>
     </Compile>
+    <Compile Include="Manage People\FindPerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage People\FindPerson.Designer.cs">
+      <DependentUpon>FindPerson.cs</DependentUpon>
+    </Compile>
     <Compile Include="Manage People\ManagePeople.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Manage People\AddEditPerson.resx">
       <DependentUpon>AddEditPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage People\FindPerson.resx">
+      <DependentUpon>FindPerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manage People\ManagePeople.resx">
       <DependentUpon>ManagePeople.cs</DependentUpon>

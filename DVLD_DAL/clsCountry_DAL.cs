@@ -61,6 +61,37 @@ namespace DVLD_DAL
             return dt;
         }
 
+        public static bool GetCoutnryByName(string CountryName, ref int CountryID)
+        {
+            bool IsFound = false;
+
+            SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
+            string query = "USE [DVLD]; Select * From Countries Where CountryName = @CountryName;";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@CountryName", CountryName);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    CountryID = clsUtility_DAL.ConvertObjectToIntID(reader["CountryID"]);
+                    IsFound = true;
+                }
+
+                reader.Close();
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return IsFound;
+        }
+
         public static bool GetCoutnryByID(int CountryID, ref string CountryName)
         {
             bool IsFound = false;

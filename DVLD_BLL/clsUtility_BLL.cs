@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace DVLD_BLL
@@ -268,5 +269,38 @@ namespace DVLD_BLL
                 return Ok;
             }
         }
+
+        public static class Characters
+        {
+            private static bool ValidateCharacters(string input, string pattern)
+            {
+                return Regex.IsMatch(input, pattern);
+            }
+
+            public static class English
+            {
+                public static bool ValidateOnlyLetters(string input) => ValidateCharacters(input, @"^[a-zA-Z]+$");
+                public static bool ValidateLettersAndNumbers(string input) => ValidateCharacters(input, @"^[a-zA-Z0-9]+$");
+                public static bool ValidateOnlyNumbers(string input) => ValidateCharacters(input, @"^\d+$");
+                public static bool ValidateEmail(string input) => ValidateCharacters(input, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$");
+
+                public static bool ValidateOnlyLettersWithSpaces(string input) => ValidateCharacters(input, @"^[a-zA-Z\s]+$");
+                public static bool ValidateLettersAndNumbersWithSpaces(string input) => ValidateCharacters(input, @"^[a-zA-Z0-9\s]+$");
+                public static bool ValidateOnlyNumbersWithSpaces(string input) => ValidateCharacters(input, @"^[\d\s]+$");
+            }
+
+            public static class AllLanguages
+            {
+                public static bool ValidateOnlyLetters(string input) => ValidateCharacters(input, @"^[\p{L}]+$");
+                public static bool ValidateLettersAndNumbers(string input) => ValidateCharacters(input, @"^[\p{L}\p{N}]+$");
+                public static bool ValidateOnlyNumbers(string input) => English.ValidateOnlyNumbers(input);
+                public static bool ValidateEmail(string input) => ValidateCharacters(input, @"^[\p{L}0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$");
+
+                public static bool ValidateOnlyLettersWithSpaces(string input) => ValidateCharacters(input, @"^[\p{L}\s]+$");
+                public static bool ValidateLettersAndNumbersWithSpaces(string input) => ValidateCharacters(input, @"^[\p{L}\p{N}\s]+$");
+                public static bool ValidateOnlyNumbersWithSpaces(string input) => ValidateCharacters(input, @"^[\d\s]+$");
+            }
+        }
+
     }
 }

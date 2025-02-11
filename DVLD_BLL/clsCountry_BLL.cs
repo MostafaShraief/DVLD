@@ -76,6 +76,16 @@ namespace DVLD_BLL
                 return new clsCountry_BLL();
         }
 
+        public static clsCountry_BLL FindCountry(string CountryName)
+        {
+            int CountryID = -1;
+
+            if (clsCountry_DAL.GetCoutnryByName(CountryName, ref CountryID))
+                return new clsCountry_BLL(CountryID, CountryName);
+            else
+                return new clsCountry_BLL();
+        }
+
         public static DataTable GetListofCountries()
         {
             return clsCountry_DAL.GetAllCountries();

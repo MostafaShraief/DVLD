@@ -89,8 +89,8 @@ namespace DVLD.Manage_People
 
         void _DisableAllFilterControls()
         {
-            tbFilter.Visible = 
-                Visible = false;
+            tbFilter.Visible = cbFilterCriterion.Visible =
+                lblDateOfBirthFilter.Visible = false;
             dtpDateOfBirth.Visible = false;
         }
 

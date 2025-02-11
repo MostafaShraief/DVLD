@@ -27,6 +27,8 @@ namespace DVLD.Manage_People.User_Controls
             // else switch to add mode.
             InitializeComponent();
             clsUtility._LoadCountryToComboBox(cbCountries, clsUtility.DefaultCountry);
+            dtpDateOfBirth.MaxDate = (DateTime.Today.AddYears(-18));
+            dtpDateOfBirth.MinDate = (DateTime.Today.AddYears(-100));
 
             if (PersonID > -1)
                 _EditMode(PersonID);
@@ -85,8 +87,9 @@ namespace DVLD.Manage_People.User_Controls
             Person.NationalNo = tbNationalNo.Text;
             Person.DateOfBirth = dtpDateOfBirth.Value;
             Person.Address = tbAddress.Text;
-            Person.Gender = ((clsPeople_BLL.enGender)cbGender.SelectedIndex);
-            Person.NationalityCountryID = 1;
+            Person.Gender = (cbGender.Text[0] == 'M' ?
+                clsPeople_BLL.enGender.Male : clsPeople_BLL.enGender.Female);
+            Person.NationalityCountryID = clsCountry_BLL.FindCountry(cbCountries.Text).CountryID;
             if (_IsGenderImage() == false)
                 Person.ImageFile = clsUtility.Image.ImageToByteArray(pbProfileImage.Image);
             else
@@ -192,6 +195,59 @@ namespace DVLD.Manage_People.User_Controls
         private void btnRemoveImage_Click(object sender, EventArgs e)
         {
             _UnsetImage();
+        }
+
+        private void tbNationalNo_TextChanged(object sender, EventArgs e)
+        {
+            if (clsPeople_BLL.Find(tbNationalNo.Text).PersonID != -1)
+                errorProviderNationalNo.SetError(tbNationalNo, "National Number Is Already Used");
+            else
+                errorProviderNationalNo.SetError((sender as Guna2TextBox), "");
+        }
+
+        private void tbCheckOnlyGlobalLetters_Validating(object sender, CancelEventArgs e)
+        {
+            if (clsUtility.Characters.AllLanguages.ValidateOnlyLettersWithSpaces((sender as Guna2TextBox).Text) == false)
+                errorProviderLettersAndSpaces.SetError((sender as Guna2TextBox), "Only letters and spaces are allowed.");
+            else
+                errorProviderLettersAndSpaces.SetError((sender as Guna2TextBox), "");
+        }
+
+        private void tbThirdName_Validating(object sender, CancelEventArgs e)
+        {
+            if ((sender as Guna2TextBox).Text.Length != 0 && clsUtility.Characters.AllLanguages.ValidateOnlyLettersWithSpaces((sender as Guna2TextBox).Text) == false)
+                errorProviderLettersAndSpaces.SetError((sender as Guna2TextBox), "Only letters and spaces are allowed.");
+            else
+                errorProviderLettersAndSpaces.SetError((sender as Guna2TextBox), "");
+        }
+
+        private void tbEmail_Validating(object sender, CancelEventArgs e)
+        {
+            if ((sender as Guna2TextBox).Text.Length != 0 && clsUtility.Characters.English.ValidateEmail((sender as Guna2TextBox).Text) == false)
+                errorProviderEmail.SetError((sender as Guna2TextBox), "Email address is not valid.");
+            else
+                errorProviderEmail.SetError((sender as Guna2TextBox), "");
+        }
+
+        private void tbPhone_Validating(object sender, CancelEventArgs e)
+        {
+            if (clsUtility.Characters.English.ValidateOnlyNumbers((sender as Guna2TextBox).Text) == false)
+                errorProviderPhoneNumber.SetError((sender as Guna2TextBox), "Only english numbers are allowed.");
+            else
+                errorProviderPhoneNumber.SetError((sender as Guna2TextBox), "");
+        }
+
+        private void tbPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allow numbers and control keys
+            if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Ignore the input
+
+                Guna2TextBox textBox = sender as Guna2TextBox;
+                tooltipHint.Show("Only numbers are allowed.",
+                    textBox, new Point(0, textBox.Size.Height), 2000); // 2000ms = 2 seconds
+            }
         }
     }
 }
