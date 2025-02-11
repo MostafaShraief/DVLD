@@ -65,5 +65,10 @@ namespace DVLD.Manage_People
         {
             Linker(new AddEditPerson());
         }
+
+        private void btnFindPerson_Click(object sender, EventArgs e)
+        {
+            Linker(new FindPerson());
+        }
     }
 }

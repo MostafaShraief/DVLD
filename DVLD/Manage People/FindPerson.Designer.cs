@@ -28,20 +28,155 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.ucTitleScreen1 = new DVLD.ucTitleScreen();
+            this.lblDescriptionTitle = new System.Windows.Forms.Label();
+            this.rbID = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.rbNationalNumebr = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.tbFind = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnFind = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
+            // 
+            // ucTitleScreen1
+            // 
+            this.ucTitleScreen1.BackColor = System.Drawing.Color.LavenderBlush;
+            this.ucTitleScreen1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ucTitleScreen1.Location = new System.Drawing.Point(0, 0);
+            this.ucTitleScreen1.Name = "ucTitleScreen1";
+            this.ucTitleScreen1.Size = new System.Drawing.Size(1775, 145);
+            this.ucTitleScreen1.TabIndex = 0;
+            // 
+            // lblDescriptionTitle
+            // 
+            this.lblDescriptionTitle.AutoSize = true;
+            this.lblDescriptionTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblDescriptionTitle.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
+            this.lblDescriptionTitle.Location = new System.Drawing.Point(815, 454);
+            this.lblDescriptionTitle.Name = "lblDescriptionTitle";
+            this.lblDescriptionTitle.Size = new System.Drawing.Size(145, 40);
+            this.lblDescriptionTitle.TabIndex = 4;
+            this.lblDescriptionTitle.Text = "Find By:";
+            this.lblDescriptionTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // rbID
+            // 
+            this.rbID.AutoSize = true;
+            this.rbID.Checked = true;
+            this.rbID.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rbID.CheckedState.BorderThickness = 0;
+            this.rbID.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rbID.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rbID.CheckedState.InnerOffset = -4;
+            this.rbID.Font = new System.Drawing.Font("Gadugi", 15F, System.Drawing.FontStyle.Bold);
+            this.rbID.Location = new System.Drawing.Point(857, 510);
+            this.rbID.Name = "rbID";
+            this.rbID.Size = new System.Drawing.Size(60, 34);
+            this.rbID.TabIndex = 5;
+            this.rbID.TabStop = true;
+            this.rbID.Text = "ID";
+            this.rbID.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rbID.UncheckedState.BorderThickness = 2;
+            this.rbID.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rbID.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rbID.UseVisualStyleBackColor = true;
+            // 
+            // rbNationalNumebr
+            // 
+            this.rbNationalNumebr.AutoSize = true;
+            this.rbNationalNumebr.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rbNationalNumebr.CheckedState.BorderThickness = 0;
+            this.rbNationalNumebr.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rbNationalNumebr.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rbNationalNumebr.CheckedState.InnerOffset = -4;
+            this.rbNationalNumebr.Font = new System.Drawing.Font("Gadugi", 15F, System.Drawing.FontStyle.Bold);
+            this.rbNationalNumebr.Location = new System.Drawing.Point(768, 560);
+            this.rbNationalNumebr.Name = "rbNationalNumebr";
+            this.rbNationalNumebr.Size = new System.Drawing.Size(239, 34);
+            this.rbNationalNumebr.TabIndex = 6;
+            this.rbNationalNumebr.Text = "National Number";
+            this.rbNationalNumebr.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rbNationalNumebr.UncheckedState.BorderThickness = 2;
+            this.rbNationalNumebr.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rbNationalNumebr.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rbNationalNumebr.UseVisualStyleBackColor = true;
+            // 
+            // tbFind
+            // 
+            this.tbFind.Animated = true;
+            this.tbFind.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbFind.DefaultText = "";
+            this.tbFind.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbFind.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbFind.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbFind.DisabledState.Parent = this.tbFind;
+            this.tbFind.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbFind.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbFind.FocusedState.Parent = this.tbFind;
+            this.tbFind.Font = new System.Drawing.Font("Gadugi", 15F, System.Drawing.FontStyle.Bold);
+            this.tbFind.ForeColor = System.Drawing.Color.Black;
+            this.tbFind.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbFind.HoverState.Parent = this.tbFind;
+            this.tbFind.Location = new System.Drawing.Point(727, 610);
+            this.tbFind.Margin = new System.Windows.Forms.Padding(4);
+            this.tbFind.Name = "tbFind";
+            this.tbFind.PasswordChar = '\0';
+            this.tbFind.PlaceholderText = "";
+            this.tbFind.SelectedText = "";
+            this.tbFind.ShadowDecoration.Parent = this.tbFind;
+            this.tbFind.Size = new System.Drawing.Size(321, 44);
+            this.tbFind.TabIndex = 7;
+            this.tbFind.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbFind_KeyDown);
+            // 
+            // btnFind
+            // 
+            this.btnFind.Animated = true;
+            this.btnFind.BackColor = System.Drawing.Color.Transparent;
+            this.btnFind.BorderThickness = 2;
+            this.btnFind.CheckedState.Parent = this.btnFind;
+            this.btnFind.CustomImages.Parent = this.btnFind;
+            this.btnFind.FillColor = System.Drawing.Color.Transparent;
+            this.btnFind.Font = new System.Drawing.Font("Gadugi", 9F, System.Drawing.FontStyle.Bold);
+            this.btnFind.ForeColor = System.Drawing.Color.Black;
+            this.btnFind.HoverState.Parent = this.btnFind;
+            this.btnFind.Image = global::DVLD.Properties.Resources.Search;
+            this.btnFind.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnFind.ImageOffset = new System.Drawing.Point(-6, 0);
+            this.btnFind.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnFind.Location = new System.Drawing.Point(836, 661);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.ShadowDecoration.Parent = this.btnFind;
+            this.btnFind.Size = new System.Drawing.Size(103, 38);
+            this.btnFind.TabIndex = 58;
+            this.btnFind.Text = "Find";
+            this.btnFind.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // FindPerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LavenderBlush;
             this.ClientSize = new System.Drawing.Size(1775, 1028);
+            this.Controls.Add(this.btnFind);
+            this.Controls.Add(this.tbFind);
+            this.Controls.Add(this.rbNationalNumebr);
+            this.Controls.Add(this.rbID);
+            this.Controls.Add(this.lblDescriptionTitle);
+            this.Controls.Add(this.ucTitleScreen1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FindPerson";
             this.Text = "FindPerson";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private ucTitleScreen ucTitleScreen1;
+        private System.Windows.Forms.Label lblDescriptionTitle;
+        private Guna.UI2.WinForms.Guna2RadioButton rbID;
+        private Guna.UI2.WinForms.Guna2RadioButton rbNationalNumebr;
+        private Guna.UI2.WinForms.Guna2TextBox tbFind;
+        private Guna.UI2.WinForms.Guna2Button btnFind;
     }
 }

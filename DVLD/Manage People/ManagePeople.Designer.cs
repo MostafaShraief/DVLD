@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblDescriptionTitle = new System.Windows.Forms.Label();
+            this.lblDescription = new System.Windows.Forms.Label();
+            this.ucTitleScreen1 = new ucTitleScreen();
             this.btnListPeople = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddPerson = new Guna.UI2.WinForms.Guna2Button();
             this.btnFindPerson = new Guna.UI2.WinForms.Guna2Button();
             this.btnEditPerson = new Guna.UI2.WinForms.Guna2Button();
             this.btnRemovePerson = new Guna.UI2.WinForms.Guna2Button();
-            this.lblDescriptionTitle = new System.Windows.Forms.Label();
-            this.lblDescription = new System.Windows.Forms.Label();
-            this.ucTitleScreen1 = new ucTitleScreen();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,6 +51,37 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(922, 629);
             this.flowLayoutPanel1.TabIndex = 2;
+            // 
+            // lblDescriptionTitle
+            // 
+            this.lblDescriptionTitle.AutoSize = true;
+            this.lblDescriptionTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblDescriptionTitle.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
+            this.lblDescriptionTitle.Location = new System.Drawing.Point(1042, 168);
+            this.lblDescriptionTitle.Name = "lblDescriptionTitle";
+            this.lblDescriptionTitle.Size = new System.Drawing.Size(233, 40);
+            this.lblDescriptionTitle.TabIndex = 3;
+            this.lblDescriptionTitle.Text = "• Description:";
+            this.lblDescriptionTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDescription
+            // 
+            this.lblDescription.BackColor = System.Drawing.Color.Transparent;
+            this.lblDescription.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
+            this.lblDescription.Location = new System.Drawing.Point(1042, 227);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(680, 570);
+            this.lblDescription.TabIndex = 4;
+            this.lblDescription.Text = "Hover on any option to show details.";
+            // 
+            // ucTitleScreen1
+            // 
+            this.ucTitleScreen1.BackColor = System.Drawing.Color.LavenderBlush;
+            this.ucTitleScreen1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ucTitleScreen1.Location = new System.Drawing.Point(0, 0);
+            this.ucTitleScreen1.Name = "ucTitleScreen1";
+            this.ucTitleScreen1.Size = new System.Drawing.Size(1775, 145);
+            this.ucTitleScreen1.TabIndex = 5;
             // 
             // btnListPeople
             // 
@@ -126,6 +157,7 @@
             this.btnFindPerson.TabIndex = 3;
             this.btnFindPerson.Text = "Find Person";
             this.btnFindPerson.TextOffset = new System.Drawing.Point(0, 100);
+            this.btnFindPerson.Click += new System.EventHandler(this.btnFindPerson_Click);
             this.btnFindPerson.MouseEnter += new System.EventHandler(this.btnFindPerson_MouseHover);
             this.btnFindPerson.MouseLeave += new System.EventHandler(this.btnOption_MouseLeave);
             // 
@@ -178,37 +210,6 @@
             this.btnRemovePerson.TextOffset = new System.Drawing.Point(0, 100);
             this.btnRemovePerson.MouseEnter += new System.EventHandler(this.btnRemovePerson_MouseEnter);
             this.btnRemovePerson.MouseLeave += new System.EventHandler(this.btnOption_MouseLeave);
-            // 
-            // lblDescriptionTitle
-            // 
-            this.lblDescriptionTitle.AutoSize = true;
-            this.lblDescriptionTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblDescriptionTitle.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
-            this.lblDescriptionTitle.Location = new System.Drawing.Point(1042, 168);
-            this.lblDescriptionTitle.Name = "lblDescriptionTitle";
-            this.lblDescriptionTitle.Size = new System.Drawing.Size(233, 40);
-            this.lblDescriptionTitle.TabIndex = 3;
-            this.lblDescriptionTitle.Text = "• Description:";
-            this.lblDescriptionTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblDescription
-            // 
-            this.lblDescription.BackColor = System.Drawing.Color.Transparent;
-            this.lblDescription.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
-            this.lblDescription.Location = new System.Drawing.Point(1042, 227);
-            this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(680, 570);
-            this.lblDescription.TabIndex = 4;
-            this.lblDescription.Text = "Hover on any option to show details.";
-            // 
-            // ucTitleScreen1
-            // 
-            this.ucTitleScreen1.BackColor = System.Drawing.Color.LavenderBlush;
-            this.ucTitleScreen1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ucTitleScreen1.Location = new System.Drawing.Point(0, 0);
-            this.ucTitleScreen1.Name = "ucTitleScreen1";
-            this.ucTitleScreen1.Size = new System.Drawing.Size(1775, 145);
-            this.ucTitleScreen1.TabIndex = 5;
             // 
             // ManagePeople
             // 
