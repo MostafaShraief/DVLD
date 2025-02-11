@@ -13,23 +13,35 @@ namespace DVLD.Manage_People
 {
     public partial class FindPerson : Form
     {
-        public FindPerson()
+        DVLD _mainForm;
+
+        public FindPerson(DVLD mainForm)
         {
             InitializeComponent();
-            ((ucTitleScreen)ucTitleScreen1).ChangeTitle("Find Persoon"); ;
+            ((ucTitleScreen)ucTitleScreen1).ChangeTitle("Find Persoon");
+            _mainForm = mainForm;
         }
 
         clsPeople_BLL person;
+
+        void ShowPersonInfoForm()
+        {
+            ShowPersonInfo showPersonInfo = new ShowPersonInfo(_mainForm);
+            showPersonInfo.GetPerson(person);
+            _mainForm.PushNewForm(showPersonInfo);
+        }
 
         void _Find()
         {
             if (rbNationalNumebr.Checked && clsPeople_BLL.IsPersonExist(tbFind.Text))
             {
                 person = clsPeople_BLL.Find(tbFind.Text);
+                ShowPersonInfoForm();
             }
             else if (rbID.Checked && int.TryParse(tbFind.Text, out int ID) && clsPeople_BLL.IsPersonExist(ID))
             {
                 person = clsPeople_BLL.Find(ID);
+                ShowPersonInfoForm();
             }
             else
             {

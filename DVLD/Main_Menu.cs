@@ -14,14 +14,14 @@ namespace DVLD
 {
     public partial class Main_Menu : Form
     {
-        public Main_Menu()
+        DVLD _mainForm;
+
+        public Main_Menu(DVLD mainForm)
         {
             InitializeComponent();
             ((ucTitleScreen)ucTitleScreen1).ChangeTitle("Main Menu");
+            _mainForm = mainForm;
         }
-
-        public delegate void delLinker(Form frm);
-        public event delLinker Linker;
 
         void OpenURL(string URL)
         {
@@ -35,7 +35,7 @@ namespace DVLD
 
         private void lblManagePeople_Click(object sender, EventArgs e)
         {
-            Linker(new ManagePeople());
+            _mainForm.PushNewForm(new ManagePeople(_mainForm));
         }
     }
 }

@@ -12,14 +12,14 @@ namespace DVLD.Manage_People
 {
     public partial class ManagePeople : Form
     {
-        public ManagePeople()
+        DVLD _mainForm;
+
+        public ManagePeople(DVLD mainForm)
         {
             InitializeComponent();
             ((ucTitleScreen)ucTitleScreen1).ChangeTitle("Manage People");
+            _mainForm = mainForm;
         }
-
-        public delegate void delLinker(Form frm);
-        public event delLinker Linker;
 
         private void btnListPeople_MouseHover(object sender, EventArgs e)
         {
@@ -58,17 +58,17 @@ namespace DVLD.Manage_People
 
         private void btnListPeople_Click(object sender, EventArgs e)
         {
-            Linker(new PeopleList());
+            _mainForm.PushNewForm(new PeopleList(_mainForm));
         }
 
         private void btnAddPerson_Click(object sender, EventArgs e)
         {
-            Linker(new AddEditPerson());
+            _mainForm.PushNewForm(new AddEditPerson(_mainForm));
         }
 
         private void btnFindPerson_Click(object sender, EventArgs e)
         {
-            Linker(new FindPerson());
+            _mainForm.PushNewForm(new FindPerson(_mainForm));
         }
     }
 }

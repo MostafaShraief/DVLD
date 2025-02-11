@@ -15,11 +15,14 @@ namespace DVLD.Manage_People
 {
     public partial class PeopleList : Form
     {
-        public PeopleList()
+        DVLD _mainForm;
+
+        public PeopleList(DVLD mainForm)
         {
             InitializeComponent();
             ((ucTitleScreen)ucTitleScreen1).ChangeTitle("People List");
-            cbFilter.SelectedItem = clsUtility.DefaultFilter;
+                cbFilter.SelectedItem = clsUtility.DefaultFilter;
+            _mainForm = mainForm;
         }
 
         private enum _enFilterMode { None, PersonID, NationalNo, FirstName,

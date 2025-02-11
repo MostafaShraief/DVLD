@@ -89,6 +89,7 @@
             this.btnForward.ShadowDecoration.Parent = this.btnForward;
             this.btnForward.Size = new System.Drawing.Size(58, 52);
             this.btnForward.TabIndex = 4;
+            this.btnForward.TabStop = false;
             this.btnForward.Click += new System.EventHandler(this.btnForward_Click);
             // 
             // btnBack
@@ -111,6 +112,7 @@
             this.btnBack.ShadowDecoration.Parent = this.btnBack;
             this.btnBack.Size = new System.Drawing.Size(58, 52);
             this.btnBack.TabIndex = 3;
+            this.btnBack.TabStop = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // guna2Button3
@@ -150,6 +152,7 @@
             this.btnMinimize.ShadowDecoration.Parent = this.btnMinimize;
             this.btnMinimize.Size = new System.Drawing.Size(58, 52);
             this.btnMinimize.TabIndex = 1;
+            this.btnMinimize.TabStop = false;
             this.btnMinimize.Text = "-";
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
@@ -170,6 +173,7 @@
             this.btnClose.ShadowDecoration.Parent = this.btnClose;
             this.btnClose.Size = new System.Drawing.Size(58, 52);
             this.btnClose.TabIndex = 0;
+            this.btnClose.TabStop = false;
             this.btnClose.Text = "x";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 

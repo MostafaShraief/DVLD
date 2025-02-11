@@ -18,14 +18,13 @@ namespace DVLD
         {
             InitializeComponent();
             stackfroms = new clsStackForms();
-            Main_Menu main_Menu = new Main_Menu();
-            main_Menu.Linker += PushNewForm;
+            Main_Menu main_Menu = new Main_Menu(this);
             stackfroms.PushNewForm(main_Menu, main_panel);
         }
 
         clsStackForms stackfroms;
 
-        private void PushNewForm(Form frm)
+        internal void PushNewForm(Form frm)
         {
             if (stackfroms.PushNewForm(frm, main_panel))
             {
@@ -60,8 +59,7 @@ namespace DVLD
 
         private void btnManagePeople_Click(object sender, EventArgs e)
         {
-            ManagePeople managePeople = new ManagePeople();
-            managePeople.Linker += PushNewForm;
+            ManagePeople managePeople = new ManagePeople(this);
             PushNewForm(managePeople);
         }
 

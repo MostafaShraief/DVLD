@@ -134,6 +134,19 @@ namespace DVLD
                 }
             }
 
+            public static System.Drawing.Image ByteArrayToImage(Byte[] imageBytes)
+            {
+                try
+                {
+                    MemoryStream ms = new MemoryStream(imageBytes);
+                    return System.Drawing.Image.FromStream(ms);
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+
             public static System.Drawing.Image LoadImageFromFile(string imagePath)
             {
                 System.Drawing.Image image = null;

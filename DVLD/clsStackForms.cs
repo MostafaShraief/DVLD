@@ -61,7 +61,7 @@ namespace DVLD
             if (frm == null)
                 return false;
 
-            if (_stkBackwardForms.Count > 0 && frm.Tag == _stkBackwardForms.First().Tag)
+            if (_stkBackwardForms.Count > 0 && frm.GetType() == _stkBackwardForms.First().GetType())
                 return false;
 
             _stkBackwardForms.Push(frm);

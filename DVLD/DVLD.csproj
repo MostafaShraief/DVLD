@@ -104,6 +104,12 @@
     <Compile Include="Manage People\PeopleList.Designer.cs">
       <DependentUpon>PeopleList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Manage People\ShowPersonInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage People\ShowPersonInfo.Designer.cs">
+      <DependentUpon>ShowPersonInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Manage People\User Controls\ucAddPerson.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -142,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Manage People\PeopleList.resx">
       <DependentUpon>PeopleList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage People\ShowPersonInfo.resx">
+      <DependentUpon>ShowPersonInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manage People\User Controls\ucAddPerson.resx">
       <DependentUpon>ucAddPerson.cs</DependentUpon>

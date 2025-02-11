@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD_BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,16 @@ namespace DVLD.Manage_People
 {
     public partial class AddEditPerson : Form
     {
-        public AddEditPerson()
+        DVLD _mainForm;
+
+        public AddEditPerson(DVLD mainForm, clsPeople_BLL person = null)
         {
             InitializeComponent();
             ((ucTitleScreen)ucTitleScreen1).ChangeTitle("Add Person");
+            _mainForm = mainForm;
+
+            if (person != null)
+                ucAddPerson1.GetPerson(person);
         }
     }
 }

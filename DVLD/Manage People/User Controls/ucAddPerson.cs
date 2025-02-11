@@ -36,6 +36,43 @@ namespace DVLD.Manage_People.User_Controls
                 _AddMode();
         }
 
+        public void GetPerson(clsPeople_BLL person)
+        {
+            if (person.PersonID != -1)
+            {
+                this.Person = person;
+                _EditMode();
+            }
+        }
+
+        void FillWithPersonData()
+        {
+            tbFirstName.Text = Person.FirstName;
+            tbLastName.Text = Person.LastName;
+            tbEmail.Text = Person.Email;
+            tbPhone.Text = Person.Phone;
+            tbSecondName.Text = Person.SecondName;
+            tbThirdName.Text = Person.ThirdName;
+            tbNationalNo.Text = Person.NationalNo;
+            dtpDateOfBirth.Value = Person.DateOfBirth;
+            tbAddress.Text = Person.Address;
+            cbGender.Text = (Person.Gender == clsPeople_BLL.enGender.Male ? "Male" : "Female");
+
+            // Find and set the country in the ComboBox
+            var country = clsCountry_BLL.FindCountry(Person.NationalityCountryID);
+            if (country != null)
+                cbCountries.Text = country.CountryName;
+
+            // Set the profile image
+            if (Person.ImageFile != null && Person.ImageFile.Length > 0)
+            {
+                pbProfileImage.Image = clsUtility.Image.ByteArrayToImage(Person.ImageFile);
+                pbProfileImage.Tag = null;
+            }
+            else
+                _SetGenderImage();
+        }
+
         void _AddMode()
         {
             Person = new clsPeople_BLL();
@@ -47,7 +84,7 @@ namespace DVLD.Manage_People.User_Controls
             _SetGenderImage();
         }
 
-        void _EditMode(int PersonID = -1)
+        private void _EditMode(int PersonID = -1)
         {
             // if personid is given then search about it and update all text box.
             // else only update personid in 'lblPersonID' from person object.
@@ -59,6 +96,7 @@ namespace DVLD.Manage_People.User_Controls
             lblPersonID.Visible = true;
             lblPersonIDTitle.Visible = true;
             pbPersonID.Visible = true;
+            FillWithPersonData();
         }
 
         private void AllowLetters_KeyPress(object sender, KeyPressEventArgs e)
