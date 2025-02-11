@@ -63,7 +63,7 @@ namespace DVLD.Manage_People
 
         private void btnAddPerson_Click(object sender, EventArgs e)
         {
-            Linker(new AddPerson());
+            Linker(new AddEditPerson());
         }
     }
 }

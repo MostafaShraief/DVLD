@@ -1,6 +1,6 @@
 ﻿namespace DVLD.Manage_People
 {
-    partial class AddPerson
+    partial class AddEditPerson
     {
         /// <summary>
         /// Required designer variable.

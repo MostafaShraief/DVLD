@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DVLD.Manage_People
 {
-    public partial class AddPerson : Form
+    public partial class AddEditPerson : Form
     {
-        public AddPerson()
+        public AddEditPerson()
         {
             InitializeComponent();
             ((ucTitleScreen)ucTitleScreen1).ChangeTitle("Add Person");

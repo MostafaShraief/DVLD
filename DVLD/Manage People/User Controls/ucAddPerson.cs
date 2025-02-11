@@ -20,8 +20,6 @@ namespace DVLD.Manage_People.User_Controls
     {
         clsPeople_BLL Person;
         enum enGender { Male, Female }
-        enum enImage { Gender, Custom }
-        enImage _Image;
 
         public ucAddPerson(int PersonID = -1)
         {
@@ -44,6 +42,7 @@ namespace DVLD.Manage_People.User_Controls
             lblPersonIDTitle.Visible = false;
             pbPersonID.Visible = false;
             cbGender.SelectedItem = clsUtility.DeffaultGender;
+            _SetGenderImage();
         }
 
         void _EditMode(int PersonID = -1)
@@ -73,57 +72,6 @@ namespace DVLD.Manage_People.User_Controls
             }
         }
 
-        string _SaveImage()
-        {
-            string strPath = "";
-
-            if (_Image == enImage.Custom)
-            {
-                try
-                {
-                    // Create path for image with new name (as Guid).
-                    strPath = Path.Combine(clsUtility.DestinationFolder,
-                        Guid.NewGuid().ToString() + Path.GetExtension(fileDialog.FileName));
-
-                    // Check if the destination folder exists, if not, create it
-                    if (!Directory.Exists(clsUtility.DestinationFolder))
-                        Directory.CreateDirectory(clsUtility.DestinationFolder);
-
-                    // Copy the file to the destination folder
-                    File.Copy(fileDialog.FileName, strPath, true);
-                }
-                catch (Exception ex)
-                {
-                    // Handle any errors that occur while copying the file
-                    MessageBox.Show("Error copying file: " + ex.Message, "Error", 
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-
-            return strPath;
-        }
-
-        void _RemoveImageFile(string ImagePath, bool FailedToSave = false)
-        {
-            // FailedToSave = true, then assign null to Person.ImagePath.
-            try
-            {
-                // Check if the file exists
-                if (File.Exists(ImagePath))
-                {
-                    // Delete the file
-                    File.Delete(ImagePath);
-
-                    if (FailedToSave)
-                        Person.ImagePath = null;
-                }
-            }
-            catch
-            {
-                // log file.
-            }
-        }
-
         void _Save()
         {
             // save person info in the database,
@@ -139,14 +87,13 @@ namespace DVLD.Manage_People.User_Controls
             Person.Address = tbAddress.Text;
             Person.Gender = ((clsPeople_BLL.enGender)cbGender.SelectedIndex);
             Person.NationalityCountryID = 1;
-            string oldImagePath = Person.ImagePath; // to delete this file after save operation done.
-            Person.ImagePath = _SaveImage();
+            if (_IsGenderImage() == false)
+                Person.ImageFile = clsUtility.Image.ImageToByteArray(pbProfileImage.Image);
+            else
+                Person.ImageFile = null;
 
             if (Person.Save())
             {
-                if (String.IsNullOrEmpty(oldImagePath)) // delete old image.
-                    _RemoveImageFile(oldImagePath);
-
                 _EditMode();
 
                 MessageBox.Show("Person Card Saved Successfuly.", "Saved",
@@ -154,9 +101,6 @@ namespace DVLD.Manage_People.User_Controls
             }
             else
             {
-                if (_Image == enImage.Custom)
-                    _RemoveImageFile(Person.ImagePath, true);
-
                 MessageBox.Show("Person Card Not Saved.", "Failed To Save",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -172,29 +116,35 @@ namespace DVLD.Manage_People.User_Controls
             try
             {
                 // Load the selected image into the PictureBox
-                pbProfileImage.Image = System.Drawing.Image.FromFile(fileDialog.FileName);
-                _Image = enImage.Custom;
+                pbProfileImage.Image = clsUtility.Image.LoadImageFromFile(fileDialog.FileName);
+                pbProfileImage.Tag = null;
                 _ImageChange();
             }
             catch (Exception ex)
             {
                 // Handle any errors that occur while loading the image
+                fileDialog.FileName = "";
                 MessageBox.Show("Error loading image: " + ex.Message, "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        bool _IsGenderImage()
+        {
+            return pbProfileImage.Tag != null;
+        }
+
         void _ImageChange()
         {
-            if (_Image == enImage.Custom)
-            {
-                btnRemoveImage.Visible = true;
-                btnSetImage.Visible = false;
-            }
-            else
+            if (_IsGenderImage())
             {
                 btnSetImage.Visible = true;
                 btnRemoveImage.Visible = false;
+            }
+            else
+            {
+                btnRemoveImage.Visible = true;
+                btnSetImage.Visible = false;
             }
         }
 
@@ -202,17 +152,13 @@ namespace DVLD.Manage_People.User_Controls
         {
             // if there is no custom image, then set image depending on gender.
             if (cbGender.Text == enGender.Male.ToString())
-            {
                 pbProfileImage.Image = Resources.Man;
-                _Image = enImage.Gender;
-                _ImageChange();
-            }
             else if (cbGender.Text == enGender.Female.ToString())
-            {
                 pbProfileImage.Image = Resources.Woman;
-                _Image = enImage.Gender;
-                _ImageChange();
-            }
+
+            pbProfileImage.Tag = 1;
+
+            _ImageChange();
         }
 
         void _SelectImage()
@@ -239,7 +185,7 @@ namespace DVLD.Manage_People.User_Controls
 
         private void cbGender_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (_Image == enImage.Gender)
+            if (_IsGenderImage())
                 _SetGenderImage();
         }
 
