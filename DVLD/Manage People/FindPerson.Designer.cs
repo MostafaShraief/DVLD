@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ucTitleScreen1 = new DVLD.ucTitleScreen();
+            this.ucTitleScreen1 = new ucTitleScreen();
             this.lblDescriptionTitle = new System.Windows.Forms.Label();
             this.rbID = new Guna.UI2.WinForms.Guna2RadioButton();
             this.rbNationalNumebr = new Guna.UI2.WinForms.Guna2RadioButton();
