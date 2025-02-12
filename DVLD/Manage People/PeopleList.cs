@@ -306,5 +306,33 @@ namespace DVLD.Manage_People
         {
             clsUtility.DeletePerson(GetPersonIdFromSelectedRow());
         }
+
+        private void tbFilter_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            switch (_FilterMode)
+            {
+                case _enFilterMode.PersonID:
+                    clsUtility.InputValidator.ValidateKeyPress(sender, e,
+                        clsUtility.InputValidator.ValidationType.OnlyNumbers, errorProvider);
+                    break;
+                case _enFilterMode.FirstName:
+                case _enFilterMode.SecondName:
+                case _enFilterMode.ThirdName:
+                case _enFilterMode.LastName:
+                    clsUtility.InputValidator.ValidateKeyPress(sender, e,
+                        clsUtility.InputValidator.ValidationType.OnlyLetters, errorProvider, false);
+                    break;
+                case _enFilterMode.NationalNo:
+                    clsUtility.InputValidator.ValidateKeyPress(sender, e,
+                        clsUtility.InputValidator.ValidationType.LettersAndNumbers, errorProvider);
+                    break;
+                case _enFilterMode.Phone:
+                    clsUtility.InputValidator.ValidateKeyPress(sender, e,
+                        clsUtility.InputValidator.ValidationType.OnlyNumbers, errorProvider);
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

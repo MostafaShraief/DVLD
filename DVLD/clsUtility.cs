@@ -2,6 +2,7 @@
 using DVLD_BLL;
 using Guna.UI2.WinForms;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
@@ -137,6 +138,62 @@ namespace DVLD
                 public static bool ValidateOnlyNumbersWithSpaces(string input) => ValidateCharacters(input, @"^[\d\s]+$");
             }
         }
+
+        public static class InputValidator
+        {
+            public enum ValidationType
+            {
+                OnlyLetters,
+                LettersAndNumbers,
+                OnlyNumbers,
+                OnlyLettersWithSpaces,
+                LettersAndNumbersWithSpaces,
+                OnlyNumbersWithSpaces
+            }
+
+            private static readonly Dictionary<ValidationType, (string Pattern, string ErrorMessage)> EnglishValidationRules = new Dictionary<ValidationType, (string Pattern, string ErrorMessage)>()
+            {
+                { ValidationType.OnlyLetters, ("^[a-zA-Z]+$", "Only letters allowed!") },
+                { ValidationType.LettersAndNumbers, ("^[a-zA-Z0-9]+$", "Only letters and numbers allowed!") },
+                { ValidationType.OnlyNumbers, ("^\\d+$", "Only numbers allowed!") },
+                { ValidationType.OnlyLettersWithSpaces, ("^[a-zA-Z\\s]+$", "Only letters and spaces allowed!") },
+                { ValidationType.LettersAndNumbersWithSpaces, ("^[a-zA-Z0-9\\s]+$", "Only letters, numbers, and spaces allowed!") },
+                { ValidationType.OnlyNumbersWithSpaces, ("^[\\d\\s]+$", "Only numbers and spaces allowed!") }
+            };
+
+            private static readonly Dictionary<ValidationType, (string Pattern, string ErrorMessage)> AllLanguagesValidationRules = new Dictionary<ValidationType, (string Pattern, string ErrorMessage)>()
+            {
+                { ValidationType.OnlyLetters, ("^[\\p{L}]+$", "Only letters allowed!") },
+                { ValidationType.LettersAndNumbers, ("^[\\p{L}\\p{N}]+$", "Only letters and numbers allowed!") },
+                { ValidationType.OnlyNumbers, ("^\\d+$", "Only numbers allowed!") },
+                { ValidationType.OnlyLettersWithSpaces, ("^[\\p{L}\\s]+$", "Only letters and spaces allowed!") },
+                { ValidationType.LettersAndNumbersWithSpaces, ("^[\\p{L}\\p{N}\\s]+$", "Only letters, numbers, and spaces allowed!") },
+                { ValidationType.OnlyNumbersWithSpaces, ("^[\\d\\s]+$", "Only numbers and spaces allowed!") }
+            };
+
+            public static void ValidateKeyPress(object sender, KeyPressEventArgs e, ValidationType validationType, ErrorProvider errorProvider, bool isEnglish = true)
+            {
+                if (sender is Guna2TextBox textBox == false) return;
+
+                var validationRules = isEnglish ? EnglishValidationRules : AllLanguagesValidationRules;
+                if (!validationRules.ContainsKey(validationType)) return;
+
+                var (pattern, errorMessage) = validationRules[validationType];
+                string newText = e.KeyChar.ToString();
+
+                if (!Regex.IsMatch(newText, pattern) && !char.IsControl(e.KeyChar))
+                {
+                    errorProvider.SetError(textBox, errorMessage);
+                    e.Handled = true;
+                }
+                else
+                {
+                    errorProvider.SetError(textBox, "");
+                }
+            }
+        }
+
+
 
         public static void _LoadCountryToComboBox(Guna2ComboBox cb, string DefaultCountry = null)
         {
