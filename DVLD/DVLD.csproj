@@ -110,11 +110,11 @@
     <Compile Include="Manage People\ShowPersonInfo.Designer.cs">
       <DependentUpon>ShowPersonInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manage People\User Controls\ucAddPerson.cs">
+    <Compile Include="Manage People\User Controls\ucAddEditPerson.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Manage People\User Controls\ucAddPerson.Designer.cs">
-      <DependentUpon>ucAddPerson.cs</DependentUpon>
+    <Compile Include="Manage People\User Controls\ucAddEditPerson.Designer.cs">
+      <DependentUpon>ucAddEditPerson.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -152,8 +152,8 @@
     <EmbeddedResource Include="Manage People\ShowPersonInfo.resx">
       <DependentUpon>ShowPersonInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manage People\User Controls\ucAddPerson.resx">
-      <DependentUpon>ucAddPerson.cs</DependentUpon>
+    <EmbeddedResource Include="Manage People\User Controls\ucAddEditPerson.resx">
+      <DependentUpon>ucAddEditPerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -306,6 +306,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash-bin1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

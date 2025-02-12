@@ -1,4 +1,5 @@
 ﻿using DVLD.Manage_People;
+using DVLD.Manage_People.User_Controls;
 using DVLD.Properties;
 using DVLD_BLL;
 using System;
@@ -28,6 +29,13 @@ namespace DVLD.UserControl
         }
 
         clsPeople_BLL person;
+        AddEditPerson addEditPerson;
+
+        void ResetPersonInfo()
+        {
+            person = new clsPeople_BLL();
+            FillPersonInfo();
+        }
 
         void FillPersonInfo()
         {
@@ -74,15 +82,24 @@ namespace DVLD.UserControl
             FillPersonInfo();
         }
 
-        private void guna2PictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            AddEditPerson addEditPerson = new AddEditPerson(_mainForm, person);
+            addEditPerson = new AddEditPerson(_mainForm);
+            addEditPerson.GetPerson(person);
+            addEditPerson.Linker += ResetPersonInfo;
             _mainForm.PushNewForm(addEditPerson);
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            if (clsUtility.DeletePerson(person))
+            {
+                _mainForm.PopFormForever();
+
+                // this step don`t let the user back to edit mode
+                if (addEditPerson != null)
+                    addEditPerson.AddMode();
+            }
         }
     }
 }

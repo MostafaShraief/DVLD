@@ -16,12 +16,12 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DVLD.Manage_People.User_Controls
 {
-    public partial class ucAddPerson : System.Windows.Forms.UserControl
+    public partial class ucAddEditPerson : System.Windows.Forms.UserControl
     {
-        clsPeople_BLL Person;
+        clsPeople_BLL person;
         enum enGender { Male, Female }
 
-        public ucAddPerson(int PersonID = -1)
+        public ucAddEditPerson(int PersonID)
         {
             // if person id is given then switch to edit mode,
             // else switch to add mode.
@@ -33,53 +33,68 @@ namespace DVLD.Manage_People.User_Controls
             if (PersonID > -1)
                 _EditMode(PersonID);
             else
-                _AddMode();
+                AddMode();
         }
+
+        public ucAddEditPerson()
+        {
+            InitializeComponent();
+            clsUtility._LoadCountryToComboBox(cbCountries, clsUtility.DefaultCountry);
+            dtpDateOfBirth.MaxDate = (DateTime.Today.AddYears(-18));
+            dtpDateOfBirth.MinDate = (DateTime.Today.AddYears(-100));
+            AddMode();
+        }
+
+        public delegate void _deLinker();
+        public event _deLinker Linker;
 
         public void GetPerson(clsPeople_BLL person)
         {
             if (person.PersonID != -1)
             {
-                this.Person = person;
+                this.person = person;
                 _EditMode();
             }
         }
 
         void FillWithPersonData()
         {
-            tbFirstName.Text = Person.FirstName;
-            tbLastName.Text = Person.LastName;
-            tbEmail.Text = Person.Email;
-            tbPhone.Text = Person.Phone;
-            tbSecondName.Text = Person.SecondName;
-            tbThirdName.Text = Person.ThirdName;
-            tbNationalNo.Text = Person.NationalNo;
-            dtpDateOfBirth.Value = Person.DateOfBirth;
-            tbAddress.Text = Person.Address;
-            cbGender.Text = (Person.Gender == clsPeople_BLL.enGender.Male ? "Male" : "Female");
+            tbFirstName.Text = person.FirstName;
+            tbLastName.Text = person.LastName;
+            tbEmail.Text = person.Email;
+            tbPhone.Text = person.Phone;
+            tbSecondName.Text = person.SecondName;
+            tbThirdName.Text = person.ThirdName;
+            tbNationalNo.Text = person.NationalNo;
+            dtpDateOfBirth.Value = person.DateOfBirth;
+            tbAddress.Text = person.Address;
+            cbGender.Text = (person.Gender == clsPeople_BLL.enGender.Male ? "Male" : "Female");
 
             // Find and set the country in the ComboBox
-            var country = clsCountry_BLL.FindCountry(Person.NationalityCountryID);
+            var country = clsCountry_BLL.FindCountry(person.NationalityCountryID);
             if (country != null)
                 cbCountries.Text = country.CountryName;
 
             // Set the profile image
-            if (Person.ImageFile != null && Person.ImageFile.Length > 0)
+            if (person.ImageFile != null && person.ImageFile.Length > 0)
             {
-                pbProfileImage.Image = clsUtility.Image.ByteArrayToImage(Person.ImageFile);
+                pbProfileImage.Image = clsUtility.Image.ByteArrayToImage(person.ImageFile);
                 pbProfileImage.Tag = null;
             }
             else
                 _SetGenderImage();
         }
 
-        void _AddMode()
+        internal void AddMode()
         {
-            Person = new clsPeople_BLL();
+            person = new clsPeople_BLL();
+            if (Linker != null)
+                Linker.Invoke();
             lblTitle.Text = "Add Person";
             lblPersonID.Visible = false;
             lblPersonIDTitle.Visible = false;
             pbPersonID.Visible = false;
+            btnDeleteCard.Visible = false;
             cbGender.SelectedItem = clsUtility.DeffaultGender;
             _SetGenderImage();
         }
@@ -89,13 +104,16 @@ namespace DVLD.Manage_People.User_Controls
             // if personid is given then search about it and update all text box.
             // else only update personid in 'lblPersonID' from person object.
             if (PersonID > -1)
-                Person = clsPeople_BLL.Find(PersonID);
+                person = clsPeople_BLL.Find(PersonID);
 
+            if (Linker != null)
+                Linker.Invoke();
             lblTitle.Text = "Edit Person Card";
-            lblPersonID.Text = Person.PersonID.ToString();
+            lblPersonID.Text = person.PersonID.ToString();
             lblPersonID.Visible = true;
             lblPersonIDTitle.Visible = true;
             pbPersonID.Visible = true;
+            btnDeleteCard.Visible = true;
             FillWithPersonData();
         }
 
@@ -116,24 +134,24 @@ namespace DVLD.Manage_People.User_Controls
         {
             // save person info in the database,
             // if data saved successfuly, then switch to edit mode.
-            Person.FirstName = tbFirstName.Text;
-            Person.LastName = tbLastName.Text;
-            Person.Email = tbEmail.Text;
-            Person.Phone = tbPhone.Text;
-            Person.SecondName = tbSecondName.Text;
-            Person.ThirdName = tbThirdName.Text;
-            Person.NationalNo = tbNationalNo.Text;
-            Person.DateOfBirth = dtpDateOfBirth.Value;
-            Person.Address = tbAddress.Text;
-            Person.Gender = (cbGender.Text[0] == 'M' ?
+            person.FirstName = tbFirstName.Text;
+            person.LastName = tbLastName.Text;
+            person.Email = tbEmail.Text;
+            person.Phone = tbPhone.Text;
+            person.SecondName = tbSecondName.Text;
+            person.ThirdName = tbThirdName.Text;
+            person.NationalNo = tbNationalNo.Text;
+            person.DateOfBirth = dtpDateOfBirth.Value;
+            person.Address = tbAddress.Text;
+            person.Gender = (cbGender.Text[0] == 'M' ?
                 clsPeople_BLL.enGender.Male : clsPeople_BLL.enGender.Female);
-            Person.NationalityCountryID = clsCountry_BLL.FindCountry(cbCountries.Text).CountryID;
+            person.NationalityCountryID = clsCountry_BLL.FindCountry(cbCountries.Text).CountryID;
             if (_IsGenderImage() == false)
-                Person.ImageFile = clsUtility.Image.ImageToByteArray(pbProfileImage.Image);
+                person.ImageFile = clsUtility.Image.ImageToByteArray(pbProfileImage.Image);
             else
-                Person.ImageFile = null;
+                person.ImageFile = null;
 
-            if (Person.Save())
+            if (person.Save())
             {
                 _EditMode();
 
@@ -286,6 +304,12 @@ namespace DVLD.Manage_People.User_Controls
                 tooltipHint.Show("Only numbers are allowed.",
                     textBox, new Point(0, textBox.Size.Height), 2000); // 2000ms = 2 seconds
             }
+        }
+
+        private void btnDeleteCard_Click(object sender, EventArgs e)
+        {
+            if (clsUtility.DeletePerson(person))
+                AddMode();
         }
     }
 }

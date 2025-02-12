@@ -1,4 +1,5 @@
-﻿namespace DVLD.Manage_People
+﻿using DVLD.Manage_People.User_Controls;
+namespace DVLD.Manage_People
 {
     partial class AddEditPerson
     {
@@ -29,7 +30,7 @@
         private void InitializeComponent()
         {
             this.ucTitleScreen1 = new ucTitleScreen();
-            this.ucAddPerson1 = new Manage_People.User_Controls.ucAddPerson();
+            this.ucAddPerson1 = new ucAddEditPerson();
             this.SuspendLayout();
             // 
             // ucTitleScreen1
@@ -67,6 +68,6 @@
         #endregion
 
         private ucTitleScreen ucTitleScreen1;
-        private Manage_People.User_Controls.ucAddPerson ucAddPerson1;
+        private ucAddEditPerson ucAddPerson1;
     }
 }

@@ -30,25 +30,15 @@ namespace DVLD.Manage_People
 
         private void btnAddPerson_MouseHover(object sender, EventArgs e)
         {
-            lblDescription.Text = "Add person on DVLD system with own info like name, national number, gender and etc.";
+            lblDescription.Text = "Add person on DVLD system with own info like " +
+                "name, national number, gender and etc.";
         }
 
         private void btnFindPerson_MouseHover(object sender, EventArgs e)
         {
             lblDescription.Text = "Find any person on the system by person ID or" +
-                " national number of the person.";
-        }
-
-        private void btnEditPerson_MouseEnter(object sender, EventArgs e)
-        {
-            lblDescription.Text = "Find the person then edit all details directly.";
-        }
-
-        private void btnRemovePerson_MouseEnter(object sender, EventArgs e)
-        {
-            lblDescription.Text = "Remove person from the system at all, " +
-                "the person who have any driving license or linked with at least" +
-                " one user can not removed!";
+                " national number of the person, then person info will be shown and " +
+                "you can edit or delete person card directly.";
         }
 
         private void btnOption_MouseLeave(object sender, EventArgs e)

@@ -29,14 +29,12 @@
         private void InitializeComponent()
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblDescriptionTitle = new System.Windows.Forms.Label();
-            this.lblDescription = new System.Windows.Forms.Label();
-            this.ucTitleScreen1 = new ucTitleScreen();
             this.btnListPeople = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddPerson = new Guna.UI2.WinForms.Guna2Button();
             this.btnFindPerson = new Guna.UI2.WinForms.Guna2Button();
-            this.btnEditPerson = new Guna.UI2.WinForms.Guna2Button();
-            this.btnRemovePerson = new Guna.UI2.WinForms.Guna2Button();
+            this.lblDescriptionTitle = new System.Windows.Forms.Label();
+            this.lblDescription = new System.Windows.Forms.Label();
+            this.ucTitleScreen1 = new ucTitleScreen();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,43 +43,10 @@
             this.flowLayoutPanel1.Controls.Add(this.btnListPeople);
             this.flowLayoutPanel1.Controls.Add(this.btnAddPerson);
             this.flowLayoutPanel1.Controls.Add(this.btnFindPerson);
-            this.flowLayoutPanel1.Controls.Add(this.btnEditPerson);
-            this.flowLayoutPanel1.Controls.Add(this.btnRemovePerson);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(52, 168);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(922, 629);
             this.flowLayoutPanel1.TabIndex = 2;
-            // 
-            // lblDescriptionTitle
-            // 
-            this.lblDescriptionTitle.AutoSize = true;
-            this.lblDescriptionTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblDescriptionTitle.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
-            this.lblDescriptionTitle.Location = new System.Drawing.Point(1042, 168);
-            this.lblDescriptionTitle.Name = "lblDescriptionTitle";
-            this.lblDescriptionTitle.Size = new System.Drawing.Size(233, 40);
-            this.lblDescriptionTitle.TabIndex = 3;
-            this.lblDescriptionTitle.Text = "• Description:";
-            this.lblDescriptionTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblDescription
-            // 
-            this.lblDescription.BackColor = System.Drawing.Color.Transparent;
-            this.lblDescription.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
-            this.lblDescription.Location = new System.Drawing.Point(1042, 227);
-            this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(680, 570);
-            this.lblDescription.TabIndex = 4;
-            this.lblDescription.Text = "Hover on any option to show details.";
-            // 
-            // ucTitleScreen1
-            // 
-            this.ucTitleScreen1.BackColor = System.Drawing.Color.LavenderBlush;
-            this.ucTitleScreen1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ucTitleScreen1.Location = new System.Drawing.Point(0, 0);
-            this.ucTitleScreen1.Name = "ucTitleScreen1";
-            this.ucTitleScreen1.Size = new System.Drawing.Size(1775, 145);
-            this.ucTitleScreen1.TabIndex = 5;
             // 
             // btnListPeople
             // 
@@ -161,55 +126,36 @@
             this.btnFindPerson.MouseEnter += new System.EventHandler(this.btnFindPerson_MouseHover);
             this.btnFindPerson.MouseLeave += new System.EventHandler(this.btnOption_MouseLeave);
             // 
-            // btnEditPerson
+            // lblDescriptionTitle
             // 
-            this.btnEditPerson.Animated = true;
-            this.btnEditPerson.BackColor = System.Drawing.Color.Transparent;
-            this.btnEditPerson.CheckedState.Parent = this.btnEditPerson;
-            this.btnEditPerson.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.btnEditPerson.CustomImages.Parent = this.btnEditPerson;
-            this.btnEditPerson.FillColor = System.Drawing.Color.Transparent;
-            this.btnEditPerson.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
-            this.btnEditPerson.ForeColor = System.Drawing.Color.Black;
-            this.btnEditPerson.HoverState.Parent = this.btnEditPerson;
-            this.btnEditPerson.Image = global::DVLD.Properties.Resources.Edit_Person;
-            this.btnEditPerson.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnEditPerson.ImageOffset = new System.Drawing.Point(40, -20);
-            this.btnEditPerson.ImageSize = new System.Drawing.Size(200, 200);
-            this.btnEditPerson.Location = new System.Drawing.Point(3, 309);
-            this.btnEditPerson.Name = "btnEditPerson";
-            this.btnEditPerson.ShadowDecoration.Parent = this.btnEditPerson;
-            this.btnEditPerson.Size = new System.Drawing.Size(300, 300);
-            this.btnEditPerson.TabIndex = 4;
-            this.btnEditPerson.Text = "Edit Person Card";
-            this.btnEditPerson.TextOffset = new System.Drawing.Point(0, 100);
-            this.btnEditPerson.MouseEnter += new System.EventHandler(this.btnEditPerson_MouseEnter);
-            this.btnEditPerson.MouseLeave += new System.EventHandler(this.btnOption_MouseLeave);
+            this.lblDescriptionTitle.AutoSize = true;
+            this.lblDescriptionTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblDescriptionTitle.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
+            this.lblDescriptionTitle.Location = new System.Drawing.Point(1042, 168);
+            this.lblDescriptionTitle.Name = "lblDescriptionTitle";
+            this.lblDescriptionTitle.Size = new System.Drawing.Size(233, 40);
+            this.lblDescriptionTitle.TabIndex = 3;
+            this.lblDescriptionTitle.Text = "• Description:";
+            this.lblDescriptionTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnRemovePerson
+            // lblDescription
             // 
-            this.btnRemovePerson.Animated = true;
-            this.btnRemovePerson.BackColor = System.Drawing.Color.Transparent;
-            this.btnRemovePerson.CheckedState.Parent = this.btnRemovePerson;
-            this.btnRemovePerson.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.btnRemovePerson.CustomImages.Parent = this.btnRemovePerson;
-            this.btnRemovePerson.FillColor = System.Drawing.Color.Transparent;
-            this.btnRemovePerson.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
-            this.btnRemovePerson.ForeColor = System.Drawing.Color.Black;
-            this.btnRemovePerson.HoverState.Parent = this.btnRemovePerson;
-            this.btnRemovePerson.Image = global::DVLD.Properties.Resources.Remove_Person;
-            this.btnRemovePerson.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnRemovePerson.ImageOffset = new System.Drawing.Point(40, -20);
-            this.btnRemovePerson.ImageSize = new System.Drawing.Size(200, 200);
-            this.btnRemovePerson.Location = new System.Drawing.Point(309, 309);
-            this.btnRemovePerson.Name = "btnRemovePerson";
-            this.btnRemovePerson.ShadowDecoration.Parent = this.btnRemovePerson;
-            this.btnRemovePerson.Size = new System.Drawing.Size(300, 300);
-            this.btnRemovePerson.TabIndex = 5;
-            this.btnRemovePerson.Text = "Remove Person";
-            this.btnRemovePerson.TextOffset = new System.Drawing.Point(0, 100);
-            this.btnRemovePerson.MouseEnter += new System.EventHandler(this.btnRemovePerson_MouseEnter);
-            this.btnRemovePerson.MouseLeave += new System.EventHandler(this.btnOption_MouseLeave);
+            this.lblDescription.BackColor = System.Drawing.Color.Transparent;
+            this.lblDescription.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
+            this.lblDescription.Location = new System.Drawing.Point(1042, 227);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(680, 570);
+            this.lblDescription.TabIndex = 4;
+            this.lblDescription.Text = "Hover on any option to show details.";
+            // 
+            // ucTitleScreen1
+            // 
+            this.ucTitleScreen1.BackColor = System.Drawing.Color.LavenderBlush;
+            this.ucTitleScreen1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ucTitleScreen1.Location = new System.Drawing.Point(0, 0);
+            this.ucTitleScreen1.Name = "ucTitleScreen1";
+            this.ucTitleScreen1.Size = new System.Drawing.Size(1775, 145);
+            this.ucTitleScreen1.TabIndex = 5;
             // 
             // ManagePeople
             // 
@@ -235,8 +181,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private Guna.UI2.WinForms.Guna2Button btnListPeople;
         private Guna.UI2.WinForms.Guna2Button btnAddPerson;
-        private Guna.UI2.WinForms.Guna2Button btnRemovePerson;
-        private Guna.UI2.WinForms.Guna2Button btnEditPerson;
         private Guna.UI2.WinForms.Guna2Button btnFindPerson;
         private System.Windows.Forms.Label lblDescriptionTitle;
         private System.Windows.Forms.Label lblDescription;

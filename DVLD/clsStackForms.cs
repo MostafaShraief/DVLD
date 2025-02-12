@@ -91,6 +91,24 @@ namespace DVLD
             return true;
         }
 
+
+        public bool PopFormForever(Panel pnl)
+        {
+            // pop form from backward stack.
+            int count = _stkBackwardForms.Count;
+
+            if (count == 0)
+                return false;
+
+            _stkBackwardForms.Pop();
+            --count;
+
+            if (count > 0)
+                _LoadForm(_stkBackwardForms.First(), pnl);
+
+            return true;
+        }
+
         public bool RestoreForm_Forwarding(Panel pnl)
         {
             // push form to backward stack from forward stack and pop it from forward stack.

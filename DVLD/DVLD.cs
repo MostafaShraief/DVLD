@@ -35,9 +35,20 @@ namespace DVLD
             }
         }
 
-        private void PopForm()
+        internal void PopForm()
         {
             if (stackfroms.PopForm(main_panel))
+            {
+                if (stackfroms.FormsBackwardCount <= 1)
+                    btnBack.Enabled = false;
+
+                btnForward.Enabled = Enabled;
+            }
+        }
+
+        internal void PopFormForever()
+        {
+            if (stackfroms.PopFormForever(main_panel))
             {
                 if (stackfroms.FormsBackwardCount <= 1)
                     btnBack.Enabled = false;

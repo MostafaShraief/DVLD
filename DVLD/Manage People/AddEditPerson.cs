@@ -15,14 +15,32 @@ namespace DVLD.Manage_People
     {
         DVLD _mainForm;
 
-        public AddEditPerson(DVLD mainForm, clsPeople_BLL person = null)
+        public AddEditPerson(DVLD mainForm)
         {
             InitializeComponent();
-            ((ucTitleScreen)ucTitleScreen1).ChangeTitle("Add Person");
+            ((ucTitleScreen)ucTitleScreen1).ChangeTitle("Person Card");
             _mainForm = mainForm;
+            ucAddPerson1.Linker += LinkerMethod;
+        }
 
+        public void GetPerson(clsPeople_BLL person)
+        {
             if (person != null)
                 ucAddPerson1.GetPerson(person);
+        }
+
+        public delegate void _deLinker();
+        public event _deLinker Linker;
+
+        void LinkerMethod()
+        {
+            if (Linker != null)
+                Linker.Invoke();
+        }
+
+        internal void AddMode()
+        {
+            ucAddPerson1.AddMode();
         }
     }
 }

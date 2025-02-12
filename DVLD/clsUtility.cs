@@ -1,4 +1,5 @@
-﻿using DVLD_BLL;
+﻿using DVLD.Manage_People;
+using DVLD_BLL;
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
@@ -43,6 +44,36 @@ namespace DVLD
             }
 
             return strings;
+        }
+
+        public static bool DeletePerson(clsPeople_BLL person)
+        {
+            if (person == null)
+                return false;
+
+            if (MessageBox.Show("Are you sure that you want to delete this person card," +
+                " it will be removed from the system forever.", "Delete Card",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                if (clsPeople_BLL.DeletePerson(person.PersonID))
+                {
+                    MessageBox.Show("Person card has been deleted from the system.", "Deleted Successfully",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                    MessageBox.Show("Person may deleted before or have a license in" +
+                        " the system or have user logs", "Delete Failed",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Process canceled.", "Delete Failed",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            return false;
         }
 
         public static class Characters

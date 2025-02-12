@@ -30,7 +30,7 @@ namespace DVLD_DAL
             bool IsDeleted = false;
 
             SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
-            string query = string.Format($"DELETE FROM {TableName} WHERE {WordFilter} = @{WordFilter};");
+            string query = string.Format($"Use DVLD; DELETE FROM {TableName} WHERE {WordFilter} = @{WordFilter};");
             SqlCommand command = new SqlCommand(query, connection);
 
             if (IsInt)

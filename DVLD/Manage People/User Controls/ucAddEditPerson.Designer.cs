@@ -1,6 +1,6 @@
 ﻿namespace DVLD.Manage_People.User_Controls
 {
-    partial class ucAddPerson
+    partial class ucAddEditPerson
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucAddPerson));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucAddEditPerson));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnRemoveImage = new Guna.UI2.WinForms.Guna2Button();
             this.btnSetImage = new Guna.UI2.WinForms.Guna2Button();
@@ -76,6 +76,7 @@
             this.errorProviderLettersAndSpaces = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderEmail = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderPhoneNumber = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnDeleteCard = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -99,6 +100,7 @@
             this.guna2Panel1.BackColor = System.Drawing.Color.LavenderBlush;
             this.guna2Panel1.BorderColor = System.Drawing.Color.Black;
             this.guna2Panel1.BorderThickness = 3;
+            this.guna2Panel1.Controls.Add(this.btnDeleteCard);
             this.guna2Panel1.Controls.Add(this.btnRemoveImage);
             this.guna2Panel1.Controls.Add(this.btnSetImage);
             this.guna2Panel1.Controls.Add(this.tbLastName);
@@ -812,6 +814,31 @@
             this.errorProviderPhoneNumber.ContainerControl = this;
             this.errorProviderPhoneNumber.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderPhoneNumber.Icon")));
             // 
+            // btnDeleteCard
+            // 
+            this.btnDeleteCard.Animated = true;
+            this.btnDeleteCard.BackColor = System.Drawing.Color.Transparent;
+            this.btnDeleteCard.BorderThickness = 2;
+            this.btnDeleteCard.CheckedState.Parent = this.btnDeleteCard;
+            this.btnDeleteCard.CustomImages.Parent = this.btnDeleteCard;
+            this.btnDeleteCard.FillColor = System.Drawing.Color.Transparent;
+            this.btnDeleteCard.Font = new System.Drawing.Font("Gadugi", 9F, System.Drawing.FontStyle.Bold);
+            this.btnDeleteCard.ForeColor = System.Drawing.Color.Black;
+            this.btnDeleteCard.HoverState.Parent = this.btnDeleteCard;
+            this.btnDeleteCard.Image = global::DVLD.Properties.Resources.trash_bin;
+            this.btnDeleteCard.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnDeleteCard.ImageOffset = new System.Drawing.Point(-10, 0);
+            this.btnDeleteCard.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnDeleteCard.Location = new System.Drawing.Point(1315, 408);
+            this.btnDeleteCard.Name = "btnDeleteCard";
+            this.btnDeleteCard.ShadowDecoration.Parent = this.btnDeleteCard;
+            this.btnDeleteCard.Size = new System.Drawing.Size(130, 38);
+            this.btnDeleteCard.TabIndex = 58;
+            this.btnDeleteCard.Text = "Delete Card";
+            this.btnDeleteCard.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnDeleteCard.Visible = false;
+            this.btnDeleteCard.Click += new System.EventHandler(this.btnDeleteCard_Click);
+            // 
             // ucAddPerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -889,5 +916,6 @@
         private System.Windows.Forms.ErrorProvider errorProviderLettersAndSpaces;
         private System.Windows.Forms.ErrorProvider errorProviderEmail;
         private System.Windows.Forms.ErrorProvider errorProviderPhoneNumber;
+        private Guna.UI2.WinForms.Guna2Button btnDeleteCard;
     }
 }
