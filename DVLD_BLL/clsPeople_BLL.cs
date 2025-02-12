@@ -158,7 +158,8 @@ namespace DVLD_BLL
 
             if (_CheckStrings() &&
                 (DateOfBirth.Year > DateTime.Now.Year - 100 && DateOfBirth.Year <= DateTime.Now.Year - 10) &&
-                (String.IsNullOrEmpty(Email) || clsUtility_BLL.CheckEmail(Email)))
+                (String.IsNullOrEmpty(Email) || clsUtility_BLL.CheckEmail(Email)) &&
+                (Phone != null && clsUtility_BLL.Characters.English.ValidateOnlyNumbers(Phone)))
                 IsOk = true;
             
             return IsOk;

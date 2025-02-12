@@ -44,10 +44,12 @@ namespace DVLD.Manage_People
         void _FillDataGridViewWithData()
         {
             dgvPeopleList.DataSource = dtPeople;
+            RefreshRecordCounter();
         }
 
         void _RenewDataTable()
         {
+            // this will refresh 'dtPeople' datatable.
             if (dgvPeopleList.DataSource 
                 is DataTable currentDataSource && 
                 currentDataSource != dtPeople)
@@ -68,6 +70,7 @@ namespace DVLD.Manage_People
         {
             _DisposeUnusedDataTable(); // Dispose old table.
             dgvPeopleList.DataSource = newdt;
+            RefreshRecordCounter();
         }
 
         void _FillDataTableWithPeopleColumns(ref DataTable dt)
@@ -81,6 +84,11 @@ namespace DVLD.Manage_People
         {
             foreach (DataColumn column in dtPeople.Columns)
                 cbFilter.Items.Add(column.ColumnName);
+        }
+
+        void RefreshRecordCounter()
+        {
+            lblNumberOfRecords.Text = dgvPeopleList.Rows.Count.ToString();
         }
 
         private void PeopleList_Load(object sender, EventArgs e)
@@ -228,10 +236,10 @@ namespace DVLD.Manage_People
 
             dgvPeopleList.DataSource = dtFilterd;
 
-            if (person.PersonID == -1)
-                return; // Show empty table of people
-            else
+            if (person.PersonID != -1)
                 person.AddToTable(ref dtFilterd);
+
+            RefreshRecordCounter();
         }
 
         void _FilterByCountry()
@@ -299,12 +307,14 @@ namespace DVLD.Manage_People
         {
             AddEditPerson addEditPerson = new AddEditPerson(_mainForm);
             addEditPerson.GetPersonID(GetPersonIdFromSelectedRow());
+            addEditPerson.Linker += RefreshAll;
             _mainForm.PushNewForm(addEditPerson);
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            clsUtility.DeletePerson(GetPersonIdFromSelectedRow());
+            if (clsUtility.DeletePerson(GetPersonIdFromSelectedRow()))
+                RefreshAll();
         }
 
         private void tbFilter_KeyPress(object sender, KeyPressEventArgs e)
@@ -333,6 +343,17 @@ namespace DVLD.Manage_People
                 default:
                     break;
             }
+        }
+
+        void RefreshAll()
+        {
+            _RenewDataTable();
+            cbFilter.SelectedItem = "None";
+        }
+
+        private void btnRefreshAll_Click(object sender, EventArgs e)
+        {
+            RefreshAll();
         }
     }
 }

@@ -34,6 +34,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PeopleList));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblNumberOfRecords = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.dgvPeopleList = new Guna.UI2.WinForms.Guna2DataGridView();
             this.cmsRow = new ReaLTaiizor.Controls.CrownContextMenuStrip();
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,8 +48,10 @@
             this.cbFilterCriterion = new Guna.UI2.WinForms.Guna2ComboBox();
             this.tbFilter = new Guna.UI2.WinForms.Guna2TextBox();
             this.dtpDateOfBirth = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.btnRefreshAll = new Guna.UI2.WinForms.Guna2Button();
             this.ucTitleScreen1 = new ucTitleScreen();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeopleList)).BeginInit();
             this.cmsRow.SuspendLayout();
             this.flpTools.SuspendLayout();
@@ -56,13 +60,41 @@
             // 
             // guna2Panel1
             // 
+            this.guna2Panel1.Controls.Add(this.lblNumberOfRecords);
+            this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.guna2Panel1.Location = new System.Drawing.Point(0, 808);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel1.Location = new System.Drawing.Point(0, 979);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
-            this.guna2Panel1.Size = new System.Drawing.Size(1331, 27);
+            this.guna2Panel1.Size = new System.Drawing.Size(1775, 49);
             this.guna2Panel1.TabIndex = 2;
+            // 
+            // lblNumberOfRecords
+            // 
+            this.lblNumberOfRecords.AutoSize = true;
+            this.lblNumberOfRecords.BackColor = System.Drawing.Color.Transparent;
+            this.lblNumberOfRecords.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lblNumberOfRecords.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
+            this.lblNumberOfRecords.Location = new System.Drawing.Point(177, 2);
+            this.lblNumberOfRecords.Name = "lblNumberOfRecords";
+            this.lblNumberOfRecords.Size = new System.Drawing.Size(37, 40);
+            this.lblNumberOfRecords.TabIndex = 6;
+            this.lblNumberOfRecords.Text = "0";
+            this.lblNumberOfRecords.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label1.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(3, 2);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(168, 40);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Record/s:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dgvPeopleList
             // 
@@ -99,8 +131,8 @@
             this.dgvPeopleList.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvPeopleList.EnableHeadersVisualStyles = false;
             this.dgvPeopleList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvPeopleList.Location = new System.Drawing.Point(0, 331);
-            this.dgvPeopleList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvPeopleList.Location = new System.Drawing.Point(0, 392);
+            this.dgvPeopleList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvPeopleList.MultiSelect = false;
             this.dgvPeopleList.Name = "dgvPeopleList";
             this.dgvPeopleList.ReadOnly = true;
@@ -108,7 +140,7 @@
             this.dgvPeopleList.RowHeadersWidth = 51;
             this.dgvPeopleList.RowTemplate.Height = 24;
             this.dgvPeopleList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPeopleList.Size = new System.Drawing.Size(1331, 477);
+            this.dgvPeopleList.Size = new System.Drawing.Size(1775, 587);
             this.dgvPeopleList.TabIndex = 3;
             this.dgvPeopleList.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.dgvPeopleList.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -181,8 +213,7 @@
             this.lblManagePeople.BackColor = System.Drawing.Color.Transparent;
             this.lblManagePeople.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblManagePeople.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
-            this.lblManagePeople.Location = new System.Drawing.Point(2, 0);
-            this.lblManagePeople.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblManagePeople.Location = new System.Drawing.Point(3, 0);
             this.lblManagePeople.Name = "lblManagePeople";
             this.lblManagePeople.Size = new System.Drawing.Size(158, 40);
             this.lblManagePeople.TabIndex = 4;
@@ -204,11 +235,11 @@
             this.cbFilter.Items.AddRange(new object[] {
             "None"});
             this.cbFilter.ItemsAppearance.Parent = this.cbFilter;
-            this.cbFilter.Location = new System.Drawing.Point(164, 2);
-            this.cbFilter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbFilter.Location = new System.Drawing.Point(167, 2);
+            this.cbFilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbFilter.Name = "cbFilter";
             this.cbFilter.ShadowDecoration.Parent = this.cbFilter;
-            this.cbFilter.Size = new System.Drawing.Size(186, 36);
+            this.cbFilter.Size = new System.Drawing.Size(247, 36);
             this.cbFilter.TabIndex = 5;
             this.cbFilter.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
             // 
@@ -220,11 +251,10 @@
             this.flpTools.Controls.Add(this.cbFilterCriterion);
             this.flpTools.Controls.Add(this.tbFilter);
             this.flpTools.Controls.Add(this.dtpDateOfBirth);
-            this.flpTools.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flpTools.Location = new System.Drawing.Point(0, 294);
-            this.flpTools.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flpTools.Location = new System.Drawing.Point(0, 349);
+            this.flpTools.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flpTools.Name = "flpTools";
-            this.flpTools.Size = new System.Drawing.Size(1331, 37);
+            this.flpTools.Size = new System.Drawing.Size(1624, 43);
             this.flpTools.TabIndex = 7;
             // 
             // lblDateOfBirthFilter
@@ -232,11 +262,10 @@
             this.lblDateOfBirthFilter.AutoSize = true;
             this.lblDateOfBirthFilter.BackColor = System.Drawing.Color.Transparent;
             this.lblDateOfBirthFilter.Cursor = System.Windows.Forms.Cursors.Default;
-            this.lblDateOfBirthFilter.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
-            this.lblDateOfBirthFilter.Location = new System.Drawing.Point(354, 0);
-            this.lblDateOfBirthFilter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDateOfBirthFilter.Font = new System.Drawing.Font("Gadugi", 18F, System.Drawing.FontStyle.Bold);
+            this.lblDateOfBirthFilter.Location = new System.Drawing.Point(420, 0);
             this.lblDateOfBirthFilter.Name = "lblDateOfBirthFilter";
-            this.lblDateOfBirthFilter.Size = new System.Drawing.Size(241, 40);
+            this.lblDateOfBirthFilter.Size = new System.Drawing.Size(214, 36);
             this.lblDateOfBirthFilter.TabIndex = 8;
             this.lblDateOfBirthFilter.Text = "Filter Date By:";
             this.lblDateOfBirthFilter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -254,11 +283,11 @@
             this.cbFilterCriterion.HoverState.Parent = this.cbFilterCriterion;
             this.cbFilterCriterion.ItemHeight = 30;
             this.cbFilterCriterion.ItemsAppearance.Parent = this.cbFilterCriterion;
-            this.cbFilterCriterion.Location = new System.Drawing.Point(599, 2);
-            this.cbFilterCriterion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbFilterCriterion.Location = new System.Drawing.Point(640, 2);
+            this.cbFilterCriterion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbFilterCriterion.Name = "cbFilterCriterion";
             this.cbFilterCriterion.ShadowDecoration.Parent = this.cbFilterCriterion;
-            this.cbFilterCriterion.Size = new System.Drawing.Size(186, 36);
+            this.cbFilterCriterion.Size = new System.Drawing.Size(247, 36);
             this.cbFilterCriterion.TabIndex = 7;
             this.cbFilterCriterion.SelectedValueChanged += new System.EventHandler(this.tbFilter_TextChanged);
             this.cbFilterCriterion.VisibleChanged += new System.EventHandler(this.cbFilterByValue_VisibleChanged);
@@ -277,13 +306,14 @@
             this.tbFilter.Font = new System.Drawing.Font("Gadugi", 10F, System.Drawing.FontStyle.Bold);
             this.tbFilter.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbFilter.HoverState.Parent = this.tbFilter;
-            this.tbFilter.Location = new System.Drawing.Point(790, 3);
+            this.tbFilter.Location = new System.Drawing.Point(897, 6);
+            this.tbFilter.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.tbFilter.Name = "tbFilter";
             this.tbFilter.PasswordChar = '\0';
             this.tbFilter.PlaceholderText = "";
             this.tbFilter.SelectedText = "";
             this.tbFilter.ShadowDecoration.Parent = this.tbFilter;
-            this.tbFilter.Size = new System.Drawing.Size(185, 28);
+            this.tbFilter.Size = new System.Drawing.Size(247, 32);
             this.tbFilter.TabIndex = 6;
             this.tbFilter.Visible = false;
             this.tbFilter.TextChanged += new System.EventHandler(this.tbFilter_TextChanged);
@@ -296,25 +326,49 @@
             this.dtpDateOfBirth.FillColor = System.Drawing.Color.White;
             this.dtpDateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.dtpDateOfBirth.HoverState.Parent = this.dtpDateOfBirth;
-            this.dtpDateOfBirth.Location = new System.Drawing.Point(980, 2);
-            this.dtpDateOfBirth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpDateOfBirth.Location = new System.Drawing.Point(1154, 2);
+            this.dtpDateOfBirth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpDateOfBirth.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpDateOfBirth.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpDateOfBirth.Name = "dtpDateOfBirth";
             this.dtpDateOfBirth.ShadowDecoration.Parent = this.dtpDateOfBirth;
-            this.dtpDateOfBirth.Size = new System.Drawing.Size(185, 28);
+            this.dtpDateOfBirth.Size = new System.Drawing.Size(247, 36);
             this.dtpDateOfBirth.TabIndex = 9;
             this.dtpDateOfBirth.Value = new System.DateTime(2025, 1, 27, 23, 33, 22, 811);
             this.dtpDateOfBirth.Visible = false;
+            // 
+            // btnRefreshAll
+            // 
+            this.btnRefreshAll.Animated = true;
+            this.btnRefreshAll.BackColor = System.Drawing.Color.Transparent;
+            this.btnRefreshAll.BorderThickness = 2;
+            this.btnRefreshAll.CheckedState.Parent = this.btnRefreshAll;
+            this.btnRefreshAll.CustomImages.Parent = this.btnRefreshAll;
+            this.btnRefreshAll.FillColor = System.Drawing.Color.Transparent;
+            this.btnRefreshAll.Font = new System.Drawing.Font("Gadugi", 9F, System.Drawing.FontStyle.Bold);
+            this.btnRefreshAll.ForeColor = System.Drawing.Color.Black;
+            this.btnRefreshAll.HoverState.Parent = this.btnRefreshAll;
+            this.btnRefreshAll.Image = global::DVLD.Properties.Resources.Refresh;
+            this.btnRefreshAll.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnRefreshAll.ImageOffset = new System.Drawing.Point(-8, 0);
+            this.btnRefreshAll.ImageSize = new System.Drawing.Size(28, 28);
+            this.btnRefreshAll.Location = new System.Drawing.Point(1630, 349);
+            this.btnRefreshAll.Name = "btnRefreshAll";
+            this.btnRefreshAll.ShadowDecoration.Parent = this.btnRefreshAll;
+            this.btnRefreshAll.Size = new System.Drawing.Size(133, 38);
+            this.btnRefreshAll.TabIndex = 59;
+            this.btnRefreshAll.Text = "Refresh All";
+            this.btnRefreshAll.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnRefreshAll.Click += new System.EventHandler(this.btnRefreshAll_Click);
             // 
             // ucTitleScreen1
             // 
             this.ucTitleScreen1.BackColor = System.Drawing.Color.LavenderBlush;
             this.ucTitleScreen1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ucTitleScreen1.Location = new System.Drawing.Point(0, 0);
-            this.ucTitleScreen1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ucTitleScreen1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ucTitleScreen1.Name = "ucTitleScreen1";
-            this.ucTitleScreen1.Size = new System.Drawing.Size(1331, 118);
+            this.ucTitleScreen1.Size = new System.Drawing.Size(1775, 145);
             this.ucTitleScreen1.TabIndex = 8;
             // 
             // errorProvider
@@ -324,20 +378,23 @@
             // 
             // PeopleList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LavenderBlush;
-            this.ClientSize = new System.Drawing.Size(1331, 835);
+            this.ClientSize = new System.Drawing.Size(1775, 1028);
             this.Controls.Add(this.ucTitleScreen1);
             this.Controls.Add(this.flpTools);
             this.Controls.Add(this.dgvPeopleList);
             this.Controls.Add(this.guna2Panel1);
+            this.Controls.Add(this.btnRefreshAll);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "PeopleList";
             this.Tag = "2";
             this.Text = "PeopleList";
             this.Load += new System.EventHandler(this.PeopleList_Load);
+            this.guna2Panel1.ResumeLayout(false);
+            this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeopleList)).EndInit();
             this.cmsRow.ResumeLayout(false);
             this.flpTools.ResumeLayout(false);
@@ -363,5 +420,8 @@
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Label lblNumberOfRecords;
+        private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2Button btnRefreshAll;
     }
 }
