@@ -76,6 +76,36 @@ namespace DVLD
             return false;
         }
 
+        public static bool DeletePerson(int PersonID)
+        {
+            if (PersonID == -1)
+                return false;
+
+            if (MessageBox.Show("Are you sure that you want to delete this person card," +
+                " it will be removed from the system forever.", "Delete Card",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                if (clsPeople_BLL.DeletePerson(PersonID))
+                {
+                    MessageBox.Show("Person card has been deleted from the system.", "Deleted Successfully",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                    MessageBox.Show("Person may deleted before or have a license in" +
+                        " the system or have user logs", "Delete Failed",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Process canceled.", "Delete Failed",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            return false;
+        }
+
         public static class Characters
         {
             private static bool ValidateCharacters(string input, string pattern)

@@ -15,6 +15,8 @@ namespace DVLD.Manage_People
     {
         DVLD _mainForm;
 
+        clsPeople_BLL person;
+
         public AddEditPerson(DVLD mainForm)
         {
             InitializeComponent();
@@ -22,11 +24,20 @@ namespace DVLD.Manage_People
             _mainForm = mainForm;
             ucAddPerson1.Linker += LinkerMethod;
         }
+        public void GetPersonID(int personID)
+        {
+            if (personID != -1)
+                person = clsPeople_BLL.Find(personID);
 
+            ucAddPerson1.GetPerson(person);
+        }
         public void GetPerson(clsPeople_BLL person)
         {
-            if (person != null)
+            if (person != null && person.PersonID != -1)
+            {
+                this.person = person;
                 ucAddPerson1.GetPerson(person);
+            }
         }
 
         public delegate void _deLinker();

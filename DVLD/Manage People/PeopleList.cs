@@ -285,5 +285,26 @@ namespace DVLD.Manage_People
                     break;
             }
         }
+
+        int GetPersonIdFromSelectedRow() => ((int)dgvPeopleList.SelectedRows[0].Cells[0].Value);
+
+        private void showToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowPersonInfo showPersonInfo = new ShowPersonInfo(_mainForm);
+            showPersonInfo.GetPersonID(GetPersonIdFromSelectedRow());
+            _mainForm.PushNewForm(showPersonInfo); 
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddEditPerson addEditPerson = new AddEditPerson(_mainForm);
+            addEditPerson.GetPersonID(GetPersonIdFromSelectedRow());
+            _mainForm.PushNewForm(addEditPerson);
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clsUtility.DeletePerson(GetPersonIdFromSelectedRow());
+        }
     }
 }

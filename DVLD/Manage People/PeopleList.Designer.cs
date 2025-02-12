@@ -33,6 +33,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.dgvPeopleList = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.cmsRow = new ReaLTaiizor.Controls.CrownContextMenuStrip();
+            this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblManagePeople = new System.Windows.Forms.Label();
             this.cbFilter = new Guna.UI2.WinForms.Guna2ComboBox();
             this.flpTools = new System.Windows.Forms.FlowLayoutPanel();
@@ -42,6 +46,7 @@
             this.dtpDateOfBirth = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.ucTitleScreen1 = new ucTitleScreen();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeopleList)).BeginInit();
+            this.cmsRow.SuspendLayout();
             this.flpTools.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,6 +82,7 @@
             this.dgvPeopleList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPeopleList.ColumnHeadersHeight = 30;
             this.dgvPeopleList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvPeopleList.ContextMenuStrip = this.cmsRow;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
@@ -89,6 +95,7 @@
             this.dgvPeopleList.EnableHeadersVisualStyles = false;
             this.dgvPeopleList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvPeopleList.Location = new System.Drawing.Point(0, 408);
+            this.dgvPeopleList.MultiSelect = false;
             this.dgvPeopleList.Name = "dgvPeopleList";
             this.dgvPeopleList.ReadOnly = true;
             this.dgvPeopleList.RowHeadersVisible = false;
@@ -119,6 +126,48 @@
             this.dgvPeopleList.ThemeStyle.RowsStyle.Height = 24;
             this.dgvPeopleList.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvPeopleList.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
+            // cmsRow
+            // 
+            this.cmsRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.cmsRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.cmsRow.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmsRow.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showToolStripMenuItem,
+            this.editToolStripMenuItem,
+            this.deleteToolStripMenuItem});
+            this.cmsRow.Name = "cmsRow";
+            this.cmsRow.Size = new System.Drawing.Size(145, 82);
+            // 
+            // showToolStripMenuItem
+            // 
+            this.showToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.showToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.showToolStripMenuItem.Image = global::DVLD.Properties.Resources.Person_ID;
+            this.showToolStripMenuItem.Name = "showToolStripMenuItem";
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.showToolStripMenuItem.Text = "Show Info";
+            this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.editToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.editToolStripMenuItem.Image = global::DVLD.Properties.Resources.Edit;
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.deleteToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.deleteToolStripMenuItem.Image = global::DVLD.Properties.Resources.trash_bin;
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // lblManagePeople
             // 
@@ -218,7 +267,7 @@
             this.tbFilter.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbFilter.HoverState.Parent = this.tbFilter;
             this.tbFilter.Location = new System.Drawing.Point(921, 4);
-            this.tbFilter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbFilter.Margin = new System.Windows.Forms.Padding(4);
             this.tbFilter.Name = "tbFilter";
             this.tbFilter.PasswordChar = '\0';
             this.tbFilter.PlaceholderText = "";
@@ -271,6 +320,7 @@
             this.Text = "PeopleList";
             this.Load += new System.EventHandler(this.PeopleList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeopleList)).EndInit();
+            this.cmsRow.ResumeLayout(false);
             this.flpTools.ResumeLayout(false);
             this.flpTools.PerformLayout();
             this.ResumeLayout(false);
@@ -288,5 +338,9 @@
         private System.Windows.Forms.Label lblDateOfBirthFilter;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpDateOfBirth;
         private ucTitleScreen ucTitleScreen1;
+        private ReaLTaiizor.Controls.CrownContextMenuStrip cmsRow;
+        private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
     }
 }
