@@ -302,5 +302,30 @@ namespace DVLD_BLL
             }
         }
 
+        public static bool _IsValidUsernameOrPassword(string input, int Length)
+        {
+            string pattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{" + Length.ToString() + ",}$";
+            return Regex.IsMatch(input, pattern);
+        }
+
+        public static string Encrypt(string input, int shift)
+        {
+            string result = "";
+            foreach (char c in input)
+            {
+                result += (char)(c + shift); // Shift each character
+            }
+            return result;
+        }
+
+        public static string Decrypt(string input, int shift)
+        {
+            string result = "";
+            foreach (char c in input)
+            {
+                result += (char)(c - shift); // Reverse the shift
+            }
+            return result;
+        }
     }
 }

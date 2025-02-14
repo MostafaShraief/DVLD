@@ -249,6 +249,7 @@
             this.btnManageUsers.TabIndex = 2;
             this.btnManageUsers.Text = "Manage Users";
             this.btnManageUsers.TextOffset = new System.Drawing.Point(0, 30);
+            this.btnManageUsers.Click += new System.EventHandler(this.btnManageUsers_Click);
             // 
             // main_panel
             // 

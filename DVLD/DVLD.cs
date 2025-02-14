@@ -1,4 +1,5 @@
 ﻿using DVLD.Manage_People;
+using DVLD.Manage_Users;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -92,6 +93,11 @@ namespace DVLD
         private void btnForward_Click(object sender, EventArgs e)
         {
             ForwardForm();
+        }
+
+        private void btnManageUsers_Click(object sender, EventArgs e)
+        {
+            PushNewForm(new ManageUsers(this));
         }
     }
 }

@@ -53,6 +53,7 @@
     <Compile Include="clsPeople_BLL.cs" />
     <Compile Include="clsSave_BLL.cs" />
     <Compile Include="clsSettings.cs" />
+    <Compile Include="clsUsers_BLL.cs" />
     <Compile Include="clsUtility_BLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

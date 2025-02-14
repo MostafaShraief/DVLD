@@ -329,5 +329,13 @@ namespace DVLD_BLL
 
             dataTable.Rows.Add(row);
         }
+
+        public string GetFullName()
+        {
+            return FirstName + ' ' +
+                SecondName + ' ' + 
+                (!String.IsNullOrEmpty(ThirdName) ? ThirdName + ' ' : "") + 
+                LastName;
+        }
     }
 }
