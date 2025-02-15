@@ -44,7 +44,7 @@ namespace DVLD.Manage_People
         void _FillDataGridViewWithData()
         {
             dgvPeopleList.DataSource = dtPeople;
-            RefreshRecordCounter();
+            RefreshRecordsCounter();
         }
 
         void _RenewDataTable()
@@ -70,7 +70,7 @@ namespace DVLD.Manage_People
         {
             _DisposeUnusedDataTable(); // Dispose old table.
             dgvPeopleList.DataSource = newdt;
-            RefreshRecordCounter();
+            RefreshRecordsCounter();
         }
 
         void _FillDataTableWithPeopleColumns(ref DataTable dt)
@@ -86,7 +86,7 @@ namespace DVLD.Manage_People
                 cbFilter.Items.Add(column.ColumnName);
         }
 
-        void RefreshRecordCounter()
+        void RefreshRecordsCounter()
         {
             lblNumberOfRecords.Text = dgvPeopleList.Rows.Count.ToString();
         }
@@ -239,7 +239,7 @@ namespace DVLD.Manage_People
             if (person.PersonID != -1)
                 person.AddToTable(ref dtFilterd);
 
-            RefreshRecordCounter();
+            RefreshRecordsCounter();
         }
 
         void _FilterByCountry()

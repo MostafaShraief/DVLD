@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucAddEditPerson));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnDeleteCard = new Guna.UI2.WinForms.Guna2Button();
             this.btnRemoveImage = new Guna.UI2.WinForms.Guna2Button();
             this.btnSetImage = new Guna.UI2.WinForms.Guna2Button();
             this.tbLastName = new Guna.UI2.WinForms.Guna2TextBox();
@@ -76,7 +77,6 @@
             this.errorProviderLettersAndSpaces = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderEmail = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderPhoneNumber = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnDeleteCard = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -147,6 +147,31 @@
             this.guna2Panel1.Size = new System.Drawing.Size(1500, 557);
             this.guna2Panel1.TabIndex = 1;
             // 
+            // btnDeleteCard
+            // 
+            this.btnDeleteCard.Animated = true;
+            this.btnDeleteCard.BackColor = System.Drawing.Color.Transparent;
+            this.btnDeleteCard.BorderThickness = 2;
+            this.btnDeleteCard.CheckedState.Parent = this.btnDeleteCard;
+            this.btnDeleteCard.CustomImages.Parent = this.btnDeleteCard;
+            this.btnDeleteCard.FillColor = System.Drawing.Color.Transparent;
+            this.btnDeleteCard.Font = new System.Drawing.Font("Gadugi", 9F, System.Drawing.FontStyle.Bold);
+            this.btnDeleteCard.ForeColor = System.Drawing.Color.Black;
+            this.btnDeleteCard.HoverState.Parent = this.btnDeleteCard;
+            this.btnDeleteCard.Image = global::DVLD.Properties.Resources.trash_bin;
+            this.btnDeleteCard.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnDeleteCard.ImageOffset = new System.Drawing.Point(-10, 0);
+            this.btnDeleteCard.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnDeleteCard.Location = new System.Drawing.Point(1315, 408);
+            this.btnDeleteCard.Name = "btnDeleteCard";
+            this.btnDeleteCard.ShadowDecoration.Parent = this.btnDeleteCard;
+            this.btnDeleteCard.Size = new System.Drawing.Size(130, 38);
+            this.btnDeleteCard.TabIndex = 58;
+            this.btnDeleteCard.Text = "Delete Card";
+            this.btnDeleteCard.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnDeleteCard.Visible = false;
+            this.btnDeleteCard.Click += new System.EventHandler(this.btnDeleteCard_Click);
+            // 
             // btnRemoveImage
             // 
             this.btnRemoveImage.Animated = true;
@@ -214,6 +239,7 @@
             this.tbLastName.HoverState.Parent = this.tbLastName;
             this.tbLastName.Location = new System.Drawing.Point(911, 182);
             this.tbLastName.Margin = new System.Windows.Forms.Padding(4);
+            this.tbLastName.MaxLength = 20;
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.PasswordChar = '\0';
             this.tbLastName.PlaceholderText = "";
@@ -254,6 +280,7 @@
             this.tbThirdName.HoverState.Parent = this.tbThirdName;
             this.tbThirdName.Location = new System.Drawing.Point(293, 177);
             this.tbThirdName.Margin = new System.Windows.Forms.Padding(4);
+            this.tbThirdName.MaxLength = 20;
             this.tbThirdName.Name = "tbThirdName";
             this.tbThirdName.PasswordChar = '\0';
             this.tbThirdName.PlaceholderText = "";
@@ -294,6 +321,7 @@
             this.tbSecondName.HoverState.Parent = this.tbSecondName;
             this.tbSecondName.Location = new System.Drawing.Point(955, 109);
             this.tbSecondName.Margin = new System.Windows.Forms.Padding(4);
+            this.tbSecondName.MaxLength = 20;
             this.tbSecondName.Name = "tbSecondName";
             this.tbSecondName.PasswordChar = '\0';
             this.tbSecondName.PlaceholderText = "";
@@ -334,6 +362,7 @@
             this.tbFirstName.HoverState.Parent = this.tbFirstName;
             this.tbFirstName.Location = new System.Drawing.Point(275, 105);
             this.tbFirstName.Margin = new System.Windows.Forms.Padding(4);
+            this.tbFirstName.MaxLength = 20;
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.PasswordChar = '\0';
             this.tbFirstName.PlaceholderText = "";
@@ -399,6 +428,7 @@
             this.tbPhone.HoverState.Parent = this.tbPhone;
             this.tbPhone.Location = new System.Drawing.Point(847, 328);
             this.tbPhone.Margin = new System.Windows.Forms.Padding(4);
+            this.tbPhone.MaxLength = 20;
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.PasswordChar = '\0';
             this.tbPhone.PlaceholderText = "";
@@ -427,6 +457,7 @@
             this.tbAddress.HoverState.Parent = this.tbAddress;
             this.tbAddress.Location = new System.Drawing.Point(233, 482);
             this.tbAddress.Margin = new System.Windows.Forms.Padding(4);
+            this.tbAddress.MaxLength = 500;
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.PasswordChar = '\0';
             this.tbAddress.PlaceholderText = "";
@@ -453,6 +484,7 @@
             this.tbEmail.HoverState.Parent = this.tbEmail;
             this.tbEmail.Location = new System.Drawing.Point(192, 406);
             this.tbEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.tbEmail.MaxLength = 50;
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.PasswordChar = '\0';
             this.tbEmail.PlaceholderText = "";
@@ -504,6 +536,7 @@
             this.tbNationalNo.HoverState.Parent = this.tbNationalNo;
             this.tbNationalNo.Location = new System.Drawing.Point(300, 253);
             this.tbNationalNo.Margin = new System.Windows.Forms.Padding(4);
+            this.tbNationalNo.MaxLength = 20;
             this.tbNationalNo.Name = "tbNationalNo";
             this.tbNationalNo.PasswordChar = '\0';
             this.tbNationalNo.PlaceholderText = "";
@@ -512,6 +545,7 @@
             this.tbNationalNo.Size = new System.Drawing.Size(296, 44);
             this.tbNationalNo.TabIndex = 5;
             this.tbNationalNo.TextChanged += new System.EventHandler(this.tbNationalNo_TextChanged);
+            this.tbNationalNo.Validating += new System.ComponentModel.CancelEventHandler(this.tbNationalNo_Validating);
             // 
             // pictureBox10
             // 
@@ -814,38 +848,13 @@
             this.errorProviderPhoneNumber.ContainerControl = this;
             this.errorProviderPhoneNumber.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderPhoneNumber.Icon")));
             // 
-            // btnDeleteCard
-            // 
-            this.btnDeleteCard.Animated = true;
-            this.btnDeleteCard.BackColor = System.Drawing.Color.Transparent;
-            this.btnDeleteCard.BorderThickness = 2;
-            this.btnDeleteCard.CheckedState.Parent = this.btnDeleteCard;
-            this.btnDeleteCard.CustomImages.Parent = this.btnDeleteCard;
-            this.btnDeleteCard.FillColor = System.Drawing.Color.Transparent;
-            this.btnDeleteCard.Font = new System.Drawing.Font("Gadugi", 9F, System.Drawing.FontStyle.Bold);
-            this.btnDeleteCard.ForeColor = System.Drawing.Color.Black;
-            this.btnDeleteCard.HoverState.Parent = this.btnDeleteCard;
-            this.btnDeleteCard.Image = global::DVLD.Properties.Resources.trash_bin;
-            this.btnDeleteCard.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnDeleteCard.ImageOffset = new System.Drawing.Point(-10, 0);
-            this.btnDeleteCard.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnDeleteCard.Location = new System.Drawing.Point(1315, 408);
-            this.btnDeleteCard.Name = "btnDeleteCard";
-            this.btnDeleteCard.ShadowDecoration.Parent = this.btnDeleteCard;
-            this.btnDeleteCard.Size = new System.Drawing.Size(130, 38);
-            this.btnDeleteCard.TabIndex = 58;
-            this.btnDeleteCard.Text = "Delete Card";
-            this.btnDeleteCard.TextOffset = new System.Drawing.Point(10, 0);
-            this.btnDeleteCard.Visible = false;
-            this.btnDeleteCard.Click += new System.EventHandler(this.btnDeleteCard_Click);
-            // 
-            // ucAddPerson
+            // ucAddEditPerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LavenderBlush;
             this.Controls.Add(this.guna2Panel1);
-            this.Name = "ucAddPerson";
+            this.Name = "ucAddEditPerson";
             this.Size = new System.Drawing.Size(1500, 557);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();

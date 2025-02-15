@@ -48,6 +48,9 @@ namespace DVLD.Manage_People.User_Controls
         public delegate void _deLinker();
         public event _deLinker Linker;
 
+        public delegate void _deGetPersonID(clsPeople_BLL person);
+        public event _deGetPersonID GetPersonIDLinker;
+
         public void GetPerson(clsPeople_BLL person)
         {
             if (person.PersonID != -1)
@@ -108,6 +111,8 @@ namespace DVLD.Manage_People.User_Controls
 
             if (Linker != null)
                 Linker.Invoke();
+            if (GetPersonIDLinker != null)
+                GetPersonIDLinker.Invoke(person);
             lblTitle.Text = "Edit Person Card";
             lblPersonID.Text = person.PersonID.ToString();
             lblPersonID.Visible = true;
@@ -255,6 +260,12 @@ namespace DVLD.Manage_People.User_Controls
 
         private void tbNationalNo_TextChanged(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(tbNationalNo.Text))
+            {
+                errorProviderNationalNo.SetError(tbNationalNo, "Field can not be empty.");
+                return;
+            }
+
             if (clsPeople_BLL.Find(tbNationalNo.Text).PersonID != -1)
                 errorProviderNationalNo.SetError(tbNationalNo, "National Number Is Already Used");
             else
@@ -310,6 +321,20 @@ namespace DVLD.Manage_People.User_Controls
         {
             if (clsUtility.DeletePerson(person))
                 AddMode();
+        }
+
+        private void tbNationalNo_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(tbNationalNo.Text))
+            {
+                errorProviderNationalNo.SetError(tbNationalNo, "Field can not be empty.");
+                return;
+            }
+
+            if (clsPeople_BLL.Find(tbNationalNo.Text).PersonID != -1)
+                errorProviderNationalNo.SetError(tbNationalNo, "National Number Is Already Used");
+            else
+                errorProviderNationalNo.SetError((sender as Guna2TextBox), "");
         }
     }
 }

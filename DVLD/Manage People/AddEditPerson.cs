@@ -23,7 +23,9 @@ namespace DVLD.Manage_People
             ((ucTitleScreen)ucTitleScreen1).ChangeTitle("Person Card");
             _mainForm = mainForm;
             ucAddPerson1.Linker += LinkerMethod;
+            ucAddPerson1.GetPersonIDLinker += GetPersonLinker;
         }
+
         public void GetPersonID(int personID)
         {
             if (personID != -1)
@@ -43,15 +45,22 @@ namespace DVLD.Manage_People
         public delegate void _deLinker();
         public event _deLinker Linker;
 
+        public delegate void _deGetPersonID(clsPeople_BLL person);
+        public event _deGetPersonID GetPersonIDLinker;
+
+        void GetPersonLinker(clsPeople_BLL person)
+        {
+            if (GetPersonIDLinker != null)
+                GetPersonIDLinker(person);
+        }
+
         void LinkerMethod()
         {
             if (Linker != null)
                 Linker.Invoke();
         }
 
-        internal void AddMode()
-        {
+        internal void AddMode() =>
             ucAddPerson1.AddMode();
-        }
     }
 }

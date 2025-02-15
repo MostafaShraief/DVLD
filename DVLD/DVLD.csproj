@@ -110,17 +110,41 @@
     <Compile Include="Manage People\ShowPersonInfo.Designer.cs">
       <DependentUpon>ShowPersonInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Manage People\User Controls\ucFindAndShowInfoPerson.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Manage People\User Controls\ucFindAndShowInfoPerson.Designer.cs">
+      <DependentUpon>ucFindAndShowInfoPerson.cs</DependentUpon>
+    </Compile>
     <Compile Include="Manage People\User Controls\ucAddEditPerson.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Manage People\User Controls\ucAddEditPerson.Designer.cs">
       <DependentUpon>ucAddEditPerson.cs</DependentUpon>
     </Compile>
+    <Compile Include="Manage People\User Controls\ucFindPerson.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Manage People\User Controls\ucFindPerson.Designer.cs">
+      <DependentUpon>ucFindPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manage Users\AddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage Users\AddUser.Designer.cs">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Manage Users\ManageUsers.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Manage Users\ManageUsers.Designer.cs">
       <DependentUpon>ManageUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manage Users\User Controls\ucAddEditUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Manage Users\User Controls\ucAddEditUser.Designer.cs">
+      <DependentUpon>ucAddEditUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Manage Users\UsersList.cs">
       <SubType>Form</SubType>
@@ -164,11 +188,23 @@
     <EmbeddedResource Include="Manage People\ShowPersonInfo.resx">
       <DependentUpon>ShowPersonInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Manage People\User Controls\ucFindAndShowInfoPerson.resx">
+      <DependentUpon>ucFindAndShowInfoPerson.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Manage People\User Controls\ucAddEditPerson.resx">
       <DependentUpon>ucAddEditPerson.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Manage People\User Controls\ucFindPerson.resx">
+      <DependentUpon>ucFindPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage Users\AddUser.resx">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Manage Users\ManageUsers.resx">
       <DependentUpon>ManageUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage Users\User Controls\ucAddEditUser.resx">
+      <DependentUpon>ucAddEditUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manage Users\UsersList.resx">
       <DependentUpon>UsersList.cs</DependentUpon>
@@ -330,6 +366,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image_2025-02-15_12-12-47.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UserName.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image_2025-02-15_15-30-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image_2025-02-15_15-30-251.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Eye.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

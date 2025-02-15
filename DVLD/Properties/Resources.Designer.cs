@@ -123,6 +123,16 @@ namespace DVLD.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Eye {
+            get {
+                object obj = ResourceManager.GetObject("Eye", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Find_Person {
             get {
                 object obj = ResourceManager.GetObject("Find Person", resourceCulture);
@@ -176,6 +186,36 @@ namespace DVLD.Properties {
         internal static System.Drawing.Bitmap image_2025_01_25_22_51_22 {
             get {
                 object obj = ResourceManager.GetObject("image_2025-01-25_22-51-22", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap image_2025_02_15_12_12_47 {
+            get {
+                object obj = ResourceManager.GetObject("image_2025-02-15_12-12-47", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap image_2025_02_15_15_30_25 {
+            get {
+                object obj = ResourceManager.GetObject("image_2025-02-15_15-30-25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap image_2025_02_15_15_30_251 {
+            get {
+                object obj = ResourceManager.GetObject("image_2025-02-15_15-30-251", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -286,6 +326,26 @@ namespace DVLD.Properties {
         internal static System.Drawing.Bitmap National_No {
             get {
                 object obj = ResourceManager.GetObject("National No", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Next {
+            get {
+                object obj = ResourceManager.GetObject("Next", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Password {
+            get {
+                object obj = ResourceManager.GetObject("Password", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -456,6 +516,16 @@ namespace DVLD.Properties {
         internal static System.Drawing.Bitmap trash_bin1 {
             get {
                 object obj = ResourceManager.GetObject("trash-bin1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UserName {
+            get {
+                object obj = ResourceManager.GetObject("UserName", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

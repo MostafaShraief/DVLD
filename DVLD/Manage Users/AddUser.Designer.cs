@@ -1,6 +1,8 @@
-﻿namespace DVLD.Manage_People
+﻿using DVLD.Manage_Users.User_Controls;
+
+namespace DVLD.Manage_Users
 {
-    partial class FindPerson
+    partial class AddUser
     {
         /// <summary>
         /// Required designer variable.
@@ -28,38 +30,39 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.ucAddEditUser1 = new Manage_Users.User_Controls.ucAddEditUser();
             this.ucTitleScreen1 = new ucTitleScreen();
-            this.findAndShowInfoPerson1 = new Manage_People.User_Controls.ucFindAndShowInfoPerson();
             this.SuspendLayout();
+            // 
+            // ucAddEditUser1
+            // 
+            this.ucAddEditUser1.BackColor = System.Drawing.Color.LavenderBlush;
+            this.ucAddEditUser1.Location = new System.Drawing.Point(137, 259);
+            this.ucAddEditUser1.Name = "ucAddEditUser1";
+            this.ucAddEditUser1.Size = new System.Drawing.Size(1507, 767);
+            this.ucAddEditUser1.TabIndex = 11;
             // 
             // ucTitleScreen1
             // 
             this.ucTitleScreen1.BackColor = System.Drawing.Color.LavenderBlush;
             this.ucTitleScreen1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ucTitleScreen1.Location = new System.Drawing.Point(0, 0);
+            this.ucTitleScreen1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ucTitleScreen1.Name = "ucTitleScreen1";
             this.ucTitleScreen1.Size = new System.Drawing.Size(1775, 145);
-            this.ucTitleScreen1.TabIndex = 0;
+            this.ucTitleScreen1.TabIndex = 10;
             // 
-            // findAndShowInfoPerson1
-            // 
-            this.findAndShowInfoPerson1.BackColor = System.Drawing.Color.LavenderBlush;
-            this.findAndShowInfoPerson1.Location = new System.Drawing.Point(134, 209);
-            this.findAndShowInfoPerson1.Name = "findAndShowInfoPerson1";
-            this.findAndShowInfoPerson1.Size = new System.Drawing.Size(1507, 767);
-            this.findAndShowInfoPerson1.TabIndex = 1;
-            // 
-            // FindPerson
+            // AddUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LavenderBlush;
             this.ClientSize = new System.Drawing.Size(1775, 1028);
-            this.Controls.Add(this.findAndShowInfoPerson1);
+            this.Controls.Add(this.ucAddEditUser1);
             this.Controls.Add(this.ucTitleScreen1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FindPerson";
-            this.Text = "FindPerson";
+            this.Name = "AddUser";
+            this.Text = "AddUser";
             this.ResumeLayout(false);
 
         }
@@ -67,6 +70,6 @@
         #endregion
 
         private ucTitleScreen ucTitleScreen1;
-        private Manage_People.User_Controls.ucFindAndShowInfoPerson findAndShowInfoPerson1;
+        private Manage_Users.User_Controls.ucAddEditUser ucAddEditUser1;
     }
 }

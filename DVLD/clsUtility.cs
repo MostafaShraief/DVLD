@@ -193,8 +193,6 @@ namespace DVLD
             }
         }
 
-
-
         public static void _LoadCountryToComboBox(Guna2ComboBox cb, string DefaultCountry = null)
         {
             DataTable dtCountries = clsCountry_BLL.GetListofCountries();
@@ -284,6 +282,11 @@ namespace DVLD
 
                 return image;
             }
+        }
+        public static bool IsValidUsernameOrPassword(string input, int Length)
+        {
+            string pattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{" + Length.ToString() + ",}$";
+            return Regex.IsMatch(input, pattern);
         }
     }
 }

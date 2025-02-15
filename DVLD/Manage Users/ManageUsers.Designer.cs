@@ -127,6 +127,7 @@
             this.btnAddUser.TabIndex = 2;
             this.btnAddUser.Text = "Add User";
             this.btnAddUser.TextOffset = new System.Drawing.Point(0, 100);
+            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             this.btnAddUser.MouseLeave += new System.EventHandler(this.btnOption_MouseLeave);
             // 
             // btnFindUser

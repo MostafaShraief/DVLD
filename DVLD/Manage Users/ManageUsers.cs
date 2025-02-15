@@ -31,5 +31,8 @@ namespace DVLD.Manage_Users
 
         private void btnListUsers_Click(object sender, EventArgs e) =>
             _mainForm.PushNewForm(new UsersList(_mainForm));
+
+        private void btnAddUser_Click(object sender, EventArgs e) =>
+            _mainForm.PushNewForm(new AddUser(_mainForm));
     }
 }

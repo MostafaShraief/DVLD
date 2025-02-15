@@ -25,9 +25,9 @@ namespace DVLD_DAL
             int UserID = -1;
 
             SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
-            string query = "USE [DVLD] INSERT INTO [dbo].[Users] ([UserID]," +
-                " [UserName], [Password], [IsActive]) VALUES (@UserID, @UserName," +
-                " @Password, @IsActive)Select SCOPE_IDENTITY();";
+            string query = "USE [DVLD]; INSERT INTO [dbo].[Users] ([PersonID]," +
+                " [UserName], [Password], [IsActive]) VALUES (@PersonID, @UserName," +
+                " @Password, @IsActive); Select SCOPE_IDENTITY();";
             SqlCommand command = new SqlCommand(query, connection);
 
             _FillCommandWithParameters(ref command, PersonID,

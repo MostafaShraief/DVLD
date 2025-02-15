@@ -1,4 +1,5 @@
-﻿using DVLD_BLL;
+﻿using DVLD.Manage_People.User_Controls;
+using DVLD_BLL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,7 @@ namespace DVLD.Manage_People
         {
             InitializeComponent();
             ((ucTitleScreen)ucTitleScreen1).ChangeTitle("Find Persoon");
+            findAndShowInfoPerson1.GetMainFormObject(mainForm);
             _mainForm = mainForm;
         }
 
@@ -31,36 +33,36 @@ namespace DVLD.Manage_People
             _mainForm.PushNewForm(showPersonInfo);
         }
 
-        void _Find()
-        {
-            if (rbNationalNumebr.Checked && clsPeople_BLL.IsPersonExist(tbFind.Text))
-            {
-                person = clsPeople_BLL.Find(tbFind.Text);
-                ShowPersonInfoForm();
-            }
-            else if (rbID.Checked && int.TryParse(tbFind.Text, out int ID) && clsPeople_BLL.IsPersonExist(ID))
-            {
-                person = clsPeople_BLL.Find(ID);
-                ShowPersonInfoForm();
-            }
-            else
-            {
-                MessageBox.Show("Person Not Found", "Not Found",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //void _Find()
+        //{
+        //    if (rbNationalNumebr.Checked && clsPeople_BLL.IsPersonExist(tbFind.Text))
+        //    {
+        //        person = clsPeople_BLL.Find(tbFind.Text);
+        //        ShowPersonInfoForm();
+        //    }
+        //    else if (rbID.Checked && int.TryParse(tbFind.Text, out int ID) && clsPeople_BLL.IsPersonExist(ID))
+        //    {
+        //        person = clsPeople_BLL.Find(ID);
+        //        ShowPersonInfoForm();
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Person Not Found", "Not Found",
+        //            MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
         private void tbFind_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                _Find();
+                //_Find();
             }
         }
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-            _Find();
+            //_Find();
         }
     }
 }

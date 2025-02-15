@@ -23,22 +23,40 @@ namespace DVLD.UserControl
             InitializeComponent();
         }
 
-        public void GetMainFormObject(DVLD mainForm)
-        {
+        public void GetMainFormObject(DVLD mainForm) =>
             _mainForm = mainForm;
-        }
+
+        bool ShowDeleteButton = true;
+
+        public void HideDeleteButton() =>
+            ShowDeleteButton = false;
 
         clsPeople_BLL person;
         AddEditPerson addEditPerson;
 
+        public bool PopForm = true;
+
         void ResetPersonInfo()
         {
             person = new clsPeople_BLL();
-            FillPersonInfo();
+            btnEditPerson.Visible = false;
+            btnDeleteCard.Visible = false;
+            lblPersonID.Text = "???";
+            lblFullName.Text = "None";
+            lblCountry.Text = "None";
+            lblDateOfBirth.Text = "None";
+            lblAddress.Text = "None";
+            lblEmail.Text = "None";
+            lblGender.Text = "None";
+            lblNationalNo.Text = "None";
+            lblPhone.Text = "None";
+            pbProfile.Image = null;
         }
 
         void FillPersonInfo()
         {
+            btnEditPerson.Visible = btnDeleteCard.Visible = true;
+            btnDeleteCard.Visible = ShowDeleteButton;
             lblPersonID.Text = person.PersonID.ToString();
             lblFullName.Text = String.Format(@"{0} {1} {2} {3}", person.FirstName,
                 person.SecondName, person.ThirdName, person.LastName);
@@ -82,19 +100,25 @@ namespace DVLD.UserControl
             FillPersonInfo();
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
+        private void btnEditPerson_Click(object sender, EventArgs e)
         {
-            addEditPerson = new AddEditPerson(_mainForm);
-            addEditPerson.GetPerson(person);
-            addEditPerson.Linker += ResetPersonInfo;
-            _mainForm.PushNewForm(addEditPerson);
+            if (person != null)
+            {
+                addEditPerson = new AddEditPerson(_mainForm);
+                addEditPerson.GetPerson(person);
+                addEditPerson.Linker += FillPersonInfo;
+                _mainForm.PushNewForm(addEditPerson);
+            }
         }
 
-        private void guna2Button2_Click(object sender, EventArgs e)
+        private void btnDeleteCard_Click(object sender, EventArgs e)
         {
             if (clsUtility.DeletePerson(person))
             {
-                _mainForm.PopFormForever();
+                if (PopForm)
+                    _mainForm.PopFormForever();
+
+                ResetPersonInfo();
 
                 // this step don`t let the user back to edit mode
                 if (addEditPerson != null)
