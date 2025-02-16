@@ -32,15 +32,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucAddEditUser));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlUser = new Guna.UI2.WinForms.Guna2Panel();
+            this.cbChangePassword = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.pbOldPassword = new System.Windows.Forms.PictureBox();
+            this.tbOldPassword = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblOldPassword = new System.Windows.Forms.Label();
             this.icbConfirmPassword = new Guna.UI2.WinForms.Guna2ImageCheckBox();
             this.icbPassword = new Guna.UI2.WinForms.Guna2ImageCheckBox();
             this.cbIsActive = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbConfirmPassword = new System.Windows.Forms.PictureBox();
+            this.pbPassword = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pbPersonID = new System.Windows.Forms.PictureBox();
             this.tbConfirmPassword = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblConfirm = new System.Windows.Forms.Label();
             this.tbPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,26 +52,25 @@
             this.lblUserID = new System.Windows.Forms.Label();
             this.lblUserIDTitle = new System.Windows.Forms.Label();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDeleteUser = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddPerson = new Guna.UI2.WinForms.Guna2Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.ucfindAndShowInfoPerson = new Manage_People.User_Controls.ucFindAndShowInfoPerson();
-            this.pbOldPassword = new System.Windows.Forms.PictureBox();
-            this.tbOldPassword = new Guna.UI2.WinForms.Guna2TextBox();
-            this.lblOldPassword = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnlUser.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbOldPassword)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbConfirmPassword)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPassword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbOldPassword)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.pnlUser);
             this.flowLayoutPanel1.Controls.Add(this.btnSave);
+            this.flowLayoutPanel1.Controls.Add(this.btnDeleteUser);
             this.flowLayoutPanel1.Controls.Add(this.btnAddPerson);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(492, 7);
@@ -79,18 +82,19 @@
             // 
             this.pnlUser.BorderColor = System.Drawing.Color.Black;
             this.pnlUser.BorderThickness = 3;
+            this.pnlUser.Controls.Add(this.cbChangePassword);
             this.pnlUser.Controls.Add(this.pbOldPassword);
             this.pnlUser.Controls.Add(this.tbOldPassword);
             this.pnlUser.Controls.Add(this.lblOldPassword);
             this.pnlUser.Controls.Add(this.icbConfirmPassword);
             this.pnlUser.Controls.Add(this.icbPassword);
             this.pnlUser.Controls.Add(this.cbIsActive);
-            this.pnlUser.Controls.Add(this.pictureBox2);
-            this.pnlUser.Controls.Add(this.pictureBox1);
+            this.pnlUser.Controls.Add(this.pbConfirmPassword);
+            this.pnlUser.Controls.Add(this.pbPassword);
             this.pnlUser.Controls.Add(this.pictureBox6);
             this.pnlUser.Controls.Add(this.pbPersonID);
             this.pnlUser.Controls.Add(this.tbConfirmPassword);
-            this.pnlUser.Controls.Add(this.label3);
+            this.pnlUser.Controls.Add(this.lblConfirm);
             this.pnlUser.Controls.Add(this.tbPassword);
             this.pnlUser.Controls.Add(this.lblPassword);
             this.pnlUser.Controls.Add(this.label1);
@@ -103,6 +107,82 @@
             this.pnlUser.Size = new System.Drawing.Size(862, 192);
             this.pnlUser.TabIndex = 61;
             this.pnlUser.Visible = false;
+            // 
+            // cbChangePassword
+            // 
+            this.cbChangePassword.AutoSize = true;
+            this.cbChangePassword.Checked = true;
+            this.cbChangePassword.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbChangePassword.CheckedState.BorderRadius = 2;
+            this.cbChangePassword.CheckedState.BorderThickness = 0;
+            this.cbChangePassword.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbChangePassword.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbChangePassword.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Bold);
+            this.cbChangePassword.Location = new System.Drawing.Point(659, 85);
+            this.cbChangePassword.Name = "cbChangePassword";
+            this.cbChangePassword.Size = new System.Drawing.Size(197, 28);
+            this.cbChangePassword.TabIndex = 55;
+            this.cbChangePassword.Text = "Change Password";
+            this.cbChangePassword.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.cbChangePassword.UncheckedState.BorderRadius = 2;
+            this.cbChangePassword.UncheckedState.BorderThickness = 0;
+            this.cbChangePassword.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.cbChangePassword.UseVisualStyleBackColor = true;
+            this.cbChangePassword.Visible = false;
+            this.cbChangePassword.CheckedChanged += new System.EventHandler(this.cbChangePassword_CheckedChanged);
+            this.cbChangePassword.VisibleChanged += new System.EventHandler(this.cbChangePassword_CheckedChanged);
+            // 
+            // pbOldPassword
+            // 
+            this.pbOldPassword.BackColor = System.Drawing.Color.Transparent;
+            this.pbOldPassword.Image = global::DVLD.Properties.Resources.Password;
+            this.pbOldPassword.Location = new System.Drawing.Point(470, 134);
+            this.pbOldPassword.Name = "pbOldPassword";
+            this.pbOldPassword.Size = new System.Drawing.Size(40, 40);
+            this.pbOldPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbOldPassword.TabIndex = 54;
+            this.pbOldPassword.TabStop = false;
+            this.pbOldPassword.Visible = false;
+            // 
+            // tbOldPassword
+            // 
+            this.tbOldPassword.Animated = true;
+            this.tbOldPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbOldPassword.DefaultText = "";
+            this.tbOldPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbOldPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbOldPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbOldPassword.DisabledState.Parent = this.tbOldPassword;
+            this.tbOldPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbOldPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbOldPassword.FocusedState.Parent = this.tbOldPassword;
+            this.tbOldPassword.Font = new System.Drawing.Font("Gadugi", 15F, System.Drawing.FontStyle.Bold);
+            this.tbOldPassword.ForeColor = System.Drawing.Color.Black;
+            this.tbOldPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbOldPassword.HoverState.Parent = this.tbOldPassword;
+            this.tbOldPassword.Location = new System.Drawing.Point(659, 134);
+            this.tbOldPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.tbOldPassword.Name = "tbOldPassword";
+            this.tbOldPassword.PasswordChar = '\0';
+            this.tbOldPassword.PlaceholderText = "";
+            this.tbOldPassword.SelectedText = "";
+            this.tbOldPassword.ShadowDecoration.Parent = this.tbOldPassword;
+            this.tbOldPassword.Size = new System.Drawing.Size(179, 40);
+            this.tbOldPassword.TabIndex = 53;
+            this.tbOldPassword.Visible = false;
+            // 
+            // lblOldPassword
+            // 
+            this.lblOldPassword.AutoSize = true;
+            this.lblOldPassword.BackColor = System.Drawing.Color.Transparent;
+            this.lblOldPassword.Font = new System.Drawing.Font("Gadugi", 11F, System.Drawing.FontStyle.Bold);
+            this.lblOldPassword.Location = new System.Drawing.Point(516, 144);
+            this.lblOldPassword.Name = "lblOldPassword";
+            this.lblOldPassword.Size = new System.Drawing.Size(136, 21);
+            this.lblOldPassword.TabIndex = 52;
+            this.lblOldPassword.Text = "Old Password:";
+            this.lblOldPassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblOldPassword.Visible = false;
             // 
             // icbConfirmPassword
             // 
@@ -138,7 +218,7 @@
             this.cbIsActive.CheckedState.BorderThickness = 0;
             this.cbIsActive.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbIsActive.Font = new System.Drawing.Font("Gadugi", 15F, System.Drawing.FontStyle.Bold);
-            this.cbIsActive.Location = new System.Drawing.Point(481, 81);
+            this.cbIsActive.Location = new System.Drawing.Point(481, 82);
             this.cbIsActive.Name = "cbIsActive";
             this.cbIsActive.Size = new System.Drawing.Size(136, 34);
             this.cbIsActive.TabIndex = 49;
@@ -149,27 +229,27 @@
             this.cbIsActive.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.cbIsActive.UseVisualStyleBackColor = true;
             // 
-            // pictureBox2
+            // pbConfirmPassword
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = global::DVLD.Properties.Resources.Password;
-            this.pictureBox2.Location = new System.Drawing.Point(12, 134);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 48;
-            this.pictureBox2.TabStop = false;
+            this.pbConfirmPassword.BackColor = System.Drawing.Color.Transparent;
+            this.pbConfirmPassword.Image = global::DVLD.Properties.Resources.Password;
+            this.pbConfirmPassword.Location = new System.Drawing.Point(12, 134);
+            this.pbConfirmPassword.Name = "pbConfirmPassword";
+            this.pbConfirmPassword.Size = new System.Drawing.Size(40, 40);
+            this.pbConfirmPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbConfirmPassword.TabIndex = 48;
+            this.pbConfirmPassword.TabStop = false;
             // 
-            // pictureBox1
+            // pbPassword
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::DVLD.Properties.Resources.Password;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 78);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 47;
-            this.pictureBox1.TabStop = false;
+            this.pbPassword.BackColor = System.Drawing.Color.Transparent;
+            this.pbPassword.Image = global::DVLD.Properties.Resources.Password;
+            this.pbPassword.Location = new System.Drawing.Point(12, 78);
+            this.pbPassword.Name = "pbPassword";
+            this.pbPassword.Size = new System.Drawing.Size(40, 40);
+            this.pbPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPassword.TabIndex = 47;
+            this.pbPassword.TabStop = false;
             // 
             // pictureBox6
             // 
@@ -186,7 +266,7 @@
             // 
             this.pbPersonID.BackColor = System.Drawing.Color.Transparent;
             this.pbPersonID.Image = global::DVLD.Properties.Resources.ID;
-            this.pbPersonID.Location = new System.Drawing.Point(665, 25);
+            this.pbPersonID.Location = new System.Drawing.Point(477, 25);
             this.pbPersonID.Name = "pbPersonID";
             this.pbPersonID.Size = new System.Drawing.Size(27, 30);
             this.pbPersonID.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -221,17 +301,17 @@
             this.tbConfirmPassword.TabIndex = 44;
             this.tbConfirmPassword.Validating += new System.ComponentModel.CancelEventHandler(this.tbConfirmPassword_Validating);
             // 
-            // label3
+            // lblConfirm
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Gadugi", 15F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(58, 139);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(116, 30);
-            this.label3.TabIndex = 43;
-            this.label3.Text = "Confirm:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblConfirm.AutoSize = true;
+            this.lblConfirm.BackColor = System.Drawing.Color.Transparent;
+            this.lblConfirm.Font = new System.Drawing.Font("Gadugi", 15F, System.Drawing.FontStyle.Bold);
+            this.lblConfirm.Location = new System.Drawing.Point(58, 139);
+            this.lblConfirm.Name = "lblConfirm";
+            this.lblConfirm.Size = new System.Drawing.Size(116, 30);
+            this.lblConfirm.TabIndex = 43;
+            this.lblConfirm.Text = "Confirm:";
+            this.lblConfirm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tbPassword
             // 
@@ -316,7 +396,7 @@
             this.lblUserID.AutoSize = true;
             this.lblUserID.BackColor = System.Drawing.Color.Transparent;
             this.lblUserID.Font = new System.Drawing.Font("Gadugi", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserID.Location = new System.Drawing.Point(809, 25);
+            this.lblUserID.Location = new System.Drawing.Point(622, 25);
             this.lblUserID.Name = "lblUserID";
             this.lblUserID.Size = new System.Drawing.Size(37, 30);
             this.lblUserID.TabIndex = 37;
@@ -329,7 +409,7 @@
             this.lblUserIDTitle.AutoSize = true;
             this.lblUserIDTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblUserIDTitle.Font = new System.Drawing.Font("Gadugi", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserIDTitle.Location = new System.Drawing.Point(697, 25);
+            this.lblUserIDTitle.Location = new System.Drawing.Point(510, 25);
             this.lblUserIDTitle.Name = "lblUserIDTitle";
             this.lblUserIDTitle.Size = new System.Drawing.Size(106, 30);
             this.lblUserIDTitle.TabIndex = 36;
@@ -362,6 +442,31 @@
             this.btnSave.Visible = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // btnDeleteUser
+            // 
+            this.btnDeleteUser.Animated = true;
+            this.btnDeleteUser.BackColor = System.Drawing.Color.Transparent;
+            this.btnDeleteUser.BorderThickness = 2;
+            this.btnDeleteUser.CheckedState.Parent = this.btnDeleteUser;
+            this.btnDeleteUser.CustomImages.Parent = this.btnDeleteUser;
+            this.btnDeleteUser.FillColor = System.Drawing.Color.Transparent;
+            this.btnDeleteUser.Font = new System.Drawing.Font("Gadugi", 9F, System.Drawing.FontStyle.Bold);
+            this.btnDeleteUser.ForeColor = System.Drawing.Color.Black;
+            this.btnDeleteUser.HoverState.Parent = this.btnDeleteUser;
+            this.btnDeleteUser.Image = global::DVLD.Properties.Resources.trash_bin;
+            this.btnDeleteUser.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnDeleteUser.ImageOffset = new System.Drawing.Point(-6, 0);
+            this.btnDeleteUser.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnDeleteUser.Location = new System.Drawing.Point(871, 110);
+            this.btnDeleteUser.Name = "btnDeleteUser";
+            this.btnDeleteUser.ShadowDecoration.Parent = this.btnDeleteUser;
+            this.btnDeleteUser.Size = new System.Drawing.Size(139, 38);
+            this.btnDeleteUser.TabIndex = 63;
+            this.btnDeleteUser.Text = "Delete User";
+            this.btnDeleteUser.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnDeleteUser.Visible = false;
+            this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
+            // 
             // btnAddPerson
             // 
             this.btnAddPerson.Animated = true;
@@ -377,7 +482,7 @@
             this.btnAddPerson.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnAddPerson.ImageOffset = new System.Drawing.Point(-6, 0);
             this.btnAddPerson.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnAddPerson.Location = new System.Drawing.Point(871, 110);
+            this.btnAddPerson.Location = new System.Drawing.Point(871, 66);
             this.btnAddPerson.Name = "btnAddPerson";
             this.btnAddPerson.ShadowDecoration.Parent = this.btnAddPerson;
             this.btnAddPerson.Size = new System.Drawing.Size(139, 38);
@@ -400,58 +505,6 @@
             this.ucfindAndShowInfoPerson.Size = new System.Drawing.Size(1507, 767);
             this.ucfindAndShowInfoPerson.TabIndex = 63;
             // 
-            // pbOldPassword
-            // 
-            this.pbOldPassword.BackColor = System.Drawing.Color.Transparent;
-            this.pbOldPassword.Image = global::DVLD.Properties.Resources.Password;
-            this.pbOldPassword.Location = new System.Drawing.Point(470, 134);
-            this.pbOldPassword.Name = "pbOldPassword";
-            this.pbOldPassword.Size = new System.Drawing.Size(40, 40);
-            this.pbOldPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbOldPassword.TabIndex = 54;
-            this.pbOldPassword.TabStop = false;
-            this.pbOldPassword.Visible = false;
-            // 
-            // tbOldPassword
-            // 
-            this.tbOldPassword.Animated = true;
-            this.tbOldPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbOldPassword.DefaultText = "";
-            this.tbOldPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tbOldPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tbOldPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbOldPassword.DisabledState.Parent = this.tbOldPassword;
-            this.tbOldPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbOldPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbOldPassword.FocusedState.Parent = this.tbOldPassword;
-            this.tbOldPassword.Font = new System.Drawing.Font("Gadugi", 15F, System.Drawing.FontStyle.Bold);
-            this.tbOldPassword.ForeColor = System.Drawing.Color.Black;
-            this.tbOldPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbOldPassword.HoverState.Parent = this.tbOldPassword;
-            this.tbOldPassword.Location = new System.Drawing.Point(659, 134);
-            this.tbOldPassword.Margin = new System.Windows.Forms.Padding(4);
-            this.tbOldPassword.Name = "tbOldPassword";
-            this.tbOldPassword.PasswordChar = '\0';
-            this.tbOldPassword.PlaceholderText = "";
-            this.tbOldPassword.SelectedText = "";
-            this.tbOldPassword.ShadowDecoration.Parent = this.tbOldPassword;
-            this.tbOldPassword.Size = new System.Drawing.Size(179, 40);
-            this.tbOldPassword.TabIndex = 53;
-            this.tbOldPassword.Visible = false;
-            // 
-            // lblOldPassword
-            // 
-            this.lblOldPassword.AutoSize = true;
-            this.lblOldPassword.BackColor = System.Drawing.Color.Transparent;
-            this.lblOldPassword.Font = new System.Drawing.Font("Gadugi", 11F, System.Drawing.FontStyle.Bold);
-            this.lblOldPassword.Location = new System.Drawing.Point(516, 144);
-            this.lblOldPassword.Name = "lblOldPassword";
-            this.lblOldPassword.Size = new System.Drawing.Size(136, 21);
-            this.lblOldPassword.TabIndex = 52;
-            this.lblOldPassword.Text = "Old Password:";
-            this.lblOldPassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblOldPassword.Visible = false;
-            // 
             // ucAddEditUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -464,12 +517,12 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.pnlUser.ResumeLayout(false);
             this.pnlUser.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbOldPassword)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbConfirmPassword)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPassword)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbOldPassword)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -482,14 +535,14 @@
         private Guna.UI2.WinForms.Guna2TextBox tbUserName;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox tbConfirmPassword;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblConfirm;
         private Guna.UI2.WinForms.Guna2TextBox tbPassword;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.PictureBox pbPersonID;
         private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbPassword;
         private Guna.UI2.WinForms.Guna2CheckBox cbIsActive;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pbConfirmPassword;
         private Guna.UI2.WinForms.Guna2ImageCheckBox icbPassword;
         private Guna.UI2.WinForms.Guna2ImageCheckBox icbConfirmPassword;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
@@ -499,5 +552,7 @@
         private System.Windows.Forms.PictureBox pbOldPassword;
         private Guna.UI2.WinForms.Guna2TextBox tbOldPassword;
         private System.Windows.Forms.Label lblOldPassword;
+        private Guna.UI2.WinForms.Guna2CheckBox cbChangePassword;
+        private Guna.UI2.WinForms.Guna2Button btnDeleteUser;
     }
 }

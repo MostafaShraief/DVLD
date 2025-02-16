@@ -1,7 +1,9 @@
 ﻿using DVLD.Manage_People;
 using DVLD.Manage_People.User_Controls;
+using DVLD.UserControl;
 using DVLD_BLL;
 using Guna.UI2.WinForms;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,14 +36,31 @@ namespace DVLD.Manage_Users.User_Controls
             ucfindAndShowInfoPerson.GetMainFormObject(_mainForm);
         }
 
+        public delegate void delChangeTitle(string Title);
+        public delChangeTitle ChangeTitleLinker;
+
         clsPeople_BLL person;
         clsUsers_BLL user;
 
         void FillPersonInfo(clsPeople_BLL person)
         {
-            this.person = person;
-            if (person != null && person.PersonID != -1)
+            if (person == null || person.PersonID == -1)
+                return;
+
+            if (clsUsers_BLL.IsPersonIDAlreadyExist(person.PersonID, user.UserID))
             {
+                this.person = new clsPeople_BLL();
+                ucfindAndShowInfoPerson.ResetData();
+                user.PersonID = -1;
+                pnlUser.Visible = false;
+                btnSave.Visible = false;
+                MessageBox.Show("Person is already a user in the system, please choose another",
+                    "Person Already Exist", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                this.person = person;
+                ucfindAndShowInfoPerson.GetPersonID(person.PersonID);
                 user.PersonID = person.PersonID;
                 pnlUser.Visible = true;
                 btnSave.Visible = true;
@@ -65,7 +84,7 @@ namespace DVLD.Manage_Users.User_Controls
 
             if (clsUtility.IsValidUsernameOrPassword(tbUserName.Text, 5))
             {
-                if (!clsUsers_BLL.IsUserExistByUserName(tbUserName.Text))
+                if (!clsUsers_BLL.IsUserNameAlreadyExist(tbUserName.Text, user.UserID))
                     errorProvider.SetError(sender as Guna2TextBox, "");
                 else
                     errorProvider.SetError(sender as Guna2TextBox, "User name already exist.");
@@ -117,28 +136,76 @@ namespace DVLD.Manage_Users.User_Controls
                 tbConfirmPassword.UseSystemPasswordChar = !icb.Checked;
         }
 
+        void _AddMode()
+        {
+            if (ChangeTitleLinker != null)
+                ChangeTitleLinker("Add User");
+            user = new clsUsers_BLL();
+            ucfindAndShowInfoPerson.GetPersonID(-1);
+            btnDeleteUser.Visible = false;
+            tbUserName.Text = tbPassword.Text = tbOldPassword.Text =
+                tbConfirmPassword.Text = string.Empty;
+            cbChangePassword.Visible = lblUserID.Visible = pbPersonID.Visible = lblUserIDTitle.Visible = 
+                tbOldPassword.Visible = pbOldPassword.Visible = lblOldPassword.Visible = false;
+            pnlUser.Visible = false;
+            cbIsActive.Checked = false;
+            btnSave.Visible = false;
+        }
+
         void _EditMode()
         {
+            if (ChangeTitleLinker != null)
+                ChangeTitleLinker("Edit User");
             lblUserID.Visible = pbPersonID.Visible = lblUserIDTitle.Visible = true;
-            lblUserID.Text = user.PersonID.ToString();
+            lblUserID.Text = user.UserID.ToString();
             tbUserName.Text = user.UserName;
             cbIsActive.Checked = user.IsActive;
             ucfindAndShowInfoPerson.GetPersonID(user.PersonID);
-
-            tbPassword.Text = string.Empty;
-            tbConfirmPassword.Text = string.Empty;
+            cbChangePassword.Visible = true;
+            tbPassword.Text = tbOldPassword.Text =
+                tbConfirmPassword.Text = string.Empty;
             lblPassword.Text = "New Password";
             lblPassword.Font = new Font("Gadugi", 12, FontStyle.Bold);
+            btnDeleteUser.Visible = true;
+        }
+
+        bool ChangePassword()
+        {
+            bool Ok = false;
+
+            if (cbChangePassword.Visible == false && tbPassword.Text == tbConfirmPassword.Text)
+                Ok = user.SetPassword(tbPassword.Text); // add mode: set new password
+            else if (cbChangePassword.Visible && 
+                cbChangePassword.Checked && 
+                tbPassword.Text == tbConfirmPassword.Text) // edit mode: change password
+                Ok = user.ChangePassword(tbPassword.Text, tbOldPassword.    Text);
+            else
+                Ok = true; // edit mode: don`t change password.
+
+            return Ok;
         }
 
         void Save()
         {
+            if (ChangePassword() == false)
+            {
+                if (String.IsNullOrEmpty(tbPassword.Text))
+                    MessageBox.Show("Password field is empty",
+                        "Password Empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (tbPassword.Text != tbConfirmPassword.Text)
+                    MessageBox.Show("Password is not match confirm password",
+                        "Password Not Match", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (cbChangePassword.Visible)
+                    MessageBox.Show("Old password is not correct!",
+                        "Password Not Match", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             user.PersonID = person.PersonID;
             user.UserName = tbUserName.Text;
-            user.SetPassword(tbPassword.Text);
             user.IsActive = cbIsActive.Checked;
 
-            if (tbPassword.Text == tbConfirmPassword.Text && user.Save())
+            if (user.Save())
             {
                 _EditMode();
 
@@ -153,9 +220,21 @@ namespace DVLD.Manage_Users.User_Controls
             }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e) => Save();
+
+        private void cbChangePassword_CheckedChanged(object sender, EventArgs e)
         {
-            Save();
+            if (cbChangePassword.Visible)
+                pbPassword.Visible = pbConfirmPassword.Visible = pbOldPassword.Visible =
+                    tbPassword.Visible = tbConfirmPassword.Visible = tbOldPassword.Visible =
+                    lblPassword.Visible = lblConfirm.Visible = lblOldPassword.Visible =
+                    icbPassword.Visible = icbConfirmPassword.Visible = cbChangePassword.Checked;
+        }
+
+        private void btnDeleteUser_Click(object sender, EventArgs e)
+        {
+            if (clsUtility.clsForms.DeleteUser(user.UserID))
+                _AddMode();
         }
     }
 }

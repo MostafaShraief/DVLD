@@ -37,7 +37,7 @@ namespace DVLD.Manage_Users
             // ucAddEditUser1
             // 
             this.ucAddEditUser1.BackColor = System.Drawing.Color.LavenderBlush;
-            this.ucAddEditUser1.Location = new System.Drawing.Point(137, 259);
+            this.ucAddEditUser1.Location = new System.Drawing.Point(137, 204);
             this.ucAddEditUser1.Name = "ucAddEditUser1";
             this.ucAddEditUser1.Size = new System.Drawing.Size(1507, 767);
             this.ucAddEditUser1.TabIndex = 11;

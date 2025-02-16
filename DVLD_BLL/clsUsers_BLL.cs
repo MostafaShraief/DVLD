@@ -48,8 +48,9 @@ namespace DVLD_BLL
 
             if (clsPeople_BLL.IsPersonExist(PersonID) &&
                 (!String.IsNullOrEmpty(UserName) && clsUtility_BLL._IsValidUsernameOrPassword(UserName, 5) &&
-                !clsUsers_BLL.IsUserExistByUserName(UserName)) &&
-                (!String.IsNullOrEmpty(UserName) && clsUtility_BLL._IsValidUsernameOrPassword(Password, 8)))
+                !clsUsers_BLL.IsUserNameAlreadyExist(UserName, UserID)) &&
+                (!String.IsNullOrEmpty(UserName) && 
+                clsUtility_BLL._IsValidUsernameOrPassword(clsUtility_BLL.Decrypt(Password), 8)))
                 IsOk = true;
 
             return IsOk;
@@ -150,19 +151,37 @@ namespace DVLD_BLL
             clsUsers_DAL.IsUserExistByUserName(UserName);
 
         bool CheckPassword(string Password) =>
-            (clsUtility_BLL.Decrypt(this.Password, clsSettings.DeffaultShiftValue) == Password);
+            (this.Password == clsUtility_BLL.Encrypt(Password));
 
-        public void SetPassword(string Password)
+        public bool SetPassword(string Password)
         {
-            if (_Mode == clsSave_BLL.enMode.New)
-                this.Password = Password;
+            if (_Mode == clsSave_BLL.enMode.New &&
+                clsUtility_BLL._IsValidUsernameOrPassword(Password, 8))
+            {
+                this.Password = clsUtility_BLL.Encrypt(Password);
+                return true; // password is changed.
+            }
+
+            return false; // password is not changed.
         }
 
-        public void ChangePassword(string NewPassword, string OldPassword)
+        public bool ChangePassword(string NewPassword, string OldPassword)
         {
             if (_Mode == clsSave_BLL.enMode.Existing &&
-                    clsUtility_BLL.Decrypt(this.Password, clsSettings.DeffaultShiftValue) == OldPassword)
-                this.Password = NewPassword;
+                clsUtility_BLL._IsValidUsernameOrPassword(Password, 8) &&
+                    CheckPassword(OldPassword))
+            {
+                this.Password = clsUtility_BLL.Encrypt(NewPassword);
+                return true; // password is changed.
+            }
+
+            return false; // password is not changed.
         }
+
+        public static bool IsUserNameAlreadyExist(string UserName, int UserID) =>
+            clsUsers_DAL.IsUserNameAlreadyExist(UserName, UserID);
+
+        public static bool IsPersonIDAlreadyExist(int PersonID, int UserID) =>
+            clsUsers_DAL.IsPersonIDAlreadyExist(PersonID, UserID);
     }
 }

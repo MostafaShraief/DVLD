@@ -51,5 +51,11 @@ namespace DVLD.Manage_People.User_Controls
                     LinkerGetPerson(person);
             }
         }
+
+        public void ResetData()
+        {
+            person = null;
+            ucPersonInfo.GetPerson(person);
+        }
     }
 }

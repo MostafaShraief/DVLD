@@ -308,7 +308,7 @@ namespace DVLD_BLL
             return Regex.IsMatch(input, pattern);
         }
 
-        public static string Encrypt(string input, int shift)
+        public static string Encrypt(string input, int shift = clsSettings.DeffaultShiftValue)
         {
             string result = "";
             foreach (char c in input)
@@ -318,7 +318,7 @@ namespace DVLD_BLL
             return result;
         }
 
-        public static string Decrypt(string input, int shift)
+        public static string Decrypt(string input, int shift = clsSettings.DeffaultShiftValue)
         {
             string result = "";
             foreach (char c in input)

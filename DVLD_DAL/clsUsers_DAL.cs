@@ -265,9 +265,17 @@ namespace DVLD_DAL
             clsUtility_DAL.CheckIsExist("Users", "UserID", UserID, true);
 
         public static bool IsUserExistByPersonID(int PersonID) =>
-            clsUtility_DAL.CheckIsExist("Users", "NationalNo", PersonID, true);
+            clsUtility_DAL.CheckIsExist("Users", "PersonID", PersonID, true);
 
         public static bool IsUserExistByUserName(string UserName) =>
             clsUtility_DAL.CheckIsExist("Users", "UserName", UserName, false);
+
+        public static bool IsUserNameAlreadyExist(string UserName, int UserID) =>
+            clsUtility_DAL.IsValueAlreadyExist(UserName,
+                UserID, "Users", "UserName", "UserID");
+
+        public static bool IsPersonIDAlreadyExist(int PersonID, int UserID) =>
+            clsUtility_DAL.IsValueAlreadyExist(PersonID,
+                UserID, "Users", "PersonID", "UserID");
     }
 }

@@ -48,9 +48,16 @@ namespace DVLD_DAL
             {
                 connection.Open();
 
-                int RowsAffected = command.ExecuteNonQuery();
+                using (command)
+                {
+                    int RowsAffected = command.ExecuteNonQuery();
 
-                IsDeleted = (RowsAffected > 0);
+                    IsDeleted = (RowsAffected > 0);
+                }
+            }
+            catch
+            {
+                IsDeleted = false;
             }
             finally
             {
@@ -87,6 +94,62 @@ namespace DVLD_DAL
                 object result = command.ExecuteScalar();
 
                 IsExist = (result != null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return IsExist;
+        }
+
+        public static bool IsValueAlreadyExist(string Value, int ID,
+            string Table, string ValueName, string IDName)
+        {
+            // this method is used to natinal no or username to ensure no duplicate values.
+            bool IsExist = false;
+
+            SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
+            string query = $"use dvld; select top 1 x = 1 From {Table} " +
+                $"where {ValueName} = @{ValueName} and {IDName} != @{IDName};";
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@" + ValueName, Value);
+            command.Parameters.AddWithValue("@" + IDName, ID);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+                IsExist = (clsUtility_DAL.ConvertObjectToIntID(result) == 1);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return IsExist;
+        }
+
+        public static bool IsValueAlreadyExist(int Value, int ID,
+            string Table, string ValueName, string IDName)
+        {
+            // this method is used to natinal no or username to ensure no duplicate values.
+            bool IsExist = false;
+
+            SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
+            string query = $"use dvld; select top 1 x = 1 From {Table} " +
+                $"where {ValueName} = @{ValueName} and {IDName} != @{IDName};";
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@" + ValueName, Value);
+            command.Parameters.AddWithValue("@" + IDName, ID);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+                IsExist = (clsUtility_DAL.ConvertObjectToIntID(result) == 1);
             }
             finally
             {

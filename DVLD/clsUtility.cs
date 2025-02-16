@@ -47,64 +47,67 @@ namespace DVLD
             return strings;
         }
 
-        public static bool DeletePerson(clsPeople_BLL person)
+        public static class clsForms
         {
-            if (person == null)
-                return false;
-
-            if (MessageBox.Show("Are you sure that you want to delete this person card," +
-                " it will be removed from the system forever.", "Delete Card",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Question,
-                MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            public static bool DeletePerson(int PersonID)
             {
-                if (clsPeople_BLL.DeletePerson(person.PersonID))
+                if (PersonID == -1)
+                    return false;
+
+                if (MessageBox.Show("Are you sure that you want to delete this person card," +
+                    " it will be removed from the system forever.", "Delete Card",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question,
+                    MessageBoxDefaultButton.Button2) == DialogResult.OK)
                 {
-                    MessageBox.Show("Person card has been deleted from the system.", "Deleted Successfully",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return true;
+                    if (clsPeople_BLL.DeletePerson(PersonID))
+                    {
+                        MessageBox.Show("Person card has been deleted from the system.", "Deleted Successfully",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return true;
+                    }
+                    else
+                        MessageBox.Show("Person may deleted before or have a license in" +
+                            " the system or is a user", "Delete Failed",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
-                    MessageBox.Show("Person may deleted before or have a license in" +
-                        " the system or have user logs", "Delete Failed",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                MessageBox.Show("Process canceled.", "Delete Failed",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
-            return false;
-        }
-
-        public static bool DeletePerson(int PersonID)
-        {
-            if (PersonID == -1)
-                return false;
-
-            if (MessageBox.Show("Are you sure that you want to delete this person card," +
-                " it will be removed from the system forever.", "Delete Card",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Question,
-                MessageBoxDefaultButton.Button2) == DialogResult.OK)
-            {
-                if (clsPeople_BLL.DeletePerson(PersonID))
                 {
-                    MessageBox.Show("Person card has been deleted from the system.", "Deleted Successfully",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return true;
+                    MessageBox.Show("Process canceled.", "Delete Failed",
+                        MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+
+                return false;
+            }
+
+            public static bool DeleteUser(int UserID)
+            {
+                if (UserID == -1)
+                    return false;
+
+                if (MessageBox.Show("Are you sure that you want to delete this user," +
+                    " it will be removed from the system forever.", "Delete Card",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question,
+                    MessageBoxDefaultButton.Button2) == DialogResult.OK)
+                {
+                    if (clsUsers_BLL.DeleteUser(UserID))
+                    {
+                        MessageBox.Show("User has been deleted from the system.", "Deleted Successfully",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return true;
+                    }
+                    else
+                        MessageBox.Show("User may deleted before or" +
+                            " have user logs", "Delete Failed",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
-                    MessageBox.Show("Person may deleted before or have a license in" +
-                        " the system or have user logs", "Delete Failed",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                MessageBox.Show("Process canceled.", "Delete Failed",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+                {
+                    MessageBox.Show("Process canceled.", "Delete Failed",
+                        MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
 
-            return false;
+                return false;
+            }
         }
 
         public static class Characters

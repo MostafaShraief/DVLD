@@ -36,7 +36,7 @@ namespace DVLD.UserControl
 
         public bool PopForm = true;
 
-        void ResetPersonInfo()
+        public void ResetPersonInfo()
         {
             person = new clsPeople_BLL();
             btnEditPerson.Visible = false;
@@ -80,9 +80,13 @@ namespace DVLD.UserControl
         {
             if (personID != -1)
                 person = clsPeople_BLL.Find(personID);
-
+            else
+                person = new clsPeople_BLL();
+            
             if (person.PersonID != -1)
                 FillPersonInfo();
+            else
+                ResetPersonInfo();
         }
 
         public void GetNationalNo(string NationalNo)
@@ -96,8 +100,13 @@ namespace DVLD.UserControl
 
         public void GetPerson(clsPeople_BLL person)
         {
-            this.person = person;
-            FillPersonInfo();
+            if (person == null)
+                ResetPersonInfo();
+            else
+            {
+                this.person = person;
+                FillPersonInfo();
+            }
         }
 
         private void btnEditPerson_Click(object sender, EventArgs e)
@@ -113,7 +122,7 @@ namespace DVLD.UserControl
 
         private void btnDeleteCard_Click(object sender, EventArgs e)
         {
-            if (clsUtility.DeletePerson(person))
+            if (clsUtility.clsForms.DeletePerson(person.PersonID))
             {
                 if (PopForm)
                     _mainForm.PopFormForever();

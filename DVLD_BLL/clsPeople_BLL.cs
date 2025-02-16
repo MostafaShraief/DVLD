@@ -157,6 +157,7 @@ namespace DVLD_BLL
             bool IsOk = false;
 
             if (_CheckStrings() &&
+                IsNationalNoAlreadyExist(NationalNo, PersonID) == false &&
                 (DateOfBirth.Year > DateTime.Now.Year - 100 && DateOfBirth.Year <= DateTime.Now.Year - 10) &&
                 (String.IsNullOrEmpty(Email) || clsUtility_BLL.CheckEmail(Email)) &&
                 (Phone != null && clsUtility_BLL.Characters.English.ValidateOnlyNumbers(Phone)))
@@ -167,9 +168,10 @@ namespace DVLD_BLL
 
         void _SaveImage()
         {
+            _RemoveOldImage();
+
             if (ImageFile == null)
             {
-                _RemoveOldImage();
                 ImagePath = null;
                 return;
             }
@@ -182,10 +184,7 @@ namespace DVLD_BLL
 
             // save image in folder.
             if (clsUtility_BLL.Image.SaveImageToPath(image, NewImagePath) == true)
-            {
-                _RemoveOldImage();
                 ImagePath = NewImagePath;
-            }
         }
 
         private bool _AddPerson()
@@ -288,11 +287,21 @@ namespace DVLD_BLL
 
         public static bool DeletePerson(int PersonID)
         {
+            // Remove image file before delete person.
+            clsPeople_BLL person = clsPeople_BLL.Find(PersonID);
+            person._RemoveOldImage();
+
+            // delete person.
             return clsPeople_DAL.DeletePerson(PersonID);
         }
 
         public static bool DeletePerson(string NationalNo)
         {
+            // Remove image file before delete person.
+            clsPeople_BLL person = clsPeople_BLL.Find(NationalNo);
+            person._RemoveOldImage();
+
+            // delete person.
             return clsPeople_DAL.DeletePerson(NationalNo);
         }
 
@@ -337,5 +346,8 @@ namespace DVLD_BLL
                 (!String.IsNullOrEmpty(ThirdName) ? ThirdName + ' ' : "") + 
                 LastName;
         }
+
+        public static bool IsNationalNoAlreadyExist(string NationalNo, int PersonID) =>
+            clsPeople_DAL.IsNationalNoAlreadyExist(NationalNo, PersonID);
     }
 }

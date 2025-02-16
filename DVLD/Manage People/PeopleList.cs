@@ -313,7 +313,7 @@ namespace DVLD.Manage_People
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (clsUtility.DeletePerson(GetPersonIdFromSelectedRow()))
+            if (clsUtility.clsForms.DeletePerson(GetPersonIdFromSelectedRow()))
                 RefreshAll();
         }
 

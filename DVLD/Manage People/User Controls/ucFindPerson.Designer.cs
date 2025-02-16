@@ -153,9 +153,9 @@
             this.lblDescriptionTitle.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
             this.lblDescriptionTitle.Location = new System.Drawing.Point(13, 10);
             this.lblDescriptionTitle.Name = "lblDescriptionTitle";
-            this.lblDescriptionTitle.Size = new System.Drawing.Size(145, 40);
+            this.lblDescriptionTitle.Size = new System.Drawing.Size(264, 40);
             this.lblDescriptionTitle.TabIndex = 59;
-            this.lblDescriptionTitle.Text = "Find By:";
+            this.lblDescriptionTitle.Text = "Find Person By:";
             this.lblDescriptionTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ucFindPerson

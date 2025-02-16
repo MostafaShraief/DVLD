@@ -19,7 +19,11 @@ namespace DVLD.Manage_Users
             InitializeComponent();
             ucTitleScreen1.ChangeTitle("Add User");
             ucAddEditUser1.GetMainForm(mainForm);
+            ucAddEditUser1.ChangeTitleLinker += ChangeTitle;
             _mainForm = mainForm;
         }
+
+        void ChangeTitle(string Title) =>
+            ucTitleScreen1.ChangeTitle(Title);
     }
 }

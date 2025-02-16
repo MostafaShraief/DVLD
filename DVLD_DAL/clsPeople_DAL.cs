@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -274,5 +276,9 @@ namespace DVLD_DAL
         {
             return clsUtility_DAL.CheckIsExist("People", "NationalNo", NationalNo, false);
         }
+
+        public static bool IsNationalNoAlreadyExist(string NationalNo,int PersonID) =>
+            clsUtility_DAL.IsValueAlreadyExist(NationalNo,
+                PersonID, "People", "NationalNo", "PersonID");
     }
 }

@@ -93,6 +93,8 @@ namespace DVLD.Manage_People.User_Controls
             person = new clsPeople_BLL();
             if (Linker != null)
                 Linker.Invoke();
+            if (GetPersonIDLinker != null)
+                GetPersonIDLinker.Invoke(person);
             lblTitle.Text = "Add Person";
             lblPersonID.Visible = false;
             lblPersonIDTitle.Visible = false;
@@ -266,7 +268,7 @@ namespace DVLD.Manage_People.User_Controls
                 return;
             }
 
-            if (clsPeople_BLL.Find(tbNationalNo.Text).PersonID != -1)
+            if (clsPeople_BLL.IsNationalNoAlreadyExist(tbNationalNo.Text, person.PersonID))
                 errorProviderNationalNo.SetError(tbNationalNo, "National Number Is Already Used");
             else
                 errorProviderNationalNo.SetError((sender as Guna2TextBox), "");
@@ -319,7 +321,7 @@ namespace DVLD.Manage_People.User_Controls
 
         private void btnDeleteCard_Click(object sender, EventArgs e)
         {
-            if (clsUtility.DeletePerson(person))
+            if (clsUtility.clsForms.DeletePerson(person.PersonID))
                 AddMode();
         }
 
@@ -331,7 +333,7 @@ namespace DVLD.Manage_People.User_Controls
                 return;
             }
 
-            if (clsPeople_BLL.Find(tbNationalNo.Text).PersonID != -1)
+            if (clsPeople_BLL.IsNationalNoAlreadyExist(tbNationalNo.Text, person.PersonID))
                 errorProviderNationalNo.SetError(tbNationalNo, "National Number Is Already Used");
             else
                 errorProviderNationalNo.SetError((sender as Guna2TextBox), "");
