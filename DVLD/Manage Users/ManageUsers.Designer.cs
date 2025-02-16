@@ -90,7 +90,7 @@
             this.btnListUsers.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
             this.btnListUsers.ForeColor = System.Drawing.Color.Black;
             this.btnListUsers.HoverState.Parent = this.btnListUsers;
-            this.btnListUsers.Image = global::DVLD.Properties.Resources.peoples;
+            this.btnListUsers.Image = global::DVLD.Properties.Resources.Users;
             this.btnListUsers.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnListUsers.ImageOffset = new System.Drawing.Point(40, -20);
             this.btnListUsers.ImageSize = new System.Drawing.Size(200, 200);
@@ -116,7 +116,7 @@
             this.btnAddUser.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
             this.btnAddUser.ForeColor = System.Drawing.Color.Black;
             this.btnAddUser.HoverState.Parent = this.btnAddUser;
-            this.btnAddUser.Image = global::DVLD.Properties.Resources.Add_Person;
+            this.btnAddUser.Image = global::DVLD.Properties.Resources.Add_User;
             this.btnAddUser.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnAddUser.ImageOffset = new System.Drawing.Point(40, -20);
             this.btnAddUser.ImageSize = new System.Drawing.Size(200, 200);

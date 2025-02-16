@@ -134,7 +134,7 @@
             this.btnDeleteCard.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDeleteCard.ImageOffset = new System.Drawing.Point(-10, 0);
             this.btnDeleteCard.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnDeleteCard.Location = new System.Drawing.Point(1166, 486);
+            this.btnDeleteCard.Location = new System.Drawing.Point(1201, 486);
             this.btnDeleteCard.Name = "btnDeleteCard";
             this.btnDeleteCard.ShadowDecoration.Parent = this.btnDeleteCard;
             this.btnDeleteCard.Size = new System.Drawing.Size(130, 38);
@@ -377,7 +377,7 @@
             this.btnEditPerson.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnEditPerson.ImageOffset = new System.Drawing.Point(-10, 0);
             this.btnEditPerson.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnEditPerson.Location = new System.Drawing.Point(1318, 486);
+            this.btnEditPerson.Location = new System.Drawing.Point(1353, 486);
             this.btnEditPerson.Name = "btnEditPerson";
             this.btnEditPerson.ShadowDecoration.Parent = this.btnEditPerson;
             this.btnEditPerson.Size = new System.Drawing.Size(130, 38);

@@ -36,8 +36,33 @@ namespace DVLD.Manage_Users.User_Controls
             ucfindAndShowInfoPerson.GetMainFormObject(_mainForm);
         }
 
+        public void GetUserObject(clsUsers_BLL user)
+        {
+            if (user == null || user.UserID == -1)
+                _AddMode();
+            else
+            {
+                this.user = user;
+                _EditMode();
+            }
+        }
+
+        public void GetUserID(int UserID)
+        {
+            if (UserID == -1 || clsUsers_BLL.IsUserExist(UserID) == false)
+                _AddMode();
+            else
+            {
+                this.user = clsUsers_BLL.FindByUserID(UserID);
+                _EditMode();
+            }
+        }
+
         public delegate void delChangeTitle(string Title);
         public delChangeTitle ChangeTitleLinker;
+
+        public delegate void delGetUser(clsUsers_BLL user);
+        public event delGetUser UserLinker;
 
         clsPeople_BLL person;
         clsUsers_BLL user;
@@ -141,6 +166,8 @@ namespace DVLD.Manage_Users.User_Controls
             if (ChangeTitleLinker != null)
                 ChangeTitleLinker("Add User");
             user = new clsUsers_BLL();
+            if (UserLinker != null)
+                UserLinker(user);
             ucfindAndShowInfoPerson.GetPersonID(-1);
             btnDeleteUser.Visible = false;
             tbUserName.Text = tbPassword.Text = tbOldPassword.Text =
@@ -156,6 +183,8 @@ namespace DVLD.Manage_Users.User_Controls
         {
             if (ChangeTitleLinker != null)
                 ChangeTitleLinker("Edit User");
+            if (UserLinker != null)
+                UserLinker(user);
             lblUserID.Visible = pbPersonID.Visible = lblUserIDTitle.Visible = true;
             lblUserID.Text = user.UserID.ToString();
             tbUserName.Text = user.UserName;

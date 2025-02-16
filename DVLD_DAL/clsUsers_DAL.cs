@@ -92,7 +92,7 @@ namespace DVLD_DAL
             string query = "USE DVLD; SELECT   'User ID' = Users.UserID, 'Person ID' = Users.PersonID, " +
                 "'Full Name' = FirstName + ' ' + SecondName + ' ' + " +
                 "(Case When ThirdName is not null then ThirdName + ' ' end) + " +
-                "People.LastName, Users.UserName, 'Is Active' = Users.IsActive " +
+                "People.LastName, Users.UserName, Users.Password, 'Is Active' = Users.IsActive " +
                 "FROM Users INNER JOIN People ON Users.PersonID = People.PersonID " +
                 "Where UserID = @UserID";
 
@@ -137,7 +137,7 @@ namespace DVLD_DAL
             string query = "SELECT   'User ID' = Users.UserID, 'Person ID' = Users.PersonID, " +
                 "'Full Name' = FirstName + ' ' + SecondName + ' ' + " +
                 "(Case When ThirdName is not null then ThirdName + ' ' end) + " +
-                "People.LastName, Users.UserName, 'Is Active' = Users.IsActive " +
+                "People.LastName, Users.UserName, Users.Password, 'Is Active' = Users.IsActive " +
                 "FROM Users INNER JOIN People ON Users.PersonID = People.PersonID " +
                 "Where PersonID = @PersonID";
 
@@ -182,7 +182,7 @@ namespace DVLD_DAL
             string query = "SELECT   'User ID' = Users.UserID, 'Person ID' = Users.PersonID, " +
                 "'Full Name' = FirstName + ' ' + SecondName + ' ' + " +
                 "(Case When ThirdName is not null then ThirdName + ' ' end) + " +
-                "People.LastName, Users.UserName, 'Is Active' = Users.IsActive " +
+                "People.LastName, Users.UserName, Users.Password, 'Is Active' = Users.IsActive " +
                 "FROM Users INNER JOIN People ON Users.PersonID = People.PersonID " +
                 "Where UserName = @UserName";
 

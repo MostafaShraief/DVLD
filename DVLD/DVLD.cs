@@ -21,6 +21,7 @@ namespace DVLD
             stackfroms = new clsStackForms();
             Main_Menu main_Menu = new Main_Menu(this);
             stackfroms.PushNewForm(main_Menu, main_panel);
+            clsGlobal.MainForm = this;
         }
 
         clsStackForms stackfroms;

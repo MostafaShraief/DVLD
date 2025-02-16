@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsGlobal.cs" />
     <Compile Include="clsUtility.cs" />
     <Compile Include="DVLD.cs">
       <SubType>Form</SubType>
@@ -128,11 +129,11 @@
     <Compile Include="Manage People\User Controls\ucFindPerson.Designer.cs">
       <DependentUpon>ucFindPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manage Users\AddUser.cs">
+    <Compile Include="Manage Users\AddEditUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manage Users\AddUser.Designer.cs">
-      <DependentUpon>AddUser.cs</DependentUpon>
+    <Compile Include="Manage Users\AddEditUser.Designer.cs">
+      <DependentUpon>AddEditUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Manage Users\ManageUsers.cs">
       <SubType>Form</SubType>
@@ -140,11 +141,23 @@
     <Compile Include="Manage Users\ManageUsers.Designer.cs">
       <DependentUpon>ManageUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Manage Users\ShowUserInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage Users\ShowUserInfo.Designer.cs">
+      <DependentUpon>ShowUserInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Manage Users\User Controls\ucAddEditUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Manage Users\User Controls\ucAddEditUser.Designer.cs">
       <DependentUpon>ucAddEditUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manage Users\User Controls\ucUserInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Manage Users\User Controls\ucUserInfo.Designer.cs">
+      <DependentUpon>ucUserInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Manage Users\UsersList.cs">
       <SubType>Form</SubType>
@@ -155,10 +168,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="clsStackForms.cs" />
-    <Compile Include="ucPersonInfo.cs">
+    <Compile Include="Manage People\User Controls\ucPersonInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucPersonInfo.Designer.cs">
+    <Compile Include="Manage People\User Controls\ucPersonInfo.Designer.cs">
       <DependentUpon>ucPersonInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="ucTitleScreen.cs">
@@ -197,14 +210,20 @@
     <EmbeddedResource Include="Manage People\User Controls\ucFindPerson.resx">
       <DependentUpon>ucFindPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manage Users\AddUser.resx">
-      <DependentUpon>AddUser.cs</DependentUpon>
+    <EmbeddedResource Include="Manage Users\AddEditUser.resx">
+      <DependentUpon>AddEditUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manage Users\ManageUsers.resx">
       <DependentUpon>ManageUsers.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Manage Users\ShowUserInfo.resx">
+      <DependentUpon>ShowUserInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Manage Users\User Controls\ucAddEditUser.resx">
       <DependentUpon>ucAddEditUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage Users\User Controls\ucUserInfo.resx">
+      <DependentUpon>ucUserInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manage Users\UsersList.resx">
       <DependentUpon>UsersList.cs</DependentUpon>
@@ -214,7 +233,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucPersonInfo.resx">
+    <EmbeddedResource Include="Manage People\User Controls\ucPersonInfo.resx">
       <DependentUpon>ucPersonInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucTitleScreen.resx">
@@ -387,6 +406,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Users.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add User.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

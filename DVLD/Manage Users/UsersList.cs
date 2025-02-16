@@ -40,7 +40,7 @@ namespace DVLD.Manage_Users
             public void LoadData()
             {
                 dtUsers = clsUsers_BLL.GetListOfUsers();
-                RefreshRecordsCounter();
+                RefreshTable();
             }
 
             public void LoadColumnsToComboBox(Guna2ComboBox comboBox)
@@ -181,6 +181,26 @@ namespace DVLD.Manage_Users
                 else if (cbFilterCriterion.Visible)
                     tbFilter.Focus();
             }    
+        }
+
+        private void showToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowUserInfo showUserInfo = new ShowUserInfo();
+            showUserInfo.GetUserID(GetUserIdFromSelectedRow());
+            clsGlobal.MainForm.PushNewForm(showUserInfo);
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clsGlobal.MainForm.PushNewForm(new AddEditUser());
+        }
+
+        int GetUserIdFromSelectedRow() => ((int)dgvUsersList.SelectedRows[0].Cells[0].Value);
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (clsUtility.clsForms.DeleteUser(GetUserIdFromSelectedRow()))
+                _usersDataTable.LoadData();
         }
     }
 }
