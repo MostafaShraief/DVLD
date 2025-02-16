@@ -27,9 +27,13 @@ namespace DVLD.Manage_Users
         {
             public DataTable dtUsers;
             private Label lblRecordsCounter { get; set; }
+            Guna2DataGridView dataGridView { get; set; }
 
-            public clsUsersDataTable(Label lblRecordsCounter) =>
+            public clsUsersDataTable(Label lblRecordsCounter, Guna2DataGridView dataGridView)
+            {
+                this.dataGridView = dataGridView;
                 this.lblRecordsCounter = lblRecordsCounter;
+            }
 
             public void RefreshTable()
             {
@@ -40,6 +44,7 @@ namespace DVLD.Manage_Users
             public void LoadData()
             {
                 dtUsers = clsUsers_BLL.GetListOfUsers();
+                dataGridView.DataSource = dtUsers;
                 RefreshTable();
             }
 
@@ -81,13 +86,12 @@ namespace DVLD.Manage_Users
 
         private void UsersList_Load(object sender, EventArgs e)
         {
-            _usersDataTable = new clsUsersDataTable(lblNumberOfRecords);
+            _usersDataTable = new clsUsersDataTable(lblNumberOfRecords, dgvUsersList);
             filterProcess = new clsFilterProcess(cbFilter, tbFilter, cbFilterCriterion, _usersDataTable);
             _usersDataTable.LoadData();
             _usersDataTable.LoadColumnsToComboBox(cbFilter);
             _FillFilterCriterion();
             filterProcess.FillListWithItems();
-            dgvUsersList.DataSource = _usersDataTable.dtUsers;
         }
 
         private class clsFilterProcess
@@ -192,7 +196,9 @@ namespace DVLD.Manage_Users
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            clsGlobal.MainForm.PushNewForm(new AddEditUser());
+            AddEditUser addEditUser = new AddEditUser();
+            addEditUser.GetUserID(GetUserIdFromSelectedRow());
+            clsGlobal.MainForm.PushNewForm(addEditUser);
         }
 
         int GetUserIdFromSelectedRow() => ((int)dgvUsersList.SelectedRows[0].Cells[0].Value);

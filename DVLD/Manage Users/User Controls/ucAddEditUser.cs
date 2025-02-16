@@ -196,6 +196,7 @@ namespace DVLD.Manage_Users.User_Controls
             lblPassword.Text = "New Password";
             lblPassword.Font = new Font("Gadugi", 12, FontStyle.Bold);
             btnDeleteUser.Visible = true;
+            pnlUser.Visible = true;
         }
 
         bool ChangePassword()

@@ -137,6 +137,7 @@
             this.cbIsActive.UncheckedState.BorderThickness = 0;
             this.cbIsActive.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.cbIsActive.UseVisualStyleBackColor = true;
+            this.cbIsActive.Click += new System.EventHandler(this.cbIsActive_Click);
             // 
             // lblUserName
             // 

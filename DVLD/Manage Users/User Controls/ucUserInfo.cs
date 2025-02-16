@@ -67,5 +67,10 @@ namespace DVLD.Manage_Users.User_Controls
             if (clsUtility.clsForms.DeleteUser(user.UserID))
                 ResetUserInfo();
         }
+
+        private void cbIsActive_Click(object sender, EventArgs e)
+        {
+            cbIsActive.Checked = !cbIsActive.Checked;
+        }
     }
 }
