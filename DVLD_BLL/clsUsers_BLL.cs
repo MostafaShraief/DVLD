@@ -49,7 +49,7 @@ namespace DVLD_BLL
             if (clsPeople_BLL.IsPersonExist(PersonID) &&
                 (!String.IsNullOrEmpty(UserName) && clsUtility_BLL._IsValidUsernameOrPassword(UserName, 5) &&
                 !clsUsers_BLL.IsUserNameAlreadyExist(UserName, UserID)) &&
-                (!String.IsNullOrEmpty(UserName) && 
+                (!String.IsNullOrEmpty(Password) && 
                 clsUtility_BLL._IsValidUsernameOrPassword(clsUtility_BLL.Decrypt(Password), 8)))
                 IsOk = true;
 
@@ -64,7 +64,7 @@ namespace DVLD_BLL
                 return IsAdded;
 
             UserID = clsUsers_DAL.AddUser(PersonID, UserName,
-                clsUtility_BLL.Decrypt(Password, clsSettings.DeffaultShiftValue), IsActive);
+                Password, IsActive);
 
             IsAdded = (UserID != -1);
 
@@ -79,7 +79,7 @@ namespace DVLD_BLL
                 return IsUpdated;
 
             IsUpdated = clsUsers_DAL.UpdateUser(UserID, PersonID, UserName,
-                clsUtility_BLL.Encrypt(Password, clsSettings.DeffaultShiftValue), IsActive);
+                Password, IsActive);
 
             return IsUpdated;
         }

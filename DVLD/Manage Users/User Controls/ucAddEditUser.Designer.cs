@@ -115,7 +115,7 @@
             this.cbChangePassword.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbChangePassword.CheckedState.BorderRadius = 2;
             this.cbChangePassword.CheckedState.BorderThickness = 0;
-            this.cbChangePassword.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbChangePassword.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.cbChangePassword.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbChangePassword.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Bold);
             this.cbChangePassword.Location = new System.Drawing.Point(659, 85);
@@ -216,7 +216,7 @@
             this.cbIsActive.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbIsActive.CheckedState.BorderRadius = 2;
             this.cbIsActive.CheckedState.BorderThickness = 0;
-            this.cbIsActive.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbIsActive.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.cbIsActive.Font = new System.Drawing.Font("Gadugi", 15F, System.Drawing.FontStyle.Bold);
             this.cbIsActive.Location = new System.Drawing.Point(481, 82);
             this.cbIsActive.Name = "cbIsActive";

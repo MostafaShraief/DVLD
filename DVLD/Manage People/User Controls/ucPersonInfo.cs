@@ -36,6 +36,14 @@ namespace DVLD.UserControl
 
         public bool PopForm = true;
 
+        public clsPeople_BLL SendPerson()
+        {
+            if (person != null)
+                return person;
+
+            return new clsPeople_BLL();
+        }
+
         public void ResetPersonInfo()
         {
             person = new clsPeople_BLL();

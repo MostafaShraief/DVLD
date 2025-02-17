@@ -135,6 +135,12 @@
     <Compile Include="Manage Users\AddEditUser.Designer.cs">
       <DependentUpon>AddEditUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Manage Users\FindUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage Users\FindUser.Designer.cs">
+      <DependentUpon>FindUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Manage Users\ManageUsers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,18 @@
     </Compile>
     <Compile Include="Manage Users\User Controls\ucAddEditUser.Designer.cs">
       <DependentUpon>ucAddEditUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manage Users\User Controls\ucFindAndShowUserInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Manage Users\User Controls\ucFindAndShowUserInfo.Designer.cs">
+      <DependentUpon>ucFindAndShowUserInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manage Users\User Controls\ucFindUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Manage Users\User Controls\ucFindUser.Designer.cs">
+      <DependentUpon>ucFindUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Manage Users\User Controls\ucUserInfo.cs">
       <SubType>UserControl</SubType>
@@ -213,6 +231,9 @@
     <EmbeddedResource Include="Manage Users\AddEditUser.resx">
       <DependentUpon>AddEditUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Manage Users\FindUser.resx">
+      <DependentUpon>FindUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Manage Users\ManageUsers.resx">
       <DependentUpon>ManageUsers.cs</DependentUpon>
     </EmbeddedResource>
@@ -221,6 +242,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Manage Users\User Controls\ucAddEditUser.resx">
       <DependentUpon>ucAddEditUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage Users\User Controls\ucFindAndShowUserInfo.resx">
+      <DependentUpon>ucFindAndShowUserInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage Users\User Controls\ucFindUser.resx">
+      <DependentUpon>ucFindUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manage Users\User Controls\ucUserInfo.resx">
       <DependentUpon>ucUserInfo.cs</DependentUpon>

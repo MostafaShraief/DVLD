@@ -52,6 +52,12 @@ namespace DVLD.Manage_People.User_Controls
             }
         }
 
+        public clsPeople_BLL SendPerson()
+        {
+            return ucPersonInfo.SendPerson();
+        }
+
+
         public void ResetData()
         {
             person = null;

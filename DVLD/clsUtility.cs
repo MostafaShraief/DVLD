@@ -174,11 +174,11 @@ namespace DVLD
                 { ValidationType.OnlyNumbersWithSpaces, ("^[\\d\\s]+$", "Only numbers and spaces allowed!") }
             };
 
-            public static void ValidateKeyPress(object sender, KeyPressEventArgs e, ValidationType validationType, ErrorProvider errorProvider, bool isEnglish = true)
+            public static void ValidateKeyPress(object sender, KeyPressEventArgs e, ValidationType validationType, ErrorProvider errorProvider, bool IsEnglishOnly = true)
             {
                 if (sender is Guna2TextBox textBox == false) return;
 
-                var validationRules = isEnglish ? EnglishValidationRules : AllLanguagesValidationRules;
+                var validationRules = IsEnglishOnly ? EnglishValidationRules : AllLanguagesValidationRules;
                 if (!validationRules.ContainsKey(validationType)) return;
 
                 var (pattern, errorMessage) = validationRules[validationType];

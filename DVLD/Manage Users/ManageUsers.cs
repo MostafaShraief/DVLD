@@ -34,5 +34,10 @@ namespace DVLD.Manage_Users
 
         private void btnAddUser_Click(object sender, EventArgs e) =>
             _mainForm.PushNewForm(new AddEditUser());
+
+        private void btnFindUser_Click(object sender, EventArgs e)
+        {
+            clsGlobal.MainForm.PushNewForm(new FindUser());
+        }
     }
 }

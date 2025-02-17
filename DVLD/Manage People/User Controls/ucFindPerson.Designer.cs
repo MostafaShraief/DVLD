@@ -109,7 +109,7 @@
             this.rbNationalNumebr.AutoSize = true;
             this.rbNationalNumebr.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.rbNationalNumebr.CheckedState.BorderThickness = 0;
-            this.rbNationalNumebr.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rbNationalNumebr.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.rbNationalNumebr.CheckedState.InnerColor = System.Drawing.Color.White;
             this.rbNationalNumebr.CheckedState.InnerOffset = -4;
             this.rbNationalNumebr.Font = new System.Drawing.Font("Gadugi", 15F, System.Drawing.FontStyle.Bold);
@@ -130,7 +130,7 @@
             this.rbID.Checked = true;
             this.rbID.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.rbID.CheckedState.BorderThickness = 0;
-            this.rbID.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rbID.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.rbID.CheckedState.InnerColor = System.Drawing.Color.White;
             this.rbID.CheckedState.InnerOffset = -4;
             this.rbID.Font = new System.Drawing.Font("Gadugi", 15F, System.Drawing.FontStyle.Bold);

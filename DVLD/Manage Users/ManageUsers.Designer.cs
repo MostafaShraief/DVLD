@@ -152,6 +152,7 @@
             this.btnFindUser.TabIndex = 3;
             this.btnFindUser.Text = "Find User";
             this.btnFindUser.TextOffset = new System.Drawing.Point(0, 100);
+            this.btnFindUser.Click += new System.EventHandler(this.btnFindUser_Click);
             this.btnFindUser.MouseLeave += new System.EventHandler(this.btnOption_MouseLeave);
             // 
             // ManageUsers

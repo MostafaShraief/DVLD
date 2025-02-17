@@ -64,7 +64,6 @@ namespace DVLD.Manage_Users.User_Controls
         public delegate void delGetUser(clsUsers_BLL user);
         public event delGetUser UserLinker;
 
-        clsPeople_BLL person;
         clsUsers_BLL user;
 
         void FillPersonInfo(clsPeople_BLL person)
@@ -74,7 +73,6 @@ namespace DVLD.Manage_Users.User_Controls
 
             if (clsUsers_BLL.IsPersonIDAlreadyExist(person.PersonID, user.UserID))
             {
-                this.person = new clsPeople_BLL();
                 ucfindAndShowInfoPerson.ResetData();
                 user.PersonID = -1;
                 pnlUser.Visible = false;
@@ -84,7 +82,6 @@ namespace DVLD.Manage_Users.User_Controls
             }
             else
             {
-                this.person = person;
                 ucfindAndShowInfoPerson.GetPersonID(person.PersonID);
                 user.PersonID = person.PersonID;
                 pnlUser.Visible = true;
@@ -193,6 +190,7 @@ namespace DVLD.Manage_Users.User_Controls
             cbChangePassword.Visible = true;
             tbPassword.Text = tbOldPassword.Text =
                 tbConfirmPassword.Text = string.Empty;
+            btnSave.Visible = true;
             lblPassword.Text = "New Password";
             lblPassword.Font = new Font("Gadugi", 12, FontStyle.Bold);
             btnDeleteUser.Visible = true;
@@ -231,7 +229,7 @@ namespace DVLD.Manage_Users.User_Controls
                 return;
             }
 
-            user.PersonID = person.PersonID;
+            user.PersonID = ucfindAndShowInfoPerson.SendPerson().PersonID;
             user.UserName = tbUserName.Text;
             user.IsActive = cbIsActive.Checked;
 
