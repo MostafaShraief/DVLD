@@ -128,6 +128,7 @@
             this.btnAddUser.Text = "Add User";
             this.btnAddUser.TextOffset = new System.Drawing.Point(0, 100);
             this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
+            this.btnAddUser.MouseEnter += new System.EventHandler(this.btnAddUser_MouseEnter);
             this.btnAddUser.MouseLeave += new System.EventHandler(this.btnOption_MouseLeave);
             // 
             // btnFindUser
@@ -141,7 +142,7 @@
             this.btnFindUser.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
             this.btnFindUser.ForeColor = System.Drawing.Color.Black;
             this.btnFindUser.HoverState.Parent = this.btnFindUser;
-            this.btnFindUser.Image = global::DVLD.Properties.Resources.Find_Person;
+            this.btnFindUser.Image = global::DVLD.Properties.Resources.Find_Userpng;
             this.btnFindUser.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnFindUser.ImageOffset = new System.Drawing.Point(40, -20);
             this.btnFindUser.ImageSize = new System.Drawing.Size(200, 200);
@@ -153,6 +154,7 @@
             this.btnFindUser.Text = "Find User";
             this.btnFindUser.TextOffset = new System.Drawing.Point(0, 100);
             this.btnFindUser.Click += new System.EventHandler(this.btnFindUser_Click);
+            this.btnFindUser.MouseEnter += new System.EventHandler(this.btnFindUser_MouseEnter);
             this.btnFindUser.MouseLeave += new System.EventHandler(this.btnOption_MouseLeave);
             // 
             // ManageUsers

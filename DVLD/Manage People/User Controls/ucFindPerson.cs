@@ -13,7 +13,7 @@ namespace DVLD.Manage_People.User_Controls
 {
     public partial class ucFindPerson : System.Windows.Forms.UserControl
     {
-        DVLD _mainForm;
+        DVLD _mainForm = clsGlobal.MainForm;
 
         public ucFindPerson()
         {

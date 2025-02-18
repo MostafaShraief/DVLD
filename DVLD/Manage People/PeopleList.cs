@@ -15,7 +15,7 @@ namespace DVLD.Manage_People
 {
     public partial class PeopleList : Form
     {
-        DVLD _mainForm;
+        DVLD _mainForm = clsGlobal.MainForm;
 
         public PeopleList(DVLD mainForm)
         {
@@ -298,14 +298,14 @@ namespace DVLD.Manage_People
 
         private void showToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowPersonInfo showPersonInfo = new ShowPersonInfo(_mainForm);
+            ShowPersonInfo showPersonInfo = new ShowPersonInfo();
             showPersonInfo.GetPersonID(GetPersonIdFromSelectedRow());
             _mainForm.PushNewForm(showPersonInfo); 
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddEditPerson addEditPerson = new AddEditPerson(_mainForm);
+            AddEditPerson addEditPerson = new AddEditPerson();
             addEditPerson.GetPersonID(GetPersonIdFromSelectedRow());
             addEditPerson.Linker += RefreshAll;
             _mainForm.PushNewForm(addEditPerson);
@@ -354,6 +354,13 @@ namespace DVLD.Manage_People
         private void btnRefreshAll_Click(object sender, EventArgs e)
         {
             RefreshAll();
+        }
+
+        private void btnAddPerson_Click(object sender, EventArgs e)
+        {
+            AddEditPerson addEditPerson = new AddEditPerson();
+            addEditPerson.Linker += RefreshAll;
+            _mainForm.PushNewForm(addEditPerson);
         }
     }
 }

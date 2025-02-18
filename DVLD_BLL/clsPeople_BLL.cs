@@ -287,22 +287,38 @@ namespace DVLD_BLL
 
         public static bool DeletePerson(int PersonID)
         {
-            // Remove image file before delete person.
-            clsPeople_BLL person = clsPeople_BLL.Find(PersonID);
-            person._RemoveOldImage();
+            bool IsDeleted;
 
             // delete person.
-            return clsPeople_DAL.DeletePerson(PersonID);
+            clsPeople_BLL person = clsPeople_BLL.Find(PersonID);
+            IsDeleted = clsPeople_DAL.DeletePerson(PersonID);
+
+            if (IsDeleted)
+            {
+                // Remove image file after delete person.
+                person._RemoveOldImage();
+            }
+
+            // return result.
+            return IsDeleted;
         }
 
         public static bool DeletePerson(string NationalNo)
         {
-            // Remove image file before delete person.
-            clsPeople_BLL person = clsPeople_BLL.Find(NationalNo);
-            person._RemoveOldImage();
+            bool IsDeleted;
 
             // delete person.
-            return clsPeople_DAL.DeletePerson(NationalNo);
+            clsPeople_BLL person = clsPeople_BLL.Find(NationalNo);
+            IsDeleted = clsPeople_DAL.DeletePerson(NationalNo);
+
+            if (IsDeleted)
+            {
+                // Remove image file after delete person.
+                person._RemoveOldImage();
+            }
+
+            // return result.
+            return IsDeleted;
         }
 
         public static bool IsPersonExist(int PersonID)

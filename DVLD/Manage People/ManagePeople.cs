@@ -12,7 +12,7 @@ namespace DVLD.Manage_People
 {
     public partial class ManagePeople : Form
     {
-        DVLD _mainForm;
+        DVLD _mainForm = clsGlobal.MainForm;
 
         public ManagePeople(DVLD mainForm)
         {
@@ -53,7 +53,7 @@ namespace DVLD.Manage_People
 
         private void btnAddPerson_Click(object sender, EventArgs e)
         {
-            _mainForm.PushNewForm(new AddEditPerson(_mainForm));
+            _mainForm.PushNewForm(new AddEditPerson());
         }
 
         private void btnFindPerson_Click(object sender, EventArgs e)

@@ -32,18 +32,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DVLD));
             this.ElipseForm = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.gpnlTop = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.btnForward = new Guna.UI2.WinForms.Guna2Button();
-            this.btnBack = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.cgpnlLeft = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.flpLeft = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnManagePeople = new Guna.UI2.WinForms.Guna2Button();
-            this.btnManageUsers = new Guna.UI2.WinForms.Guna2Button();
             this.main_panel = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.guna2VSeparator1 = new Guna.UI2.WinForms.Guna2VSeparator();
+            this.btnManagePeople = new Guna.UI2.WinForms.Guna2Button();
+            this.btnManageUsers = new Guna.UI2.WinForms.Guna2Button();
+            this.btnMainMenu = new Guna.UI2.WinForms.Guna2Button();
+            this.btnForward = new Guna.UI2.WinForms.Guna2Button();
+            this.btnBack = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.gpnlTop.SuspendLayout();
             this.cgpnlLeft.SuspendLayout();
             this.flpLeft.SuspendLayout();
@@ -55,6 +56,7 @@
             // 
             // gpnlTop
             // 
+            this.gpnlTop.Controls.Add(this.btnMainMenu);
             this.gpnlTop.Controls.Add(this.btnForward);
             this.gpnlTop.Controls.Add(this.btnBack);
             this.gpnlTop.Controls.Add(this.guna2Button3);
@@ -68,72 +70,6 @@
             this.gpnlTop.ShadowDecoration.Parent = this.gpnlTop;
             this.gpnlTop.Size = new System.Drawing.Size(1920, 52);
             this.gpnlTop.TabIndex = 2;
-            // 
-            // btnForward
-            // 
-            this.btnForward.BackColor = System.Drawing.Color.Transparent;
-            this.btnForward.CheckedState.Parent = this.btnForward;
-            this.btnForward.CustomImages.Parent = this.btnForward;
-            this.btnForward.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnForward.Enabled = false;
-            this.btnForward.FillColor = System.Drawing.Color.Transparent;
-            this.btnForward.Font = new System.Drawing.Font("Freestyle Script", 25.8F);
-            this.btnForward.ForeColor = System.Drawing.Color.Black;
-            this.btnForward.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(200)))), ((int)(((byte)(205)))));
-            this.btnForward.HoverState.Parent = this.btnForward;
-            this.btnForward.Image = global::DVLD.Properties.Resources.Right_Arrow_Current;
-            this.btnForward.ImageSize = new System.Drawing.Size(50, 50);
-            this.btnForward.Location = new System.Drawing.Point(203, 0);
-            this.btnForward.Name = "btnForward";
-            this.btnForward.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(170)))), ((int)(((byte)(175)))));
-            this.btnForward.ShadowDecoration.Parent = this.btnForward;
-            this.btnForward.Size = new System.Drawing.Size(58, 52);
-            this.btnForward.TabIndex = 4;
-            this.btnForward.TabStop = false;
-            this.btnForward.Click += new System.EventHandler(this.btnForward_Click);
-            // 
-            // btnBack
-            // 
-            this.btnBack.BackColor = System.Drawing.Color.Transparent;
-            this.btnBack.CheckedState.Parent = this.btnBack;
-            this.btnBack.CustomImages.Parent = this.btnBack;
-            this.btnBack.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnBack.Enabled = false;
-            this.btnBack.FillColor = System.Drawing.Color.Transparent;
-            this.btnBack.Font = new System.Drawing.Font("Freestyle Script", 25.8F);
-            this.btnBack.ForeColor = System.Drawing.Color.Black;
-            this.btnBack.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(200)))), ((int)(((byte)(205)))));
-            this.btnBack.HoverState.Parent = this.btnBack;
-            this.btnBack.Image = global::DVLD.Properties.Resources.Back;
-            this.btnBack.ImageSize = new System.Drawing.Size(50, 50);
-            this.btnBack.Location = new System.Drawing.Point(145, 0);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(170)))), ((int)(((byte)(175)))));
-            this.btnBack.ShadowDecoration.Parent = this.btnBack;
-            this.btnBack.Size = new System.Drawing.Size(58, 52);
-            this.btnBack.TabIndex = 3;
-            this.btnBack.TabStop = false;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // guna2Button3
-            // 
-            this.guna2Button3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.CheckedState.Parent = this.guna2Button3;
-            this.guna2Button3.CustomImages.Parent = this.guna2Button3;
-            this.guna2Button3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.guna2Button3.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button3.ForeColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.HoverState.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.HoverState.Parent = this.guna2Button3;
-            this.guna2Button3.Image = global::DVLD.Properties.Resources.pick_up_car1;
-            this.guna2Button3.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2Button3.Location = new System.Drawing.Point(0, 0);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.PressedColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.ShadowDecoration.Parent = this.guna2Button3;
-            this.guna2Button3.Size = new System.Drawing.Size(145, 52);
-            this.guna2Button3.TabIndex = 2;
             // 
             // btnMinimize
             // 
@@ -203,6 +139,40 @@
             this.flpLeft.Size = new System.Drawing.Size(145, 1028);
             this.flpLeft.TabIndex = 0;
             // 
+            // main_panel
+            // 
+            this.main_panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.main_panel.FillColor = System.Drawing.Color.LavenderBlush;
+            this.main_panel.FillColor2 = System.Drawing.Color.LavenderBlush;
+            this.main_panel.FillColor3 = System.Drawing.Color.LavenderBlush;
+            this.main_panel.FillColor4 = System.Drawing.Color.LavenderBlush;
+            this.main_panel.Location = new System.Drawing.Point(145, 52);
+            this.main_panel.Name = "main_panel";
+            this.main_panel.Quality = 1;
+            this.main_panel.ShadowDecoration.Parent = this.main_panel;
+            this.main_panel.Size = new System.Drawing.Size(1775, 1028);
+            this.main_panel.TabIndex = 5;
+            // 
+            // guna2Separator1
+            // 
+            this.guna2Separator1.BackColor = System.Drawing.Color.Black;
+            this.guna2Separator1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Separator1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Separator1.Location = new System.Drawing.Point(145, 52);
+            this.guna2Separator1.Name = "guna2Separator1";
+            this.guna2Separator1.Size = new System.Drawing.Size(1775, 3);
+            this.guna2Separator1.TabIndex = 6;
+            // 
+            // guna2VSeparator1
+            // 
+            this.guna2VSeparator1.BackColor = System.Drawing.Color.Black;
+            this.guna2VSeparator1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2VSeparator1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2VSeparator1.Location = new System.Drawing.Point(145, 55);
+            this.guna2VSeparator1.Name = "guna2VSeparator1";
+            this.guna2VSeparator1.Size = new System.Drawing.Size(3, 1025);
+            this.guna2VSeparator1.TabIndex = 7;
+            // 
             // btnManagePeople
             // 
             this.btnManagePeople.Animated = true;
@@ -251,39 +221,94 @@
             this.btnManageUsers.TextOffset = new System.Drawing.Point(0, 30);
             this.btnManageUsers.Click += new System.EventHandler(this.btnManageUsers_Click);
             // 
-            // main_panel
+            // btnMainMenu
             // 
-            this.main_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.main_panel.FillColor = System.Drawing.Color.LavenderBlush;
-            this.main_panel.FillColor2 = System.Drawing.Color.LavenderBlush;
-            this.main_panel.FillColor3 = System.Drawing.Color.LavenderBlush;
-            this.main_panel.FillColor4 = System.Drawing.Color.LavenderBlush;
-            this.main_panel.Location = new System.Drawing.Point(145, 52);
-            this.main_panel.Name = "main_panel";
-            this.main_panel.Quality = 1;
-            this.main_panel.ShadowDecoration.Parent = this.main_panel;
-            this.main_panel.Size = new System.Drawing.Size(1775, 1028);
-            this.main_panel.TabIndex = 5;
+            this.btnMainMenu.BackColor = System.Drawing.Color.Transparent;
+            this.btnMainMenu.CheckedState.Parent = this.btnMainMenu;
+            this.btnMainMenu.CustomImages.Parent = this.btnMainMenu;
+            this.btnMainMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnMainMenu.Enabled = false;
+            this.btnMainMenu.FillColor = System.Drawing.Color.Transparent;
+            this.btnMainMenu.Font = new System.Drawing.Font("Freestyle Script", 25.8F);
+            this.btnMainMenu.ForeColor = System.Drawing.Color.Black;
+            this.btnMainMenu.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(200)))), ((int)(((byte)(205)))));
+            this.btnMainMenu.HoverState.Parent = this.btnMainMenu;
+            this.btnMainMenu.Image = global::DVLD.Properties.Resources.Up_Arrow2;
+            this.btnMainMenu.ImageSize = new System.Drawing.Size(50, 50);
+            this.btnMainMenu.Location = new System.Drawing.Point(261, 0);
+            this.btnMainMenu.Name = "btnMainMenu";
+            this.btnMainMenu.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(170)))), ((int)(((byte)(175)))));
+            this.btnMainMenu.ShadowDecoration.Parent = this.btnMainMenu;
+            this.btnMainMenu.Size = new System.Drawing.Size(58, 52);
+            this.btnMainMenu.TabIndex = 5;
+            this.btnMainMenu.TabStop = false;
+            this.btnMainMenu.Click += new System.EventHandler(this.btnMainMenu_Click);
             // 
-            // guna2Separator1
+            // btnForward
             // 
-            this.guna2Separator1.BackColor = System.Drawing.Color.Black;
-            this.guna2Separator1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Separator1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Separator1.Location = new System.Drawing.Point(145, 52);
-            this.guna2Separator1.Name = "guna2Separator1";
-            this.guna2Separator1.Size = new System.Drawing.Size(1775, 3);
-            this.guna2Separator1.TabIndex = 6;
+            this.btnForward.BackColor = System.Drawing.Color.Transparent;
+            this.btnForward.CheckedState.Parent = this.btnForward;
+            this.btnForward.CustomImages.Parent = this.btnForward;
+            this.btnForward.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnForward.Enabled = false;
+            this.btnForward.FillColor = System.Drawing.Color.Transparent;
+            this.btnForward.Font = new System.Drawing.Font("Freestyle Script", 25.8F);
+            this.btnForward.ForeColor = System.Drawing.Color.Black;
+            this.btnForward.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(200)))), ((int)(((byte)(205)))));
+            this.btnForward.HoverState.Parent = this.btnForward;
+            this.btnForward.Image = global::DVLD.Properties.Resources.Right_Arrow_Current;
+            this.btnForward.ImageSize = new System.Drawing.Size(50, 50);
+            this.btnForward.Location = new System.Drawing.Point(203, 0);
+            this.btnForward.Name = "btnForward";
+            this.btnForward.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(170)))), ((int)(((byte)(175)))));
+            this.btnForward.ShadowDecoration.Parent = this.btnForward;
+            this.btnForward.Size = new System.Drawing.Size(58, 52);
+            this.btnForward.TabIndex = 4;
+            this.btnForward.TabStop = false;
+            this.btnForward.Click += new System.EventHandler(this.btnForward_Click);
             // 
-            // guna2VSeparator1
+            // btnBack
             // 
-            this.guna2VSeparator1.BackColor = System.Drawing.Color.Black;
-            this.guna2VSeparator1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.guna2VSeparator1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2VSeparator1.Location = new System.Drawing.Point(145, 55);
-            this.guna2VSeparator1.Name = "guna2VSeparator1";
-            this.guna2VSeparator1.Size = new System.Drawing.Size(3, 1025);
-            this.guna2VSeparator1.TabIndex = 7;
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.CheckedState.Parent = this.btnBack;
+            this.btnBack.CustomImages.Parent = this.btnBack;
+            this.btnBack.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnBack.Enabled = false;
+            this.btnBack.FillColor = System.Drawing.Color.Transparent;
+            this.btnBack.Font = new System.Drawing.Font("Freestyle Script", 25.8F);
+            this.btnBack.ForeColor = System.Drawing.Color.Black;
+            this.btnBack.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(200)))), ((int)(((byte)(205)))));
+            this.btnBack.HoverState.Parent = this.btnBack;
+            this.btnBack.Image = global::DVLD.Properties.Resources.Back;
+            this.btnBack.ImageSize = new System.Drawing.Size(50, 50);
+            this.btnBack.Location = new System.Drawing.Point(145, 0);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(170)))), ((int)(((byte)(175)))));
+            this.btnBack.ShadowDecoration.Parent = this.btnBack;
+            this.btnBack.Size = new System.Drawing.Size(58, 52);
+            this.btnBack.TabIndex = 3;
+            this.btnBack.TabStop = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // guna2Button3
+            // 
+            this.guna2Button3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button3.CheckedState.Parent = this.guna2Button3;
+            this.guna2Button3.CustomImages.Parent = this.guna2Button3;
+            this.guna2Button3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2Button3.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button3.ForeColor = System.Drawing.Color.Transparent;
+            this.guna2Button3.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button3.HoverState.Parent = this.guna2Button3;
+            this.guna2Button3.Image = global::DVLD.Properties.Resources.pick_up_car1;
+            this.guna2Button3.ImageSize = new System.Drawing.Size(40, 40);
+            this.guna2Button3.Location = new System.Drawing.Point(0, 0);
+            this.guna2Button3.Name = "guna2Button3";
+            this.guna2Button3.PressedColor = System.Drawing.Color.Transparent;
+            this.guna2Button3.ShadowDecoration.Parent = this.guna2Button3;
+            this.guna2Button3.Size = new System.Drawing.Size(145, 52);
+            this.guna2Button3.TabIndex = 2;
             // 
             // DVLD
             // 
@@ -322,6 +347,7 @@
         private Guna.UI2.WinForms.Guna2VSeparator guna2VSeparator1;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
         private Guna.UI2.WinForms.Guna2Button btnForward;
+        private Guna.UI2.WinForms.Guna2Button btnMainMenu;
     }
 }
 

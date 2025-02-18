@@ -12,7 +12,7 @@ namespace DVLD.Manage_Users
 {
     public partial class ManageUsers : Form
     {
-        DVLD _mainForm;
+        DVLD _mainForm = clsGlobal.MainForm;
 
         public ManageUsers(DVLD mainForm)
         {
@@ -28,6 +28,14 @@ namespace DVLD.Manage_Users
             lblDescription.Text = "Show list of users in a table with all details," +
                 " you can filter the table and sort any column," +
                 " or right click on specific record to show fast context menu.";
+
+        private void btnAddUser_MouseEnter(object sender, EventArgs e) =>
+            lblDescription.Text = "Add user on DVLD system with own info like " +
+                "username, password, link person to it and is active.";
+
+        private void btnFindUser_MouseEnter(object sender, EventArgs e) =>
+            lblDescription.Text = "Find any user on the system by user ID," +
+                " person ID, username or national number of the user.";
 
         private void btnListUsers_Click(object sender, EventArgs e) =>
             _mainForm.PushNewForm(new UsersList(_mainForm));

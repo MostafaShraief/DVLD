@@ -19,7 +19,7 @@ namespace DVLD
         {
             InitializeComponent();
             stackfroms = new clsStackForms();
-            Main_Menu main_Menu = new Main_Menu(this);
+            Main_Menu main_Menu = new Main_Menu();
             stackfroms.PushNewForm(main_Menu, main_panel);
             clsGlobal.MainForm = this;
         }
@@ -31,9 +31,12 @@ namespace DVLD
             if (stackfroms.PushNewForm(frm, main_panel))
             {
                 if (stackfroms.FormsBackwardCount > 1)
+                {
                     btnBack.Enabled = true;
+                    btnMainMenu.Enabled = true;
+                }
 
-                    btnForward.Enabled = false;
+                btnForward.Enabled = false;
             }
         }
 
@@ -42,7 +45,10 @@ namespace DVLD
             if (stackfroms.PopForm(main_panel))
             {
                 if (stackfroms.FormsBackwardCount <= 1)
+                {
                     btnBack.Enabled = false;
+                    btnMainMenu.Enabled = false;
+                }
 
                 btnForward.Enabled = Enabled;
             }
@@ -53,7 +59,10 @@ namespace DVLD
             if (stackfroms.PopFormForever(main_panel))
             {
                 if (stackfroms.FormsBackwardCount <= 1)
+                {
                     btnBack.Enabled = false;
+                    btnMainMenu.Enabled = false;
+                }
 
                 btnForward.Enabled = Enabled;
             }
@@ -67,6 +76,7 @@ namespace DVLD
                     btnForward.Enabled = false;
 
                 btnBack.Enabled = true;
+                btnMainMenu.Enabled = true;
             }
         }
 
@@ -99,6 +109,19 @@ namespace DVLD
         private void btnManageUsers_Click(object sender, EventArgs e)
         {
             PushNewForm(new ManageUsers(this));
+        }
+
+        private void btnMainMenu_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to back to " +
+                "main menu", "Confirm", MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) ==
+                DialogResult.OK)
+            {
+                stackfroms.ClearForms();
+                btnMainMenu.Enabled = btnForward.Enabled = btnBack.Enabled = false;
+                PushNewForm(new Main_Menu());
+            }
         }
     }
 }

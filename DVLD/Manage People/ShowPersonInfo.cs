@@ -14,14 +14,12 @@ namespace DVLD.Manage_People
 {
     public partial class ShowPersonInfo : Form
     {
-        DVLD _mainForm;
+        DVLD _mainForm = clsGlobal.MainForm;
 
-        public ShowPersonInfo(DVLD mainForm)
+        public ShowPersonInfo()
         {
             InitializeComponent();
             ((ucTitleScreen)ucTitleScreen1).ChangeTitle("Person Info");
-            _mainForm = mainForm;
-            ucPersonInfo1.GetMainFormObject(mainForm);
         }
 
         clsPeople_BLL person;

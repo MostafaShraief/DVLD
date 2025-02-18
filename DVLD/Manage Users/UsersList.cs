@@ -1,4 +1,6 @@
-﻿using DVLD_BLL;
+﻿using DVLD.Manage_People;
+using DVLD.Manage_Users.User_Controls;
+using DVLD_BLL;
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
@@ -14,7 +16,7 @@ namespace DVLD.Manage_Users
 {
     public partial class UsersList : Form
     {
-        DVLD _mainForm;
+        DVLD _mainForm = clsGlobal.MainForm;
 
         public UsersList(DVLD mainForm)
         {
@@ -151,6 +153,7 @@ namespace DVLD.Manage_Users
                     ColumnName == "None")
                 {
                     _tbFilter.Visible = false;
+                    _cbFilterCriterion.Visible = false;
                     _usersDataTable.RefreshTable();
                 }
                 else
@@ -198,15 +201,49 @@ namespace DVLD.Manage_Users
         {
             AddEditUser addEditUser = new AddEditUser();
             addEditUser.GetUserID(GetUserIdFromSelectedRow());
+            addEditUser.UserLinker += LoadDataToRefresh;
             clsGlobal.MainForm.PushNewForm(addEditUser);
         }
 
         int GetUserIdFromSelectedRow() => ((int)dgvUsersList.SelectedRows[0].Cells[0].Value);
 
+        int GetPersonIdFromSelectedRow() => ((int)dgvUsersList.SelectedRows[0].Cells[1].Value);
+
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (clsUtility.clsForms.DeleteUser(GetUserIdFromSelectedRow()))
                 _usersDataTable.LoadData();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ShowPersonInfo showPersonInfo = new ShowPersonInfo();
+            showPersonInfo.GetPersonID(GetPersonIdFromSelectedRow());
+            clsGlobal.MainForm.PushNewForm(showPersonInfo);
+        }
+
+        private void personToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddEditPerson addEditPerson = new AddEditPerson();
+            addEditPerson.GetPersonID(GetPersonIdFromSelectedRow());
+            addEditPerson.Linker += LoadDataToRefresh;
+            _mainForm.PushNewForm(addEditPerson);
+        }
+
+        private void btnRefreshAll_Click(object sender, EventArgs e) =>
+            _usersDataTable.LoadData();
+
+        void LoadDataToRefresh() =>
+            _usersDataTable.LoadData();
+
+        void LoadDataToRefresh(clsUsers_BLL user) =>
+            LoadDataToRefresh();
+
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+            AddEditUser addEditUser = new AddEditUser();
+            addEditUser.UserLinker += LoadDataToRefresh;
+            clsGlobal.MainForm.PushNewForm(addEditUser);
         }
     }
 }

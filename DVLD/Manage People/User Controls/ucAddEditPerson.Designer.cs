@@ -239,7 +239,6 @@
             this.tbLastName.HoverState.Parent = this.tbLastName;
             this.tbLastName.Location = new System.Drawing.Point(911, 182);
             this.tbLastName.Margin = new System.Windows.Forms.Padding(4);
-            this.tbLastName.MaxLength = 20;
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.PasswordChar = '\0';
             this.tbLastName.PlaceholderText = "";
@@ -280,7 +279,6 @@
             this.tbThirdName.HoverState.Parent = this.tbThirdName;
             this.tbThirdName.Location = new System.Drawing.Point(293, 177);
             this.tbThirdName.Margin = new System.Windows.Forms.Padding(4);
-            this.tbThirdName.MaxLength = 20;
             this.tbThirdName.Name = "tbThirdName";
             this.tbThirdName.PasswordChar = '\0';
             this.tbThirdName.PlaceholderText = "";
@@ -321,7 +319,6 @@
             this.tbSecondName.HoverState.Parent = this.tbSecondName;
             this.tbSecondName.Location = new System.Drawing.Point(955, 109);
             this.tbSecondName.Margin = new System.Windows.Forms.Padding(4);
-            this.tbSecondName.MaxLength = 20;
             this.tbSecondName.Name = "tbSecondName";
             this.tbSecondName.PasswordChar = '\0';
             this.tbSecondName.PlaceholderText = "";
@@ -362,7 +359,6 @@
             this.tbFirstName.HoverState.Parent = this.tbFirstName;
             this.tbFirstName.Location = new System.Drawing.Point(275, 105);
             this.tbFirstName.Margin = new System.Windows.Forms.Padding(4);
-            this.tbFirstName.MaxLength = 20;
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.PasswordChar = '\0';
             this.tbFirstName.PlaceholderText = "";
@@ -428,7 +424,6 @@
             this.tbPhone.HoverState.Parent = this.tbPhone;
             this.tbPhone.Location = new System.Drawing.Point(847, 328);
             this.tbPhone.Margin = new System.Windows.Forms.Padding(4);
-            this.tbPhone.MaxLength = 20;
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.PasswordChar = '\0';
             this.tbPhone.PlaceholderText = "";
@@ -457,7 +452,6 @@
             this.tbAddress.HoverState.Parent = this.tbAddress;
             this.tbAddress.Location = new System.Drawing.Point(233, 482);
             this.tbAddress.Margin = new System.Windows.Forms.Padding(4);
-            this.tbAddress.MaxLength = 500;
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.PasswordChar = '\0';
             this.tbAddress.PlaceholderText = "";
@@ -484,7 +478,6 @@
             this.tbEmail.HoverState.Parent = this.tbEmail;
             this.tbEmail.Location = new System.Drawing.Point(192, 406);
             this.tbEmail.Margin = new System.Windows.Forms.Padding(4);
-            this.tbEmail.MaxLength = 50;
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.PasswordChar = '\0';
             this.tbEmail.PlaceholderText = "";
@@ -536,7 +529,6 @@
             this.tbNationalNo.HoverState.Parent = this.tbNationalNo;
             this.tbNationalNo.Location = new System.Drawing.Point(300, 253);
             this.tbNationalNo.Margin = new System.Windows.Forms.Padding(4);
-            this.tbNationalNo.MaxLength = 20;
             this.tbNationalNo.Name = "tbNationalNo";
             this.tbNationalNo.PasswordChar = '\0';
             this.tbNationalNo.PlaceholderText = "";

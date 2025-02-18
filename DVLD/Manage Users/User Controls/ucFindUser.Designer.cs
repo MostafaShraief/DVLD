@@ -154,6 +154,7 @@
             this.tbFind.ShadowDecoration.Parent = this.tbFind;
             this.tbFind.Size = new System.Drawing.Size(321, 44);
             this.tbFind.TabIndex = 62;
+            this.tbFind.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbFind_KeyDown);
             this.tbFind.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbFind_KeyPress);
             // 
             // rbUsername

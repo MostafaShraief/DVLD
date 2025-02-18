@@ -32,6 +32,7 @@ namespace DVLD.Manage_People.User_Controls
         {
             this.ucFindPerson = new Manage_People.User_Controls.ucFindPerson();
             this.ucPersonInfo = new UserControl.ucPersonInfo();
+            this.btnAddPerson = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // ucFindPerson
@@ -50,14 +51,39 @@ namespace DVLD.Manage_People.User_Controls
             this.ucPersonInfo.Size = new System.Drawing.Size(1500, 557);
             this.ucPersonInfo.TabIndex = 7;
             // 
-            // FindAndShowInfoPerson
+            // btnAddPerson
+            // 
+            this.btnAddPerson.Animated = true;
+            this.btnAddPerson.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddPerson.BorderThickness = 2;
+            this.btnAddPerson.CheckedState.Parent = this.btnAddPerson;
+            this.btnAddPerson.CustomImages.Parent = this.btnAddPerson;
+            this.btnAddPerson.FillColor = System.Drawing.Color.Transparent;
+            this.btnAddPerson.Font = new System.Drawing.Font("Gadugi", 9F, System.Drawing.FontStyle.Bold);
+            this.btnAddPerson.ForeColor = System.Drawing.Color.Black;
+            this.btnAddPerson.HoverState.Parent = this.btnAddPerson;
+            this.btnAddPerson.Image = global::DVLD.Properties.Resources.Add_Person;
+            this.btnAddPerson.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAddPerson.ImageOffset = new System.Drawing.Point(-6, 0);
+            this.btnAddPerson.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnAddPerson.Location = new System.Drawing.Point(493, 163);
+            this.btnAddPerson.Name = "btnAddPerson";
+            this.btnAddPerson.ShadowDecoration.Parent = this.btnAddPerson;
+            this.btnAddPerson.Size = new System.Drawing.Size(139, 38);
+            this.btnAddPerson.TabIndex = 60;
+            this.btnAddPerson.Text = "Add Person";
+            this.btnAddPerson.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnAddPerson.Click += new System.EventHandler(this.btnAddPerson_Click);
+            // 
+            // ucFindAndShowInfoPerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LavenderBlush;
+            this.Controls.Add(this.btnAddPerson);
             this.Controls.Add(this.ucPersonInfo);
             this.Controls.Add(this.ucFindPerson);
-            this.Name = "FindAndShowInfoPerson";
+            this.Name = "ucFindAndShowInfoPerson";
             this.Size = new System.Drawing.Size(1507, 767);
             this.ResumeLayout(false);
 
@@ -66,5 +92,6 @@ namespace DVLD.Manage_People.User_Controls
         #endregion
         private ucFindPerson ucFindPerson;
         private UserControl.ucPersonInfo ucPersonInfo;
+        private Guna.UI2.WinForms.Guna2Button btnAddPerson;
     }
 }

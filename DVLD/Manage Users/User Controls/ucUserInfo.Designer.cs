@@ -93,6 +93,7 @@
             this.btnEditUser.TabIndex = 65;
             this.btnEditUser.Text = "Edit  User";
             this.btnEditUser.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnEditUser.Visible = false;
             this.btnEditUser.Click += new System.EventHandler(this.btnEditUser_Click);
             // 
             // btnDeleteUser
@@ -117,15 +118,18 @@
             this.btnDeleteUser.TabIndex = 64;
             this.btnDeleteUser.Text = "Delete User";
             this.btnDeleteUser.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnDeleteUser.Visible = false;
             this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
             // 
             // cbIsActive
             // 
             this.cbIsActive.AutoSize = true;
+            this.cbIsActive.Checked = true;
             this.cbIsActive.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbIsActive.CheckedState.BorderRadius = 2;
             this.cbIsActive.CheckedState.BorderThickness = 0;
-            this.cbIsActive.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbIsActive.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.cbIsActive.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbIsActive.Font = new System.Drawing.Font("Gadugi", 15F, System.Drawing.FontStyle.Bold);
             this.cbIsActive.Location = new System.Drawing.Point(1318, 96);
             this.cbIsActive.Name = "cbIsActive";
@@ -137,6 +141,7 @@
             this.cbIsActive.UncheckedState.BorderThickness = 0;
             this.cbIsActive.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.cbIsActive.UseVisualStyleBackColor = true;
+            this.cbIsActive.CheckedChanged += new System.EventHandler(this.cbIsActive_CheckedChanged);
             this.cbIsActive.Click += new System.EventHandler(this.cbIsActive_Click);
             // 
             // lblUserName

@@ -14,13 +14,12 @@ namespace DVLD
 {
     public partial class Main_Menu : Form
     {
-        DVLD _mainForm;
+        DVLD _mainForm = clsGlobal.MainForm;
 
-        public Main_Menu(DVLD mainForm)
+        public Main_Menu()
         {
             InitializeComponent();
             ((ucTitleScreen)ucTitleScreen1).ChangeTitle("Main Menu");
-            _mainForm = mainForm;
         }
 
         void OpenURL(string URL)

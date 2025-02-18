@@ -389,6 +389,7 @@
             // 
             // pbProfile
             // 
+            this.pbProfile.Image = global::DVLD.Properties.Resources.Question_Mark;
             this.pbProfile.Location = new System.Drawing.Point(1283, 11);
             this.pbProfile.Name = "pbProfile";
             this.pbProfile.ShadowDecoration.Parent = this.pbProfile;

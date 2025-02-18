@@ -21,5 +21,12 @@ namespace DVLD.Manage_Users.User_Controls
 
         void SendUserToShowUserInfo(clsUsers_BLL user) =>
             ucUserInfo1.GetUserObject(user);
+
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+            AddEditUser addEditUser = new AddEditUser();
+            addEditUser.UserLinker += SendUserToShowUserInfo;
+            clsGlobal.MainForm.PushNewForm(addEditUser);
+        }
     }
 }

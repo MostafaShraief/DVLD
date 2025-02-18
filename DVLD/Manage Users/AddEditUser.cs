@@ -22,6 +22,7 @@ namespace DVLD.Manage_Users
             ucTitleScreen1.ChangeTitle("Add User");
             _mainForm = clsGlobal.MainForm;
             ucAddEditUser1.GetMainForm(_mainForm);
+            ucAddEditUser1.UserLinker += GetUserLinker;
             ucAddEditUser1.ChangeTitleLinker += ChangeTitle;
         }
 

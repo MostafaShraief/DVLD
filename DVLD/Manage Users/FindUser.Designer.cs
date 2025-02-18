@@ -35,7 +35,7 @@
             // ucFindAndShowUserInfo1
             // 
             this.ucFindAndShowUserInfo1.BackColor = System.Drawing.Color.LavenderBlush;
-            this.ucFindAndShowUserInfo1.Location = new System.Drawing.Point(137, 105);
+            this.ucFindAndShowUserInfo1.Location = new System.Drawing.Point(137, 108);
             this.ucFindAndShowUserInfo1.Name = "ucFindAndShowUserInfo1";
             this.ucFindAndShowUserInfo1.Size = new System.Drawing.Size(1500, 920);
             this.ucFindAndShowUserInfo1.TabIndex = 2;

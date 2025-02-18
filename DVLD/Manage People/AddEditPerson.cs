@@ -17,11 +17,11 @@ namespace DVLD.Manage_People
 
         clsPeople_BLL person;
 
-        public AddEditPerson(DVLD mainForm)
+        public AddEditPerson()
         {
             InitializeComponent();
             ((ucTitleScreen)ucTitleScreen1).ChangeTitle("Person Card");
-            _mainForm = mainForm;
+            _mainForm = clsGlobal.MainForm;
             ucAddPerson1.Linker += LinkerMethod;
             ucAddPerson1.GetPersonIDLinker += GetPersonLinker;
         }
@@ -45,13 +45,13 @@ namespace DVLD.Manage_People
         public delegate void _deLinker();
         public event _deLinker Linker;
 
-        public delegate void _deGetPersonID(clsPeople_BLL person);
-        public event _deGetPersonID GetPersonIDLinker;
+        public delegate void _deGetPersonObject(clsPeople_BLL person);
+        public event _deGetPersonObject GetPersonObjectLinker;
 
         void GetPersonLinker(clsPeople_BLL person)
         {
-            if (GetPersonIDLinker != null)
-                GetPersonIDLinker(person);
+            if (GetPersonObjectLinker != null)
+                GetPersonObjectLinker(person);
         }
 
         void LinkerMethod()

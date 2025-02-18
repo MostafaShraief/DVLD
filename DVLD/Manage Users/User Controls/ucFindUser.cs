@@ -30,14 +30,14 @@ namespace DVLD.Manage_Users.User_Controls
 
         bool ValidateFindTextBox()
         {
-            if (rbUserID.Checked || rbPersonID.Checked &&
-                (clsUtility.Characters.English.ValidateOnlyNumbers(tbFind.Text)))
+            if ((rbUserID.Checked || rbPersonID.Checked) &&
+                (!clsUtility.Characters.English.ValidateOnlyNumbers(tbFind.Text)))
             {
                 errorProvider.SetError(tbFind, "Only numbers allowed");
                 return false;
             }
             else if (rbUserID.Checked &&
-                (clsUtility.Characters.English.ValidateLettersAndNumbers(tbFind.Text)))
+                (!clsUtility.Characters.English.ValidateLettersAndNumbers(tbFind.Text)))
             {
                 errorProvider.SetError(tbFind, "Only English letters and numbers allowed");
                 return false;
@@ -58,31 +58,51 @@ namespace DVLD.Manage_Users.User_Controls
                     errorProvider);
         }
 
-        void Search()
+        bool Find()
         {
+            bool IsFind = true;
+
+            user = null;
+
             if (rbUserID.Checked && 
-                int.TryParse(tbFind.Text, out int UserID) && 
-                clsUsers_BLL.IsUserExist(UserID))
+                int.TryParse(tbFind.Text, out int UserID))
                 user = clsUsers_BLL.FindByUserID(UserID);
             else if (rbPersonID.Checked &&
-                int.TryParse(tbFind.Text, out int PersonID) &&
-                clsUsers_BLL.IsUserExistByPersonID(PersonID))
+                int.TryParse(tbFind.Text, out int PersonID))
                 user = clsUsers_BLL.FindByPersonID(PersonID);
-            else if (rbUsername.Checked &&
-                clsUsers_BLL.IsUserExistByUserName(tbFind.Text))
+            else if (rbUsername.Checked)
                 user = clsUsers_BLL.FindByUserName(tbFind.Text);
-            else
+            else if (rbNationalNumber.Checked)
+                user = clsUsers_BLL.FindByNationalNumber(tbFind.Text);
+
+            if (user == null || user.UserID == -1)
+            {
+                IsFind = false;
                 MessageBox.Show("User not found, check data intered again.", "User Not Found",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            // Send user object to linker.
+            if (IsFind && GetUserLinker != null)
+                GetUserLinker(user);
+
+            return IsFind;
         }
+
 
         private void btnFind_Click(object sender, EventArgs e)
         {
             if (!ValidateFindTextBox())
                 MessageBox.Show("Please inter only valide data", "Data Not Valid",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-            Search();
+
+            Find();
         }
 
+        private void tbFind_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                Find();
+        }
     }
 }

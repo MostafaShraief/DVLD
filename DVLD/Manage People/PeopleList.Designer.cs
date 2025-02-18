@@ -51,6 +51,7 @@
             this.btnRefreshAll = new Guna.UI2.WinForms.Guna2Button();
             this.ucTitleScreen1 = new ucTitleScreen();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnAddPerson = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeopleList)).BeginInit();
             this.cmsRow.SuspendLayout();
@@ -131,7 +132,7 @@
             this.dgvPeopleList.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvPeopleList.EnableHeadersVisualStyles = false;
             this.dgvPeopleList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvPeopleList.Location = new System.Drawing.Point(0, 392);
+            this.dgvPeopleList.Location = new System.Drawing.Point(0, 285);
             this.dgvPeopleList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvPeopleList.MultiSelect = false;
             this.dgvPeopleList.Name = "dgvPeopleList";
@@ -140,7 +141,7 @@
             this.dgvPeopleList.RowHeadersWidth = 51;
             this.dgvPeopleList.RowTemplate.Height = 24;
             this.dgvPeopleList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPeopleList.Size = new System.Drawing.Size(1775, 587);
+            this.dgvPeopleList.Size = new System.Drawing.Size(1775, 694);
             this.dgvPeopleList.TabIndex = 3;
             this.dgvPeopleList.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.dgvPeopleList.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -251,10 +252,10 @@
             this.flpTools.Controls.Add(this.cbFilterCriterion);
             this.flpTools.Controls.Add(this.tbFilter);
             this.flpTools.Controls.Add(this.dtpDateOfBirth);
-            this.flpTools.Location = new System.Drawing.Point(0, 349);
+            this.flpTools.Location = new System.Drawing.Point(0, 238);
             this.flpTools.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flpTools.Name = "flpTools";
-            this.flpTools.Size = new System.Drawing.Size(1624, 43);
+            this.flpTools.Size = new System.Drawing.Size(1415, 43);
             this.flpTools.TabIndex = 7;
             // 
             // lblDateOfBirthFilter
@@ -352,7 +353,7 @@
             this.btnRefreshAll.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnRefreshAll.ImageOffset = new System.Drawing.Point(-8, 0);
             this.btnRefreshAll.ImageSize = new System.Drawing.Size(28, 28);
-            this.btnRefreshAll.Location = new System.Drawing.Point(1630, 349);
+            this.btnRefreshAll.Location = new System.Drawing.Point(1630, 240);
             this.btnRefreshAll.Name = "btnRefreshAll";
             this.btnRefreshAll.ShadowDecoration.Parent = this.btnRefreshAll;
             this.btnRefreshAll.Size = new System.Drawing.Size(133, 38);
@@ -376,12 +377,37 @@
             this.errorProvider.ContainerControl = this;
             this.errorProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider.Icon")));
             // 
+            // btnAddPerson
+            // 
+            this.btnAddPerson.Animated = true;
+            this.btnAddPerson.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddPerson.BorderThickness = 2;
+            this.btnAddPerson.CheckedState.Parent = this.btnAddPerson;
+            this.btnAddPerson.CustomImages.Parent = this.btnAddPerson;
+            this.btnAddPerson.FillColor = System.Drawing.Color.Transparent;
+            this.btnAddPerson.Font = new System.Drawing.Font("Gadugi", 9F, System.Drawing.FontStyle.Bold);
+            this.btnAddPerson.ForeColor = System.Drawing.Color.Black;
+            this.btnAddPerson.HoverState.Parent = this.btnAddPerson;
+            this.btnAddPerson.Image = global::DVLD.Properties.Resources.Add_Person;
+            this.btnAddPerson.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAddPerson.ImageOffset = new System.Drawing.Point(-6, 0);
+            this.btnAddPerson.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnAddPerson.Location = new System.Drawing.Point(1485, 240);
+            this.btnAddPerson.Name = "btnAddPerson";
+            this.btnAddPerson.ShadowDecoration.Parent = this.btnAddPerson;
+            this.btnAddPerson.Size = new System.Drawing.Size(139, 38);
+            this.btnAddPerson.TabIndex = 61;
+            this.btnAddPerson.Text = "Add Person";
+            this.btnAddPerson.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnAddPerson.Click += new System.EventHandler(this.btnAddPerson_Click);
+            // 
             // PeopleList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LavenderBlush;
             this.ClientSize = new System.Drawing.Size(1775, 1028);
+            this.Controls.Add(this.btnAddPerson);
             this.Controls.Add(this.ucTitleScreen1);
             this.Controls.Add(this.flpTools);
             this.Controls.Add(this.dgvPeopleList);
@@ -423,5 +449,6 @@
         private System.Windows.Forms.Label lblNumberOfRecords;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Button btnRefreshAll;
+        private Guna.UI2.WinForms.Guna2Button btnAddPerson;
     }
 }

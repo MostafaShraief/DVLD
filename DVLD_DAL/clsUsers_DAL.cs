@@ -94,7 +94,7 @@ namespace DVLD_DAL
                 "(Case When ThirdName is not null then ThirdName + ' ' end) + " +
                 "People.LastName, Users.UserName, Users.Password, 'Is Active' = Users.IsActive " +
                 "FROM Users INNER JOIN People ON Users.PersonID = People.PersonID " +
-                "Where UserID = @UserID";
+                "Where Users.UserID = @UserID";
 
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@UserID", UserID);
@@ -134,12 +134,12 @@ namespace DVLD_DAL
             bool IsFound = false;
 
             SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
-            string query = "SELECT   'User ID' = Users.UserID, 'Person ID' = Users.PersonID, " +
+            string query = "USE DVLD; SELECT   'User ID' = Users.UserID, 'Person ID' = Users.PersonID, " +
                 "'Full Name' = FirstName + ' ' + SecondName + ' ' + " +
                 "(Case When ThirdName is not null then ThirdName + ' ' end) + " +
                 "People.LastName, Users.UserName, Users.Password, 'Is Active' = Users.IsActive " +
                 "FROM Users INNER JOIN People ON Users.PersonID = People.PersonID " +
-                "Where PersonID = @PersonID";
+                "Where Users.PersonID = @PersonID";
 
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@PersonID", PersonID);
@@ -173,21 +173,63 @@ namespace DVLD_DAL
         public static bool GetUserByUserName(string UserName, ref int UserID,
             ref int PersonID, ref string FullName, ref string Password, ref bool IsActive)
         {
-            if (IsUserExistByUserID(PersonID) == false)
+            if (IsUserExistByUserName(UserName) == false)
                 return false;
 
             bool IsFound = false;
 
             SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
-            string query = "SELECT   'User ID' = Users.UserID, 'Person ID' = Users.PersonID, " +
+            string query = "USE DVLD; SELECT   'User ID' = Users.UserID, 'Person ID' = Users.PersonID, " +
                 "'Full Name' = FirstName + ' ' + SecondName + ' ' + " +
                 "(Case When ThirdName is not null then ThirdName + ' ' end) + " +
                 "People.LastName, Users.UserName, Users.Password, 'Is Active' = Users.IsActive " +
                 "FROM Users INNER JOIN People ON Users.PersonID = People.PersonID " +
-                "Where UserName = @UserName";
+                "Where Users.UserName = @UserName";
 
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@UserName", UserName);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    IsFound = true;
+                    UserID = Convert.ToInt32(reader["User ID"]);
+                    PersonID = Convert.ToInt32(reader["Person ID"]);
+                    FullName = reader["Full Name"].ToString();
+                    Password = reader["Password"].ToString();
+                    IsActive = Convert.ToBoolean(reader["Is Active"]);
+                }
+
+                reader.Close();
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return IsFound;
+        }
+
+        public static bool GetUserByNationalNumber(string NationalNo, ref int UserID,
+            ref int PersonID, ref string FullName, ref string UserName, ref string Password, ref bool IsActive)
+        {
+            bool IsFound = false;
+
+            SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
+            string query = "USE DVLD; SELECT   'User ID' = Users.UserID, 'Person ID' = Users.PersonID, " +
+                "'Full Name' = FirstName + ' ' + SecondName + ' ' + " +
+                "(Case When ThirdName is not null then ThirdName + ' ' end) + " +
+                "People.LastName, Users.UserName, Users.Password, 'Is Active' = Users.IsActive " +
+                "FROM Users INNER JOIN People ON Users.PersonID = People.PersonID " +
+                "Where NationalNo = @NationalNo";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@NationalNo", NationalNo);
 
             try
             {

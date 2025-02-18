@@ -19,7 +19,7 @@ namespace DVLD.Manage_People
         public FindPerson(DVLD mainForm)
         {
             InitializeComponent();
-            ((ucTitleScreen)ucTitleScreen1).ChangeTitle("Find Persoon");
+            ((ucTitleScreen)ucTitleScreen1).ChangeTitle("Find Person");
             findAndShowInfoPerson1.GetMainFormObject(mainForm);
             _mainForm = mainForm;
         }
@@ -28,7 +28,7 @@ namespace DVLD.Manage_People
 
         void ShowPersonInfoForm()
         {
-            ShowPersonInfo showPersonInfo = new ShowPersonInfo(_mainForm);
+            ShowPersonInfo showPersonInfo = new ShowPersonInfo();
             showPersonInfo.GetPerson(person);
             _mainForm.PushNewForm(showPersonInfo);
         }

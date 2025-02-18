@@ -14,7 +14,7 @@ namespace DVLD.Manage_People.User_Controls
 {
     public partial class ucFindAndShowInfoPerson : System.Windows.Forms.UserControl
     {
-        DVLD _mainForm;
+        DVLD _mainForm = clsGlobal.MainForm;
 
         public ucFindAndShowInfoPerson()
         {
@@ -26,7 +26,6 @@ namespace DVLD.Manage_People.User_Controls
         {
             _mainForm = mainForm;
             ucFindPerson.GetMainFormObject(mainForm);
-            ucPersonInfo.GetMainFormObject(mainForm);
             ucPersonInfo.PopForm = false;
         }
 
@@ -62,6 +61,13 @@ namespace DVLD.Manage_People.User_Controls
         {
             person = null;
             ucPersonInfo.GetPerson(person);
+        }
+
+        private void btnAddPerson_Click(object sender, EventArgs e)
+        {
+            AddEditPerson addEditPerson = new AddEditPerson();
+            addEditPerson.GetPersonObjectLinker += FillPersonInfo;
+            clsGlobal.MainForm.PushNewForm(addEditPerson);
         }
     }
 }

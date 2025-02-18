@@ -16,15 +16,12 @@ namespace DVLD.UserControl
 {
     public partial class ucPersonInfo : System.Windows.Forms.UserControl
     {
-        DVLD _mainForm;
+        DVLD _mainForm = clsGlobal.MainForm;
 
         public ucPersonInfo()
         {
             InitializeComponent();
         }
-
-        public void GetMainFormObject(DVLD mainForm) =>
-            _mainForm = mainForm;
 
         bool ShowDeleteButton = true;
 
@@ -58,12 +55,12 @@ namespace DVLD.UserControl
             lblGender.Text = "None";
             lblNationalNo.Text = "None";
             lblPhone.Text = "None";
-            pbProfile.Image = null;
+            pbProfile.Image = Resources.Question_Mark;
         }
 
         void FillPersonInfo()
         {
-            btnEditPerson.Visible = btnDeleteCard.Visible = true;
+            btnEditPerson.Visible = true;
             btnDeleteCard.Visible = ShowDeleteButton;
             lblPersonID.Text = person.PersonID.ToString();
             lblFullName.Text = String.Format(@"{0} {1} {2} {3}", person.FirstName,
@@ -80,18 +77,20 @@ namespace DVLD.UserControl
                 pbProfile.Image = clsUtility.Image.ByteArrayToImage(person.ImageFile);
             else if (person.Gender == clsPeople_BLL.enGender.Male)
                 pbProfile.Image = Resources.Man;
-            else
+            else if (person.Gender == clsPeople_BLL.enGender.Female)
                 pbProfile.Image = Resources.Woman;
+            else
+                pbProfile.Image = Resources.Question_Mark;
         }
 
         public void GetPersonID(int personID)
         {
-            if (personID != -1)
+            if (personID != -1 && clsPeople_BLL.IsPersonExist(personID))
                 person = clsPeople_BLL.Find(personID);
             else
                 person = new clsPeople_BLL();
             
-            if (person.PersonID != -1)
+            if (person != null && person.PersonID != -1)
                 FillPersonInfo();
             else
                 ResetPersonInfo();
@@ -108,7 +107,7 @@ namespace DVLD.UserControl
 
         public void GetPerson(clsPeople_BLL person)
         {
-            if (person == null)
+            if (person == null || person.PersonID == -1)
                 ResetPersonInfo();
             else
             {
@@ -121,9 +120,9 @@ namespace DVLD.UserControl
         {
             if (person != null)
             {
-                addEditPerson = new AddEditPerson(_mainForm);
+                addEditPerson = new AddEditPerson();
                 addEditPerson.GetPerson(person);
-                addEditPerson.Linker += FillPersonInfo;
+                addEditPerson.GetPersonObjectLinker += GetPerson;
                 _mainForm.PushNewForm(addEditPerson);
             }
         }

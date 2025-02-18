@@ -24,6 +24,7 @@ namespace DVLD_BLL
         {
             UserID = -1;
             PersonID = -1;
+            UserName = "";
             FullName = "";
             Password = "";
             IsActive = false;
@@ -124,6 +125,21 @@ namespace DVLD_BLL
             bool IsActive = false;
 
             if (clsUsers_DAL.GetUserByUserName(UserName, ref UserID, ref PersonID, ref FullName, ref Password, ref IsActive))
+                return new clsUsers_BLL(UserID, PersonID, FullName, UserName, Password, IsActive);
+            else
+                return new clsUsers_BLL();
+        }
+
+        public static clsUsers_BLL FindByNationalNumber(string NationalNo)
+        {
+            int PersonID = -1;
+            int UserID = -1;
+            string FullName = "";
+            string UserName = "";
+            string Password = "";
+            bool IsActive = false;
+
+            if (clsUsers_DAL.GetUserByNationalNumber(NationalNo, ref UserID, ref PersonID, ref FullName, ref UserName, ref Password, ref IsActive))
                 return new clsUsers_BLL(UserID, PersonID, FullName, UserName, Password, IsActive);
             else
                 return new clsUsers_BLL();

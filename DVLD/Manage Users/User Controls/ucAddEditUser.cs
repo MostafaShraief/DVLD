@@ -18,7 +18,7 @@ namespace DVLD.Manage_Users.User_Controls
 {
     public partial class ucAddEditUser : System.Windows.Forms.UserControl
     {
-        DVLD _mainForm;
+        DVLD _mainForm = clsGlobal.MainForm;
 
         public ucAddEditUser()
         {
@@ -91,8 +91,8 @@ namespace DVLD.Manage_Users.User_Controls
 
         private void btnAdd_Click(object sender, EventArgs e) 
         {
-            AddEditPerson addEditPerson = new AddEditPerson(_mainForm);
-            addEditPerson.GetPersonIDLinker += FillPersonInfo;
+            AddEditPerson addEditPerson = new AddEditPerson();
+            addEditPerson.GetPersonObjectLinker += FillPersonInfo;
             _mainForm.PushNewForm(addEditPerson);
         }
 

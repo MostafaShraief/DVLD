@@ -83,6 +83,7 @@ namespace DVLD.Manage_People.User_Controls
             {
                 pbProfileImage.Image = clsUtility.Image.ByteArrayToImage(person.ImageFile);
                 pbProfileImage.Tag = null;
+                _ImageChange();
             }
             else
                 _SetGenderImage();
@@ -221,6 +222,8 @@ namespace DVLD.Manage_People.User_Controls
                 pbProfileImage.Image = Resources.Man;
             else if (cbGender.Text == enGender.Female.ToString())
                 pbProfileImage.Image = Resources.Woman;
+            else
+                pbProfileImage.Image = Resources.Question_Mark;
 
             pbProfileImage.Tag = 1;
 

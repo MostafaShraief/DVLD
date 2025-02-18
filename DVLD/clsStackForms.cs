@@ -55,6 +55,16 @@ namespace DVLD
             }
         }
 
+        private void _ResetBackStack()
+        {
+            while (_stkBackwardForms.Count > 0)
+            {
+                // Clear all forms from stkBackwardForms and memory.
+                _stkBackwardForms.First().Dispose();
+                _stkBackwardForms.Pop();
+            }
+        }
+
         public bool PushNewForm(Form frm, Panel pnl) 
         {
             // push form to backward stack and clear all forms in forward stack.
@@ -122,6 +132,12 @@ namespace DVLD
             _stkForwardForms.Pop();
 
             return true;
+        }
+
+        public void ClearForms()
+        {
+            _ResetBackStack();
+            _ResetForwardStack();
         }
     }
 }
