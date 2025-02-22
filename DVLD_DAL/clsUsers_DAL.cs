@@ -57,7 +57,7 @@ namespace DVLD_DAL
             SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
             string query = "USE DVLD; SELECT   'User ID' = Users.UserID, 'Person ID' = Users.PersonID," +
                 " 'Full Name' = FirstName + ' ' + SecondName + ' ' + (Case When " +
-                "ThirdName is not null then ThirdName + ' ' end) + People.LastName, " +
+                "ThirdName is not null then ThirdName + ' ' ELSE '' end) + People.LastName, " +
                 "Users.UserName, 'Is Active' = Users.IsActive FROM Users INNER JOIN " +
                 "People ON Users.PersonID = People.PersonID";
             SqlCommand command = new SqlCommand(query, connection);

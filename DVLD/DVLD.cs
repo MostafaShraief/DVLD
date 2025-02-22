@@ -1,5 +1,8 @@
 ﻿using DVLD.Manage_People;
 using DVLD.Manage_Users;
+using DVLD.Properties;
+using DVLD_BLL;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,6 +28,34 @@ namespace DVLD
         }
 
         clsStackForms stackfroms;
+
+        clsPeople_BLL userperson;
+        internal clsUsers_BLL user { 
+            get
+            {
+                return user;
+            }
+            set 
+            { 
+                if (value != null && value.UserID != -1)
+                {
+                    btnUserProfile.Text = value.UserName;
+
+                    userperson = clsPeople_BLL.Find(value.PersonID);
+                    if (userperson != null)
+                    {
+                        Image image = clsUtility.Image.ByteArrayToImage(userperson.ImageFile);
+
+                        if (image != null)
+                            btnUserProfile.Image = image;
+                        else if (userperson.Gender == clsPeople_BLL.enGender.Male)
+                            btnUserProfile.Image = Resources.Man;
+                        else if (userperson.Gender == clsPeople_BLL.enGender.Female)
+                            btnUserProfile.Image = Resources.Woman;
+                    }
+                }
+            } 
+        }
 
         internal void PushNewForm(Form frm)
         {
@@ -114,14 +145,20 @@ namespace DVLD
         private void btnMainMenu_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to back to " +
-                "main menu", "Confirm", MessageBoxButtons.OKCancel,
-                MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) ==
+                "main menu? you can NOT BACK to previous opened tabs!", "Confirm", MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) ==
                 DialogResult.OK)
             {
                 stackfroms.ClearForms();
                 btnMainMenu.Enabled = btnForward.Enabled = btnBack.Enabled = false;
                 PushNewForm(new Main_Menu());
             }
+        }
+
+        private void btnUserProfile_TextChanged(object sender, EventArgs e)
+        {
+            if (btnUserProfile.Text.Length > 10)
+                btnUserProfile.Text = btnUserProfile.Text.Substring(0, 10) + "..";
         }
     }
 }

@@ -75,6 +75,12 @@
     <Compile Include="DVLD.Designer.cs">
       <DependentUpon>DVLD.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginScreen.Designer.cs">
+      <DependentUpon>LoginScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main_Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +206,9 @@
     </Compile>
     <EmbeddedResource Include="DVLD.resx">
       <DependentUpon>DVLD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginScreen.resx">
+      <DependentUpon>LoginScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main_Menu.resx">
       <DependentUpon>Main_Menu.cs</DependentUpon>
@@ -451,6 +460,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Up_Arrow2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

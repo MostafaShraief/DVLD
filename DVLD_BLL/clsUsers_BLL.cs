@@ -166,7 +166,7 @@ namespace DVLD_BLL
         public static bool IsUserExistByUserName(string UserName) =>
             clsUsers_DAL.IsUserExistByUserName(UserName);
 
-        bool CheckPassword(string Password) =>
+        public bool CheckPassword(string Password) =>
             (this.Password == clsUtility_BLL.Encrypt(Password));
 
         public bool SetPassword(string Password)

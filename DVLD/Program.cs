@@ -22,9 +22,10 @@ namespace DVLD
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            DVLD dVLD = new DVLD();
-            dVLD.WindowState = FormWindowState.Maximized;
-            Application.Run(dVLD);
+            //DVLD dVLD = new DVLD();
+            //Application.Run(dVLD);
+            LoginScreen loginScreen = new LoginScreen();
+            Application.Run(loginScreen);
         }
 
         [System.Runtime.InteropServices.DllImport("user32.dll")]
