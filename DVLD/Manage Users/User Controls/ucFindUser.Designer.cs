@@ -139,11 +139,11 @@
             this.tbFind.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbFind.DisabledState.Parent = this.tbFind;
             this.tbFind.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbFind.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbFind.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.tbFind.FocusedState.Parent = this.tbFind;
             this.tbFind.Font = new System.Drawing.Font("Gadugi", 15F, System.Drawing.FontStyle.Bold);
             this.tbFind.ForeColor = System.Drawing.Color.Black;
-            this.tbFind.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbFind.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.tbFind.HoverState.Parent = this.tbFind;
             this.tbFind.Location = new System.Drawing.Point(20, 134);
             this.tbFind.Margin = new System.Windows.Forms.Padding(4);

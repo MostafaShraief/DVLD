@@ -237,6 +237,9 @@ namespace DVLD.Manage_Users.User_Controls
             {
                 _EditMode();
 
+                if (user.UserID == clsGlobal.MainForm.user.UserID)
+                    clsGlobal.MainForm.user = user;
+
                 MessageBox.Show("User Saved Successfuly.", "Saved",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -262,7 +265,13 @@ namespace DVLD.Manage_Users.User_Controls
         private void btnDeleteUser_Click(object sender, EventArgs e)
         {
             if (clsUtility.clsForms.DeleteUser(user.UserID))
+            {
+
+                if (user.UserID == clsGlobal.MainForm.user.UserID)
+                    clsGlobal.MainForm.Logout();
+
                 _AddMode();
+            }
         }
     }
 }

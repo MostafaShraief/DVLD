@@ -50,7 +50,6 @@ namespace DVLD
                 this.Hide();
                 DVLD dVLD = new DVLD();
                 dVLD.user = user;
-                dVLD.FormClosed += (s, args) => this.Close(); // Close the login form when the main form is closed
                 dVLD.Show();
             }
             else
@@ -98,6 +97,11 @@ namespace DVLD
         {
             if (e.KeyCode == Keys.Enter)
                 NextControl();
+        }
+
+        private void LoginScreen_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit(); // Ensures the entire application closes
         }
     }
 }

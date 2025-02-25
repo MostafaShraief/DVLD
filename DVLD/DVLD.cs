@@ -1,5 +1,6 @@
 ﻿using DVLD.Manage_People;
 using DVLD.Manage_Users;
+using DVLD.Manage_Users.User_Controls;
 using DVLD.Properties;
 using DVLD_BLL;
 using Microsoft.VisualBasic.ApplicationServices;
@@ -29,30 +30,36 @@ namespace DVLD
 
         clsStackForms stackfroms;
 
-        clsPeople_BLL userperson;
-        internal clsUsers_BLL user { 
+        internal void RefreshPerson()
+        {
+            userPerson = clsPeople_BLL.Find(user.PersonID);
+            if (userPerson != null)
+            {
+                Image image = clsUtility.Image.ByteArrayToImage(userPerson.ImageFile);
+
+                if (image != null)
+                    btnUserProfile.Image = image;
+                else if (userPerson.Gender == clsPeople_BLL.enGender.Male)
+                    btnUserProfile.Image = Resources.Man;
+                else if (userPerson.Gender == clsPeople_BLL.enGender.Female)
+                    btnUserProfile.Image = Resources.Woman;
+            }
+        }
+
+        clsPeople_BLL userPerson;
+        clsUsers_BLL private_user; // private user
+        internal clsUsers_BLL user {
             get
             {
-                return user;
+                return private_user;
             }
-            set 
+            set
             { 
                 if (value != null && value.UserID != -1)
                 {
+                    private_user = value;
                     btnUserProfile.Text = value.UserName;
-
-                    userperson = clsPeople_BLL.Find(value.PersonID);
-                    if (userperson != null)
-                    {
-                        Image image = clsUtility.Image.ByteArrayToImage(userperson.ImageFile);
-
-                        if (image != null)
-                            btnUserProfile.Image = image;
-                        else if (userperson.Gender == clsPeople_BLL.enGender.Male)
-                            btnUserProfile.Image = Resources.Man;
-                        else if (userperson.Gender == clsPeople_BLL.enGender.Female)
-                            btnUserProfile.Image = Resources.Woman;
-                    }
+                    RefreshPerson();
                 }
             } 
         }
@@ -159,6 +166,44 @@ namespace DVLD
         {
             if (btnUserProfile.Text.Length > 10)
                 btnUserProfile.Text = btnUserProfile.Text.Substring(0, 10) + "..";
+        }
+
+        private void btnUserProfile_Click(object sender, EventArgs e)
+        {
+            cmsRow.Show(1644, 52);
+        }
+
+        private void showToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowUserInfo showUserInfo = new ShowUserInfo();
+            if (user != null)
+                showUserInfo.GetUserID(user.UserID);
+            PushNewForm(showUserInfo);
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddEditUser addEditUser = new AddEditUser();
+            if (user != null)
+                addEditUser.GetUserID(user.UserID);
+            PushNewForm(addEditUser);
+        }
+
+        internal void Logout()
+        {
+            this.Hide();
+            LoginScreen loginScreen = new LoginScreen();
+            loginScreen.Show();
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Logout();
+        }
+
+        private void DVLD_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit(); // Ensures the entire application closes
         }
     }
 }

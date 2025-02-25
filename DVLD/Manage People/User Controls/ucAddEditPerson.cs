@@ -2,6 +2,7 @@
 using DVLD_BLL;
 using Guna.UI2.WinForms;
 using Guna.UI2.WinForms.Suite;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -162,6 +163,9 @@ namespace DVLD.Manage_People.User_Controls
             if (person.Save())
             {
                 _EditMode();
+
+                if (person.PersonID == clsGlobal.MainForm.user.PersonID)
+                    clsGlobal.MainForm.RefreshPerson();
 
                 MessageBox.Show("Person Card Saved Successfuly.", "Saved",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
