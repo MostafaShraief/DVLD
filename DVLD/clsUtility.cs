@@ -291,5 +291,158 @@ namespace DVLD
             string pattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{" + Length.ToString() + ",}$";
             return Regex.IsMatch(input, pattern);
         }
+
+        internal class clsDataTable
+        {
+            public DataTable dataTable;
+            private Label lblRecordsCounter { get; set; }
+            Guna2DataGridView dataGridView { get; set; }
+            public delegate DataTable delLoadDataTable();
+            delLoadDataTable loadDataTable;
+
+            public clsDataTable(Label lblRecordsCounter, Guna2DataGridView dataGridView, delLoadDataTable loadDataTable)
+            {
+                this.dataGridView = dataGridView;
+                this.lblRecordsCounter = lblRecordsCounter;
+                this.loadDataTable = loadDataTable;
+            }
+
+            public void RefreshTable()
+            {
+                dataTable.DefaultView.RowFilter = null;
+                RefreshRecordsCounter();
+            }
+
+            public void LoadData()
+            {
+                if (loadDataTable != null)
+                    dataTable = loadDataTable();
+                dataGridView.DataSource = dataTable;
+                RefreshTable();
+            }
+
+            public void LoadColumnsToComboBox(Guna2ComboBox comboBox)
+            {
+                comboBox.Items.Add("None");
+                foreach (DataColumn col in dataTable.Columns)
+                    comboBox.Items.Add(col.ColumnName);
+                comboBox.SelectedIndex = 0;
+            }
+
+            public void RefreshRecordsCounter() =>
+                lblRecordsCounter.Text = dataTable.DefaultView.Count.ToString();
+
+            public void ChangeFilter(string FilterFormat)
+            {
+                try
+                {
+                    dataTable.DefaultView.RowFilter = FilterFormat;
+                    RefreshRecordsCounter();
+                }
+                catch
+                {
+                    RefreshTable();
+                    MessageBox.Show("error has been occured while filtering table.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        internal class clsFilterProcess
+        {
+            Guna2ComboBox _cbFilter { get; set; }
+            Guna2TextBox _tbFilter { get; set; }
+            Guna2ComboBox _cbFilterCriterion { get; set; }
+            clsUtility.clsDataTable _DataTable { get; set; }
+            List<string> _columnNames = new List<string>();
+            public List<string> _columnIdNames = new List<string>();
+            List<string> _columnFilterCriterionNames = new List<string>();
+
+            public void FillListWithItems()
+            {
+                foreach (string columnName in _cbFilter.Items)
+                    _columnNames.Add(columnName);
+            }
+
+            public clsFilterProcess(Guna2ComboBox cbFilter, Guna2TextBox tbFilter,
+                Guna2ComboBox cbFilterCriterion, clsUtility.clsDataTable DataTable)
+            {
+                _cbFilter = cbFilter;
+                _tbFilter = tbFilter;
+                _cbFilterCriterion = cbFilterCriterion;
+                _DataTable = DataTable;
+                FillListWithItems();
+            }
+
+            public clsFilterProcess(Guna2ComboBox cbFilter, Guna2TextBox tbFilter,
+                clsUtility.clsDataTable DataTable)
+            {
+                _cbFilter = cbFilter;
+                _tbFilter = tbFilter;
+                _cbFilterCriterion = new Guna2ComboBox();
+                _DataTable = DataTable;
+                FillListWithItems();
+            }
+
+            public void AddColumnIdName(string Column) =>
+                _columnIdNames.Add(Column);
+
+            public void AddColumnFilterCriterionName(string Column) =>
+                _columnFilterCriterionNames.Add(Column);
+
+            void TextBoxChange()
+            {
+                string ColumnName = _cbFilter.Text;
+                string FilterValue = _tbFilter.Text;
+
+                if (String.IsNullOrEmpty(FilterValue) || FilterValue.Trim() == string.Empty)
+                    _DataTable.RefreshTable();
+                else if (_columnIdNames.Contains(ColumnName) &&
+                    int.TryParse(FilterValue, out int ID))
+                    _DataTable.ChangeFilter(String.Format(@"[{0}] = {1}", ColumnName, ID));
+                else
+                    _DataTable.ChangeFilter(String.Format(@"[{0}] like '{1}%'", ColumnName, FilterValue));
+            }
+
+            void FilterCriterionChange()
+            {
+                //string ColumnName = _cbFilter.Text;
+                //string FilterValue = _cbFilterCriterion.Text;
+
+                //if (_cbFilterCriterion.Text == "All")
+                //    _DataTable.RefreshTable();
+                //else
+                //    _DataTable.ChangeFilter(String.Format(@"[{0}] = {1}", ColumnName,
+                //        (FilterValue == "Yes" ? true : false).ToString()));
+            }
+
+            public void FilterChange()
+            {
+                string ColumnName = _cbFilter.Text;
+
+                if (String.IsNullOrEmpty(ColumnName) || !_columnNames.Contains(ColumnName) ||
+                    ColumnName == "None")
+                {
+                    _tbFilter.Visible = false;
+                    _cbFilterCriterion.Visible = false;
+                    _DataTable.RefreshTable();
+                }
+                else
+                {
+                    if (_cbFilterCriterion != null && _columnFilterCriterionNames.Contains(ColumnName))
+                    {
+                        _cbFilterCriterion.Visible = true;
+                        _tbFilter.Visible = false;
+                        FilterCriterionChange();
+                    }
+                    else
+                    {
+                        _tbFilter.Visible = true;
+                        _cbFilterCriterion.Visible = false;
+                        TextBoxChange();
+                    }
+                }
+            }
+        }
     }
 }

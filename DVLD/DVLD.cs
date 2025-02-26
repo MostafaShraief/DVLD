@@ -1,4 +1,5 @@
-﻿using DVLD.Manage_People;
+﻿using DVLD.Applications;
+using DVLD.Manage_People;
 using DVLD.Manage_Users;
 using DVLD.Manage_Users.User_Controls;
 using DVLD.Properties;
@@ -204,6 +205,11 @@ namespace DVLD
         private void DVLD_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit(); // Ensures the entire application closes
+        }
+
+        private void btnApplications_Click(object sender, EventArgs e)
+        {
+            PushNewForm(new ManageApplications());
         }
     }
 }

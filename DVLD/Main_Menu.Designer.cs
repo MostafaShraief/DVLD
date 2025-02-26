@@ -168,9 +168,9 @@ namespace DVLD
             this.label7.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
             this.label7.Location = new System.Drawing.Point(736, 847);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(285, 40);
+            this.label7.Size = new System.Drawing.Size(299, 40);
             this.label7.TabIndex = 6;
-            this.label7.Text = "○ Mostafa Shaief";
+            this.label7.Text = "○ Mostafa Shraief";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6

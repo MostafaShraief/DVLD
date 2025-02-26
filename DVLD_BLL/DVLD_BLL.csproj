@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsApplicationType_BLL.cs" />
     <Compile Include="clsCountry_BLL.cs" />
     <Compile Include="clsPeople_BLL.cs" />
     <Compile Include="clsSave_BLL.cs" />
