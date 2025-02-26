@@ -1,6 +1,6 @@
-﻿namespace DVLD.Applications
+﻿namespace DVLD.Applications.Test_Types
 {
-    partial class ApplicationTypes
+    partial class TestTypesList
     {
         /// <summary>
         /// Required designer variable.
@@ -32,11 +32,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ApplicationTypes));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TestTypesList));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblNumberOfRecords = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvApplicationTypesList = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.dgvTestTypesList = new Guna.UI2.WinForms.Guna2DataGridView();
             this.flpTools = new System.Windows.Forms.FlowLayoutPanel();
             this.lblManagePeople = new System.Windows.Forms.Label();
             this.cbFilter = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -44,10 +44,10 @@
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.cmsRow = new ReaLTaiizor.Controls.CrownContextMenuStrip();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guna2Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvApplicationTypesList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTestTypesList)).BeginInit();
             this.flpTools.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.cmsRow.SuspendLayout();
@@ -63,7 +63,7 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
             this.guna2Panel1.Size = new System.Drawing.Size(1775, 49);
-            this.guna2Panel1.TabIndex = 3;
+            this.guna2Panel1.TabIndex = 4;
             // 
             // lblNumberOfRecords
             // 
@@ -91,19 +91,19 @@
             this.label1.Text = "Record/s:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dgvApplicationTypesList
+            // dgvTestTypesList
             // 
-            this.dgvApplicationTypesList.AllowUserToAddRows = false;
-            this.dgvApplicationTypesList.AllowUserToDeleteRows = false;
-            this.dgvApplicationTypesList.AllowUserToResizeRows = false;
+            this.dgvTestTypesList.AllowUserToAddRows = false;
+            this.dgvTestTypesList.AllowUserToDeleteRows = false;
+            this.dgvTestTypesList.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvApplicationTypesList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvApplicationTypesList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvApplicationTypesList.BackgroundColor = System.Drawing.Color.LavenderBlush;
-            this.dgvApplicationTypesList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvApplicationTypesList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvApplicationTypesList.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
-            this.dgvApplicationTypesList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvTestTypesList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvTestTypesList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTestTypesList.BackgroundColor = System.Drawing.Color.LavenderBlush;
+            this.dgvTestTypesList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvTestTypesList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvTestTypesList.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dgvTestTypesList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
@@ -111,10 +111,10 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvApplicationTypesList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvApplicationTypesList.ColumnHeadersHeight = 30;
-            this.dgvApplicationTypesList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvApplicationTypesList.ContextMenuStrip = this.cmsRow;
+            this.dgvTestTypesList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvTestTypesList.ColumnHeadersHeight = 30;
+            this.dgvTestTypesList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvTestTypesList.ContextMenuStrip = this.cmsRow;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
@@ -122,43 +122,43 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvApplicationTypesList.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvApplicationTypesList.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvApplicationTypesList.EnableHeadersVisualStyles = false;
-            this.dgvApplicationTypesList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvApplicationTypesList.Location = new System.Drawing.Point(0, 285);
-            this.dgvApplicationTypesList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvApplicationTypesList.MultiSelect = false;
-            this.dgvApplicationTypesList.Name = "dgvApplicationTypesList";
-            this.dgvApplicationTypesList.ReadOnly = true;
-            this.dgvApplicationTypesList.RowHeadersVisible = false;
-            this.dgvApplicationTypesList.RowHeadersWidth = 51;
-            this.dgvApplicationTypesList.RowTemplate.Height = 24;
-            this.dgvApplicationTypesList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvApplicationTypesList.Size = new System.Drawing.Size(1775, 694);
-            this.dgvApplicationTypesList.TabIndex = 4;
-            this.dgvApplicationTypesList.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
-            this.dgvApplicationTypesList.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvApplicationTypesList.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dgvApplicationTypesList.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgvApplicationTypesList.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgvApplicationTypesList.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvApplicationTypesList.ThemeStyle.BackColor = System.Drawing.Color.LavenderBlush;
-            this.dgvApplicationTypesList.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvApplicationTypesList.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.dgvApplicationTypesList.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvApplicationTypesList.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.dgvApplicationTypesList.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvApplicationTypesList.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvApplicationTypesList.ThemeStyle.HeaderStyle.Height = 30;
-            this.dgvApplicationTypesList.ThemeStyle.ReadOnly = true;
-            this.dgvApplicationTypesList.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvApplicationTypesList.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvApplicationTypesList.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.dgvApplicationTypesList.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dgvApplicationTypesList.ThemeStyle.RowsStyle.Height = 24;
-            this.dgvApplicationTypesList.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvApplicationTypesList.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvTestTypesList.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvTestTypesList.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvTestTypesList.EnableHeadersVisualStyles = false;
+            this.dgvTestTypesList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvTestTypesList.Location = new System.Drawing.Point(0, 285);
+            this.dgvTestTypesList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvTestTypesList.MultiSelect = false;
+            this.dgvTestTypesList.Name = "dgvTestTypesList";
+            this.dgvTestTypesList.ReadOnly = true;
+            this.dgvTestTypesList.RowHeadersVisible = false;
+            this.dgvTestTypesList.RowHeadersWidth = 51;
+            this.dgvTestTypesList.RowTemplate.Height = 24;
+            this.dgvTestTypesList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTestTypesList.Size = new System.Drawing.Size(1775, 694);
+            this.dgvTestTypesList.TabIndex = 5;
+            this.dgvTestTypesList.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+            this.dgvTestTypesList.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvTestTypesList.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvTestTypesList.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvTestTypesList.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvTestTypesList.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvTestTypesList.ThemeStyle.BackColor = System.Drawing.Color.LavenderBlush;
+            this.dgvTestTypesList.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvTestTypesList.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dgvTestTypesList.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvTestTypesList.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.dgvTestTypesList.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvTestTypesList.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvTestTypesList.ThemeStyle.HeaderStyle.Height = 30;
+            this.dgvTestTypesList.ThemeStyle.ReadOnly = true;
+            this.dgvTestTypesList.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvTestTypesList.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvTestTypesList.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.dgvTestTypesList.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvTestTypesList.ThemeStyle.RowsStyle.Height = 24;
+            this.dgvTestTypesList.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvTestTypesList.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
             // flpTools
             // 
@@ -169,7 +169,7 @@
             this.flpTools.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flpTools.Name = "flpTools";
             this.flpTools.Size = new System.Drawing.Size(685, 43);
-            this.flpTools.TabIndex = 13;
+            this.flpTools.TabIndex = 14;
             // 
             // lblManagePeople
             // 
@@ -204,7 +204,6 @@
             this.cbFilter.Size = new System.Drawing.Size(247, 36);
             this.cbFilter.TabIndex = 5;
             this.cbFilter.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
-            this.cbFilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbFilter_KeyPress);
             // 
             // tbFilter
             // 
@@ -258,6 +257,14 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(211, 6);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.toolStripSeparator2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.toolStripSeparator2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(211, 6);
+            // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
@@ -268,29 +275,21 @@
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-            this.toolStripSeparator2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.toolStripSeparator2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(211, 6);
-            // 
-            // ApplicationTypes
+            // TestTypesList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LavenderBlush;
             this.ClientSize = new System.Drawing.Size(1775, 1028);
             this.Controls.Add(this.flpTools);
-            this.Controls.Add(this.dgvApplicationTypesList);
+            this.Controls.Add(this.dgvTestTypesList);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "ApplicationTypes";
-            this.Text = "ApplicationTypes";
+            this.Name = "TestTypesList";
+            this.Text = "TestTypesList";
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvApplicationTypesList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTestTypesList)).EndInit();
             this.flpTools.ResumeLayout(false);
             this.flpTools.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
@@ -304,7 +303,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.Label lblNumberOfRecords;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvApplicationTypesList;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvTestTypesList;
         private System.Windows.Forms.FlowLayoutPanel flpTools;
         private System.Windows.Forms.Label lblManagePeople;
         private Guna.UI2.WinForms.Guna2ComboBox cbFilter;

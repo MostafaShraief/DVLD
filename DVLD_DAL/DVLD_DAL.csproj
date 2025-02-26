@@ -45,6 +45,7 @@
     <Compile Include="clsCountry_DAL.cs" />
     <Compile Include="clsPeople_DAL.cs" />
     <Compile Include="clsSettings_DAL.cs" />
+    <Compile Include="clsTestTypes_DAL.cs" />
     <Compile Include="clsUsers_DAL.cs" />
     <Compile Include="clsUtility_DAL.cs" />
     <Compile Include="CRUD.cs" />

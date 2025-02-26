@@ -67,16 +67,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Applications\ApplicationTypes.cs">
+    <Compile Include="Applications\Application Types\ApplicationTypesList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\ApplicationTypes.Designer.cs">
-      <DependentUpon>ApplicationTypes.cs</DependentUpon>
+    <Compile Include="Applications\Application Types\ApplicationTypesList.Designer.cs">
+      <DependentUpon>ApplicationTypesList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\EditApplicationType.cs">
+    <Compile Include="Applications\Application Types\EditApplicationType.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\EditApplicationType.Designer.cs">
+    <Compile Include="Applications\Application Types\EditApplicationType.Designer.cs">
       <DependentUpon>EditApplicationType.cs</DependentUpon>
     </Compile>
     <Compile Include="Applications\ManageApplications.cs">
@@ -84,6 +84,18 @@
     </Compile>
     <Compile Include="Applications\ManageApplications.Designer.cs">
       <DependentUpon>ManageApplications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\Test Types\EditTestType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Test Types\EditTestType.Designer.cs">
+      <DependentUpon>EditTestType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\Test Types\TestTypesList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Test Types\TestTypesList.Designer.cs">
+      <DependentUpon>TestTypesList.cs</DependentUpon>
     </Compile>
     <Compile Include="clsGlobal.cs" />
     <Compile Include="clsUtility.cs" />
@@ -222,14 +234,20 @@
     <Compile Include="ucTitleScreen.Designer.cs">
       <DependentUpon>ucTitleScreen.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Applications\ApplicationTypes.resx">
-      <DependentUpon>ApplicationTypes.cs</DependentUpon>
+    <EmbeddedResource Include="Applications\Application Types\ApplicationTypesList.resx">
+      <DependentUpon>ApplicationTypesList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\EditApplicationType.resx">
+    <EmbeddedResource Include="Applications\Application Types\EditApplicationType.resx">
       <DependentUpon>EditApplicationType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\ManageApplications.resx">
       <DependentUpon>ManageApplications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Test Types\EditTestType.resx">
+      <DependentUpon>EditTestType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Test Types\TestTypesList.resx">
+      <DependentUpon>TestTypesList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD.resx">
       <DependentUpon>DVLD.cs</DependentUpon>
@@ -505,6 +523,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Hashtag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Info.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

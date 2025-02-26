@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace DVLD.Applications
 {
-    public partial class ApplicationTypes : Form
+    public partial class ApplicationTypesList : Form
     {
-        public ApplicationTypes()
+        public ApplicationTypesList()
         {
             InitializeComponent();
             clsDataTable = new clsUtility.clsDataTable(lblNumberOfRecords, 

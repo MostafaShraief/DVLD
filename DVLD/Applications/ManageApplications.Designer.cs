@@ -32,6 +32,7 @@
             this.lblDescriptionTitle = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnListUsers = new Guna.UI2.WinForms.Guna2Button();
+            this.btnTestTypes = new Guna.UI2.WinForms.Guna2Button();
             this.ucTitleScreen1 = new ucTitleScreen();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -61,6 +62,7 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.btnListUsers);
+            this.flowLayoutPanel1.Controls.Add(this.btnTestTypes);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(52, 200);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(922, 629);
@@ -91,6 +93,32 @@
             this.btnListUsers.Click += new System.EventHandler(this.btnListUsers_Click);
             this.btnListUsers.MouseEnter += new System.EventHandler(this.btnListUsers_MouseEnter);
             this.btnListUsers.MouseLeave += new System.EventHandler(this.btnOption_MouseLeave);
+            // 
+            // btnTestTypes
+            // 
+            this.btnTestTypes.Animated = true;
+            this.btnTestTypes.BackColor = System.Drawing.Color.Transparent;
+            this.btnTestTypes.CheckedState.Parent = this.btnTestTypes;
+            this.btnTestTypes.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btnTestTypes.CustomImages.Parent = this.btnTestTypes;
+            this.btnTestTypes.FillColor = System.Drawing.Color.Transparent;
+            this.btnTestTypes.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
+            this.btnTestTypes.ForeColor = System.Drawing.Color.Black;
+            this.btnTestTypes.HoverState.Parent = this.btnTestTypes;
+            this.btnTestTypes.Image = global::DVLD.Properties.Resources.Test;
+            this.btnTestTypes.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnTestTypes.ImageOffset = new System.Drawing.Point(40, -20);
+            this.btnTestTypes.ImageSize = new System.Drawing.Size(200, 200);
+            this.btnTestTypes.Location = new System.Drawing.Point(309, 3);
+            this.btnTestTypes.Name = "btnTestTypes";
+            this.btnTestTypes.ShadowDecoration.Parent = this.btnTestTypes;
+            this.btnTestTypes.Size = new System.Drawing.Size(300, 300);
+            this.btnTestTypes.TabIndex = 2;
+            this.btnTestTypes.Text = "Test Types";
+            this.btnTestTypes.TextOffset = new System.Drawing.Point(0, 100);
+            this.btnTestTypes.Click += new System.EventHandler(this.btnTestTypes_Click);
+            this.btnTestTypes.MouseEnter += new System.EventHandler(this.btnTestTypes_MouseEnter);
+            this.btnTestTypes.MouseLeave += new System.EventHandler(this.btnOption_MouseLeave);
             // 
             // ucTitleScreen1
             // 
@@ -127,5 +155,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private Guna.UI2.WinForms.Guna2Button btnListUsers;
         private ucTitleScreen ucTitleScreen1;
+        private Guna.UI2.WinForms.Guna2Button btnTestTypes;
     }
 }

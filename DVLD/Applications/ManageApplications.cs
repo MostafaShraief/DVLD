@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD.Applications.Test_Types;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,11 +25,20 @@ namespace DVLD.Applications
 
         private void btnListUsers_Click(object sender, EventArgs e)
         {
-            clsGlobal.MainForm.PushNewForm(new ApplicationTypes());
+            clsGlobal.MainForm.PushNewForm(new ApplicationTypesList());
         }
 
         private void btnListUsers_MouseEnter(object sender, EventArgs e) =>
             lblDescription.Text = "Show list of applications that available in " +
+            "the system, where you can only edit them.";
+
+        private void btnTestTypes_Click(object sender, EventArgs e)
+        {
+            clsGlobal.MainForm.PushNewForm(new TestTypesList());
+        }
+
+        private void btnTestTypes_MouseEnter(object sender, EventArgs e) =>
+            lblDescription.Text = "Show list of tests that available in " +
             "the system, where you can only edit them.";
     }
 }

@@ -18,14 +18,15 @@ namespace DVLD_BLL
             switch (mode)
             {
                 case enMode.New:
-                    if (Add())
+                    if (Add != null && Add())
                     {
                         mode = enMode.Existing;
                         IsSaved = true;
                     }
                     break;
                 case enMode.Existing:
-                    IsSaved = Update();
+                    if (Update != null)
+                        IsSaved = Update();
                     break;
             }
 
