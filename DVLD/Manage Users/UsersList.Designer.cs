@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UsersList));
             this.flpTools = new System.Windows.Forms.FlowLayoutPanel();
             this.lblManagePeople = new System.Windows.Forms.Label();
@@ -39,21 +39,22 @@
             this.tbFilter = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgvUsersList = new Guna.UI2.WinForms.Guna2DataGridView();
             this.cmsRow = new ReaLTaiizor.Controls.CrownContextMenuStrip();
-            this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showUserInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showPersonInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.personToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblNumberOfRecords = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.ucTitleScreen1 = new ucTitleScreen();
-            this.btnRefreshAll = new Guna.UI2.WinForms.Guna2Button();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAddUser = new Guna.UI2.WinForms.Guna2Button();
+            this.btnRefreshAll = new Guna.UI2.WinForms.Guna2Button();
+            this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showUserInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showPersonInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.personToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flpTools.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsersList)).BeginInit();
             this.cmsRow.SuspendLayout();
@@ -162,33 +163,33 @@
             this.dgvUsersList.AllowUserToAddRows = false;
             this.dgvUsersList.AllowUserToDeleteRows = false;
             this.dgvUsersList.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dgvUsersList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvUsersList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvUsersList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUsersList.BackgroundColor = System.Drawing.Color.LavenderBlush;
             this.dgvUsersList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvUsersList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvUsersList.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dgvUsersList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsersList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsersList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvUsersList.ColumnHeadersHeight = 30;
             this.dgvUsersList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvUsersList.ContextMenuStrip = this.cmsRow;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUsersList.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUsersList.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvUsersList.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvUsersList.EnableHeadersVisualStyles = false;
             this.dgvUsersList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -235,40 +236,11 @@
             this.showToolStripMenuItem,
             this.toolStripSeparator1,
             this.editToolStripMenuItem,
+            this.toolStripMenuItem1,
             this.toolStripSeparator2,
             this.deleteToolStripMenuItem});
             this.cmsRow.Name = "cmsRow";
-            this.cmsRow.Size = new System.Drawing.Size(123, 96);
-            // 
-            // showToolStripMenuItem
-            // 
-            this.showToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-            this.showToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showUserInfoToolStripMenuItem,
-            this.showPersonInfoToolStripMenuItem});
-            this.showToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.showToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("showToolStripMenuItem.Image")));
-            this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-            this.showToolStripMenuItem.Size = new System.Drawing.Size(122, 26);
-            this.showToolStripMenuItem.Text = "Show";
-            // 
-            // showUserInfoToolStripMenuItem
-            // 
-            this.showUserInfoToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-            this.showUserInfoToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.showUserInfoToolStripMenuItem.Name = "showUserInfoToolStripMenuItem";
-            this.showUserInfoToolStripMenuItem.Size = new System.Drawing.Size(164, 26);
-            this.showUserInfoToolStripMenuItem.Text = "User Info";
-            this.showUserInfoToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
-            // 
-            // showPersonInfoToolStripMenuItem
-            // 
-            this.showPersonInfoToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-            this.showPersonInfoToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.showPersonInfoToolStripMenuItem.Name = "showPersonInfoToolStripMenuItem";
-            this.showPersonInfoToolStripMenuItem.Size = new System.Drawing.Size(164, 26);
-            this.showPersonInfoToolStripMenuItem.Text = "Person Info";
-            this.showPersonInfoToolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.cmsRow.Size = new System.Drawing.Size(215, 150);
             // 
             // toolStripSeparator1
             // 
@@ -276,37 +248,7 @@
             this.toolStripSeparator1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.toolStripSeparator1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(119, 6);
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.userToolStripMenuItem,
-            this.personToolStripMenuItem});
-            this.editToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.editToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("editToolStripMenuItem.Image")));
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(122, 26);
-            this.editToolStripMenuItem.Text = "Edit";
-            // 
-            // userToolStripMenuItem
-            // 
-            this.userToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-            this.userToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
-            this.userToolStripMenuItem.Text = "User";
-            this.userToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
-            // 
-            // personToolStripMenuItem
-            // 
-            this.personToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-            this.personToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.personToolStripMenuItem.Name = "personToolStripMenuItem";
-            this.personToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
-            this.personToolStripMenuItem.Text = "Person";
-            this.personToolStripMenuItem.Click += new System.EventHandler(this.personToolStripMenuItem_Click);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(211, 6);
             // 
             // toolStripSeparator2
             // 
@@ -314,17 +256,7 @@
             this.toolStripSeparator2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.toolStripSeparator2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(119, 6);
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-            this.deleteToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.deleteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripMenuItem.Image")));
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(122, 26);
-            this.deleteToolStripMenuItem.Text = "Delete";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(211, 6);
             // 
             // guna2Panel1
             // 
@@ -374,29 +306,15 @@
             this.ucTitleScreen1.Size = new System.Drawing.Size(1775, 145);
             this.ucTitleScreen1.TabIndex = 9;
             // 
-            // btnRefreshAll
+            // toolStripMenuItem1
             // 
-            this.btnRefreshAll.Animated = true;
-            this.btnRefreshAll.BackColor = System.Drawing.Color.Transparent;
-            this.btnRefreshAll.BorderThickness = 2;
-            this.btnRefreshAll.CheckedState.Parent = this.btnRefreshAll;
-            this.btnRefreshAll.CustomImages.Parent = this.btnRefreshAll;
-            this.btnRefreshAll.FillColor = System.Drawing.Color.Transparent;
-            this.btnRefreshAll.Font = new System.Drawing.Font("Gadugi", 9F, System.Drawing.FontStyle.Bold);
-            this.btnRefreshAll.ForeColor = System.Drawing.Color.Black;
-            this.btnRefreshAll.HoverState.Parent = this.btnRefreshAll;
-            this.btnRefreshAll.Image = global::DVLD.Properties.Resources.Refresh;
-            this.btnRefreshAll.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnRefreshAll.ImageOffset = new System.Drawing.Point(-8, 0);
-            this.btnRefreshAll.ImageSize = new System.Drawing.Size(28, 28);
-            this.btnRefreshAll.Location = new System.Drawing.Point(1630, 240);
-            this.btnRefreshAll.Name = "btnRefreshAll";
-            this.btnRefreshAll.ShadowDecoration.Parent = this.btnRefreshAll;
-            this.btnRefreshAll.Size = new System.Drawing.Size(133, 38);
-            this.btnRefreshAll.TabIndex = 60;
-            this.btnRefreshAll.Text = "Refresh All";
-            this.btnRefreshAll.TextOffset = new System.Drawing.Point(10, 0);
-            this.btnRefreshAll.Click += new System.EventHandler(this.btnRefreshAll_Click);
+            this.toolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.toolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.toolStripMenuItem1.Image = global::DVLD.Properties.Resources.Password;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(214, 26);
+            this.toolStripMenuItem1.Text = "Change Password";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click_1);
             // 
             // btnAddUser
             // 
@@ -421,6 +339,100 @@
             this.btnAddUser.Text = "Add User";
             this.btnAddUser.TextOffset = new System.Drawing.Point(10, 0);
             this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
+            // 
+            // btnRefreshAll
+            // 
+            this.btnRefreshAll.Animated = true;
+            this.btnRefreshAll.BackColor = System.Drawing.Color.Transparent;
+            this.btnRefreshAll.BorderThickness = 2;
+            this.btnRefreshAll.CheckedState.Parent = this.btnRefreshAll;
+            this.btnRefreshAll.CustomImages.Parent = this.btnRefreshAll;
+            this.btnRefreshAll.FillColor = System.Drawing.Color.Transparent;
+            this.btnRefreshAll.Font = new System.Drawing.Font("Gadugi", 9F, System.Drawing.FontStyle.Bold);
+            this.btnRefreshAll.ForeColor = System.Drawing.Color.Black;
+            this.btnRefreshAll.HoverState.Parent = this.btnRefreshAll;
+            this.btnRefreshAll.Image = global::DVLD.Properties.Resources.Refresh;
+            this.btnRefreshAll.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnRefreshAll.ImageOffset = new System.Drawing.Point(-8, 0);
+            this.btnRefreshAll.ImageSize = new System.Drawing.Size(28, 28);
+            this.btnRefreshAll.Location = new System.Drawing.Point(1630, 240);
+            this.btnRefreshAll.Name = "btnRefreshAll";
+            this.btnRefreshAll.ShadowDecoration.Parent = this.btnRefreshAll;
+            this.btnRefreshAll.Size = new System.Drawing.Size(133, 38);
+            this.btnRefreshAll.TabIndex = 60;
+            this.btnRefreshAll.Text = "Refresh All";
+            this.btnRefreshAll.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnRefreshAll.Click += new System.EventHandler(this.btnRefreshAll_Click);
+            // 
+            // showToolStripMenuItem
+            // 
+            this.showToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.showToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showUserInfoToolStripMenuItem,
+            this.showPersonInfoToolStripMenuItem});
+            this.showToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.showToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("showToolStripMenuItem.Image")));
+            this.showToolStripMenuItem.Name = "showToolStripMenuItem";
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.showToolStripMenuItem.Text = "Show";
+            // 
+            // showUserInfoToolStripMenuItem
+            // 
+            this.showUserInfoToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.showUserInfoToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.showUserInfoToolStripMenuItem.Name = "showUserInfoToolStripMenuItem";
+            this.showUserInfoToolStripMenuItem.Size = new System.Drawing.Size(164, 26);
+            this.showUserInfoToolStripMenuItem.Text = "User Info";
+            this.showUserInfoToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
+            // 
+            // showPersonInfoToolStripMenuItem
+            // 
+            this.showPersonInfoToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.showPersonInfoToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.showPersonInfoToolStripMenuItem.Name = "showPersonInfoToolStripMenuItem";
+            this.showPersonInfoToolStripMenuItem.Size = new System.Drawing.Size(164, 26);
+            this.showPersonInfoToolStripMenuItem.Text = "Person Info";
+            this.showPersonInfoToolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.userToolStripMenuItem,
+            this.personToolStripMenuItem});
+            this.editToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.editToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("editToolStripMenuItem.Image")));
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // userToolStripMenuItem
+            // 
+            this.userToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.userToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.userToolStripMenuItem.Name = "userToolStripMenuItem";
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
+            this.userToolStripMenuItem.Text = "User";
+            this.userToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            // 
+            // personToolStripMenuItem
+            // 
+            this.personToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.personToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.personToolStripMenuItem.Name = "personToolStripMenuItem";
+            this.personToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
+            this.personToolStripMenuItem.Text = "Person";
+            this.personToolStripMenuItem.Click += new System.EventHandler(this.personToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.deleteToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.deleteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripMenuItem.Image")));
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // UsersList
             // 
@@ -472,5 +484,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private Guna.UI2.WinForms.Guna2Button btnRefreshAll;
         private Guna.UI2.WinForms.Guna2Button btnAddUser;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }

@@ -79,7 +79,7 @@ namespace DVLD_BLL
             if (!_CheckData())
                 return IsUpdated;
 
-            IsUpdated = clsUsers_DAL.UpdateUser(UserID, PersonID, UserName,
+            IsUpdated = clsUsers_DAL.UpdateUser(UserID, UserName,
                 Password, IsActive);
 
             return IsUpdated;

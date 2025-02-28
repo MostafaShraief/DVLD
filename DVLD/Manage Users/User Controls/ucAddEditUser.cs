@@ -174,6 +174,7 @@ namespace DVLD.Manage_Users.User_Controls
             pnlUser.Visible = false;
             cbIsActive.Checked = false;
             btnSave.Visible = false;
+            ucfindAndShowInfoPerson.EnableFindStatus(true);
         }
 
         void _EditMode()
@@ -187,6 +188,7 @@ namespace DVLD.Manage_Users.User_Controls
             tbUserName.Text = user.UserName;
             cbIsActive.Checked = user.IsActive;
             ucfindAndShowInfoPerson.GetPersonID(user.PersonID);
+            ucfindAndShowInfoPerson.EnableFindStatus(false);
             cbChangePassword.Visible = true;
             tbPassword.Text = tbOldPassword.Text =
                 tbConfirmPassword.Text = string.Empty;

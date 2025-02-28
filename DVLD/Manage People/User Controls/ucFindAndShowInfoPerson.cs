@@ -69,5 +69,8 @@ namespace DVLD.Manage_People.User_Controls
             addEditPerson.GetPersonObjectLinker += FillPersonInfo;
             clsGlobal.MainForm.PushNewForm(addEditPerson);
         }
+
+        public void EnableFindStatus(bool Enable) =>
+            ucFindPerson.Enabled = Enable;
     }
 }

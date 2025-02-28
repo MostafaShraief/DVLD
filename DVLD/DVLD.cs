@@ -52,7 +52,10 @@ namespace DVLD
         internal clsUsers_BLL user {
             get
             {
-                return private_user;
+                if (private_user != null)
+                    return private_user;
+                else
+                    return new clsUsers_BLL();
             }
             set
             { 

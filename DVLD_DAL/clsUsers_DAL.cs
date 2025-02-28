@@ -257,7 +257,7 @@ namespace DVLD_DAL
             return IsFound;
         }
 
-        public static bool UpdateUser(int UserID, int PersonID,
+        public static bool UpdateUser(int UserID,
             string UserName, string Password, bool IsActive)
         {
             if (IsUserExistByUserID(UserID) == false)
@@ -266,14 +266,15 @@ namespace DVLD_DAL
             bool IsUpdated = false;
 
             SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
-            string query = "USE [DVLD]; UPDATE [dbo].[Users] SET [PersonID] " +
-                "= @PersonID, [UserName] = @UserName, [Password] = @Password, " +
+            string query = "USE [DVLD]; UPDATE [dbo].[Users] SET " +
+                "[UserName] = @UserName, [Password] = @Password, " +
                 "[IsActive] = @IsActive WHERE UserID = @UserID;";
 
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@UserID", UserID);
-            _FillCommandWithParameters(ref command, PersonID, UserName, Password,
-                IsActive);
+            command.Parameters.AddWithValue("@UserName", UserName);
+            command.Parameters.AddWithValue("@Password", Password);
+            command.Parameters.AddWithValue("@IsActive", IsActive);
 
             if (command == null)
                 return false;

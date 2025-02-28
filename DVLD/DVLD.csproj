@@ -171,6 +171,12 @@
     <Compile Include="Manage Users\AddEditUser.Designer.cs">
       <DependentUpon>AddEditUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Manage Users\ChangeUserPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage Users\ChangeUserPassword.Designer.cs">
+      <DependentUpon>ChangeUserPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Manage Users\FindUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -284,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Manage Users\AddEditUser.resx">
       <DependentUpon>AddEditUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage Users\ChangeUserPassword.resx">
+      <DependentUpon>ChangeUserPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manage Users\FindUser.resx">
       <DependentUpon>FindUser.cs</DependentUpon>

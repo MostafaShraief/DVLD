@@ -245,5 +245,11 @@ namespace DVLD.Manage_Users
             addEditUser.UserLinker += LoadDataToRefresh;
             clsGlobal.MainForm.PushNewForm(addEditUser);
         }
+
+        private void toolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            ChangeUserPassword changeUserPassword = new ChangeUserPassword(GetUserIdFromSelectedRow());
+            changeUserPassword.ShowDialog();
+        }
     }
 }
