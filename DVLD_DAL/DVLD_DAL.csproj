@@ -41,8 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsApplications_DAL.cs" />
     <Compile Include="clsApplicationTypes_DAL.cs" />
     <Compile Include="clsCountry_DAL.cs" />
+    <Compile Include="clsLicenseClasses_DAL.cs" />
+    <Compile Include="clsLocalDrivingLicenseApplication_DAL.cs" />
     <Compile Include="clsPeople_DAL.cs" />
     <Compile Include="clsSettings_DAL.cs" />
     <Compile Include="clsTestTypes_DAL.cs" />

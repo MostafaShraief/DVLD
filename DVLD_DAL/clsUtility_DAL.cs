@@ -24,6 +24,28 @@ namespace DVLD_DAL
         public static Func<object, string> ConvertObjectToString =
             (obj) => ((obj != DBNull.Value && obj != null) ? obj.ToString() : string.Empty);
 
+        public static DataTable GetAllItems(string query)
+        {
+            DataTable dt = new DataTable();
+
+            SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                dt.Load(reader);
+                reader.Close();
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return dt;
+        }
+
         public static bool DeleteRecord(string TableName, string WordFilter,
             object objArgument, bool IsInt)
         {

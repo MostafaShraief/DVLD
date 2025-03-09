@@ -73,5 +73,8 @@ namespace DVLD_BLL
 
             return IsUpdated;
         }
+
+        public static float GetApplicationTypeFees(int ApplicationType) =>
+            clsApplicationTypes_DAL.GetApplicationTypeFees((clsApplicationTypes_DAL.enApplicationType)ApplicationType);
     }
 }

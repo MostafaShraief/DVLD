@@ -79,6 +79,12 @@
     <Compile Include="Applications\Application Types\EditApplicationType.Designer.cs">
       <DependentUpon>EditApplicationType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\LocalDrivingLicenseApplicationList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\LocalDrivingLicenseApplicationList.Designer.cs">
+      <DependentUpon>LocalDrivingLicenseApplicationList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Applications\ManageApplications.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -245,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\Application Types\EditApplicationType.resx">
       <DependentUpon>EditApplicationType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\LocalDrivingLicenseApplicationList.resx">
+      <DependentUpon>LocalDrivingLicenseApplicationList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\ManageApplications.resx">
       <DependentUpon>ManageApplications.cs</DependentUpon>

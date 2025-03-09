@@ -10,6 +10,12 @@ namespace DVLD_DAL
 {
     public class clsApplicationTypes_DAL
     {
+        public enum enApplicationType
+        {
+            NewLocalLicense = 1, Renew, LostReplacement,
+            DamagedReplacement, ReleaseDetained, NewInternational
+        }
+
         public static DataTable GetAllApplicationTypes()
         {
             DataTable dt = new DataTable();
@@ -98,6 +104,31 @@ namespace DVLD_DAL
             }
 
             return IsUpdated;
+        }
+
+        public static float GetApplicationTypeFees(enApplicationType ApplicationTypeID)
+        {
+            float Fees = 0;
+
+            SqlConnection sqlConnection = new SqlConnection(clsSettings_DAL.ConStr);
+            string query = "Use DVLD; Select Top 1 ApplicationFees From ApplicationTypes Where " +
+                "ApplicationTypeID = @ApplicationTypeID;";
+
+            SqlCommand command = new SqlCommand(query, sqlConnection);
+            command.Parameters.AddWithValue("@ApplicationTypeID", (int)ApplicationTypeID);
+
+            try
+            {
+                sqlConnection.Open();
+                object result = command.ExecuteScalar();
+                float.TryParse(clsUtility_DAL.ConvertObjectToString(result), out Fees);
+            }
+            finally 
+            { 
+                sqlConnection.Close();
+            }
+
+            return Fees;
         }
     }
 }
