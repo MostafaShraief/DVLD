@@ -39,8 +39,8 @@ namespace DVLD_BLL
             this._Mode = clsSave_BLL.enMode.Existing;
         }
 
-        public static DataTable GetListOfTestTypes() =>
-            clsTestTypes_DAL.GetAllTestTypes();
+        public static DataTable GetListOfTestLicenseClasses() =>
+            clsLicenseClasses_DAL.GetAllLicensesClasses();
 
         public static clsLicenseClasses_BLL Find(int LicenseClassID)
         {

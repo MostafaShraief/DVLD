@@ -199,6 +199,7 @@ namespace DVLD_DAL
                 "@ApplicationStatus, [LastStatusDate] = @LastStatusDate WHERE ApplicationID = @ApplicationID;";
 
             SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ApplicationID", (int)ApplicationID);
             command.Parameters.AddWithValue("@ApplicationStatus", (short)ApplicationStatus);
             command.Parameters.AddWithValue("@LastStatusDate", DateTime.Now);
 
@@ -276,5 +277,16 @@ namespace DVLD_DAL
         //    return IsExist;
         //}
 
+        public static float GetApplicationFees(int ApplicatonId)
+        {
+            float Fees = 0;
+
+            object result = clsUtility_DAL.GetTop1Value(ApplicatonId, "Applications", "PaidFees", "ApplicationID");
+
+            if (result != null)
+                Fees = Convert.ToSingle(result);
+
+            return Fees;
+        }
     }
 }

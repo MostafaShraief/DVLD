@@ -1,11 +1,13 @@
 ﻿using DVLD_BLL;
 using Guna.UI2.WinForms;
+using Guna.UI2.WinForms.Suite;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,20 +17,41 @@ namespace DVLD
 {
     public partial class LoginScreen : Form
     {
+        string Sep = "#//#";
+        void FileLogin()
+        {
+            if (!File.Exists(clsGlobal.LoginFilePath))
+                return;
+
+            List<string> Data = File.ReadAllText(clsGlobal.LoginFilePath).Split(new[] { Sep }, StringSplitOptions.None).ToList();
+
+            if (Data.Count == 2 && !String.IsNullOrEmpty(Data[0])
+                && !String.IsNullOrEmpty(Data[1]))
+                Login(Data[0], Data[1]);
+        }
+
         public LoginScreen()
         {
             InitializeComponent();
             ucTitleScreen1.ChangeTitle("Login");
             tbPassword.UseSystemPasswordChar = true;
             tbUserName.Focus();
+            this.Show();
+            FileLogin();
         }
 
         clsUsers_BLL user;
 
-        void Login()
+        void SaveLogin(string UserName, string Password)
         {
-            if (String.IsNullOrEmpty(tbUserName.Text) || 
-                String.IsNullOrEmpty(tbPassword.Text))
+            string Content = UserName + Sep + Password;
+            File.WriteAllText(clsGlobal.LoginFilePath, Content);
+        }
+
+        void Login(string UserName, string Password)
+        {
+            if (String.IsNullOrEmpty(UserName) || 
+                String.IsNullOrEmpty(Password))
             {
                 MessageBox.Show("Please enter both username and password.",
                     "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -36,9 +59,9 @@ namespace DVLD
                 return;
             }
 
-            user = clsUsers_BLL.FindByUserName(tbUserName.Text);
+            user = clsUsers_BLL.FindByUserName(UserName);
 
-            if (user != null && user.CheckPassword(tbPassword.Text))
+            if (user != null && user.CheckPassword(Password))
             {
                 if (!user.IsActive)
                 {
@@ -47,9 +70,13 @@ namespace DVLD
                         "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+
+                if (cbRememberMe.Checked)
+                    SaveLogin(tbUserName.Text, tbPassword.Text);
+
                 this.Hide();
                 DVLD dVLD = new DVLD();
-                dVLD.user = user;
+                clsGlobal.user = user;
                 dVLD.Show();
             }
             else
@@ -61,7 +88,7 @@ namespace DVLD
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Login();
+            Login(tbUserName.Text, tbPassword.Text);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -77,7 +104,7 @@ namespace DVLD
         private void tbPassword_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter) 
-                Login();
+                Login(tbUserName.Text, tbPassword.Text);
         }
 
         private void icbPassword_CheckedChanged(object sender, EventArgs e)

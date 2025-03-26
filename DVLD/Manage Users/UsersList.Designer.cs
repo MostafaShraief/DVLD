@@ -166,7 +166,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvUsersList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvUsersList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvUsersList.BackgroundColor = System.Drawing.Color.LavenderBlush;
+            this.dgvUsersList.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvUsersList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvUsersList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvUsersList.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
@@ -210,7 +210,7 @@
             this.dgvUsersList.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
             this.dgvUsersList.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.dgvUsersList.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvUsersList.ThemeStyle.BackColor = System.Drawing.Color.LavenderBlush;
+            this.dgvUsersList.ThemeStyle.BackColor = System.Drawing.Color.WhiteSmoke;
             this.dgvUsersList.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvUsersList.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.dgvUsersList.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -298,7 +298,7 @@
             // 
             // ucTitleScreen1
             // 
-            this.ucTitleScreen1.BackColor = System.Drawing.Color.LavenderBlush;
+            this.ucTitleScreen1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ucTitleScreen1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ucTitleScreen1.Location = new System.Drawing.Point(0, 0);
             this.ucTitleScreen1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -438,7 +438,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LavenderBlush;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1775, 1028);
             this.Controls.Add(this.btnAddUser);
             this.Controls.Add(this.btnRefreshAll);

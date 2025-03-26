@@ -36,7 +36,7 @@ namespace DVLD.Manage_Users
             // 
             // ucAddEditUser1
             // 
-            this.ucAddEditUser1.BackColor = System.Drawing.Color.LavenderBlush;
+            this.ucAddEditUser1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ucAddEditUser1.Location = new System.Drawing.Point(137, 204);
             this.ucAddEditUser1.Name = "ucAddEditUser1";
             this.ucAddEditUser1.Size = new System.Drawing.Size(1507, 767);
@@ -44,7 +44,7 @@ namespace DVLD.Manage_Users
             // 
             // ucTitleScreen1
             // 
-            this.ucTitleScreen1.BackColor = System.Drawing.Color.LavenderBlush;
+            this.ucTitleScreen1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ucTitleScreen1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ucTitleScreen1.Location = new System.Drawing.Point(0, 0);
             this.ucTitleScreen1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -56,7 +56,7 @@ namespace DVLD.Manage_Users
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LavenderBlush;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1775, 1028);
             this.Controls.Add(this.ucAddEditUser1);
             this.Controls.Add(this.ucTitleScreen1);

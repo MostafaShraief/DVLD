@@ -34,7 +34,7 @@
             // 
             // ucFindAndShowUserInfo1
             // 
-            this.ucFindAndShowUserInfo1.BackColor = System.Drawing.Color.LavenderBlush;
+            this.ucFindAndShowUserInfo1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ucFindAndShowUserInfo1.Location = new System.Drawing.Point(137, 108);
             this.ucFindAndShowUserInfo1.Name = "ucFindAndShowUserInfo1";
             this.ucFindAndShowUserInfo1.Size = new System.Drawing.Size(1500, 920);
@@ -42,7 +42,7 @@
             // 
             // ucTitleScreen1
             // 
-            this.ucTitleScreen1.BackColor = System.Drawing.Color.LavenderBlush;
+            this.ucTitleScreen1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ucTitleScreen1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ucTitleScreen1.Location = new System.Drawing.Point(0, 0);
             this.ucTitleScreen1.Name = "ucTitleScreen1";
@@ -53,7 +53,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LavenderBlush;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1775, 1028);
             this.Controls.Add(this.ucFindAndShowUserInfo1);
             this.Controls.Add(this.ucTitleScreen1);

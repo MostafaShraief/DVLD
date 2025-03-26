@@ -35,7 +35,7 @@ namespace DVLD.Manage_People
             // 
             // ucTitleScreen1
             // 
-            this.ucTitleScreen1.BackColor = System.Drawing.Color.LavenderBlush;
+            this.ucTitleScreen1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ucTitleScreen1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ucTitleScreen1.Location = new System.Drawing.Point(0, 0);
             this.ucTitleScreen1.Name = "ucTitleScreen1";
@@ -44,7 +44,7 @@ namespace DVLD.Manage_People
             // 
             // ucAddPerson1
             // 
-            this.ucAddPerson1.BackColor = System.Drawing.Color.LavenderBlush;
+            this.ucAddPerson1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ucAddPerson1.Location = new System.Drawing.Point(137, 213);
             this.ucAddPerson1.Name = "ucAddPerson1";
             this.ucAddPerson1.Size = new System.Drawing.Size(1500, 557);
@@ -54,7 +54,7 @@ namespace DVLD.Manage_People
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LavenderBlush;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1775, 1028);
             this.Controls.Add(this.ucAddPerson1);
             this.Controls.Add(this.ucTitleScreen1);

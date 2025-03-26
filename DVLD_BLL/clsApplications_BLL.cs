@@ -40,10 +40,13 @@ namespace DVLD_BLL
             clsApplications_DAL.AddApplication(ApplicantPersonID, 
                 ApplicationType, CreatedByUserID);
 
-        public static bool UpdateApplication(int ApplicationID, enStatus Status) =>
-            clsApplications_DAL.UpdateApplication(ApplicationID, Status);
+        public static bool UpdateApplication(int ApplicationID, Byte Status) =>
+            clsApplications_DAL.UpdateApplication(ApplicationID, (enStatus)Status);
 
         public bool IsApplicationExist(int ApplicationID) =>
             clsApplications_DAL.IsApplicationExistByID(ApplicationID);
+
+        public static float GetApplicationFees(int ApplicationID) =>
+            clsApplications_DAL.GetApplicationFees(ApplicationID);
     }
 }

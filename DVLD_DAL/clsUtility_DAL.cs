@@ -180,5 +180,31 @@ namespace DVLD_DAL
 
             return IsExist;
         }
+
+        public static object GetTop1Value(int ID,
+            string Table, string ValueName, string IDName)
+        {
+            // this method is used to natinal no or username to ensure no duplicate values.
+            SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
+            string query = $"use dvld; select top 1 {ValueName} From {Table} " +
+                $"where {IDName} = @{IDName};";
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@" + IDName, ID);
+
+            object result = null;
+
+            try
+            {
+                connection.Open();
+                result = command.ExecuteScalar();
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return result;
+        }
     }
 }

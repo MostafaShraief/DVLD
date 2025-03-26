@@ -1,4 +1,6 @@
 ﻿using DVLD.Applications.Test_Types;
+using DVLD_BLL;
+using ReaLTaiizor.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,5 +42,14 @@ namespace DVLD.Applications
         private void btnTestTypes_MouseEnter(object sender, EventArgs e) =>
             lblDescription.Text = "Show list of tests that available in " +
             "the system, where you can only edit them.";
+
+        private void btnLocalLicense_Click(object sender, EventArgs e)
+        {
+            clsGlobal.MainForm.PushNewForm(new LocalDrivingLicenseApplicationList());
+        }
+
+        private void btnLocalLicense_MouseEnter(object sender, EventArgs e) =>
+            lblDescription.Text = "Show list of local licenses that available in " +
+            "the system, where you can add or find license.";
     }
 }

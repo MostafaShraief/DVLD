@@ -70,20 +70,23 @@ namespace DVLD_BLL
             clsLocalDrivingLicenseApplication_DAL.GetAllRecords();
 
         // Private method to add a new local driving license application
-        public bool Add(int CreatedByUserId)
+        public static int Add(int PersonId, Byte LicenseClassID, int CreatedByUserId)
         {
-            if (_CheckData() == false)
-                return false; // If data is corrupted, return false.
+            //if (_CheckData())
+            //    return false; // If data is corrupted, return false.
 
-            bool IsAdded = false;
+            // Add application before add local license.
+            int ApplicationID = clsApplications_DAL.AddApplication(PersonId,
+                clsApplicationTypes_DAL.enApplicationType.NewLocalLicense, CreatedByUserId);
+
+            if (ApplicationID == -1) // check if ID is valid
+                return -1; // Add procces failed.. not completed
 
             // Add the local driving license application to the database table.
             int newLocalDrivingLicenseApplicationID = clsLocalDrivingLicenseApplication_DAL.AddLocalLicense(ApplicationID, 
-                (clsLicenseClasses_DAL.enLicencsesClasses)LicenseClassID, CreatedByUserId);
+                (clsLicenseClasses_DAL.enLicencsesClasses)LicenseClassID);
 
-            IsAdded = (newLocalDrivingLicenseApplicationID != -1);
-
-            return IsAdded;
+            return newLocalDrivingLicenseApplicationID;
         }
 
         // Private method to update an existing local driving license application
@@ -104,11 +107,11 @@ namespace DVLD_BLL
         //}
 
         // Private method to check if data is valid
-        private bool _CheckData()
-        {
-            // Ensure ApplicationID and LicenseClassID are valid.
-            return ApplicationID > 0 && LicenseClassID > 0;
-        }
+        //private static bool _CheckData()
+        //{
+        //    // Ensure ApplicationID and LicenseClassID are valid.
+        //    return ApplicationID > 0 && LicenseClassID > 0;
+        //}
 
         public static bool CancelLocalLicenseOrder(int LocalLicenseId) =>
             clsLocalDrivingLicenseApplication_DAL.ChangeStatusByLocalLicenseID(LocalLicenseId, clsApplications_DAL.enStatus.Cancelled);
@@ -168,8 +171,5 @@ namespace DVLD_BLL
                 return new clsLocalDrivingLicenseApplication_BLL();
             }
         }
-
-        public float GetApplicationFees() =>
-            clsApplicationType_BLL.GetApplicationTypeFees((int)clsApplicationTypes_DAL.enApplicationType.NewLocalLicense);
     }
 }

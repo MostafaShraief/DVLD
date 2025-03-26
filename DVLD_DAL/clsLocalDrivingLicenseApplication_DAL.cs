@@ -48,12 +48,7 @@ namespace DVLD_DAL
             INNER JOIN dbo.Tests AS T ON TA.TestAppointmentID = T.TestAppointmentID
             WHERE TA.LocalDrivingLicenseApplicationID = dbo.LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID 
             AND T.TestResult = 1) AS [Passed Tests],
-            CASE 
-                WHEN Applications.ApplicationStatus = 1 THEN 'New' 
-                WHEN Applications.ApplicationStatus = 2 THEN 'Cancelled' 
-                WHEN Applications.ApplicationStatus = 3 THEN 'Completed' 
-                ELSE NULL 
-            END AS Status,
+            Applications.ApplicationStatus As Status,
             dbo.Applications.CreatedByUserID AS [CreatedByUserID]
         FROM 
             dbo.LocalDrivingLicenseApplications 
@@ -98,16 +93,9 @@ namespace DVLD_DAL
             return IsFound;
         }
 
-        public static int AddLocalLicense(int ApplicantPersonID, 
-            clsLicenseClasses_DAL.enLicencsesClasses LicencseClass,
-            int CreatedByUserID)
+        public static int AddLocalLicense(int ApplicationID, 
+            clsLicenseClasses_DAL.enLicencsesClasses LicencseClass)
         {
-            int ApplicationID = clsApplications_DAL.AddApplication(ApplicantPersonID,
-                clsApplicationTypes_DAL.enApplicationType.NewLocalLicense, CreatedByUserID);
-
-            if (ApplicationID == -1) // check if ID is valid
-                return -1; // Add procces failed.. not completed
-
             int LocalLicenseID = -1;
 
             SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);

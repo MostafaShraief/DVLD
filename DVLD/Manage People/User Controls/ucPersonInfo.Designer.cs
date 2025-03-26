@@ -77,7 +77,7 @@
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.LavenderBlush;
+            this.guna2Panel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.guna2Panel1.BorderColor = System.Drawing.Color.Black;
             this.guna2Panel1.BorderThickness = 3;
             this.guna2Panel1.Controls.Add(this.btnDeleteCard);
@@ -522,7 +522,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LavenderBlush;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.guna2Panel1);
             this.Name = "ucPersonInfo";
             this.Size = new System.Drawing.Size(1500, 557);

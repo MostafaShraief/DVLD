@@ -79,11 +79,35 @@
     <Compile Include="Applications\Application Types\EditApplicationType.Designer.cs">
       <DependentUpon>EditApplicationType.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\LocalDrivingLicenseApplicationList.cs">
+    <Compile Include="Applications\Local Driving License Application\AddLocalLicense.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\LocalDrivingLicenseApplicationList.Designer.cs">
+    <Compile Include="Applications\Local Driving License Application\AddLocalLicense.Designer.cs">
+      <DependentUpon>AddLocalLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\Local Driving License Application\LocalDrivingLicenseApplicationList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Local Driving License Application\LocalDrivingLicenseApplicationList.Designer.cs">
       <DependentUpon>LocalDrivingLicenseApplicationList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\Local Driving License Application\User Controls\ucAddLocalLicense.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\Local Driving License Application\User Controls\ucAddLocalLicense.Designer.cs">
+      <DependentUpon>ucAddLocalLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListScreen.Designer.cs">
+      <DependentUpon>ListScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\ucList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\ucList.Designer.cs">
+      <DependentUpon>ucList.cs</DependentUpon>
     </Compile>
     <Compile Include="Applications\ManageApplications.cs">
       <SubType>Form</SubType>
@@ -240,10 +264,10 @@
     <Compile Include="Manage People\User Controls\ucPersonInfo.Designer.cs">
       <DependentUpon>ucPersonInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucTitleScreen.cs">
+    <Compile Include="User Controls\ucTitleScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucTitleScreen.Designer.cs">
+    <Compile Include="User Controls\ucTitleScreen.Designer.cs">
       <DependentUpon>ucTitleScreen.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Applications\Application Types\ApplicationTypesList.resx">
@@ -252,8 +276,20 @@
     <EmbeddedResource Include="Applications\Application Types\EditApplicationType.resx">
       <DependentUpon>EditApplicationType.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\LocalDrivingLicenseApplicationList.resx">
+    <EmbeddedResource Include="Applications\Local Driving License Application\AddLocalLicense.resx">
+      <DependentUpon>AddLocalLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Local Driving License Application\LocalDrivingLicenseApplicationList.resx">
       <DependentUpon>LocalDrivingLicenseApplicationList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Local Driving License Application\User Controls\ucAddLocalLicense.resx">
+      <DependentUpon>ucAddLocalLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListScreen.resx">
+      <DependentUpon>ListScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\ucList.resx">
+      <DependentUpon>ucList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\ManageApplications.resx">
       <DependentUpon>ManageApplications.cs</DependentUpon>
@@ -335,7 +371,7 @@
     <EmbeddedResource Include="Manage People\User Controls\ucPersonInfo.resx">
       <DependentUpon>ucPersonInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucTitleScreen.resx">
+    <EmbeddedResource Include="User Controls\ucTitleScreen.resx">
       <DependentUpon>ucTitleScreen.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -547,6 +583,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\License.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Date.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dollar-Sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

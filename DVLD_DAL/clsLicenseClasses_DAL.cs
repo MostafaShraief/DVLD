@@ -21,7 +21,7 @@ namespace DVLD_DAL
                 "'Minimum Allowed Age' = LC.MinimumAllowedAge, 'Default Validity Length' = " +
                 "LC.DefaultValidityLength, 'Fees' = LC.ClassFees From LicenseClasses LC;");
 
-        public static bool GetLicenseClass(int ID, ref string ClassName, 
+        public static bool GetLicenseClass(int ID, ref string ClassName,        
             ref string Description, ref short MinimumAge, 
             ref short ValidityLength, ref float Fees)
         {

@@ -31,11 +31,19 @@ namespace DVLD.Manage_People.User_Controls
 
         public void HideDeleteButton() =>
             ucPersonInfo.HideDeleteButton();
+        public void HideAddButton() =>
+            btnAddPerson.Visible = false;
 
-        clsPeople_BLL person;
+        internal clsPeople_BLL person;
 
-        public delegate void delLinker(clsPeople_BLL person);
-        public event delLinker LinkerGetPerson;
+        public delegate void delPersonLinker(clsPeople_BLL person);
+        public event delPersonLinker LinkerGetPerson;
+
+        public delegate void delLinker();
+        public event delLinker LinkerFound;
+
+        public void ChangeEnableFindPerson(bool Enable) =>
+            ucFindPerson.Enabled = Enable;
 
         public void GetPersonID(int PersonID) =>
             ucPersonInfo.GetPersonID(PersonID);
@@ -48,6 +56,8 @@ namespace DVLD.Manage_People.User_Controls
             {
                 if (LinkerGetPerson != null)
                     LinkerGetPerson(person);
+                if (LinkerFound != null)
+                    LinkerFound();
             }
         }
 

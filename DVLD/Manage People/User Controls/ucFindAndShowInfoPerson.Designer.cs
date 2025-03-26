@@ -37,7 +37,7 @@ namespace DVLD.Manage_People.User_Controls
             // 
             // ucFindPerson
             // 
-            this.ucFindPerson.BackColor = System.Drawing.Color.LavenderBlush;
+            this.ucFindPerson.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ucFindPerson.Location = new System.Drawing.Point(3, 3);
             this.ucFindPerson.Name = "ucFindPerson";
             this.ucFindPerson.Size = new System.Drawing.Size(484, 198);
@@ -45,7 +45,7 @@ namespace DVLD.Manage_People.User_Controls
             // 
             // ucPersonInfo
             // 
-            this.ucPersonInfo.BackColor = System.Drawing.Color.LavenderBlush;
+            this.ucPersonInfo.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ucPersonInfo.Location = new System.Drawing.Point(3, 207);
             this.ucPersonInfo.Name = "ucPersonInfo";
             this.ucPersonInfo.Size = new System.Drawing.Size(1500, 557);
@@ -79,7 +79,7 @@ namespace DVLD.Manage_People.User_Controls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LavenderBlush;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.btnAddPerson);
             this.Controls.Add(this.ucPersonInfo);
             this.Controls.Add(this.ucFindPerson);

@@ -498,7 +498,7 @@
             // 
             // ucfindAndShowInfoPerson
             // 
-            this.ucfindAndShowInfoPerson.BackColor = System.Drawing.Color.LavenderBlush;
+            this.ucfindAndShowInfoPerson.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ucfindAndShowInfoPerson.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucfindAndShowInfoPerson.Location = new System.Drawing.Point(0, 0);
             this.ucfindAndShowInfoPerson.Name = "ucfindAndShowInfoPerson";
@@ -509,7 +509,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LavenderBlush;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.ucfindAndShowInfoPerson);
             this.Name = "ucAddEditUser";

@@ -99,7 +99,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvApplicationTypesList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvApplicationTypesList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvApplicationTypesList.BackgroundColor = System.Drawing.Color.LavenderBlush;
+            this.dgvApplicationTypesList.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvApplicationTypesList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvApplicationTypesList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvApplicationTypesList.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
@@ -143,7 +143,7 @@
             this.dgvApplicationTypesList.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
             this.dgvApplicationTypesList.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.dgvApplicationTypesList.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvApplicationTypesList.ThemeStyle.BackColor = System.Drawing.Color.LavenderBlush;
+            this.dgvApplicationTypesList.ThemeStyle.BackColor = System.Drawing.Color.WhiteSmoke;
             this.dgvApplicationTypesList.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvApplicationTypesList.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.dgvApplicationTypesList.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -280,7 +280,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LavenderBlush;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1775, 1028);
             this.Controls.Add(this.flpTools);
             this.Controls.Add(this.dgvApplicationTypesList);

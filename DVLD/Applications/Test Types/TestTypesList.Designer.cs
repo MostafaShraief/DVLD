@@ -99,7 +99,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvTestTypesList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTestTypesList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvTestTypesList.BackgroundColor = System.Drawing.Color.LavenderBlush;
+            this.dgvTestTypesList.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvTestTypesList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvTestTypesList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvTestTypesList.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
@@ -143,7 +143,7 @@
             this.dgvTestTypesList.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
             this.dgvTestTypesList.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.dgvTestTypesList.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvTestTypesList.ThemeStyle.BackColor = System.Drawing.Color.LavenderBlush;
+            this.dgvTestTypesList.ThemeStyle.BackColor = System.Drawing.Color.WhiteSmoke;
             this.dgvTestTypesList.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvTestTypesList.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.dgvTestTypesList.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -279,7 +279,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LavenderBlush;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1775, 1028);
             this.Controls.Add(this.flpTools);
             this.Controls.Add(this.dgvTestTypesList);

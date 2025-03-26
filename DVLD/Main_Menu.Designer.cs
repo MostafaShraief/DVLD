@@ -59,10 +59,10 @@ namespace DVLD
             this.main_panel.Controls.Add(this.lblManagePeople);
             this.main_panel.Controls.Add(this.label2);
             this.main_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.main_panel.FillColor = System.Drawing.Color.LavenderBlush;
-            this.main_panel.FillColor2 = System.Drawing.Color.LavenderBlush;
-            this.main_panel.FillColor3 = System.Drawing.Color.LavenderBlush;
-            this.main_panel.FillColor4 = System.Drawing.Color.LavenderBlush;
+            this.main_panel.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.main_panel.FillColor2 = System.Drawing.Color.WhiteSmoke;
+            this.main_panel.FillColor3 = System.Drawing.Color.WhiteSmoke;
+            this.main_panel.FillColor4 = System.Drawing.Color.WhiteSmoke;
             this.main_panel.Location = new System.Drawing.Point(0, 0);
             this.main_panel.Name = "main_panel";
             this.main_panel.Quality = 1;
@@ -73,7 +73,7 @@ namespace DVLD
             // 
             // ucTitleScreen1
             // 
-            this.ucTitleScreen1.BackColor = System.Drawing.Color.LavenderBlush;
+            this.ucTitleScreen1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ucTitleScreen1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ucTitleScreen1.Location = new System.Drawing.Point(0, 0);
             this.ucTitleScreen1.Name = "ucTitleScreen1";

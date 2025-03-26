@@ -11,6 +11,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,39 +34,23 @@ namespace DVLD
 
         internal void RefreshPerson()
         {
-            userPerson = clsPeople_BLL.Find(user.PersonID);
-            if (userPerson != null)
+            if (clsGlobal.userPerson != null)
             {
-                Image image = clsUtility.Image.ByteArrayToImage(userPerson.ImageFile);
+                Image image = clsUtility.Image.ByteArrayToImage(clsGlobal.userPerson.ImageFile);
 
                 if (image != null)
                     btnUserProfile.Image = image;
-                else if (userPerson.Gender == clsPeople_BLL.enGender.Male)
+                else if (clsGlobal.userPerson.Gender == clsPeople_BLL.enGender.Male)
                     btnUserProfile.Image = Resources.Man;
-                else if (userPerson.Gender == clsPeople_BLL.enGender.Female)
+                else if (clsGlobal.userPerson.Gender == clsPeople_BLL.enGender.Female)
                     btnUserProfile.Image = Resources.Woman;
             }
         }
 
-        clsPeople_BLL userPerson;
-        clsUsers_BLL private_user; // private user
-        internal clsUsers_BLL user {
-            get
-            {
-                if (private_user != null)
-                    return private_user;
-                else
-                    return new clsUsers_BLL();
-            }
-            set
-            { 
-                if (value != null && value.UserID != -1)
-                {
-                    private_user = value;
-                    btnUserProfile.Text = value.UserName;
-                    RefreshPerson();
-                }
-            } 
+        public void RefreshUserInfo()
+        {
+            btnUserProfile.Text = clsGlobal.user.UserName;
+            RefreshPerson();
         }
 
         internal void PushNewForm(Form frm)
@@ -100,13 +85,14 @@ namespace DVLD
         {
             if (stackfroms.PopFormForever(main_panel))
             {
+                if (stackfroms.FormsForwardCount == 0)
+                    btnForward.Enabled = false;
+
                 if (stackfroms.FormsBackwardCount <= 1)
                 {
                     btnBack.Enabled = false;
                     btnMainMenu.Enabled = false;
                 }
-
-                btnForward.Enabled = Enabled;
             }
         }
 
@@ -180,22 +166,23 @@ namespace DVLD
         private void showToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowUserInfo showUserInfo = new ShowUserInfo();
-            if (user != null)
-                showUserInfo.GetUserID(user.UserID);
+            if (clsGlobal.user != null)
+                showUserInfo.GetUserID(clsGlobal.user.UserID);
             PushNewForm(showUserInfo);
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddEditUser addEditUser = new AddEditUser();
-            if (user != null)
-                addEditUser.GetUserID(user.UserID);
+            if (clsGlobal.user != null)
+                addEditUser.GetUserID(clsGlobal.user.UserID);
             PushNewForm(addEditUser);
         }
 
         internal void Logout()
         {
             this.Hide();
+            File.Delete(clsGlobal.LoginFilePath);
             LoginScreen loginScreen = new LoginScreen();
             loginScreen.Show();
         }

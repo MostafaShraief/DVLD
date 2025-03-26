@@ -16,7 +16,7 @@ namespace DVLD_DAL
 
             SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
             string query = "USE [DVLD]; Select 'ID' = TestTypeID, " +
-                "'Title' = TestTypeTitle, 'Description' = TestTypeDescription, 'Fees' = TestTypeFees " +
+                "'Title' = TestTypeTitle, 'Description' = TestTypeDescription, 'Fees' = TestTypeFees" +
                 "From TestTypes;";
             SqlCommand command = new SqlCommand(query, connection);
 

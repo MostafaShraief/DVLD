@@ -34,13 +34,13 @@ namespace DVLD.Applications
         {
             tbFilter.Text = string.Empty;
             if (clsFilterProcess != null)
-                clsFilterProcess.FilterChange();
+                clsFilterProcess.ComboBoxFilterChange();
         }
 
         private void tbFilter_TextChanged(object sender, EventArgs e)
         {
             if (clsFilterProcess != null)
-                clsFilterProcess.FilterChange();
+                clsFilterProcess.TextBoxFilterChange();
         }
 
         private void cbFilter_KeyPress(object sender, KeyPressEventArgs e)

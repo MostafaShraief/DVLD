@@ -25,7 +25,7 @@ namespace DVLD
             //DVLD dVLD = new DVLD();
             //Application.Run(dVLD);
             LoginScreen loginScreen = new LoginScreen();
-            Application.Run(loginScreen);
+            Application.Run();
         }
 
         [System.Runtime.InteropServices.DllImport("user32.dll")]

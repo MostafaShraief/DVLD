@@ -31,9 +31,10 @@
             this.lblDescription = new System.Windows.Forms.Label();
             this.lblDescriptionTitle = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnListUsers = new Guna.UI2.WinForms.Guna2Button();
-            this.btnTestTypes = new Guna.UI2.WinForms.Guna2Button();
             this.ucTitleScreen1 = new ucTitleScreen();
+            this.btnListUsers = new Guna.UI2.WinForms.Guna2Button();
+            this.btnLocalLicense = new Guna.UI2.WinForms.Guna2Button();
+            this.btnTestTypes = new Guna.UI2.WinForms.Guna2Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,11 +63,21 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.btnListUsers);
+            this.flowLayoutPanel1.Controls.Add(this.btnLocalLicense);
             this.flowLayoutPanel1.Controls.Add(this.btnTestTypes);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(52, 200);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(922, 629);
             this.flowLayoutPanel1.TabIndex = 11;
+            // 
+            // ucTitleScreen1
+            // 
+            this.ucTitleScreen1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ucTitleScreen1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ucTitleScreen1.Location = new System.Drawing.Point(0, 0);
+            this.ucTitleScreen1.Name = "ucTitleScreen1";
+            this.ucTitleScreen1.Size = new System.Drawing.Size(1775, 145);
+            this.ucTitleScreen1.TabIndex = 10;
             // 
             // btnListUsers
             // 
@@ -94,6 +105,31 @@
             this.btnListUsers.MouseEnter += new System.EventHandler(this.btnListUsers_MouseEnter);
             this.btnListUsers.MouseLeave += new System.EventHandler(this.btnOption_MouseLeave);
             // 
+            // btnLocalLicense
+            // 
+            this.btnLocalLicense.Animated = true;
+            this.btnLocalLicense.BackColor = System.Drawing.Color.Transparent;
+            this.btnLocalLicense.CheckedState.Parent = this.btnLocalLicense;
+            this.btnLocalLicense.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btnLocalLicense.CustomImages.Parent = this.btnLocalLicense;
+            this.btnLocalLicense.FillColor = System.Drawing.Color.Transparent;
+            this.btnLocalLicense.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
+            this.btnLocalLicense.ForeColor = System.Drawing.Color.Black;
+            this.btnLocalLicense.HoverState.Parent = this.btnLocalLicense;
+            this.btnLocalLicense.Image = global::DVLD.Properties.Resources.License;
+            this.btnLocalLicense.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnLocalLicense.ImageOffset = new System.Drawing.Point(40, -20);
+            this.btnLocalLicense.ImageSize = new System.Drawing.Size(200, 200);
+            this.btnLocalLicense.Location = new System.Drawing.Point(309, 3);
+            this.btnLocalLicense.Name = "btnLocalLicense";
+            this.btnLocalLicense.ShadowDecoration.Parent = this.btnLocalLicense;
+            this.btnLocalLicense.Size = new System.Drawing.Size(300, 300);
+            this.btnLocalLicense.TabIndex = 3;
+            this.btnLocalLicense.Text = "Local License";
+            this.btnLocalLicense.TextOffset = new System.Drawing.Point(0, 100);
+            this.btnLocalLicense.Click += new System.EventHandler(this.btnLocalLicense_Click);
+            this.btnLocalLicense.MouseEnter += new System.EventHandler(this.btnLocalLicense_MouseEnter);
+            // 
             // btnTestTypes
             // 
             this.btnTestTypes.Animated = true;
@@ -109,7 +145,7 @@
             this.btnTestTypes.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnTestTypes.ImageOffset = new System.Drawing.Point(40, -20);
             this.btnTestTypes.ImageSize = new System.Drawing.Size(200, 200);
-            this.btnTestTypes.Location = new System.Drawing.Point(309, 3);
+            this.btnTestTypes.Location = new System.Drawing.Point(615, 3);
             this.btnTestTypes.Name = "btnTestTypes";
             this.btnTestTypes.ShadowDecoration.Parent = this.btnTestTypes;
             this.btnTestTypes.Size = new System.Drawing.Size(300, 300);
@@ -120,20 +156,11 @@
             this.btnTestTypes.MouseEnter += new System.EventHandler(this.btnTestTypes_MouseEnter);
             this.btnTestTypes.MouseLeave += new System.EventHandler(this.btnOption_MouseLeave);
             // 
-            // ucTitleScreen1
-            // 
-            this.ucTitleScreen1.BackColor = System.Drawing.Color.LavenderBlush;
-            this.ucTitleScreen1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ucTitleScreen1.Location = new System.Drawing.Point(0, 0);
-            this.ucTitleScreen1.Name = "ucTitleScreen1";
-            this.ucTitleScreen1.Size = new System.Drawing.Size(1775, 145);
-            this.ucTitleScreen1.TabIndex = 10;
-            // 
             // ManageApplications
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LavenderBlush;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1775, 1028);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblDescriptionTitle);
@@ -156,5 +183,6 @@
         private Guna.UI2.WinForms.Guna2Button btnListUsers;
         private ucTitleScreen ucTitleScreen1;
         private Guna.UI2.WinForms.Guna2Button btnTestTypes;
+        private Guna.UI2.WinForms.Guna2Button btnLocalLicense;
     }
 }

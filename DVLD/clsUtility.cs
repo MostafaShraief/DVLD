@@ -356,7 +356,7 @@ namespace DVLD
             clsUtility.clsDataTable _DataTable { get; set; }
             List<string> _columnNames = new List<string>();
             public List<string> _columnIdNames = new List<string>();
-            List<string> _columnFilterCriterionNames = new List<string>();
+            Dictionary<string, List<string>> _FilterCriterionDictionery;
 
             public void FillListWithItems()
             {
@@ -387,8 +387,12 @@ namespace DVLD
             public void AddColumnIdName(string Column) =>
                 _columnIdNames.Add(Column);
 
-            public void AddColumnFilterCriterionName(string Column) =>
-                _columnFilterCriterionNames.Add(Column);
+            public void AddCriterion(
+                Dictionary<string, List<string>> dctFilterCriterionColumn)
+            {
+                if (dctFilterCriterionColumn != null)
+                    _FilterCriterionDictionery = dctFilterCriterionColumn;
+            }
 
             void TextBoxChange()
             {
@@ -406,43 +410,89 @@ namespace DVLD
 
             void FilterCriterionChange()
             {
-                //string ColumnName = _cbFilter.Text;
-                //string FilterValue = _cbFilterCriterion.Text;
+                string ColumnName = _cbFilter.Text;
+                string FilterValue = _cbFilterCriterion.Text;
 
-                //if (_cbFilterCriterion.Text == "All")
-                //    _DataTable.RefreshTable();
-                //else
-                //    _DataTable.ChangeFilter(String.Format(@"[{0}] = {1}", ColumnName,
-                //        (FilterValue == "Yes" ? true : false).ToString()));
+                if (_cbFilterCriterion.Text == "All")
+                    _DataTable.RefreshTable();
+                else
+                    _DataTable.ChangeFilter(String.Format(@"[{0}] like '{1}%'", ColumnName, FilterValue));
             }
 
-            public void FilterChange()
+            void InitializeComboBoxFilter()
             {
+                _cbFilterCriterion.Items.Clear();
+                _cbFilterCriterion.Items.Add("All");
+                _cbFilterCriterion.SelectedIndex = 0;
+                foreach (var Value in _FilterCriterionDictionery[_cbFilter.Text])
+                        _cbFilterCriterion.Items.Add(Value);
+            }
+
+            public void ComboBoxFilterChange()
+            {
+                if (_cbFilter == null)
+                    return;
+
                 string ColumnName = _cbFilter.Text;
 
-                if (String.IsNullOrEmpty(ColumnName) || !_columnNames.Contains(ColumnName) ||
-                    ColumnName == "None")
+                if (String.IsNullOrEmpty(ColumnName) || ColumnName == "None")
                 {
                     _tbFilter.Visible = false;
                     _cbFilterCriterion.Visible = false;
                     _DataTable.RefreshTable();
                 }
-                else
+                else if (_cbFilterCriterion != null && _FilterCriterionDictionery.ContainsKey(ColumnName))
                 {
-                    if (_cbFilterCriterion != null && _columnFilterCriterionNames.Contains(ColumnName))
-                    {
-                        _cbFilterCriterion.Visible = true;
-                        _tbFilter.Visible = false;
-                        FilterCriterionChange();
-                    }
-                    else
-                    {
-                        _tbFilter.Visible = true;
-                        _cbFilterCriterion.Visible = false;
-                        TextBoxChange();
-                    }
+                    _cbFilterCriterion.Visible = true;
+                    _tbFilter.Visible = false;
+                    InitializeComboBoxFilter();
+                }
+                else if (_columnNames.Contains(ColumnName))
+                {
+                    _tbFilter.Text = string.Empty;
+                    _tbFilter.Visible = true;
+                    _cbFilterCriterion.Visible = false;
                 }
             }
+
+            public void TextBoxFilterChange()
+            {
+                if (_cbFilter == null)
+                    return;
+
+                string ColumnName = _cbFilter.Text;
+
+                if (String.IsNullOrEmpty(ColumnName) || ColumnName == "None")
+                    _DataTable.RefreshTable();
+                else
+                    TextBoxChange();
+            }
+
+            public void ComboBoxFilterCriterionChange()
+            {
+                if (_cbFilterCriterion == null)
+                    return;
+
+                string ColumnName = _cbFilter.Text;
+
+                if (_FilterCriterionDictionery.ContainsKey(ColumnName))
+                    FilterCriterionChange();
+            }
+
+            //public void FilterChange()
+            //{
+            //    string ColumnName = _cbFilter.Text;
+
+            //    if (String.IsNullOrEmpty(ColumnName) || ColumnName == "None")
+            //        _DataTable.RefreshTable();
+            //    else
+            //    {
+            //        if (_cbFilterCriterion != null && _FilterCriterionDictionery.ContainsKey(ColumnName))
+            //            FilterCriterionChange();
+            //        else
+            //            TextBoxChange();
+            //    }
+            //}
         }
     }
 }

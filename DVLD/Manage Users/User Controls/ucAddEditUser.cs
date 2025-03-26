@@ -25,6 +25,7 @@ namespace DVLD.Manage_Users.User_Controls
             InitializeComponent();
             ucfindAndShowInfoPerson.LinkerGetPerson += FillPersonInfo;
             ucfindAndShowInfoPerson.HideDeleteButton();
+            ucfindAndShowInfoPerson.HideAddButton();
             tbPassword.UseSystemPasswordChar =
                 tbConfirmPassword.UseSystemPasswordChar = true;
             user = new clsUsers_BLL();
@@ -239,8 +240,8 @@ namespace DVLD.Manage_Users.User_Controls
             {
                 _EditMode();
 
-                if (user.UserID == clsGlobal.MainForm.user.UserID)
-                    clsGlobal.MainForm.user = user;
+                if (user.UserID == clsGlobal.user.UserID)
+                    clsGlobal.user = user;
 
                 MessageBox.Show("User Saved Successfuly.", "Saved",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -269,7 +270,7 @@ namespace DVLD.Manage_Users.User_Controls
             if (clsUtility.clsForms.DeleteUser(user.UserID))
             {
 
-                if (user.UserID == clsGlobal.MainForm.user.UserID)
+                if (user.UserID == clsGlobal.user.UserID)
                     clsGlobal.MainForm.Logout();
 
                 _AddMode();

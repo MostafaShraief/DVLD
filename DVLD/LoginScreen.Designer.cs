@@ -44,6 +44,7 @@
             this.icbPassword = new Guna.UI2.WinForms.Guna2ImageCheckBox();
             this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
             this.ucTitleScreen1 = new ucTitleScreen();
+            this.cbRememberMe = new Guna.UI2.WinForms.Guna2CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.gpnlTop.SuspendLayout();
             this.SuspendLayout();
@@ -142,8 +143,8 @@
             this.gpnlTop.Controls.Add(this.btnMinimize);
             this.gpnlTop.Controls.Add(this.btnClose);
             this.gpnlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gpnlTop.FillColor = System.Drawing.Color.LavenderBlush;
-            this.gpnlTop.FillColor2 = System.Drawing.Color.LavenderBlush;
+            this.gpnlTop.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.gpnlTop.FillColor2 = System.Drawing.Color.WhiteSmoke;
             this.gpnlTop.Location = new System.Drawing.Point(0, 0);
             this.gpnlTop.Name = "gpnlTop";
             this.gpnlTop.ShadowDecoration.Parent = this.gpnlTop;
@@ -256,7 +257,7 @@
             // 
             // ucTitleScreen1
             // 
-            this.ucTitleScreen1.BackColor = System.Drawing.Color.LavenderBlush;
+            this.ucTitleScreen1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ucTitleScreen1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ucTitleScreen1.Location = new System.Drawing.Point(0, 52);
             this.ucTitleScreen1.Name = "ucTitleScreen1";
@@ -264,12 +265,32 @@
             this.ucTitleScreen1.TabIndex = 65;
             this.ucTitleScreen1.TabStop = false;
             // 
+            // cbRememberMe
+            // 
+            this.cbRememberMe.AutoSize = true;
+            this.cbRememberMe.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbRememberMe.CheckedState.BorderRadius = 2;
+            this.cbRememberMe.CheckedState.BorderThickness = 0;
+            this.cbRememberMe.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.cbRememberMe.Font = new System.Drawing.Font("Gadugi", 10F);
+            this.cbRememberMe.Location = new System.Drawing.Point(580, 468);
+            this.cbRememberMe.Name = "cbRememberMe";
+            this.cbRememberMe.Size = new System.Drawing.Size(143, 24);
+            this.cbRememberMe.TabIndex = 67;
+            this.cbRememberMe.Text = "Remember me";
+            this.cbRememberMe.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.cbRememberMe.UncheckedState.BorderRadius = 2;
+            this.cbRememberMe.UncheckedState.BorderThickness = 0;
+            this.cbRememberMe.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.cbRememberMe.UseVisualStyleBackColor = true;
+            // 
             // LoginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LavenderBlush;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1092, 724);
+            this.Controls.Add(this.cbRememberMe);
             this.Controls.Add(this.icbPassword);
             this.Controls.Add(this.ucTitleScreen1);
             this.Controls.Add(this.gpnlTop);
@@ -306,5 +327,6 @@
         private ucTitleScreen ucTitleScreen1;
         private Guna.UI2.WinForms.Guna2DragControl dragLoginForm;
         private Guna.UI2.WinForms.Guna2ImageCheckBox icbPassword;
+        private Guna.UI2.WinForms.Guna2CheckBox cbRememberMe;
     }
 }

@@ -164,7 +164,7 @@ namespace DVLD.Manage_People.User_Controls
             {
                 _EditMode();
 
-                if (person.PersonID == clsGlobal.MainForm.user.PersonID)
+                if (person.PersonID == clsGlobal.user.PersonID)
                     clsGlobal.MainForm.RefreshPerson();
 
                 MessageBox.Show("Person Card Saved Successfuly.", "Saved",
