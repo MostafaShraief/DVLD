@@ -67,47 +67,59 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Applications\Application Types\ApplicationTypesList.cs">
+    <Compile Include="DVLD System\Applications\Application Types\ApplicationTypesList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\Application Types\ApplicationTypesList.Designer.cs">
+    <Compile Include="DVLD System\Applications\Application Types\ApplicationTypesList.Designer.cs">
       <DependentUpon>ApplicationTypesList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\Application Types\EditApplicationType.cs">
+    <Compile Include="DVLD System\Applications\Application Types\EditApplicationType.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\Application Types\EditApplicationType.Designer.cs">
+    <Compile Include="DVLD System\Applications\Application Types\EditApplicationType.Designer.cs">
       <DependentUpon>EditApplicationType.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\Local Driving License Application\AddLocalLicense.cs">
+    <Compile Include="DVLD System\Applications\Local Driving License Application\AddLocalLicense.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\Local Driving License Application\AddLocalLicense.Designer.cs">
+    <Compile Include="DVLD System\Applications\Local Driving License Application\AddLocalLicense.Designer.cs">
       <DependentUpon>AddLocalLicense.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\Local Driving License Application\LocalDrivingLicenseApplicationList.cs">
+    <Compile Include="DVLD System\Applications\Local Driving License Application\LocalDrivingLicenseApplicationList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\Local Driving License Application\LocalDrivingLicenseApplicationList.Designer.cs">
+    <Compile Include="DVLD System\Applications\Local Driving License Application\LocalDrivingLicenseApplicationList.Designer.cs">
       <DependentUpon>LocalDrivingLicenseApplicationList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\Local Driving License Application\ShowLocalLicenseInfo.cs">
+    <Compile Include="DVLD System\Applications\Local Driving License Application\ShowLocalLicenseInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\Local Driving License Application\ShowLocalLicenseInfo.Designer.cs">
+    <Compile Include="DVLD System\Applications\Local Driving License Application\ShowLocalLicenseInfo.Designer.cs">
       <DependentUpon>ShowLocalLicenseInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\Local Driving License Application\User Controls\ucAddEditLocalLicense.cs">
+    <Compile Include="DVLD System\Applications\Local Driving License Application\User Controls\ucAddEditLocalLicense.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Applications\Local Driving License Application\User Controls\ucAddEditLocalLicense.Designer.cs">
+    <Compile Include="DVLD System\Applications\Local Driving License Application\User Controls\ucAddEditLocalLicense.Designer.cs">
       <DependentUpon>ucAddEditLocalLicense.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\Local Driving License Application\User Controls\ucLocalLicenseInfo.cs">
+    <Compile Include="DVLD System\Applications\Local Driving License Application\User Controls\ucLocalLicenseInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Applications\Local Driving License Application\User Controls\ucLocalLicenseInfo.Designer.cs">
+    <Compile Include="DVLD System\Applications\Local Driving License Application\User Controls\ucLocalLicenseInfo.Designer.cs">
       <DependentUpon>ucLocalLicenseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD System\DriversList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DVLD System\DriversList.Designer.cs">
+      <DependentUpon>DriversList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD System\Licenses\DriverLicensesList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DVLD System\Licenses\DriverLicensesList.Designer.cs">
+      <DependentUpon>DriverLicensesList.cs</DependentUpon>
     </Compile>
     <Compile Include="ListScreen.cs">
       <SubType>Form</SubType>
@@ -121,22 +133,22 @@
     <Compile Include="User Controls\ucList.Designer.cs">
       <DependentUpon>ucList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\ManageApplications.cs">
+    <Compile Include="DVLD System\Applications\ManageApplications.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\ManageApplications.Designer.cs">
+    <Compile Include="DVLD System\Applications\ManageApplications.Designer.cs">
       <DependentUpon>ManageApplications.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\Test Types\EditTestType.cs">
+    <Compile Include="DVLD System\Applications\Test Types\EditTestType.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\Test Types\EditTestType.Designer.cs">
+    <Compile Include="DVLD System\Applications\Test Types\EditTestType.Designer.cs">
       <DependentUpon>EditTestType.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\Test Types\TestTypesList.cs">
+    <Compile Include="DVLD System\Applications\Test Types\TestTypesList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\Test Types\TestTypesList.Designer.cs">
+    <Compile Include="DVLD System\Applications\Test Types\TestTypesList.Designer.cs">
       <DependentUpon>TestTypesList.cs</DependentUpon>
     </Compile>
     <Compile Include="clsGlobal.cs" />
@@ -159,121 +171,121 @@
     <Compile Include="Main_Menu.Designer.cs">
       <DependentUpon>Main_Menu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manage People\AddEditPerson.cs">
+    <Compile Include="DVLD System\Manage People\AddEditPerson.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manage People\AddEditPerson.Designer.cs">
+    <Compile Include="DVLD System\Manage People\AddEditPerson.Designer.cs">
       <DependentUpon>AddEditPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manage People\FindPerson.cs">
+    <Compile Include="DVLD System\Manage People\FindPerson.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manage People\FindPerson.Designer.cs">
+    <Compile Include="DVLD System\Manage People\FindPerson.Designer.cs">
       <DependentUpon>FindPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manage People\ManagePeople.cs">
+    <Compile Include="DVLD System\Manage People\ManagePeople.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manage People\ManagePeople.Designer.cs">
+    <Compile Include="DVLD System\Manage People\ManagePeople.Designer.cs">
       <DependentUpon>ManagePeople.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manage People\PeopleList.cs">
+    <Compile Include="DVLD System\Manage People\PeopleList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manage People\PeopleList.Designer.cs">
+    <Compile Include="DVLD System\Manage People\PeopleList.Designer.cs">
       <DependentUpon>PeopleList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manage People\ShowPersonInfo.cs">
+    <Compile Include="DVLD System\Manage People\ShowPersonInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manage People\ShowPersonInfo.Designer.cs">
+    <Compile Include="DVLD System\Manage People\ShowPersonInfo.Designer.cs">
       <DependentUpon>ShowPersonInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manage People\User Controls\ucFindAndShowInfoPerson.cs">
+    <Compile Include="DVLD System\Manage People\User Controls\ucFindAndShowInfoPerson.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Manage People\User Controls\ucFindAndShowInfoPerson.Designer.cs">
+    <Compile Include="DVLD System\Manage People\User Controls\ucFindAndShowInfoPerson.Designer.cs">
       <DependentUpon>ucFindAndShowInfoPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manage People\User Controls\ucAddEditPerson.cs">
+    <Compile Include="DVLD System\Manage People\User Controls\ucAddEditPerson.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Manage People\User Controls\ucAddEditPerson.Designer.cs">
+    <Compile Include="DVLD System\Manage People\User Controls\ucAddEditPerson.Designer.cs">
       <DependentUpon>ucAddEditPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manage People\User Controls\ucFindPerson.cs">
+    <Compile Include="DVLD System\Manage People\User Controls\ucFindPerson.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Manage People\User Controls\ucFindPerson.Designer.cs">
+    <Compile Include="DVLD System\Manage People\User Controls\ucFindPerson.Designer.cs">
       <DependentUpon>ucFindPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manage Users\AddEditUser.cs">
+    <Compile Include="DVLD System\Manage Users\AddEditUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manage Users\AddEditUser.Designer.cs">
+    <Compile Include="DVLD System\Manage Users\AddEditUser.Designer.cs">
       <DependentUpon>AddEditUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manage Users\ChangeUserPassword.cs">
+    <Compile Include="DVLD System\Manage Users\ChangeUserPassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manage Users\ChangeUserPassword.Designer.cs">
+    <Compile Include="DVLD System\Manage Users\ChangeUserPassword.Designer.cs">
       <DependentUpon>ChangeUserPassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manage Users\FindUser.cs">
+    <Compile Include="DVLD System\Manage Users\FindUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manage Users\FindUser.Designer.cs">
+    <Compile Include="DVLD System\Manage Users\FindUser.Designer.cs">
       <DependentUpon>FindUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manage Users\ManageUsers.cs">
+    <Compile Include="DVLD System\Manage Users\ManageUsers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manage Users\ManageUsers.Designer.cs">
+    <Compile Include="DVLD System\Manage Users\ManageUsers.Designer.cs">
       <DependentUpon>ManageUsers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manage Users\ShowUserInfo.cs">
+    <Compile Include="DVLD System\Manage Users\ShowUserInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manage Users\ShowUserInfo.Designer.cs">
+    <Compile Include="DVLD System\Manage Users\ShowUserInfo.Designer.cs">
       <DependentUpon>ShowUserInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manage Users\User Controls\ucAddEditUser.cs">
+    <Compile Include="DVLD System\Manage Users\User Controls\ucAddEditUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Manage Users\User Controls\ucAddEditUser.Designer.cs">
+    <Compile Include="DVLD System\Manage Users\User Controls\ucAddEditUser.Designer.cs">
       <DependentUpon>ucAddEditUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manage Users\User Controls\ucFindAndShowUserInfo.cs">
+    <Compile Include="DVLD System\Manage Users\User Controls\ucFindAndShowUserInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Manage Users\User Controls\ucFindAndShowUserInfo.Designer.cs">
+    <Compile Include="DVLD System\Manage Users\User Controls\ucFindAndShowUserInfo.Designer.cs">
       <DependentUpon>ucFindAndShowUserInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manage Users\User Controls\ucFindUser.cs">
+    <Compile Include="DVLD System\Manage Users\User Controls\ucFindUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Manage Users\User Controls\ucFindUser.Designer.cs">
+    <Compile Include="DVLD System\Manage Users\User Controls\ucFindUser.Designer.cs">
       <DependentUpon>ucFindUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manage Users\User Controls\ucUserInfo.cs">
+    <Compile Include="DVLD System\Manage Users\User Controls\ucUserInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Manage Users\User Controls\ucUserInfo.Designer.cs">
+    <Compile Include="DVLD System\Manage Users\User Controls\ucUserInfo.Designer.cs">
       <DependentUpon>ucUserInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manage Users\UsersList.cs">
+    <Compile Include="DVLD System\Manage Users\UsersList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Manage Users\UsersList.Designer.cs">
+    <Compile Include="DVLD System\Manage Users\UsersList.Designer.cs">
       <DependentUpon>UsersList.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="clsStackForms.cs" />
-    <Compile Include="Manage People\User Controls\ucPersonInfo.cs">
+    <Compile Include="DVLD System\Manage People\User Controls\ucPersonInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Manage People\User Controls\ucPersonInfo.Designer.cs">
+    <Compile Include="DVLD System\Manage People\User Controls\ucPersonInfo.Designer.cs">
       <DependentUpon>ucPersonInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="User Controls\ucTitleScreen.cs">
@@ -282,26 +294,32 @@
     <Compile Include="User Controls\ucTitleScreen.Designer.cs">
       <DependentUpon>ucTitleScreen.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Applications\Application Types\ApplicationTypesList.resx">
+    <EmbeddedResource Include="DVLD System\Applications\Application Types\ApplicationTypesList.resx">
       <DependentUpon>ApplicationTypesList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\Application Types\EditApplicationType.resx">
+    <EmbeddedResource Include="DVLD System\Applications\Application Types\EditApplicationType.resx">
       <DependentUpon>EditApplicationType.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\Local Driving License Application\AddLocalLicense.resx">
+    <EmbeddedResource Include="DVLD System\Applications\Local Driving License Application\AddLocalLicense.resx">
       <DependentUpon>AddLocalLicense.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\Local Driving License Application\LocalDrivingLicenseApplicationList.resx">
+    <EmbeddedResource Include="DVLD System\Applications\Local Driving License Application\LocalDrivingLicenseApplicationList.resx">
       <DependentUpon>LocalDrivingLicenseApplicationList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\Local Driving License Application\ShowLocalLicenseInfo.resx">
+    <EmbeddedResource Include="DVLD System\Applications\Local Driving License Application\ShowLocalLicenseInfo.resx">
       <DependentUpon>ShowLocalLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\Local Driving License Application\User Controls\ucAddEditLocalLicense.resx">
+    <EmbeddedResource Include="DVLD System\Applications\Local Driving License Application\User Controls\ucAddEditLocalLicense.resx">
       <DependentUpon>ucAddEditLocalLicense.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\Local Driving License Application\User Controls\ucLocalLicenseInfo.resx">
+    <EmbeddedResource Include="DVLD System\Applications\Local Driving License Application\User Controls\ucLocalLicenseInfo.resx">
       <DependentUpon>ucLocalLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\DriversList.resx">
+      <DependentUpon>DriversList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\Licenses\DriverLicensesList.resx">
+      <DependentUpon>DriverLicensesList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListScreen.resx">
       <DependentUpon>ListScreen.cs</DependentUpon>
@@ -309,13 +327,13 @@
     <EmbeddedResource Include="User Controls\ucList.resx">
       <DependentUpon>ucList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\ManageApplications.resx">
+    <EmbeddedResource Include="DVLD System\Applications\ManageApplications.resx">
       <DependentUpon>ManageApplications.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\Test Types\EditTestType.resx">
+    <EmbeddedResource Include="DVLD System\Applications\Test Types\EditTestType.resx">
       <DependentUpon>EditTestType.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\Test Types\TestTypesList.resx">
+    <EmbeddedResource Include="DVLD System\Applications\Test Types\TestTypesList.resx">
       <DependentUpon>TestTypesList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD.resx">
@@ -327,58 +345,58 @@
     <EmbeddedResource Include="Main_Menu.resx">
       <DependentUpon>Main_Menu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manage People\AddEditPerson.resx">
+    <EmbeddedResource Include="DVLD System\Manage People\AddEditPerson.resx">
       <DependentUpon>AddEditPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manage People\FindPerson.resx">
+    <EmbeddedResource Include="DVLD System\Manage People\FindPerson.resx">
       <DependentUpon>FindPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manage People\ManagePeople.resx">
+    <EmbeddedResource Include="DVLD System\Manage People\ManagePeople.resx">
       <DependentUpon>ManagePeople.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manage People\PeopleList.resx">
+    <EmbeddedResource Include="DVLD System\Manage People\PeopleList.resx">
       <DependentUpon>PeopleList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manage People\ShowPersonInfo.resx">
+    <EmbeddedResource Include="DVLD System\Manage People\ShowPersonInfo.resx">
       <DependentUpon>ShowPersonInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manage People\User Controls\ucFindAndShowInfoPerson.resx">
+    <EmbeddedResource Include="DVLD System\Manage People\User Controls\ucFindAndShowInfoPerson.resx">
       <DependentUpon>ucFindAndShowInfoPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manage People\User Controls\ucAddEditPerson.resx">
+    <EmbeddedResource Include="DVLD System\Manage People\User Controls\ucAddEditPerson.resx">
       <DependentUpon>ucAddEditPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manage People\User Controls\ucFindPerson.resx">
+    <EmbeddedResource Include="DVLD System\Manage People\User Controls\ucFindPerson.resx">
       <DependentUpon>ucFindPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manage Users\AddEditUser.resx">
+    <EmbeddedResource Include="DVLD System\Manage Users\AddEditUser.resx">
       <DependentUpon>AddEditUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manage Users\ChangeUserPassword.resx">
+    <EmbeddedResource Include="DVLD System\Manage Users\ChangeUserPassword.resx">
       <DependentUpon>ChangeUserPassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manage Users\FindUser.resx">
+    <EmbeddedResource Include="DVLD System\Manage Users\FindUser.resx">
       <DependentUpon>FindUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manage Users\ManageUsers.resx">
+    <EmbeddedResource Include="DVLD System\Manage Users\ManageUsers.resx">
       <DependentUpon>ManageUsers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manage Users\ShowUserInfo.resx">
+    <EmbeddedResource Include="DVLD System\Manage Users\ShowUserInfo.resx">
       <DependentUpon>ShowUserInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manage Users\User Controls\ucAddEditUser.resx">
+    <EmbeddedResource Include="DVLD System\Manage Users\User Controls\ucAddEditUser.resx">
       <DependentUpon>ucAddEditUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manage Users\User Controls\ucFindAndShowUserInfo.resx">
+    <EmbeddedResource Include="DVLD System\Manage Users\User Controls\ucFindAndShowUserInfo.resx">
       <DependentUpon>ucFindAndShowUserInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manage Users\User Controls\ucFindUser.resx">
+    <EmbeddedResource Include="DVLD System\Manage Users\User Controls\ucFindUser.resx">
       <DependentUpon>ucFindUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manage Users\User Controls\ucUserInfo.resx">
+    <EmbeddedResource Include="DVLD System\Manage Users\User Controls\ucUserInfo.resx">
       <DependentUpon>ucUserInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manage Users\UsersList.resx">
+    <EmbeddedResource Include="DVLD System\Manage Users\UsersList.resx">
       <DependentUpon>UsersList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -386,7 +404,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manage People\User Controls\ucPersonInfo.resx">
+    <EmbeddedResource Include="DVLD System\Manage People\User Controls\ucPersonInfo.resx">
       <DependentUpon>ucPersonInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\ucTitleScreen.resx">
@@ -619,6 +637,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\More.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Car.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exam.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Time.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\History.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

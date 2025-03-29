@@ -225,7 +225,7 @@ namespace DVLD_DAL
 
             SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
             string query = "USE [DVLD]; UPDATE [dbo].[Applications] SET [ApplicationStatus] = " +
-                "@ApplicationStatus, [LastStatusDate] = @LastStatusDate WHERE ApplicationID = " + SelectQueryStatement;
+                "@ApplicationStatus, [LastStatusDate] = @LastStatusDate WHERE ApplicationID = (" + SelectQueryStatement + ") and ApplicationStatus = 1";
             command.Connection = connection;
             command.CommandText = query;
             command.Parameters.AddWithValue("@ApplicationStatus", (short)ApplicationStatus);

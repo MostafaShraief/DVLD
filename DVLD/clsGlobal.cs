@@ -46,6 +46,13 @@ namespace DVLD
         }
 
         public enum enApplicationStatus { New = 1, Cancelled, Completed }
+        public enum enLocalLicenseStatus
+        {
+            EyeTest = 0,
+            WrittenTest = 1,
+            PracticalTest = 2,
+            IssueLicense = 3,
+        }
 
         public enum enLicencsesClasses
         {

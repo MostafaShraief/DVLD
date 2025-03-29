@@ -327,5 +327,8 @@ namespace DVLD_BLL
             }
             return result;
         }
+
+        public static Func<object, string> ConvertObjectToString =
+            (obj) => ((obj != DBNull.Value && obj != null) ? obj.ToString() : string.Empty);
     }
 }

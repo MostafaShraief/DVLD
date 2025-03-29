@@ -131,7 +131,7 @@ namespace DVLD.Applications.Local_Driving_License_Application.User_Control
             if (LocalLicenseObject == null || LocalLicenseObject.LocalDrivingLicenseApplicationID == -1)
                 return;
 
-            if (LocalLicenseObject.Status == (Byte)clsGlobal.enApplicationStatus.Cancelled)
+            if (LocalLicenseObject.Status != (Byte)clsGlobal.enApplicationStatus.New)
                 btnCancel.Enabled = false;
 
             LocalLicenseObj = LocalLicenseObject;
@@ -194,7 +194,7 @@ namespace DVLD.Applications.Local_Driving_License_Application.User_Control
             }
             else
                 MessageBox.Show("cancel process has been terminated.", "Not Canceled",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBoxButtons.OK, MessageBoxIcon.Stop);
         }
     }
 }

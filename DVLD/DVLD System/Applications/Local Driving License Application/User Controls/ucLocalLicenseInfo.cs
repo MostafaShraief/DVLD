@@ -69,7 +69,7 @@ namespace DVLD.Applications.Local_Driving_License_Application.User_Controls
             }
             else
                 MessageBox.Show("cancel process has been terminated.", "Not Canceled",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBoxButtons.OK, MessageBoxIcon.Stop);
         }
     }
 }

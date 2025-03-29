@@ -42,6 +42,16 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.cancelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.sceduleTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eyeTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.theoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.practicalStreetTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.issueLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.showLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.personLicenseHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAddLocalLicense = new Guna.UI2.WinForms.Guna2Button();
             this.cmsRow.SuspendLayout();
             this.SuspendLayout();
@@ -75,9 +85,17 @@
             this.editToolStripMenuItem,
             this.toolStripSeparator2,
             this.cancelToolStripMenuItem,
-            this.deleteToolStripMenuItem});
+            this.deleteToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.sceduleTestToolStripMenuItem,
+            this.toolStripSeparator4,
+            this.issueLicenseToolStripMenuItem,
+            this.toolStripSeparator5,
+            this.showLicenseToolStripMenuItem,
+            this.personLicenseHistoryToolStripMenuItem});
             this.cmsRow.Name = "cmsRow";
-            this.cmsRow.Size = new System.Drawing.Size(215, 150);
+            this.cmsRow.Size = new System.Drawing.Size(232, 275);
+            this.cmsRow.Opening += new System.ComponentModel.CancelEventHandler(this.cmsRow_Opening);
             // 
             // showToolStripMenuItem
             // 
@@ -88,7 +106,7 @@
             this.showToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.showToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("showToolStripMenuItem.Image")));
             this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-            this.showToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
             this.showToolStripMenuItem.Text = "Show";
             // 
             // showUserInfoToolStripMenuItem
@@ -96,7 +114,7 @@
             this.showUserInfoToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.showUserInfoToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.showUserInfoToolStripMenuItem.Name = "showUserInfoToolStripMenuItem";
-            this.showUserInfoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.showUserInfoToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.showUserInfoToolStripMenuItem.Text = "Local License Info";
             this.showUserInfoToolStripMenuItem.Click += new System.EventHandler(this.showUserInfoToolStripMenuItem_Click);
             // 
@@ -105,7 +123,7 @@
             this.showPersonInfoToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.showPersonInfoToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.showPersonInfoToolStripMenuItem.Name = "showPersonInfoToolStripMenuItem";
-            this.showPersonInfoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.showPersonInfoToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.showPersonInfoToolStripMenuItem.Text = "Person Info";
             this.showPersonInfoToolStripMenuItem.Click += new System.EventHandler(this.showPersonInfoToolStripMenuItem_Click);
             // 
@@ -115,7 +133,7 @@
             this.toolStripSeparator1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.toolStripSeparator1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(211, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(228, 6);
             // 
             // editToolStripMenuItem
             // 
@@ -126,7 +144,7 @@
             this.editToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.editToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("editToolStripMenuItem.Image")));
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // userToolStripMenuItem
@@ -153,7 +171,7 @@
             this.toolStripSeparator2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.toolStripSeparator2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(211, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(228, 6);
             // 
             // cancelToolStripMenuItem
             // 
@@ -161,7 +179,7 @@
             this.cancelToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.cancelToolStripMenuItem.Image = global::DVLD.Properties.Resources.Cancel;
             this.cancelToolStripMenuItem.Name = "cancelToolStripMenuItem";
-            this.cancelToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.cancelToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
             this.cancelToolStripMenuItem.Text = "Cancel";
             this.cancelToolStripMenuItem.Click += new System.EventHandler(this.cancelToolStripMenuItem_Click);
             // 
@@ -171,9 +189,101 @@
             this.deleteToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.deleteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripMenuItem.Image")));
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.toolStripSeparator3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.toolStripSeparator3.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(228, 6);
+            // 
+            // sceduleTestToolStripMenuItem
+            // 
+            this.sceduleTestToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.sceduleTestToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.eyeTestToolStripMenuItem,
+            this.theoryToolStripMenuItem,
+            this.practicalStreetTestToolStripMenuItem});
+            this.sceduleTestToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.sceduleTestToolStripMenuItem.Image = global::DVLD.Properties.Resources.Time;
+            this.sceduleTestToolStripMenuItem.Name = "sceduleTestToolStripMenuItem";
+            this.sceduleTestToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
+            this.sceduleTestToolStripMenuItem.Text = "Scedule Test";
+            // 
+            // eyeTestToolStripMenuItem
+            // 
+            this.eyeTestToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.eyeTestToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.eyeTestToolStripMenuItem.Image = global::DVLD.Properties.Resources.Eye;
+            this.eyeTestToolStripMenuItem.Name = "eyeTestToolStripMenuItem";
+            this.eyeTestToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
+            this.eyeTestToolStripMenuItem.Text = "Eye Test";
+            // 
+            // theoryToolStripMenuItem
+            // 
+            this.theoryToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.theoryToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.theoryToolStripMenuItem.Image = global::DVLD.Properties.Resources.Exam;
+            this.theoryToolStripMenuItem.Name = "theoryToolStripMenuItem";
+            this.theoryToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
+            this.theoryToolStripMenuItem.Text = "Written (Theory) Test";
+            // 
+            // practicalStreetTestToolStripMenuItem
+            // 
+            this.practicalStreetTestToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.practicalStreetTestToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.practicalStreetTestToolStripMenuItem.Image = global::DVLD.Properties.Resources.Car;
+            this.practicalStreetTestToolStripMenuItem.Name = "practicalStreetTestToolStripMenuItem";
+            this.practicalStreetTestToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
+            this.practicalStreetTestToolStripMenuItem.Text = "Practical (Street) Test";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.toolStripSeparator4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.toolStripSeparator4.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(228, 6);
+            // 
+            // issueLicenseToolStripMenuItem
+            // 
+            this.issueLicenseToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.issueLicenseToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.issueLicenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.Check;
+            this.issueLicenseToolStripMenuItem.Name = "issueLicenseToolStripMenuItem";
+            this.issueLicenseToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
+            this.issueLicenseToolStripMenuItem.Text = "Issue License";
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.toolStripSeparator5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.toolStripSeparator5.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(228, 6);
+            // 
+            // showLicenseToolStripMenuItem
+            // 
+            this.showLicenseToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.showLicenseToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.showLicenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.License;
+            this.showLicenseToolStripMenuItem.Name = "showLicenseToolStripMenuItem";
+            this.showLicenseToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
+            this.showLicenseToolStripMenuItem.Text = "Show License";
+            // 
+            // personLicenseHistoryToolStripMenuItem
+            // 
+            this.personLicenseHistoryToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.personLicenseHistoryToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.personLicenseHistoryToolStripMenuItem.Image = global::DVLD.Properties.Resources.History;
+            this.personLicenseHistoryToolStripMenuItem.Name = "personLicenseHistoryToolStripMenuItem";
+            this.personLicenseHistoryToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
+            this.personLicenseHistoryToolStripMenuItem.Text = "Person License History";
+            this.personLicenseHistoryToolStripMenuItem.Click += new System.EventHandler(this.personLicenseHistoryToolStripMenuItem_Click);
             // 
             // btnAddLocalLicense
             // 
@@ -232,5 +342,15 @@
         private System.Windows.Forms.ToolStripMenuItem showPersonInfoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cancelToolStripMenuItem;
         private Guna.UI2.WinForms.Guna2Button btnAddLocalLicense;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem sceduleTestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eyeTestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem theoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem practicalStreetTestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem issueLicenseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem showLicenseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem personLicenseHistoryToolStripMenuItem;
     }
 }

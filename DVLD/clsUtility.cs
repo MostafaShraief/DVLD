@@ -356,7 +356,7 @@ namespace DVLD
             clsUtility.clsDataTable _DataTable { get; set; }
             List<string> _columnNames = new List<string>();
             public List<string> _columnIdNames = new List<string>();
-            Dictionary<string, List<string>> _FilterCriterionDictionery;
+            Dictionary<string, List<string>> _FilterCriterionDictionery = new Dictionary<string, List<string>>();
 
             public void FillListWithItems()
             {
@@ -493,6 +493,19 @@ namespace DVLD
             //            TextBoxChange();
             //    }
             //}
+        }
+
+        /// <summary>
+        /// Displays a message box indicating that the current feature is under development.
+        /// </summary>
+        public static void ShowFeatureUnderDevelopmentMessage()
+        {
+            MessageBox.Show(
+                "This feature is currently under development and will be available in future updates.",
+                "Feature Under Development",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
         }
     }
 }
