@@ -14,9 +14,9 @@ using System.Windows.Forms;
 
 namespace DVLD.Applications.Local_Driving_License_Application.User_Control
 {
-    public partial class ucAddLocalLicense : System.Windows.Forms.UserControl
+    public partial class ucAddEditLocalLicense : System.Windows.Forms.UserControl
     {
-        public ucAddLocalLicense()
+        public ucAddEditLocalLicense()
         {
             InitializeComponent();
 
@@ -34,6 +34,7 @@ namespace DVLD.Applications.Local_Driving_License_Application.User_Control
             lblDateValue.Text = DateTime.Now.Date.ToString();
             lblCreatedByValue.Text = clsGlobal.user.UserName;
         }
+
         float fees;
 
         Dictionary<string, Byte> dicClasses = new Dictionary<string, Byte>();
@@ -67,15 +68,34 @@ namespace DVLD.Applications.Local_Driving_License_Application.User_Control
             return true; // valid age
         }
 
+        bool CheckLicenseExist()
+        {
+            bool IsExist = false;
+
+            if (clsLocalDrivingLicenseApplication_BLL.CheckExistLicense(
+                ucFindAndShowInfoPerson1.person.PersonID,
+                Convert.ToByte(cbLicenseClass.SelectedIndex + 1)))
+            {
+                MessageBox.Show($"Person already has completed/pending application for this license class.",
+                    "License Class Used",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                IsExist = true;
+            }
+
+            return IsExist;
+        }
+
         private void cbLicenseClass_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (CheckAge())
             {
+                // can save the new local license.
                 btnSave.Visible = true;
                 btnSave.Focus();
             }
             else
             {
+                // can not save it.
                 btnSave.Visible = false;
                 cbLicenseClass.SelectedText = "";
             }
@@ -100,7 +120,7 @@ namespace DVLD.Applications.Local_Driving_License_Application.User_Control
         {
             lblLocDrvLicAppID.Text = LocalLicenseObj.LocalDrivingLicenseApplicationID.ToString();
             lblFeesValue.Text = clsApplications_BLL.GetApplicationFees(LocalLicenseObj.ApplicationID).ToString();
-            lblCreatedByValue.Text = LocalLicenseObj.CreatedByUserID.ToString();
+            lblCreatedByValue.Text = clsUsers_BLL.FindByUserID(LocalLicenseObj.CreatedByUserID).UserName;
             lblDateValue.Text = LocalLicenseObj.ApplicationDate.ToString();
             ucFindAndShowInfoPerson1.FillPersonInfo(clsPeople_BLL.Find(LocalLicenseObj.NationalNumber));
             cbLicenseClass.SelectedIndex = LocalLicenseObj.LicenseClassID - 1;
@@ -125,8 +145,12 @@ namespace DVLD.Applications.Local_Driving_License_Application.User_Control
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (CheckData() == false)
+            if (CheckData() == false || CheckLicenseExist())
+            {
+                MessageBox.Show("Failed to save local license.", "Not Saved",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
 
             int LocalLicenseId = clsLocalDrivingLicenseApplication_BLL.Add(
                 ucFindAndShowInfoPerson1.person.PersonID, (Byte)(cbLicenseClass.SelectedIndex + 1),
@@ -149,7 +173,7 @@ namespace DVLD.Applications.Local_Driving_License_Application.User_Control
             if (MessageBox.Show("Are you sure you want to delete this local license?", "Delete",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
-                MessageBox.Show("Local license has been deleted.", "Delted",
+                MessageBox.Show("Local license has been deleted.", "Deleted",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 clsGlobal.MainForm.PopFormForever();
             }
@@ -164,7 +188,7 @@ namespace DVLD.Applications.Local_Driving_License_Application.User_Control
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK &&
                     clsLocalDrivingLicenseApplication_BLL.CancelLocalLicenseOrder(LocalLicenseObj.LocalDrivingLicenseApplicationID))
             {
-                MessageBox.Show("Local license has been canceled.", "Delted",
+                MessageBox.Show("Local license has been canceled.", "Canceled",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnCancel.Enabled = false;
             }

@@ -45,7 +45,7 @@ namespace DVLD.Applications
             clsGlobal.MainForm.PushNewForm(addLocalLicense);
         }
 
-        int GetApplicationIdFromSelectedRow() =>
+        int GetLocalLicenseIdFromSelectedRow() =>
             (int)ucList1.GetFromSelectedRow(0);
 
         string GetPersonIdFromSelectedRow() =>
@@ -54,7 +54,7 @@ namespace DVLD.Applications
         private void userToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddLocalLicense addLocalLicense = new AddLocalLicense();
-            addLocalLicense.EditMode(GetApplicationIdFromSelectedRow());
+            addLocalLicense.EditMode(GetLocalLicenseIdFromSelectedRow());
             clsGlobal.MainForm.PushNewForm(addLocalLicense);
         }
 
@@ -76,7 +76,7 @@ namespace DVLD.Applications
         {
             if (MessageBox.Show("Are you sure you want to cancel this local license?", "Cancel",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK &&
-                clsLocalDrivingLicenseApplication_BLL.CancelLocalLicenseOrder(GetApplicationIdFromSelectedRow()))
+                clsLocalDrivingLicenseApplication_BLL.CancelLocalLicenseOrder(GetLocalLicenseIdFromSelectedRow()))
             {
                 MessageBox.Show("Local license has been canceled.", "canceled",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -99,6 +99,13 @@ namespace DVLD.Applications
             else
                 MessageBox.Show("delete process has been canceled.", "Canceled",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void showUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowLocalLicenseInfo showLocalLicenseInfo = new ShowLocalLicenseInfo();
+            showLocalLicenseInfo.GetLocalLicenseId(GetLocalLicenseIdFromSelectedRow());
+            clsGlobal.MainForm.PushNewForm(showLocalLicenseInfo);
         }
     }
 }

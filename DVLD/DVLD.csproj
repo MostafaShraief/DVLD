@@ -91,11 +91,23 @@
     <Compile Include="Applications\Local Driving License Application\LocalDrivingLicenseApplicationList.Designer.cs">
       <DependentUpon>LocalDrivingLicenseApplicationList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\Local Driving License Application\User Controls\ucAddLocalLicense.cs">
+    <Compile Include="Applications\Local Driving License Application\ShowLocalLicenseInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Local Driving License Application\ShowLocalLicenseInfo.Designer.cs">
+      <DependentUpon>ShowLocalLicenseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\Local Driving License Application\User Controls\ucAddEditLocalLicense.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Applications\Local Driving License Application\User Controls\ucAddLocalLicense.Designer.cs">
-      <DependentUpon>ucAddLocalLicense.cs</DependentUpon>
+    <Compile Include="Applications\Local Driving License Application\User Controls\ucAddEditLocalLicense.Designer.cs">
+      <DependentUpon>ucAddEditLocalLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\Local Driving License Application\User Controls\ucLocalLicenseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\Local Driving License Application\User Controls\ucLocalLicenseInfo.Designer.cs">
+      <DependentUpon>ucLocalLicenseInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="ListScreen.cs">
       <SubType>Form</SubType>
@@ -282,8 +294,14 @@
     <EmbeddedResource Include="Applications\Local Driving License Application\LocalDrivingLicenseApplicationList.resx">
       <DependentUpon>LocalDrivingLicenseApplicationList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\Local Driving License Application\User Controls\ucAddLocalLicense.resx">
-      <DependentUpon>ucAddLocalLicense.cs</DependentUpon>
+    <EmbeddedResource Include="Applications\Local Driving License Application\ShowLocalLicenseInfo.resx">
+      <DependentUpon>ShowLocalLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Local Driving License Application\User Controls\ucAddEditLocalLicense.resx">
+      <DependentUpon>ucAddEditLocalLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Local Driving License Application\User Controls\ucLocalLicenseInfo.resx">
+      <DependentUpon>ucLocalLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListScreen.resx">
       <DependentUpon>ListScreen.cs</DependentUpon>
@@ -598,6 +616,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\More.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

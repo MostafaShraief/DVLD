@@ -75,18 +75,26 @@ namespace DVLD_BLL
             //if (_CheckData())
             //    return false; // If data is corrupted, return false.
 
-            // Add application before add local license.
+            // Step 1: Check if the person already has a completed local license for the specified license class.
+            if (clsLocalDrivingLicenseApplication_DAL.CheckExistLicense(PersonId, 
+                (clsLicenseClasses_DAL.enLicencsesClasses)LicenseClassID))
+            {
+                // Business rule violation: The person already has a completed license for this class.
+                return -1; // Return -1 to indicate failure due to an existing license.
+            }
+
+            // Step 2: Add application before add local license.
             int ApplicationID = clsApplications_DAL.AddApplication(PersonId,
                 clsApplicationTypes_DAL.enApplicationType.NewLocalLicense, CreatedByUserId);
 
             if (ApplicationID == -1) // check if ID is valid
                 return -1; // Add procces failed.. not completed
 
-            // Add the local driving license application to the database table.
+            // Step 3: Add the local driving license application to the database table.
             int newLocalDrivingLicenseApplicationID = clsLocalDrivingLicenseApplication_DAL.AddLocalLicense(ApplicationID, 
                 (clsLicenseClasses_DAL.enLicencsesClasses)LicenseClassID);
 
-            return newLocalDrivingLicenseApplicationID;
+            return newLocalDrivingLicenseApplicationID; // Return the ID of the newly added local driving license application.
         }
 
         // Private method to update an existing local driving license application
@@ -170,6 +178,13 @@ namespace DVLD_BLL
                 // If no data is found, return a new object with default values
                 return new clsLocalDrivingLicenseApplication_BLL();
             }
+        }
+
+        // Method to check if a person has more than one completed local license for a specific license class.
+        public static bool CheckExistLicense(int ApplicantPersonID, Byte LicenseClassID)
+        {
+            // Call the DAL method to check if the license exists.
+            return clsLocalDrivingLicenseApplication_DAL.CheckExistLicense(ApplicantPersonID, (clsLicenseClasses_DAL.enLicencsesClasses)LicenseClassID);
         }
     }
 }

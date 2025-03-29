@@ -1,6 +1,6 @@
 ﻿namespace DVLD.Applications.Local_Driving_License_Application.User_Control
 {
-    partial class ucAddLocalLicense
+    partial class ucAddEditLocalLicense
     {
         /// <summary> 
         /// Required designer variable.

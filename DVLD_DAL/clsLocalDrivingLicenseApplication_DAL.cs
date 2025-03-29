@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static DVLD_DAL.clsApplications_DAL;
 using static System.Net.Mime.MediaTypeNames;
+using static DVLD_DAL.clsLicenseClasses_DAL;
 
 namespace DVLD_DAL
 {
@@ -129,5 +130,42 @@ namespace DVLD_DAL
 
         public static bool ChangeStatusByApplicationID(int ApplicationID, enStatus status) =>
             clsApplications_DAL.UpdateApplication(ApplicationID, status);
+
+        // check if person have more than one completed local license for specific license class.
+        public static bool CheckExistLicense(int ApplicantPersonID, enLicencsesClasses LicenseClassID)
+        {
+            bool IsExist = true;
+
+            string query = "USE DVLD; Select top 1 x = 1 From LocalDrivingLicenseApplications l join Applications a " +
+                "on l.ApplicationID = a.ApplicationID where a.ApplicantPersonID = @ApplicantPersonID and " +
+                "l.LicenseClassID = @LicenseClassID and a.ApplicationStatus in (1, 3)";
+            SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ApplicantPersonID", ApplicantPersonID);
+            command.Parameters.AddWithValue("@LicenseClassID", (Byte)LicenseClassID);
+
+            try
+            {
+                connection.Open();
+
+                object result = command.ExecuteScalar();
+
+                IsExist = (result != null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsExist;
+        }
+
+        //public static bool DeleteLocalLicense()
+        //{
+        //    bool IsDeleted = false;
+
+            
+
+        //    if (clsApplications_DAL.DeleteApplication())
+        //}
     }
 }

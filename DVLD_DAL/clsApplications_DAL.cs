@@ -288,5 +288,8 @@ namespace DVLD_DAL
 
             return Fees;
         }
+
+        public static bool DeleteApplication(int ApplicationId) =>
+            clsUtility_DAL.DeleteRecord("Applications", "ApplicationID", ApplicationId, true);
     }
 }

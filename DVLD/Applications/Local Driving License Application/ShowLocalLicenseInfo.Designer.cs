@@ -1,6 +1,6 @@
 ﻿namespace DVLD.Applications.Local_Driving_License_Application
 {
-    partial class AddLocalLicense
+    partial class ShowLocalLicenseInfo
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.ucTitleScreen1 = new ucTitleScreen();
-            this.ucAddLocalLicense1 = new Applications.Local_Driving_License_Application.User_Control.ucAddEditLocalLicense();
+            this.ucLocalLicenseInfo1 = new Applications.Local_Driving_License_Application.User_Controls.ucLocalLicenseInfo();
             this.SuspendLayout();
             // 
             // ucTitleScreen1
@@ -41,25 +41,25 @@
             this.ucTitleScreen1.Size = new System.Drawing.Size(1775, 145);
             this.ucTitleScreen1.TabIndex = 0;
             // 
-            // ucAddLocalLicense1
+            // ucLocalLicenseInfo1
             // 
-            this.ucAddLocalLicense1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ucAddLocalLicense1.Location = new System.Drawing.Point(134, 197);
-            this.ucAddLocalLicense1.Name = "ucAddLocalLicense1";
-            this.ucAddLocalLicense1.Size = new System.Drawing.Size(1507, 767);
-            this.ucAddLocalLicense1.TabIndex = 1;
+            this.ucLocalLicenseInfo1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ucLocalLicenseInfo1.Location = new System.Drawing.Point(137, 215);
+            this.ucLocalLicenseInfo1.Name = "ucLocalLicenseInfo1";
+            this.ucLocalLicenseInfo1.Size = new System.Drawing.Size(1500, 749);
+            this.ucLocalLicenseInfo1.TabIndex = 1;
             // 
-            // AddLocalLicense
+            // ShowLocalLicenseInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1775, 1028);
-            this.Controls.Add(this.ucAddLocalLicense1);
+            this.Controls.Add(this.ucLocalLicenseInfo1);
             this.Controls.Add(this.ucTitleScreen1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "AddLocalLicense";
-            this.Text = "AddLocalLicense";
+            this.Name = "ShowLocalLicenseInfo";
+            this.Text = "ShowLocalLicenseInfo";
             this.ResumeLayout(false);
 
         }
@@ -67,6 +67,6 @@
         #endregion
 
         private ucTitleScreen ucTitleScreen1;
-        private Applications.Local_Driving_License_Application.User_Control.ucAddEditLocalLicense ucAddLocalLicense1;
+        private Applications.Local_Driving_License_Application.User_Controls.ucLocalLicenseInfo ucLocalLicenseInfo1;
     }
 }

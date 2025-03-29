@@ -46,5 +46,29 @@ namespace DVLD
         }
 
         public enum enApplicationStatus { New = 1, Cancelled, Completed }
+
+        public enum enLicencsesClasses
+        {
+            SmallMotorcycle = 1, HeavyMotorcycleLicense,
+            OrdinaryDrivingLicense, Commercial, Agricultural, SmallAndMediumBus,
+            TruckAndHeavyVehicle
+        }
+
+        public static string ConverLicenseClassEnumToString(enLicencsesClasses LicenseClass)
+        {
+            string NewLicenseClass = "", Temp = LicenseClass.ToString();
+
+            foreach (char c in Temp)
+            {
+                if (char.IsUpper(c))
+                    NewLicenseClass += $" {c}";
+                else
+                    NewLicenseClass += c;
+            }
+
+            NewLicenseClass = NewLicenseClass.TrimStart();
+
+            return NewLicenseClass;
+        }
     }
 }
