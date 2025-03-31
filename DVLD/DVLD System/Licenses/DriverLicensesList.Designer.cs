@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ucList1 = new Applications.Local_Driving_License_Application.ucList();
+            this.ucList1 = new ucList();
             this.ucTitleScreen1 = new ucTitleScreen();
             this.rbLocal = new Guna.UI2.WinForms.Guna2RadioButton();
             this.rbInternational = new Guna.UI2.WinForms.Guna2RadioButton();
@@ -128,7 +128,7 @@
 
         #endregion
 
-        private Applications.Local_Driving_License_Application.ucList ucList1;
+        private ucList ucList1;
         private ucTitleScreen ucTitleScreen1;
         private Guna.UI2.WinForms.Guna2RadioButton rbLocal;
         private Guna.UI2.WinForms.Guna2RadioButton rbInternational;

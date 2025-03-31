@@ -372,10 +372,12 @@
             // dtpDateOfBirth
             // 
             this.dtpDateOfBirth.Animated = true;
+            this.dtpDateOfBirth.BorderThickness = 1;
             this.dtpDateOfBirth.CheckedState.Parent = this.dtpDateOfBirth;
             this.dtpDateOfBirth.FillColor = System.Drawing.Color.White;
             this.dtpDateOfBirth.Font = new System.Drawing.Font("Gadugi", 10F, System.Drawing.FontStyle.Bold);
             this.dtpDateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtpDateOfBirth.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.dtpDateOfBirth.HoverState.Parent = this.dtpDateOfBirth;
             this.dtpDateOfBirth.Location = new System.Drawing.Point(955, 257);
             this.dtpDateOfBirth.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);

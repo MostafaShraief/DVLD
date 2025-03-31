@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LocalDrivingLicenseApplicationList));
-            this.ucList1 = new Applications.Local_Driving_License_Application.ucList();
+            this.ucList1 = new ucList();
             this.ucTitleScreen1 = new ucTitleScreen();
             this.cmsRow = new ReaLTaiizor.Controls.CrownContextMenuStrip();
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -336,7 +336,7 @@
         private System.Windows.Forms.ToolStripMenuItem personToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
-        private Applications.Local_Driving_License_Application.ucList ucList1;
+        private ucList ucList1;
         private ucTitleScreen ucTitleScreen1;
         private System.Windows.Forms.ToolStripMenuItem showUserInfoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showPersonInfoToolStripMenuItem;

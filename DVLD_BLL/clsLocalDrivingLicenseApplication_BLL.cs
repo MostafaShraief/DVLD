@@ -23,7 +23,6 @@ namespace DVLD_BLL
         public int CreatedByUserID { get; set; }
         private clsSave_BLL.enMode _Mode;
 
-
         // Constructor for new mode
         public clsLocalDrivingLicenseApplication_BLL()
         {

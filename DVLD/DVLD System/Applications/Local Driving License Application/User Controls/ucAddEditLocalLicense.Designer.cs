@@ -387,15 +387,16 @@
             this.btnAddPerson.TabIndex = 59;
             this.btnAddPerson.Text = "Add Person";
             this.btnAddPerson.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnAddPerson.Click += new System.EventHandler(this.btnAddPerson_Click);
             // 
-            // ucAddLocalLicense
+            // ucAddEditLocalLicense
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.ucFindAndShowInfoPerson1);
-            this.Name = "ucAddLocalLicense";
+            this.Name = "ucAddEditLocalLicense";
             this.Size = new System.Drawing.Size(1507, 767);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.pnlLocDrvLicApp.ResumeLayout(false);

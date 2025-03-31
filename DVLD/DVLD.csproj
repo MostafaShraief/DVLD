@@ -109,6 +109,36 @@
     <Compile Include="DVLD System\Applications\Local Driving License Application\User Controls\ucLocalLicenseInfo.Designer.cs">
       <DependentUpon>ucLocalLicenseInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="DVLD System\Applications\Local Driving License Application\User Controls\ucLocalLicenseInfoWithApplication.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DVLD System\Applications\Local Driving License Application\User Controls\ucLocalLicenseInfoWithApplication.Designer.cs">
+      <DependentUpon>ucLocalLicenseInfoWithApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD System\Applications\Tests\TakeTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DVLD System\Applications\Tests\TakeTest.Designer.cs">
+      <DependentUpon>TakeTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD System\Applications\Tests\ScheduleTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DVLD System\Applications\Tests\ScheduleTest.Designer.cs">
+      <DependentUpon>ScheduleTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD System\Applications\Tests\TestAppointments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DVLD System\Applications\Tests\TestAppointments.Designer.cs">
+      <DependentUpon>TestAppointments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD System\Applications\User Contols\ucApplicationInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DVLD System\Applications\User Contols\ucApplicationInfo.Designer.cs">
+      <DependentUpon>ucApplicationInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="DVLD System\DriversList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -314,6 +344,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD System\Applications\Local Driving License Application\User Controls\ucLocalLicenseInfo.resx">
       <DependentUpon>ucLocalLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\Applications\Local Driving License Application\User Controls\ucLocalLicenseInfoWithApplication.resx">
+      <DependentUpon>ucLocalLicenseInfoWithApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\Applications\Tests\TakeTest.resx">
+      <DependentUpon>TakeTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\Applications\Tests\ScheduleTest.resx">
+      <DependentUpon>ScheduleTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\Applications\Tests\TestAppointments.resx">
+      <DependentUpon>TestAppointments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\Applications\User Contols\ucApplicationInfo.resx">
+      <DependentUpon>ucApplicationInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD System\DriversList.resx">
       <DependentUpon>DriversList.cs</DependentUpon>
@@ -652,6 +697,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\History.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Equal.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

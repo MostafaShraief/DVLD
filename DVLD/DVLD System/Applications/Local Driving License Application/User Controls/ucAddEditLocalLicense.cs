@@ -1,4 +1,5 @@
-﻿using DVLD.Manage_People.User_Controls;
+﻿using DVLD.Manage_People;
+using DVLD.Manage_People.User_Controls;
 using DVLD_BLL;
 using System;
 using System.Collections;
@@ -23,6 +24,7 @@ namespace DVLD.Applications.Local_Driving_License_Application.User_Control
             // When person found, then show application panel.
             ucFindAndShowInfoPerson1.LinkerFound += ShowApplicationPanel;
             ucFindAndShowInfoPerson1.HideAddButton();
+            ucFindAndShowInfoPerson1.HideDeleteButton();
 
             // Prepare license clas types.
             FillLicenseClassComboBox();
@@ -57,6 +59,9 @@ namespace DVLD.Applications.Local_Driving_License_Application.User_Control
             string SelectedClass = cbLicenseClass.SelectedItem.ToString();
             Byte MinimumeAge = dicClasses[SelectedClass];
 
+            if (!IsPersonExist())
+                return false;
+
             if (ucFindAndShowInfoPerson1.person.DateOfBirth > DateTime.Now.AddYears(-MinimumeAge))
             {
                 MessageBox.Show($"Person age not allowed to take this license class," +
@@ -68,9 +73,27 @@ namespace DVLD.Applications.Local_Driving_License_Application.User_Control
             return true; // valid age
         }
 
+        bool IsPersonExist()
+        {
+            if (ucFindAndShowInfoPerson1.person == null)
+            {
+                MessageBox.Show("Person may has been deleted from the system, try again.", "Person Not Found",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ucFindAndShowInfoPerson1.GetPersonID(-1);
+                cbLicenseClass.SelectedText = "";
+                pnlLocDrvLicApp.Visible = false;
+                return false;
+            }
+
+            return true;
+        }
+
         bool CheckLicenseExist()
         {
             bool IsExist = false;
+
+            if (!IsPersonExist())
+                return true;
 
             if (clsLocalDrivingLicenseApplication_BLL.CheckExistLicense(
                 ucFindAndShowInfoPerson1.person.PersonID,
@@ -87,6 +110,9 @@ namespace DVLD.Applications.Local_Driving_License_Application.User_Control
 
         private void cbLicenseClass_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (!IsPersonExist())
+                return;
+
             if (CheckAge())
             {
                 // can save the new local license.
@@ -110,7 +136,10 @@ namespace DVLD.Applications.Local_Driving_License_Application.User_Control
         {
             bool IsOk = true;
 
-            if (ucFindAndShowInfoPerson1.person == null || String.IsNullOrEmpty(cbLicenseClass.Text))
+            if (!IsPersonExist())
+                return false;
+
+            if (String.IsNullOrEmpty(cbLicenseClass.Text))
                 IsOk = false;
 
             return IsOk;
@@ -195,6 +224,13 @@ namespace DVLD.Applications.Local_Driving_License_Application.User_Control
             else
                 MessageBox.Show("cancel process has been terminated.", "Not Canceled",
                     MessageBoxButtons.OK, MessageBoxIcon.Stop);
+        }
+
+        private void btnAddPerson_Click(object sender, EventArgs e)
+        {
+            AddEditPerson addEditPerson = new AddEditPerson();
+            addEditPerson.GetPersonObjectLinker += ucFindAndShowInfoPerson1.GetPerson;
+            clsGlobal.MainForm.PushNewForm(addEditPerson);
         }
     }
 }

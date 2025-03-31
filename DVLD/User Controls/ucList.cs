@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DVLD.Applications.Local_Driving_License_Application
+namespace DVLD
 {
     public partial class ucList : System.Windows.Forms.UserControl
     {

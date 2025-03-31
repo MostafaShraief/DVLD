@@ -13,7 +13,7 @@ namespace DVLD_DAL
         public enum enApplicationType
         {
             NewLocalLicense = 1, Renew, LostReplacement,
-            DamagedReplacement, ReleaseDetained, NewInternational
+            DamagedReplacement, ReleaseDetained, NewInternational, RetakeTest = 8
         }
 
         public static DataTable GetAllApplicationTypes()

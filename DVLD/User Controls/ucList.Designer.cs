@@ -1,4 +1,4 @@
-﻿namespace DVLD.Applications.Local_Driving_License_Application
+﻿namespace DVLD
 {
     partial class ucList
     {
@@ -94,10 +94,12 @@
             this.flpTools.Controls.Add(this.cbFilter);
             this.flpTools.Controls.Add(this.tbFilter);
             this.flpTools.Controls.Add(this.cbFilterCriterion);
+            this.flpTools.Controls.Add(this.btnRefreshAll);
+            this.flpTools.Dock = System.Windows.Forms.DockStyle.Top;
             this.flpTools.Location = new System.Drawing.Point(0, 0);
             this.flpTools.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flpTools.Name = "flpTools";
-            this.flpTools.Size = new System.Drawing.Size(941, 43);
+            this.flpTools.Size = new System.Drawing.Size(1775, 43);
             this.flpTools.TabIndex = 16;
             // 
             // lblManagePeople
@@ -220,7 +222,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvList.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvList.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvList.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvList.EnableHeadersVisualStyles = false;
             this.dgvList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvList.Location = new System.Drawing.Point(0, 43);
@@ -272,7 +274,7 @@
             this.btnRefreshAll.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnRefreshAll.ImageOffset = new System.Drawing.Point(-8, 0);
             this.btnRefreshAll.ImageSize = new System.Drawing.Size(28, 28);
-            this.btnRefreshAll.Location = new System.Drawing.Point(1634, 2);
+            this.btnRefreshAll.Location = new System.Drawing.Point(934, 3);
             this.btnRefreshAll.Name = "btnRefreshAll";
             this.btnRefreshAll.ShadowDecoration.Parent = this.btnRefreshAll;
             this.btnRefreshAll.Size = new System.Drawing.Size(133, 38);
@@ -286,9 +288,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Controls.Add(this.btnRefreshAll);
-            this.Controls.Add(this.dgvList);
             this.Controls.Add(this.guna2Panel1);
+            this.Controls.Add(this.dgvList);
             this.Controls.Add(this.flpTools);
             this.Name = "ucList";
             this.Size = new System.Drawing.Size(1775, 786);

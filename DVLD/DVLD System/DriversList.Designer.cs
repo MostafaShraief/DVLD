@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ucList1 = new Applications.Local_Driving_License_Application.ucList();
+            this.ucList1 = new ucList();
             this.ucTitleScreen1 = new ucTitleScreen();
             this.SuspendLayout();
             // 
@@ -67,7 +67,7 @@
 
         #endregion
 
-        private Applications.Local_Driving_License_Application.ucList ucList1;
+        private ucList ucList1;
         private ucTitleScreen ucTitleScreen1;
     }
 }

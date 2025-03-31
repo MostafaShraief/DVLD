@@ -45,8 +45,23 @@ namespace DVLD.Manage_People.User_Controls
         public void ChangeEnableFindPerson(bool Enable) =>
             ucFindPerson.Enabled = Enable;
 
-        public void GetPersonID(int PersonID) =>
+        public void GetPersonID(int PersonID)
+        {
+            if (LinkerFound != null)
+                LinkerFound();
+            if (LinkerGetPerson != null)
+                LinkerGetPerson(person);
             ucPersonInfo.GetPersonID(PersonID);
+        }
+
+        public void GetPerson(clsPeople_BLL Person)
+        {
+            if (LinkerFound != null)
+                LinkerFound();
+            if (LinkerGetPerson != null)
+                LinkerGetPerson(person);
+            ucPersonInfo.GetPerson(Person);
+        }
 
         public void FillPersonInfo(clsPeople_BLL person)
         {
