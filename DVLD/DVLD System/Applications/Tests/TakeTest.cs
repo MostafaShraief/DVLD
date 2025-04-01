@@ -15,6 +15,9 @@ namespace DVLD.DVLD_System.Applications.Tests
         public TakeTest()
         {
             InitializeComponent();
+            ucTopBar1.ChangeTitle("Take Test");
+            ucTopBar1.delClose += () => this.Close();
+            ucTopBar1.delMinimize += () => this.WindowState = FormWindowState.Minimized;
         }
     }
 }

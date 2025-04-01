@@ -36,17 +36,11 @@
             this.lblPassword = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.elipseLoginForm = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.gpnlTop = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
-            this.btnClose = new Guna.UI2.WinForms.Guna2Button();
-            this.dragLoginForm = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.icbPassword = new Guna.UI2.WinForms.Guna2ImageCheckBox();
             this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
-            this.ucTitleScreen1 = new ucTitleScreen();
             this.cbRememberMe = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.ucTopBar1 = new User_Controls.ucTopBar();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
-            this.gpnlTop.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -54,7 +48,7 @@
             this.lblUsername.AutoSize = true;
             this.lblUsername.BackColor = System.Drawing.Color.Transparent;
             this.lblUsername.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
-            this.lblUsername.Location = new System.Drawing.Point(176, 289);
+            this.lblUsername.Location = new System.Drawing.Point(176, 241);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(186, 40);
             this.lblUsername.TabIndex = 9;
@@ -77,7 +71,7 @@
             this.tbUserName.ForeColor = System.Drawing.Color.Black;
             this.tbUserName.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.tbUserName.HoverState.Parent = this.tbUserName;
-            this.tbUserName.Location = new System.Drawing.Point(369, 289);
+            this.tbUserName.Location = new System.Drawing.Point(369, 241);
             this.tbUserName.Margin = new System.Windows.Forms.Padding(4);
             this.tbUserName.Name = "tbUserName";
             this.tbUserName.PasswordChar = '\0';
@@ -104,7 +98,7 @@
             this.tbPassword.ForeColor = System.Drawing.Color.Black;
             this.tbPassword.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.tbPassword.HoverState.Parent = this.tbPassword;
-            this.tbPassword.Location = new System.Drawing.Point(369, 421);
+            this.tbPassword.Location = new System.Drawing.Point(369, 397);
             this.tbPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '\0';
@@ -113,6 +107,7 @@
             this.tbPassword.ShadowDecoration.Parent = this.tbPassword;
             this.tbPassword.Size = new System.Drawing.Size(354, 40);
             this.tbPassword.TabIndex = 2;
+            this.tbPassword.TextChanged += new System.EventHandler(this.tbPassword_TextChanged);
             this.tbPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbPassword_KeyDown);
             // 
             // lblPassword
@@ -120,7 +115,7 @@
             this.lblPassword.AutoSize = true;
             this.lblPassword.BackColor = System.Drawing.Color.Transparent;
             this.lblPassword.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
-            this.lblPassword.Location = new System.Drawing.Point(184, 421);
+            this.lblPassword.Location = new System.Drawing.Point(184, 397);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(178, 40);
             this.lblPassword.TabIndex = 41;
@@ -137,94 +132,13 @@
             this.elipseLoginForm.BorderRadius = 10;
             this.elipseLoginForm.TargetControl = this;
             // 
-            // gpnlTop
-            // 
-            this.gpnlTop.Controls.Add(this.guna2Button3);
-            this.gpnlTop.Controls.Add(this.btnMinimize);
-            this.gpnlTop.Controls.Add(this.btnClose);
-            this.gpnlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gpnlTop.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.gpnlTop.FillColor2 = System.Drawing.Color.WhiteSmoke;
-            this.gpnlTop.Location = new System.Drawing.Point(0, 0);
-            this.gpnlTop.Name = "gpnlTop";
-            this.gpnlTop.ShadowDecoration.Parent = this.gpnlTop;
-            this.gpnlTop.Size = new System.Drawing.Size(1092, 52);
-            this.gpnlTop.TabIndex = 64;
-            // 
-            // guna2Button3
-            // 
-            this.guna2Button3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.CheckedState.Parent = this.guna2Button3;
-            this.guna2Button3.CustomImages.Parent = this.guna2Button3;
-            this.guna2Button3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.guna2Button3.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button3.ForeColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.HoverState.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.HoverState.Parent = this.guna2Button3;
-            this.guna2Button3.Image = global::DVLD.Properties.Resources.pick_up_car1;
-            this.guna2Button3.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2Button3.Location = new System.Drawing.Point(0, 0);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.PressedColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.ShadowDecoration.Parent = this.guna2Button3;
-            this.guna2Button3.Size = new System.Drawing.Size(145, 52);
-            this.guna2Button3.TabIndex = 2;
-            this.guna2Button3.TabStop = false;
-            // 
-            // btnMinimize
-            // 
-            this.btnMinimize.BackColor = System.Drawing.Color.Transparent;
-            this.btnMinimize.CheckedState.Parent = this.btnMinimize;
-            this.btnMinimize.CustomImages.Parent = this.btnMinimize;
-            this.btnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnMinimize.FillColor = System.Drawing.Color.Transparent;
-            this.btnMinimize.Font = new System.Drawing.Font("Freestyle Script", 25.8F);
-            this.btnMinimize.ForeColor = System.Drawing.Color.Black;
-            this.btnMinimize.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(200)))), ((int)(((byte)(205)))));
-            this.btnMinimize.HoverState.Parent = this.btnMinimize;
-            this.btnMinimize.Location = new System.Drawing.Point(976, 0);
-            this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(170)))), ((int)(((byte)(175)))));
-            this.btnMinimize.ShadowDecoration.Parent = this.btnMinimize;
-            this.btnMinimize.Size = new System.Drawing.Size(58, 52);
-            this.btnMinimize.TabIndex = 1;
-            this.btnMinimize.TabStop = false;
-            this.btnMinimize.Text = "-";
-            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.Color.Transparent;
-            this.btnClose.CheckedState.Parent = this.btnClose;
-            this.btnClose.CustomImages.Parent = this.btnClose;
-            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnClose.FillColor = System.Drawing.Color.Transparent;
-            this.btnClose.Font = new System.Drawing.Font("Cascadia Mono ExtraLight", 25.8F);
-            this.btnClose.ForeColor = System.Drawing.Color.Black;
-            this.btnClose.HoverState.FillColor = System.Drawing.Color.Red;
-            this.btnClose.HoverState.Parent = this.btnClose;
-            this.btnClose.Location = new System.Drawing.Point(1034, 0);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnClose.ShadowDecoration.Parent = this.btnClose;
-            this.btnClose.Size = new System.Drawing.Size(58, 52);
-            this.btnClose.TabIndex = 0;
-            this.btnClose.TabStop = false;
-            this.btnClose.Text = "x";
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // dragLoginForm
-            // 
-            this.dragLoginForm.TargetControl = this.gpnlTop;
-            // 
             // icbPassword
             // 
             this.icbPassword.CheckedState.Image = global::DVLD.Properties.Resources.Eye;
             this.icbPassword.CheckedState.Parent = this.icbPassword;
             this.icbPassword.HoverState.Parent = this.icbPassword;
             this.icbPassword.Image = global::DVLD.Properties.Resources.image_2025_02_15_15_30_251;
-            this.icbPassword.Location = new System.Drawing.Point(730, 421);
+            this.icbPassword.Location = new System.Drawing.Point(730, 397);
             this.icbPassword.Name = "icbPassword";
             this.icbPassword.PressedState.Parent = this.icbPassword;
             this.icbPassword.Size = new System.Drawing.Size(40, 40);
@@ -255,16 +169,6 @@
             this.btnLogin.TextOffset = new System.Drawing.Point(10, 0);
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // ucTitleScreen1
-            // 
-            this.ucTitleScreen1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ucTitleScreen1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ucTitleScreen1.Location = new System.Drawing.Point(0, 52);
-            this.ucTitleScreen1.Name = "ucTitleScreen1";
-            this.ucTitleScreen1.Size = new System.Drawing.Size(1092, 145);
-            this.ucTitleScreen1.TabIndex = 65;
-            this.ucTitleScreen1.TabStop = false;
-            // 
             // cbRememberMe
             // 
             this.cbRememberMe.AutoSize = true;
@@ -273,7 +177,7 @@
             this.cbRememberMe.CheckedState.BorderThickness = 0;
             this.cbRememberMe.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.cbRememberMe.Font = new System.Drawing.Font("Gadugi", 10F);
-            this.cbRememberMe.Location = new System.Drawing.Point(580, 468);
+            this.cbRememberMe.Location = new System.Drawing.Point(580, 444);
             this.cbRememberMe.Name = "cbRememberMe";
             this.cbRememberMe.Size = new System.Drawing.Size(143, 24);
             this.cbRememberMe.TabIndex = 67;
@@ -284,16 +188,25 @@
             this.cbRememberMe.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.cbRememberMe.UseVisualStyleBackColor = true;
             // 
+            // ucTopBar1
+            // 
+            this.ucTopBar1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ucTopBar1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ucTopBar1.Location = new System.Drawing.Point(0, 0);
+            this.ucTopBar1.Name = "ucTopBar1";
+            this.ucTopBar1.Size = new System.Drawing.Size(1092, 52);
+            this.ucTopBar1.TabIndex = 68;
+            this.ucTopBar1.Load += new System.EventHandler(this.ucTopBar1_Load);
+            // 
             // LoginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1092, 724);
+            this.Controls.Add(this.ucTopBar1);
             this.Controls.Add(this.cbRememberMe);
             this.Controls.Add(this.icbPassword);
-            this.Controls.Add(this.ucTitleScreen1);
-            this.Controls.Add(this.gpnlTop);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.lblPassword);
@@ -305,7 +218,6 @@
             this.Text = "LoginScreen";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LoginScreen_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
-            this.gpnlTop.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -320,13 +232,8 @@
         private Guna.UI2.WinForms.Guna2Button btnLogin;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private Guna.UI2.WinForms.Guna2Elipse elipseLoginForm;
-        private Guna.UI2.WinForms.Guna2GradientPanel gpnlTop;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
-        private Guna.UI2.WinForms.Guna2Button btnMinimize;
-        private Guna.UI2.WinForms.Guna2Button btnClose;
-        private ucTitleScreen ucTitleScreen1;
-        private Guna.UI2.WinForms.Guna2DragControl dragLoginForm;
         private Guna.UI2.WinForms.Guna2ImageCheckBox icbPassword;
         private Guna.UI2.WinForms.Guna2CheckBox cbRememberMe;
+        private User_Controls.ucTopBar ucTopBar1;
     }
 }

@@ -33,7 +33,9 @@ namespace DVLD
         public LoginScreen()
         {
             InitializeComponent();
-            ucTitleScreen1.ChangeTitle("Login");
+            ucTopBar1.ChangeTitle("Login");
+            ucTopBar1.delClose += () => this.Close();
+            ucTopBar1.delMinimize += () => this.WindowState = FormWindowState.Minimized;
             tbPassword.UseSystemPasswordChar = true;
             tbUserName.Focus();
             this.Show();
@@ -129,6 +131,16 @@ namespace DVLD
         private void LoginScreen_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit(); // Ensures the entire application closes
+        }
+
+        private void tbPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ucTopBar1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

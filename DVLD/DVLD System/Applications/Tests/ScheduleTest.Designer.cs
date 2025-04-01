@@ -28,36 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.dtpDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.lblTestID = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lblTotalFees = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.lblRetakeFees = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lblFullName = new System.Windows.Forms.Label();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.lblTestFees = new System.Windows.Forms.Label();
-            this.pbFees = new System.Windows.Forms.PictureBox();
             this.lblFeesTitle = new System.Windows.Forms.Label();
-            this.pbDate = new System.Windows.Forms.PictureBox();
             this.lblDateTitle = new System.Windows.Forms.Label();
             this.lblLicenseClass = new System.Windows.Forms.Label();
-            this.pbLicenseClass = new System.Windows.Forms.PictureBox();
             this.lblLicenseClassTitle = new System.Windows.Forms.Label();
-            this.pbApplicationID = new System.Windows.Forms.PictureBox();
             this.lblLocDrvLicAppValue = new System.Windows.Forms.Label();
             this.lblLocDrvLicAppTitle = new System.Windows.Forms.Label();
             this.lblTrials = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pbFees = new System.Windows.Forms.PictureBox();
+            this.pbDate = new System.Windows.Forms.PictureBox();
+            this.pbLicenseClass = new System.Windows.Forms.PictureBox();
+            this.pbApplicationID = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ucTopBar1 = new User_Controls.ucTopBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -69,52 +69,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbApplicationID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox5.Image = global::DVLD.Properties.Resources.Plus;
-            this.pictureBox5.Location = new System.Drawing.Point(48, 458);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 126;
-            this.pictureBox5.TabStop = false;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Animated = true;
-            this.btnSave.BackColor = System.Drawing.Color.Transparent;
-            this.btnSave.BorderThickness = 2;
-            this.btnSave.CheckedState.Parent = this.btnSave;
-            this.btnSave.CustomImages.Parent = this.btnSave;
-            this.btnSave.FillColor = System.Drawing.Color.Transparent;
-            this.btnSave.Font = new System.Drawing.Font("Gadugi", 9F, System.Drawing.FontStyle.Bold);
-            this.btnSave.ForeColor = System.Drawing.Color.Black;
-            this.btnSave.HoverState.Parent = this.btnSave;
-            this.btnSave.Image = global::DVLD.Properties.Resources.Save;
-            this.btnSave.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnSave.ImageOffset = new System.Drawing.Point(-6, 0);
-            this.btnSave.ImageSize = new System.Drawing.Size(28, 28);
-            this.btnSave.Location = new System.Drawing.Point(245, 602);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.ShadowDecoration.Parent = this.btnSave;
-            this.btnSave.Size = new System.Drawing.Size(133, 38);
-            this.btnSave.TabIndex = 125;
-            this.btnSave.Text = "Save";
-            this.btnSave.TextOffset = new System.Drawing.Point(10, 0);
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblTitle.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.Location = new System.Drawing.Point(194, 22);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(235, 40);
-            this.lblTitle.TabIndex = 124;
-            this.lblTitle.Text = "Schedule Test";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // dtpDate
             // 
@@ -134,17 +88,6 @@
             this.dtpDate.Size = new System.Drawing.Size(292, 35);
             this.dtpDate.TabIndex = 123;
             this.dtpDate.Value = new System.DateTime(2025, 1, 27, 23, 33, 22, 811);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.Image = global::DVLD.Properties.Resources.ID;
-            this.pictureBox4.Location = new System.Drawing.Point(94, 80);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 122;
-            this.pictureBox4.TabStop = false;
             // 
             // lblTestID
             // 
@@ -182,17 +125,6 @@
             this.lblTotalFees.Text = "0";
             this.lblTotalFees.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Image = global::DVLD.Properties.Resources.Equal;
-            this.pictureBox3.Location = new System.Drawing.Point(89, 538);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 118;
-            this.pictureBox3.TabStop = false;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -217,17 +149,6 @@
             this.lblRetakeFees.Text = "0";
             this.lblRetakeFees.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = global::DVLD.Properties.Resources.Dollar_Sign;
-            this.pictureBox2.Location = new System.Drawing.Point(94, 486);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 115;
-            this.pictureBox2.TabStop = false;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -250,17 +171,6 @@
             this.lblFullName.TabIndex = 110;
             this.lblFullName.Text = "None";
             this.lblFullName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox6.Image = global::DVLD.Properties.Resources.Person;
-            this.pictureBox6.Location = new System.Drawing.Point(94, 254);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 109;
-            this.pictureBox6.TabStop = false;
             // 
             // label5
             // 
@@ -286,17 +196,6 @@
             this.lblTestFees.Text = "0";
             this.lblTestFees.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pbFees
-            // 
-            this.pbFees.BackColor = System.Drawing.Color.Transparent;
-            this.pbFees.Image = global::DVLD.Properties.Resources.Dollar_Sign;
-            this.pbFees.Location = new System.Drawing.Point(94, 428);
-            this.pbFees.Name = "pbFees";
-            this.pbFees.Size = new System.Drawing.Size(40, 40);
-            this.pbFees.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbFees.TabIndex = 106;
-            this.pbFees.TabStop = false;
-            // 
             // lblFeesTitle
             // 
             this.lblFeesTitle.AutoSize = true;
@@ -308,17 +207,6 @@
             this.lblFeesTitle.TabIndex = 105;
             this.lblFeesTitle.Text = "Test Fees:";
             this.lblFeesTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pbDate
-            // 
-            this.pbDate.BackColor = System.Drawing.Color.Transparent;
-            this.pbDate.Image = global::DVLD.Properties.Resources.Date;
-            this.pbDate.Location = new System.Drawing.Point(94, 312);
-            this.pbDate.Name = "pbDate";
-            this.pbDate.Size = new System.Drawing.Size(40, 40);
-            this.pbDate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbDate.TabIndex = 104;
-            this.pbDate.TabStop = false;
             // 
             // lblDateTitle
             // 
@@ -344,17 +232,6 @@
             this.lblLicenseClass.Text = "None";
             this.lblLicenseClass.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pbLicenseClass
-            // 
-            this.pbLicenseClass.BackColor = System.Drawing.Color.Transparent;
-            this.pbLicenseClass.Image = global::DVLD.Properties.Resources.License;
-            this.pbLicenseClass.Location = new System.Drawing.Point(94, 196);
-            this.pbLicenseClass.Name = "pbLicenseClass";
-            this.pbLicenseClass.Size = new System.Drawing.Size(40, 40);
-            this.pbLicenseClass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbLicenseClass.TabIndex = 101;
-            this.pbLicenseClass.TabStop = false;
-            // 
             // lblLicenseClassTitle
             // 
             this.lblLicenseClassTitle.AutoSize = true;
@@ -366,17 +243,6 @@
             this.lblLicenseClassTitle.TabIndex = 100;
             this.lblLicenseClassTitle.Text = "License Class:";
             this.lblLicenseClassTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pbApplicationID
-            // 
-            this.pbApplicationID.BackColor = System.Drawing.Color.Transparent;
-            this.pbApplicationID.Image = global::DVLD.Properties.Resources.ID;
-            this.pbApplicationID.Location = new System.Drawing.Point(94, 138);
-            this.pbApplicationID.Name = "pbApplicationID";
-            this.pbApplicationID.Size = new System.Drawing.Size(40, 40);
-            this.pbApplicationID.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbApplicationID.TabIndex = 99;
-            this.pbApplicationID.TabStop = false;
             // 
             // lblLocDrvLicAppValue
             // 
@@ -414,17 +280,6 @@
             this.lblTrials.Text = "0";
             this.lblTrials.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::DVLD.Properties.Resources.Check;
-            this.pictureBox1.Location = new System.Drawing.Point(94, 370);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 112;
-            this.pictureBox1.TabStop = false;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -437,14 +292,156 @@
             this.label3.Text = "Trials:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox5.Image = global::DVLD.Properties.Resources.Plus;
+            this.pictureBox5.Location = new System.Drawing.Point(48, 458);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 126;
+            this.pictureBox5.TabStop = false;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Animated = true;
+            this.btnSave.BackColor = System.Drawing.Color.Transparent;
+            this.btnSave.BorderThickness = 2;
+            this.btnSave.CheckedState.Parent = this.btnSave;
+            this.btnSave.CustomImages.Parent = this.btnSave;
+            this.btnSave.FillColor = System.Drawing.Color.Transparent;
+            this.btnSave.Font = new System.Drawing.Font("Gadugi", 9F, System.Drawing.FontStyle.Bold);
+            this.btnSave.ForeColor = System.Drawing.Color.Black;
+            this.btnSave.HoverState.Parent = this.btnSave;
+            this.btnSave.Image = global::DVLD.Properties.Resources.Save;
+            this.btnSave.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnSave.ImageOffset = new System.Drawing.Point(-6, 0);
+            this.btnSave.ImageSize = new System.Drawing.Size(28, 28);
+            this.btnSave.Location = new System.Drawing.Point(243, 602);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.ShadowDecoration.Parent = this.btnSave;
+            this.btnSave.Size = new System.Drawing.Size(133, 38);
+            this.btnSave.TabIndex = 125;
+            this.btnSave.Text = "Save";
+            this.btnSave.TextOffset = new System.Drawing.Point(10, 0);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.Image = global::DVLD.Properties.Resources.ID;
+            this.pictureBox4.Location = new System.Drawing.Point(94, 80);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 122;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.Image = global::DVLD.Properties.Resources.Equal;
+            this.pictureBox3.Location = new System.Drawing.Point(89, 538);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 118;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = global::DVLD.Properties.Resources.Dollar_Sign;
+            this.pictureBox2.Location = new System.Drawing.Point(94, 486);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 115;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox6.Image = global::DVLD.Properties.Resources.Person;
+            this.pictureBox6.Location = new System.Drawing.Point(94, 254);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 109;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pbFees
+            // 
+            this.pbFees.BackColor = System.Drawing.Color.Transparent;
+            this.pbFees.Image = global::DVLD.Properties.Resources.Dollar_Sign;
+            this.pbFees.Location = new System.Drawing.Point(94, 428);
+            this.pbFees.Name = "pbFees";
+            this.pbFees.Size = new System.Drawing.Size(40, 40);
+            this.pbFees.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbFees.TabIndex = 106;
+            this.pbFees.TabStop = false;
+            // 
+            // pbDate
+            // 
+            this.pbDate.BackColor = System.Drawing.Color.Transparent;
+            this.pbDate.Image = global::DVLD.Properties.Resources.Date;
+            this.pbDate.Location = new System.Drawing.Point(94, 312);
+            this.pbDate.Name = "pbDate";
+            this.pbDate.Size = new System.Drawing.Size(40, 40);
+            this.pbDate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbDate.TabIndex = 104;
+            this.pbDate.TabStop = false;
+            // 
+            // pbLicenseClass
+            // 
+            this.pbLicenseClass.BackColor = System.Drawing.Color.Transparent;
+            this.pbLicenseClass.Image = global::DVLD.Properties.Resources.License;
+            this.pbLicenseClass.Location = new System.Drawing.Point(94, 196);
+            this.pbLicenseClass.Name = "pbLicenseClass";
+            this.pbLicenseClass.Size = new System.Drawing.Size(40, 40);
+            this.pbLicenseClass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLicenseClass.TabIndex = 101;
+            this.pbLicenseClass.TabStop = false;
+            // 
+            // pbApplicationID
+            // 
+            this.pbApplicationID.BackColor = System.Drawing.Color.Transparent;
+            this.pbApplicationID.Image = global::DVLD.Properties.Resources.ID;
+            this.pbApplicationID.Location = new System.Drawing.Point(94, 138);
+            this.pbApplicationID.Name = "pbApplicationID";
+            this.pbApplicationID.Size = new System.Drawing.Size(40, 40);
+            this.pbApplicationID.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbApplicationID.TabIndex = 99;
+            this.pbApplicationID.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::DVLD.Properties.Resources.Check;
+            this.pictureBox1.Location = new System.Drawing.Point(94, 370);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 112;
+            this.pictureBox1.TabStop = false;
+            // 
+            // ucTopBar1
+            // 
+            this.ucTopBar1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ucTopBar1.Location = new System.Drawing.Point(0, 0);
+            this.ucTopBar1.Name = "ucTopBar1";
+            this.ucTopBar1.Size = new System.Drawing.Size(618, 52);
+            this.ucTopBar1.TabIndex = 127;
+            // 
             // ScheduleTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(618, 662);
+            this.Controls.Add(this.ucTopBar1);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.lblTestID);
@@ -472,7 +469,7 @@
             this.Controls.Add(this.lblTrials);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ScheduleTest";
             this.Text = "Schedule Test";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -494,7 +491,6 @@
 
         private System.Windows.Forms.PictureBox pictureBox5;
         private Guna.UI2.WinForms.Guna2Button btnSave;
-        private System.Windows.Forms.Label lblTitle;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpDate;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label lblTestID;
@@ -522,5 +518,6 @@
         private System.Windows.Forms.Label lblTrials;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
+        private User_Controls.ucTopBar ucTopBar1;
     }
 }

@@ -324,6 +324,12 @@
     <Compile Include="User Controls\ucTitleScreen.Designer.cs">
       <DependentUpon>ucTitleScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="User Controls\ucTopBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\ucTopBar.Designer.cs">
+      <DependentUpon>ucTopBar.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="DVLD System\Applications\Application Types\ApplicationTypesList.resx">
       <DependentUpon>ApplicationTypesList.cs</DependentUpon>
     </EmbeddedResource>
@@ -454,6 +460,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\ucTitleScreen.resx">
       <DependentUpon>ucTitleScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\ucTopBar.resx">
+      <DependentUpon>ucTopBar.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
