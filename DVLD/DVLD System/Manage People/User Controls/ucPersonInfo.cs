@@ -73,7 +73,7 @@ namespace DVLD.UserControl
             lblNationalNo.Text = person.NationalNo;
             lblPhone.Text = person.Phone;
 
-            clsGlobal.FillPersonImage(person.ImageFile, person.Gender);
+            pbProfile.Image = clsGlobal.FillPersonImage(person.ImageFile, person.Gender);
         }
 
         public void GetPersonID(int personID)
