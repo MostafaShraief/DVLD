@@ -41,6 +41,8 @@
             // 
             // gpnlTop
             // 
+            this.gpnlTop.BorderColor = System.Drawing.Color.Black;
+            this.gpnlTop.BorderThickness = 1;
             this.gpnlTop.Controls.Add(this.lblTitle);
             this.gpnlTop.Controls.Add(this.guna2Button3);
             this.gpnlTop.Controls.Add(this.btnMinimize);

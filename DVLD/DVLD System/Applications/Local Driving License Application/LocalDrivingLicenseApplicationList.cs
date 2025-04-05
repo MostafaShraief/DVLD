@@ -1,5 +1,7 @@
 ﻿using DVLD.Applications.Local_Driving_License_Application;
 using DVLD.Applications.Local_Driving_License_Application.User_Control;
+using DVLD.DVLD_System.Applications.Local_Driving_License_Application.User_Controls;
+using DVLD.DVLD_System.Applications.Tests;
 using DVLD.DVLD_System.Licenses;
 using DVLD.Manage_People;
 using DVLD.Manage_People.User_Controls;
@@ -21,6 +23,7 @@ namespace DVLD.Applications
         public LocalDrivingLicenseApplicationList()
         {
             InitializeComponent();
+            ucTitleScreen1.ChangeTitle("Local Licenses List");
 
             List<string> columnIdNames = new List<string>
             {
@@ -150,7 +153,6 @@ namespace DVLD.Applications
 
         void DisableCmsItems()
         {
-            EnableOrDisableLocalLicenseInfo(false, 0, 0); // show local license
             EnableOrDisableLocalLicenseInfo(false, 2, 0); // edit local license
             cmsRow.Items[4].Enabled = false; // cancel
             cmsRow.Items[5].Enabled = false; // delete
@@ -172,7 +174,6 @@ namespace DVLD.Applications
                 DisableCmsItems();
 
                 // global enable section.
-                EnableOrDisableLocalLicenseInfo(true, 0, 0); // show local license
                 EnableOrDisableLocalLicenseInfo(true, 2, 0); // edit local license
                 cmsRow.Items[7].Enabled = true; // schedule
                 cmsRow.Items[4].Enabled = true; // cancel
@@ -187,20 +188,21 @@ namespace DVLD.Applications
                 else if (licenseStatus == clsGlobal.enLocalLicenseStatus.PracticalTest)
                     EnableOrDisableLocalLicenseInfo(true, 7, 2); // street
                 else
+                {
                     cmsRow.Items[7].Enabled = false; // schedule
+                    cmsRow.Items[9].Enabled = true; // issue license
+                }
             }
             else if (applicationStatus == clsGlobal.enApplicationStatus.Cancelled)
             {
                 DisableCmsItems();
                 // enable section.
-                EnableOrDisableLocalLicenseInfo(true, 0, 0); // local license info
                 cmsRow.Items[5].Enabled = false; // delete
             }
             else
             {
                 DisableCmsItems();
                 // enable
-                EnableOrDisableLocalLicenseInfo(true, 0, 0); // show local license
                 cmsRow.Items[11].Enabled = true; // show license
             }
         }
@@ -210,6 +212,41 @@ namespace DVLD.Applications
             DriverLicensesList driverLicensesList = new DriverLicensesList();
             if (driverLicensesList.GetNationalNo(GetNationalNumberFromSelectedRow()))
                 clsGlobal.MainForm.PushNewForm(driverLicensesList);
+        }
+
+        private void eyeTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TestAppointments testAppointments = new TestAppointments();
+            testAppointments.GetTestAppointmentInfo(GetLocalLicenseIdFromSelectedRow(), clsGlobal.enTestType.EyeTest);
+            clsGlobal.MainForm.PushNewForm(testAppointments);
+        }
+
+        private void theoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TestAppointments testAppointments = new TestAppointments();
+            testAppointments.GetTestAppointmentInfo(GetLocalLicenseIdFromSelectedRow(), clsGlobal.enTestType.WrittenTest);
+            clsGlobal.MainForm.PushNewForm(testAppointments);
+        }
+
+        private void practicalStreetTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TestAppointments testAppointments = new TestAppointments();
+            testAppointments.GetTestAppointmentInfo(GetLocalLicenseIdFromSelectedRow(), clsGlobal.enTestType.PracticalTest);
+            clsGlobal.MainForm.PushNewForm(testAppointments);
+        }
+
+        private void issueLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IssueLicense issueLicense = new IssueLicense();
+            issueLicense.SetLocalLicenseID(GetLocalLicenseIdFromSelectedRow());
+            clsGlobal.MainForm.PushNewForm(issueLicense);
+        }
+
+        private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LicenseInfo licenseInfo = new LicenseInfo();
+            licenseInfo.SetLicenseID(clsLocalDrivingLicenseApplication_BLL.GetLicenseIDByLocalDrivingLicenseAppID(GetLocalLicenseIdFromSelectedRow()));
+            clsGlobal.MainForm.PushNewForm(licenseInfo);
         }
     }
 }

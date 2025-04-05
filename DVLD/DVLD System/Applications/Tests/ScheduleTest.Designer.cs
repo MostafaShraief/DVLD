@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScheduleTest));
             this.dtpDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.lblTestID = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -46,7 +48,6 @@
             this.lblLocDrvLicAppTitle = new System.Windows.Forms.Label();
             this.lblTrials = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -57,8 +58,8 @@
             this.pbLicenseClass = new System.Windows.Forms.PictureBox();
             this.pbApplicationID = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.ucTopBar1 = new User_Controls.ucTopBar();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -88,13 +89,14 @@
             this.dtpDate.Size = new System.Drawing.Size(292, 35);
             this.dtpDate.TabIndex = 123;
             this.dtpDate.Value = new System.DateTime(2025, 1, 27, 23, 33, 22, 811);
+            this.dtpDate.ValueChanged += new System.EventHandler(this.dtpDate_ValueChanged);
             // 
             // lblTestID
             // 
             this.lblTestID.AutoSize = true;
             this.lblTestID.BackColor = System.Drawing.Color.Transparent;
             this.lblTestID.Font = new System.Drawing.Font("Gadugi", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTestID.Location = new System.Drawing.Point(249, 86);
+            this.lblTestID.Location = new System.Drawing.Point(415, 86);
             this.lblTestID.Name = "lblTestID";
             this.lblTestID.Size = new System.Drawing.Size(36, 29);
             this.lblTestID.TabIndex = 121;
@@ -108,9 +110,9 @@
             this.label9.Font = new System.Drawing.Font("Gadugi", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(140, 85);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(103, 30);
+            this.label9.Size = new System.Drawing.Size(269, 30);
             this.label9.TabIndex = 120;
-            this.label9.Text = "Test ID:";
+            this.label9.Text = "Test Appointment ID:";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTotalFees
@@ -170,7 +172,7 @@
             this.lblFullName.Size = new System.Drawing.Size(281, 29);
             this.lblFullName.TabIndex = 110;
             this.lblFullName.Text = "None";
-            this.lblFullName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblFullName.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // label5
             // 
@@ -292,17 +294,6 @@
             this.label3.Text = "Trials:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox5.Image = global::DVLD.Properties.Resources.Plus;
-            this.pictureBox5.Location = new System.Drawing.Point(48, 458);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 126;
-            this.pictureBox5.TabStop = false;
-            // 
             // btnSave
             // 
             this.btnSave.Animated = true;
@@ -325,6 +316,7 @@
             this.btnSave.TabIndex = 125;
             this.btnSave.Text = "Save";
             this.btnSave.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // pictureBox4
             // 
@@ -351,7 +343,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = global::DVLD.Properties.Resources.Dollar_Sign;
+            this.pictureBox2.Image = global::DVLD.Properties.Resources.Plus;
             this.pictureBox2.Location = new System.Drawing.Point(94, 486);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(40, 40);
@@ -373,7 +365,7 @@
             // pbFees
             // 
             this.pbFees.BackColor = System.Drawing.Color.Transparent;
-            this.pbFees.Image = global::DVLD.Properties.Resources.Dollar_Sign;
+            this.pbFees.Image = global::DVLD.Properties.Resources.Plus;
             this.pbFees.Location = new System.Drawing.Point(94, 428);
             this.pbFees.Name = "pbFees";
             this.pbFees.Size = new System.Drawing.Size(40, 40);
@@ -427,6 +419,7 @@
             // 
             // ucTopBar1
             // 
+            this.ucTopBar1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ucTopBar1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ucTopBar1.Location = new System.Drawing.Point(0, 0);
             this.ucTopBar1.Name = "ucTopBar1";
@@ -440,7 +433,6 @@
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(618, 662);
             this.Controls.Add(this.ucTopBar1);
-            this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.pictureBox4);
@@ -470,9 +462,10 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ScheduleTest";
             this.Text = "Schedule Test";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.Load += new System.EventHandler(this.ScheduleTest_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -488,8 +481,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox5;
         private Guna.UI2.WinForms.Guna2Button btnSave;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpDate;
         private System.Windows.Forms.PictureBox pictureBox4;
@@ -519,5 +510,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
         private User_Controls.ucTopBar ucTopBar1;
+        private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
     }
 }

@@ -39,5 +39,10 @@ namespace DVLD.User_Controls
             if (delMinimize != null)
                 delMinimize();
         }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, ClientRectangle, Color.Black, ButtonBorderStyle.Solid);
+        }
     }
 }

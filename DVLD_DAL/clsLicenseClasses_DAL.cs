@@ -10,9 +10,9 @@ namespace DVLD_DAL
 {
     public class clsLicenseClasses_DAL
     {
-        public enum enLicencsesClasses { SmallMotorcycle = 1, HeavyMotorcycleLicense,
-            Ordinarydrivinglicense, Commercial, Agricultural, Smallandmediumbus,
-            Truckandheavyvehicle
+        public enum enLicencsesClasses { Small_Motorcycle = 1, Heavy_Motorcycle_License,
+            Ordinary_Driving_License, Commercial, Agricultural, Small_And_Medium_Bus,
+            Truck_And_Heavy_Vehicle
         }
 
         public static DataTable GetAllLicensesClasses() =>
@@ -93,6 +93,36 @@ namespace DVLD_DAL
             }
 
             return IsUpdated;
+        }
+
+        public static byte GetLicenseClassValidityLength(int licenseClassID)
+        {
+            byte validityLength = 0;
+
+            SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
+            string query = @"USE DVLD; 
+                    SELECT TOP 1 DefaultValidityLength 
+                    FROM LicenseClasses 
+                    WHERE LicenseClassID = @LicenseClassID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@LicenseClassID", licenseClassID);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+                if (result != null)
+                {
+                    validityLength = Convert.ToByte(result);
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return validityLength;
         }
     }
 }

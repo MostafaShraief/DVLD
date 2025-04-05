@@ -103,5 +103,10 @@ namespace DVLD_BLL
 
         public static float GetApplicationFees(int ApplicationID) =>
             clsApplications_DAL.GetApplicationFees(ApplicationID);
+
+        public static byte? GetApplicationStatus(int applicationID)
+        {
+            return clsApplications_DAL.GetApplicationStatus(applicationID);
+        }
     }
 }

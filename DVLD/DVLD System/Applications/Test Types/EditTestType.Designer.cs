@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditTestType));
-            this.ucTitleScreen1 = new ucTitleScreen();
             this.tbFees = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblID = new System.Windows.Forms.Label();
@@ -45,21 +44,15 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pbPersonID = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.ucTopBar1 = new User_Controls.ucTopBar();
+            this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
+            this.elipseLoginForm = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ucTitleScreen1
-            // 
-            this.ucTitleScreen1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ucTitleScreen1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ucTitleScreen1.Location = new System.Drawing.Point(0, 0);
-            this.ucTitleScreen1.Name = "ucTitleScreen1";
-            this.ucTitleScreen1.Size = new System.Drawing.Size(697, 145);
-            this.ucTitleScreen1.TabIndex = 52;
             // 
             // tbFees
             // 
@@ -77,7 +70,7 @@
             this.tbFees.ForeColor = System.Drawing.Color.Black;
             this.tbFees.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.tbFees.HoverState.Parent = this.tbFees;
-            this.tbFees.Location = new System.Drawing.Point(321, 415);
+            this.tbFees.Location = new System.Drawing.Point(321, 414);
             this.tbFees.Margin = new System.Windows.Forms.Padding(4);
             this.tbFees.Name = "tbFees";
             this.tbFees.PasswordChar = '\0';
@@ -105,7 +98,7 @@
             this.lblID.AutoSize = true;
             this.lblID.BackColor = System.Drawing.Color.Transparent;
             this.lblID.Font = new System.Drawing.Font("Gadugi", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID.Location = new System.Drawing.Point(172, 198);
+            this.lblID.Location = new System.Drawing.Point(321, 114);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(36, 29);
             this.lblID.TabIndex = 46;
@@ -117,7 +110,7 @@
             this.lblPersonIDTitle.AutoSize = true;
             this.lblPersonIDTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblPersonIDTitle.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
-            this.lblPersonIDTitle.Location = new System.Drawing.Point(104, 192);
+            this.lblPersonIDTitle.Location = new System.Drawing.Point(104, 108);
             this.lblPersonIDTitle.Name = "lblPersonIDTitle";
             this.lblPersonIDTitle.Size = new System.Drawing.Size(62, 40);
             this.lblPersonIDTitle.TabIndex = 45;
@@ -140,7 +133,7 @@
             this.tbTitle.ForeColor = System.Drawing.Color.Black;
             this.tbTitle.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.tbTitle.HoverState.Parent = this.tbTitle;
-            this.tbTitle.Location = new System.Drawing.Point(321, 265);
+            this.tbTitle.Location = new System.Drawing.Point(321, 204);
             this.tbTitle.Margin = new System.Windows.Forms.Padding(4);
             this.tbTitle.Name = "tbTitle";
             this.tbTitle.PasswordChar = '\0';
@@ -155,7 +148,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(104, 267);
+            this.label1.Location = new System.Drawing.Point(104, 211);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(97, 40);
             this.label1.TabIndex = 43;
@@ -183,7 +176,7 @@
             this.tbDescription.ForeColor = System.Drawing.Color.Black;
             this.tbDescription.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.tbDescription.HoverState.Parent = this.tbDescription;
-            this.tbDescription.Location = new System.Drawing.Point(321, 340);
+            this.tbDescription.Location = new System.Drawing.Point(321, 309);
             this.tbDescription.Margin = new System.Windows.Forms.Padding(4);
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.PasswordChar = '\0';
@@ -198,7 +191,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(104, 342);
+            this.label3.Location = new System.Drawing.Point(104, 314);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(210, 40);
             this.label3.TabIndex = 54;
@@ -209,7 +202,7 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = global::DVLD.Properties.Resources.Info;
-            this.pictureBox2.Location = new System.Drawing.Point(48, 337);
+            this.pictureBox2.Location = new System.Drawing.Point(48, 309);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(50, 50);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -231,7 +224,7 @@
             this.btnSave.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSave.ImageOffset = new System.Drawing.Point(-6, 0);
             this.btnSave.ImageSize = new System.Drawing.Size(32, 32);
-            this.btnSave.Location = new System.Drawing.Point(512, 491);
+            this.btnSave.Location = new System.Drawing.Point(283, 491);
             this.btnSave.Name = "btnSave";
             this.btnSave.ShadowDecoration.Parent = this.btnSave;
             this.btnSave.Size = new System.Drawing.Size(130, 38);
@@ -255,7 +248,7 @@
             // 
             this.pbPersonID.BackColor = System.Drawing.Color.Transparent;
             this.pbPersonID.Image = global::DVLD.Properties.Resources.ID;
-            this.pbPersonID.Location = new System.Drawing.Point(48, 187);
+            this.pbPersonID.Location = new System.Drawing.Point(48, 103);
             this.pbPersonID.Name = "pbPersonID";
             this.pbPersonID.Size = new System.Drawing.Size(50, 50);
             this.pbPersonID.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -266,12 +259,25 @@
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox6.Image = global::DVLD.Properties.Resources.Hashtag;
-            this.pictureBox6.Location = new System.Drawing.Point(48, 262);
+            this.pictureBox6.Location = new System.Drawing.Point(48, 206);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(50, 50);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 44;
             this.pictureBox6.TabStop = false;
+            // 
+            // ucTopBar1
+            // 
+            this.ucTopBar1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ucTopBar1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ucTopBar1.Location = new System.Drawing.Point(0, 0);
+            this.ucTopBar1.Name = "ucTopBar1";
+            this.ucTopBar1.Size = new System.Drawing.Size(697, 52);
+            this.ucTopBar1.TabIndex = 56;
+            // 
+            // elipseLoginForm
+            // 
+            this.elipseLoginForm.BorderRadius = 10;
             // 
             // EditTestType
             // 
@@ -279,10 +285,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(697, 554);
+            this.Controls.Add(this.ucTopBar1);
             this.Controls.Add(this.tbDescription);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.ucTitleScreen1);
             this.Controls.Add(this.tbFees);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblID);
@@ -293,9 +299,13 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pbPersonID);
             this.Controls.Add(this.pictureBox6);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(261, 61);
             this.Name = "EditTestType";
-            this.Text = "EditTestType";
+            this.Text = "Edit Test Type";
+            this.TransparencyKey = System.Drawing.Color.Fuchsia;
+            this.Load += new System.EventHandler(this.EditTestType_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -321,6 +331,8 @@
         private Guna.UI2.WinForms.Guna2TextBox tbDescription;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private ucTitleScreen ucTitleScreen1;
+        private User_Controls.ucTopBar ucTopBar1;
+        private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
+        private Guna.UI2.WinForms.Guna2Elipse elipseLoginForm;
     }
 }

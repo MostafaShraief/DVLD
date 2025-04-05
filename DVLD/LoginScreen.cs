@@ -52,7 +52,7 @@ namespace DVLD
 
         void Login(string UserName, string Password)
         {
-            if (String.IsNullOrEmpty(UserName) || 
+            if (String.IsNullOrEmpty(UserName) ||
                 String.IsNullOrEmpty(Password))
             {
                 MessageBox.Show("Please enter both username and password.",
@@ -105,7 +105,7 @@ namespace DVLD
 
         private void tbPassword_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter) 
+            if (e.KeyCode == Keys.Enter)
                 Login(tbUserName.Text, tbPassword.Text);
         }
 
@@ -141,6 +141,16 @@ namespace DVLD
         private void ucTopBar1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, ClientRectangle, Color.Black, ButtonBorderStyle.Solid);
+        }
+
+        private void LoginScreen_Load(object sender, EventArgs e)
+        {
+            guna2ShadowForm1.SetShadowForm(this);
         }
     }
 }

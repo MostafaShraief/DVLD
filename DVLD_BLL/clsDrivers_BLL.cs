@@ -35,7 +35,7 @@ namespace DVLD_BLL
                 return false; // Person is already a driver
             }
 
-            DriverID = clsDrivers_DAL.AddDriver(PersonID, CreatedByUserID, CreatedDate);
+            DriverID = clsDrivers_DAL.AddDriver(PersonID, CreatedByUserID);
             return DriverID != -1;
         }
 
@@ -99,7 +99,7 @@ namespace DVLD_BLL
                     ActiveLicenses = Convert.ToInt32(dt.Rows[0]["Active Licenses"])
                 };
             }
-            return null;
+            return new clsDrivers_BLL();
         }
 
         // Method to check if a person is already a driver

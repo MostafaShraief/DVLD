@@ -122,6 +122,7 @@ namespace DVLD
         public void RefreshDataSet()
         {
             _clsDataTable.LoadData();
+            cbFilter.SelectedIndex = 0;
         }
 
         private void cbFilterCriterion_SelectedIndexChanged(object sender, EventArgs e)

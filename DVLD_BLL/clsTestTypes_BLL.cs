@@ -80,5 +80,10 @@ namespace DVLD_BLL
 
         public bool Save() =>
             clsSave_BLL.Save(ref _Mode, null, UpdateTestType);
+
+        public static decimal GetTestTypeFees(int TestTypeID)
+        {
+            return clsTestTypes_DAL.GetTestTypeFees(TestTypeID);
+        }
     }
 }

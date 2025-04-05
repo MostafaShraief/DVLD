@@ -132,7 +132,6 @@
             // pnlApp
             // 
             this.pnlApp.BorderColor = System.Drawing.Color.Black;
-            this.pnlApp.BorderThickness = 3;
             this.pnlApp.Controls.Add(this.lblPassedTests);
             this.pnlApp.Controls.Add(this.pictureBox1);
             this.pnlApp.Controls.Add(this.label3);

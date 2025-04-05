@@ -151,6 +151,30 @@
     <Compile Include="DVLD System\Licenses\DriverLicensesList.Designer.cs">
       <DependentUpon>DriverLicensesList.cs</DependentUpon>
     </Compile>
+    <Compile Include="DVLD System\Licenses\IssueLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DVLD System\Licenses\IssueLicense.Designer.cs">
+      <DependentUpon>IssueLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD System\Licenses\LicenseInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DVLD System\Licenses\LicenseInfo.Designer.cs">
+      <DependentUpon>LicenseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD System\Licenses\User Control\ucIssueLicense.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DVLD System\Licenses\User Control\ucIssueLicense.Designer.cs">
+      <DependentUpon>ucIssueLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD System\Licenses\User Control\ucLicenseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DVLD System\Licenses\User Control\ucLicenseInfo.Designer.cs">
+      <DependentUpon>ucLicenseInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -371,6 +395,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD System\Licenses\DriverLicensesList.resx">
       <DependentUpon>DriverLicensesList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\Licenses\IssueLicense.resx">
+      <DependentUpon>IssueLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\Licenses\LicenseInfo.resx">
+      <DependentUpon>LicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\Licenses\User Control\ucIssueLicense.resx">
+      <DependentUpon>ucIssueLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\Licenses\User Control\ucLicenseInfo.resx">
+      <DependentUpon>ucLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListScreen.resx">
       <DependentUpon>ListScreen.cs</DependentUpon>
@@ -712,6 +748,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Equal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Question-Mark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Question-Mark2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

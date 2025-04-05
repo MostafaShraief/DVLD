@@ -16,9 +16,16 @@ namespace DVLD.Applications
         public EditApplicationType(int ID)
         {
             InitializeComponent();
-            ucTitleScreen1.ChangeTitle("Edit Application Type");
+            ucTopBar1.ChangeTitle("Edit Application Type");
+            ucTopBar1.delClose += () => this.Close();
+            ucTopBar1.delMinimize += () => this.WindowState = FormWindowState.Minimized;
             ApplicationTypeObject = clsApplicationType_BLL.Find(ID);
             FillData();
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, ClientRectangle, Color.Black, ButtonBorderStyle.Solid);
         }
 
         void FillData()
@@ -60,6 +67,11 @@ namespace DVLD.Applications
             else
                 MessageBox.Show("Data not saved, check data enterd and try again.", "Failed To Save",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void EditApplicationType_Load(object sender, EventArgs e)
+        {
+            guna2ShadowForm1.SetShadowForm(this);
         }
     }
 }

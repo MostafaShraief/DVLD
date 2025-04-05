@@ -32,7 +32,7 @@ namespace DVLD_DAL
         }
 
         // Method to add a driver
-        public static int AddDriver(int PersonID, int CreatedByUserID, DateTime CreatedDate)
+        public static int AddDriver(int PersonID, int CreatedByUserID)
         {
             int DriverID = -1;
             SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
@@ -40,7 +40,7 @@ namespace DVLD_DAL
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@PersonID", PersonID);
             command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
-            command.Parameters.AddWithValue("@CreatedDate", CreatedDate);
+            command.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
             try
             {
                 connection.Open();

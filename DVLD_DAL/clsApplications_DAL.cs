@@ -57,7 +57,7 @@ namespace DVLD_DAL
 
             SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
             string query = @"
-                SELECT 
+                USE DVLD; SELECT 
                     Applications.ApplicationID, Applications.ApplicantPersonID,
                     P.FirstName + ' ' + P.SecondName + ' ' + 
                         (CASE WHEN P.ThirdName IS NOT NULL THEN P.ThirdName + ' ' ELSE '' END) + P.LastName AS [Full Name],
@@ -258,5 +258,32 @@ namespace DVLD_DAL
 
         public static bool DeleteApplication(int ApplicationId) =>
             clsUtility_DAL.DeleteRecord("Applications", "ApplicationID", ApplicationId, true);
+
+        public static byte? GetApplicationStatus(int applicationID)
+        {
+            byte? status = null;
+
+            SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
+            string query = "USE DVLD; SELECT TOP 1 ApplicationStatus FROM Applications WHERE ApplicationID = @ApplicationID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ApplicationID", applicationID);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+                if (result != null)
+                {
+                    status = Convert.ToByte(result);
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return status;
+        }
     }
 }

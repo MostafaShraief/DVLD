@@ -101,5 +101,31 @@ namespace DVLD_DAL
 
             return IsUpdated;
         }
+
+        public static decimal GetTestTypeFees(int TestTypeID)
+        {
+            decimal Fees = 0;
+
+            SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
+            string query = "USE DVLD; SELECT TOP 1 TestTypeFees FROM TestTypes T WHERE T.TestTypeID = @TestTypeID;";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+                if (result != null && decimal.TryParse(result.ToString(), out Fees))
+                {
+                    return Fees;
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return Fees; // Return 0 if no fees are found or an error occurs.
+        }
     }
 }

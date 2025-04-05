@@ -1,6 +1,8 @@
-﻿using DVLD_BLL;
+﻿using DVLD.Properties;
+using DVLD_BLL;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,6 +48,7 @@ namespace DVLD
         }
 
         public enum enApplicationStatus { New = 1, Cancelled, Completed }
+       
         public enum enLocalLicenseStatus
         {
             EyeTest = 0,
@@ -58,7 +61,14 @@ namespace DVLD
         {
             SmallMotorcycle = 1, HeavyMotorcycleLicense,
             OrdinaryDrivingLicense, Commercial, Agricultural, SmallAndMediumBus,
-            TruckAndHeavyVehicle
+            TruckAndHeavyVehicle, RetakeTest = 8
+        }
+
+        public enum enTestType
+        {
+            EyeTest = 1,
+            WrittenTest = 2,
+            PracticalTest = 3
         }
 
         public static string ConverLicenseClassEnumToString(enLicencsesClasses LicenseClass)
@@ -76,6 +86,18 @@ namespace DVLD
             NewLicenseClass = NewLicenseClass.TrimStart();
 
             return NewLicenseClass;
+        }
+
+        public static Image FillPersonImage(Byte[] ImageFile, clsPeople_BLL.enGender gender)
+        {
+            if (ImageFile != null) // set image to pbProfile
+                return clsUtility.Image.ByteArrayToImage(ImageFile);
+            else if (gender == clsPeople_BLL.enGender.Male)
+                return Resources.Man;
+            else if (gender == clsPeople_BLL.enGender.Female)
+                return Resources.Woman;
+            else
+                return Resources.Question_Mark;
         }
     }
 }

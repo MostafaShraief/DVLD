@@ -159,11 +159,102 @@ namespace DVLD_DAL
             return IsExist;
         }
 
+        public static Byte CountPassedTests(int localDrivingLicenseApplicationID)
+        {
+            Byte passedTestsCount = 0;
+
+            SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
+            string query = @"USE DVLD;
+                    SELECT COUNT(*) 
+                    FROM dbo.TestAppointments AS TA 
+                    INNER JOIN dbo.Tests AS T ON TA.TestAppointmentID = T.TestAppointmentID
+                    WHERE TA.LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID 
+                    AND T.TestResult = 1;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", localDrivingLicenseApplicationID);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+                passedTestsCount = Convert.ToByte(result);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return passedTestsCount;
+        }
+
+        public static byte? GetApplicationStatus(int localDrivingLicenseApplicationID)
+        {
+            byte? applicationStatus = null;
+
+            SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
+            string query = @"USE DVLD; 
+                    SELECT TOP 1 A.ApplicationStatus 
+                    FROM LocalDrivingLicenseApplications L 
+                    JOIN Applications A ON L.ApplicationID = A.ApplicationID 
+                    WHERE L.LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", localDrivingLicenseApplicationID);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+                if (result != null)
+                {
+                    applicationStatus = Convert.ToByte(result);
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return applicationStatus;
+        }
+
+        public static int GetLicenseIDByLocalDrivingLicenseAppID(int localDrivingLicenseApplicationID)
+        {
+            int licenseID = -1;
+
+            SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
+            string query = @"USE DVLD; 
+                    SELECT TOP (1) L.LicenseID
+                    FROM LocalDrivingLicenseApplications LA 
+                    INNER JOIN Licenses L ON L.ApplicationID = LA.ApplicationID
+                    WHERE LA.LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", localDrivingLicenseApplicationID);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+                if (result != null)
+                {
+                    licenseID = Convert.ToInt32(result);
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return licenseID;
+        }
+
         //public static bool DeleteLocalLicense()
         //{
         //    bool IsDeleted = false;
 
-            
+
 
         //    if (clsApplications_DAL.DeleteApplication())
         //}

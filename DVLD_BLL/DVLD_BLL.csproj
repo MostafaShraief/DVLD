@@ -59,6 +59,8 @@
     <Compile Include="clsPeople_BLL.cs" />
     <Compile Include="clsSave_BLL.cs" />
     <Compile Include="clsSettings.cs" />
+    <Compile Include="clsTestAppointments_BLL.cs" />
+    <Compile Include="clsTests_BLL.cs" />
     <Compile Include="clsTestTypes_BLL.cs" />
     <Compile Include="clsUsers_BLL.cs" />
     <Compile Include="clsUtility_BLL.cs" />

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TakeTest));
             this.lblLocDrvLicAppValue = new System.Windows.Forms.Label();
             this.lblLocDrvLicAppTitle = new System.Windows.Forms.Label();
             this.lblLicenseClass = new System.Windows.Forms.Label();
@@ -39,18 +40,17 @@
             this.lblTrialsTests = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblPaidFees = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.label7a = new System.Windows.Forms.Label();
             this.lblTestID = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.tbNote = new Guna.UI2.WinForms.Guna2TextBox();
-            this.lblDate = new System.Windows.Forms.Label();
             this.rbPass = new Guna.UI2.WinForms.Guna2RadioButton();
             this.rbFail = new Guna.UI2.WinForms.Guna2RadioButton();
-            this.elipseLoginForm = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.dragLoginForm = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
+            this.lblDate = new System.Windows.Forms.Label();
+            this.ucTopBar1 = new User_Controls.ucTopBar();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
@@ -61,7 +61,6 @@
             this.pbLicenseClass = new System.Windows.Forms.PictureBox();
             this.pbApplicationID = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.ucTopBar1 = new User_Controls.ucTopBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -154,7 +153,7 @@
             this.lblFullName.Size = new System.Drawing.Size(281, 29);
             this.lblFullName.TabIndex = 80;
             this.lblFullName.Text = "None";
-            this.lblFullName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblFullName.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // lblTrialsTests
             // 
@@ -192,17 +191,17 @@
             this.lblPaidFees.Text = "0";
             this.lblPaidFees.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label7
+            // label7a
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Gadugi", 15F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(140, 431);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(129, 30);
-            this.label7.TabIndex = 87;
-            this.label7.Text = "Paid Fees:";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label7a.AutoSize = true;
+            this.label7a.BackColor = System.Drawing.Color.Transparent;
+            this.label7a.Font = new System.Drawing.Font("Gadugi", 15F, System.Drawing.FontStyle.Bold);
+            this.label7a.Location = new System.Drawing.Point(140, 431);
+            this.label7a.Name = "label7a";
+            this.label7a.Size = new System.Drawing.Size(129, 30);
+            this.label7a.TabIndex = 87;
+            this.label7a.Text = "Paid Fees:";
+            this.label7a.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTestID
             // 
@@ -279,17 +278,6 @@
             this.tbNote.Size = new System.Drawing.Size(344, 88);
             this.tbNote.TabIndex = 102;
             // 
-            // lblDate
-            // 
-            this.lblDate.BackColor = System.Drawing.Color.Transparent;
-            this.lblDate.Font = new System.Drawing.Font("Gadugi", 10F);
-            this.lblDate.Location = new System.Drawing.Point(221, 319);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(281, 29);
-            this.lblDate.TabIndex = 103;
-            this.lblDate.Text = "None";
-            this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // rbPass
             // 
             this.rbPass.AutoSize = true;
@@ -330,14 +318,25 @@
             this.rbFail.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.rbFail.UseVisualStyleBackColor = true;
             // 
-            // elipseLoginForm
+            // lblDate
             // 
-            this.elipseLoginForm.BorderRadius = 10;
-            this.elipseLoginForm.TargetControl = this;
+            this.lblDate.BackColor = System.Drawing.Color.Transparent;
+            this.lblDate.Font = new System.Drawing.Font("Gadugi", 10F);
+            this.lblDate.Location = new System.Drawing.Point(221, 319);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(281, 29);
+            this.lblDate.TabIndex = 103;
+            this.lblDate.Text = "None";
+            this.lblDate.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // guna2DragControl1
+            // ucTopBar1
             // 
-            this.guna2DragControl1.TargetControl = this.btnSave;
+            this.ucTopBar1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ucTopBar1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ucTopBar1.Location = new System.Drawing.Point(0, 0);
+            this.ucTopBar1.Name = "ucTopBar1";
+            this.ucTopBar1.Size = new System.Drawing.Size(618, 52);
+            this.ucTopBar1.TabIndex = 106;
             // 
             // pictureBox8
             // 
@@ -383,6 +382,7 @@
             this.btnSave.TabIndex = 95;
             this.btnSave.Text = "Save";
             this.btnSave.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // pictureBox4
             // 
@@ -461,14 +461,6 @@
             this.pictureBox1.TabIndex = 82;
             this.pictureBox1.TabStop = false;
             // 
-            // ucTopBar1
-            // 
-            this.ucTopBar1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ucTopBar1.Location = new System.Drawing.Point(0, 0);
-            this.ucTopBar1.Name = "ucTopBar1";
-            this.ucTopBar1.Size = new System.Drawing.Size(618, 52);
-            this.ucTopBar1.TabIndex = 106;
-            // 
             // TakeTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -490,7 +482,7 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.lblPaidFees);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label7a);
             this.Controls.Add(this.lblFullName);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.label5);
@@ -506,8 +498,10 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TakeTest";
             this.Text = "Take Test";
+            this.Load += new System.EventHandler(this.TakeTest_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -540,7 +534,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblPaidFees;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label7a;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label lblTestID;
         private System.Windows.Forms.Label label9;
@@ -550,12 +544,10 @@
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Label label13;
         private Guna.UI2.WinForms.Guna2TextBox tbNote;
-        private System.Windows.Forms.Label lblDate;
         private Guna.UI2.WinForms.Guna2RadioButton rbPass;
         private Guna.UI2.WinForms.Guna2RadioButton rbFail;
-        private Guna.UI2.WinForms.Guna2Elipse elipseLoginForm;
-        private Guna.UI2.WinForms.Guna2DragControl dragLoginForm;
-        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private User_Controls.ucTopBar ucTopBar1;
+        private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
+        private System.Windows.Forms.Label lblDate;
     }
 }

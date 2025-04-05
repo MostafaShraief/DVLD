@@ -35,11 +35,11 @@
             this.tbPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.elipseLoginForm = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.icbPassword = new Guna.UI2.WinForms.Guna2ImageCheckBox();
             this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
             this.cbRememberMe = new Guna.UI2.WinForms.Guna2CheckBox();
             this.ucTopBar1 = new User_Controls.ucTopBar();
+            this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,11 +127,6 @@
             this.errorProvider.ContainerControl = this;
             this.errorProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider.Icon")));
             // 
-            // elipseLoginForm
-            // 
-            this.elipseLoginForm.BorderRadius = 10;
-            this.elipseLoginForm.TargetControl = this;
-            // 
             // icbPassword
             // 
             this.icbPassword.CheckedState.Image = global::DVLD.Properties.Resources.Eye;
@@ -217,6 +212,7 @@
             this.Name = "LoginScreen";
             this.Text = "LoginScreen";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LoginScreen_FormClosed);
+            this.Load += new System.EventHandler(this.LoginScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -231,9 +227,9 @@
         private System.Windows.Forms.Label lblPassword;
         private Guna.UI2.WinForms.Guna2Button btnLogin;
         private System.Windows.Forms.ErrorProvider errorProvider;
-        private Guna.UI2.WinForms.Guna2Elipse elipseLoginForm;
         private Guna.UI2.WinForms.Guna2ImageCheckBox icbPassword;
         private Guna.UI2.WinForms.Guna2CheckBox cbRememberMe;
         private User_Controls.ucTopBar ucTopBar1;
+        private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
     }
 }

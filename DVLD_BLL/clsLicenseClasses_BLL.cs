@@ -85,10 +85,14 @@ namespace DVLD_BLL
                 ClassName, Description, MinimumAge, ValidityLength, ClassFees);
 
             return IsUpdated;
-            return IsUpdated;
         }
 
         public bool Save() =>
             clsSave_BLL.Save(ref _Mode, null, UpdateTestType);
+
+        public static byte GetValidityLength(int licenseClassID)
+        {
+            return clsLicenseClasses_DAL.GetLicenseClassValidityLength(licenseClassID);
+        }
     }
 }

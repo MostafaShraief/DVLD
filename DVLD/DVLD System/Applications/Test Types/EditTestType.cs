@@ -16,7 +16,9 @@ namespace DVLD.Applications.Test_Types
         public EditTestType(int ID)
         {
             InitializeComponent();
-            ucTitleScreen1.ChangeTitle("Edit Test Type");
+            ucTopBar1.ChangeTitle("Edit Test Type");
+            ucTopBar1.delClose += () => this.Close();
+            ucTopBar1.delMinimize += () => this.WindowState = FormWindowState.Minimized;
             TestTypeObject = clsTestTypes_BLL.Find(ID);
             FillData();
         }
@@ -62,6 +64,16 @@ namespace DVLD.Applications.Test_Types
             else
                 MessageBox.Show("Data not saved, check data enterd and try again.", "Failed To Save",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void EditTestType_Load(object sender, EventArgs e)
+        {
+            guna2ShadowForm1.SetShadowForm(this);
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, ClientRectangle, Color.Black, ButtonBorderStyle.Solid);
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static DVLD_DAL.clsLicenseClasses_DAL;
 
 namespace DVLD_BLL
 {
@@ -14,11 +15,12 @@ namespace DVLD_BLL
         public int LocalDrivingLicenseApplicationID { get; }
         public int ApplicationID { get; set; }
         public int LicenseClassID { get; set; }
+        public string LicenseClassName { get { return ConverLicenseClassEnumToString((enLicencsesClasses)LicenseClassID);} }
         public string DrivingClassName { get; }
         public string NationalNumber { get; }
         public string FullName { get; }
         public DateTime ApplicationDate { get; }
-        public Byte PassedTest { get; }
+        public Byte PassedTest { get; set; }
         public Byte Status { get; }
         public int CreatedByUserID { get; set; }
         private clsSave_BLL.enMode _Mode;
@@ -120,8 +122,15 @@ namespace DVLD_BLL
         //    return ApplicationID > 0 && LicenseClassID > 0;
         //}
 
-        public static bool CancelLocalLicenseOrder(int LocalLicenseId) =>
-            clsLocalDrivingLicenseApplication_DAL.ChangeStatusByLocalLicenseID(LocalLicenseId, clsApplications_DAL.enStatus.Cancelled);
+        public static bool CancelLocalLicenseOrder(int LocalLicenseId)
+        {
+            byte? Status = GetApplicationStatus(LocalLicenseId);
+
+            if (Status == null || Status != 1)
+                return false;
+
+            return clsLocalDrivingLicenseApplication_DAL.ChangeStatusByLocalLicenseID(LocalLicenseId, clsApplications_DAL.enStatus.Cancelled);
+        }
 
         public bool CancelLocalLicenseOrder()
         {
@@ -184,6 +193,30 @@ namespace DVLD_BLL
         {
             // Call the DAL method to check if the license exists.
             return clsLocalDrivingLicenseApplication_DAL.CheckExistLicense(ApplicantPersonID, (clsLicenseClasses_DAL.enLicencsesClasses)LicenseClassID);
+        }
+
+        private static string ConverLicenseClassEnumToString(enLicencsesClasses LicenseClass)
+        {
+            string NewLicenseClass = LicenseClass.ToString();
+
+            NewLicenseClass = NewLicenseClass.Replace('_', ' ');
+
+            return NewLicenseClass;
+        }
+
+        public static Byte CountPassedTests(int localDrivingLicenseApplicationID)
+        {
+            return clsLocalDrivingLicenseApplication_DAL.CountPassedTests(localDrivingLicenseApplicationID);
+        }
+
+        public static byte? GetApplicationStatus(int localDrivingLicenseApplicationID)
+        {
+            return clsLocalDrivingLicenseApplication_DAL.GetApplicationStatus(localDrivingLicenseApplicationID);
+        }
+
+        public static int GetLicenseIDByLocalDrivingLicenseAppID(int localDrivingLicenseApplicationID)
+        {
+            return clsLocalDrivingLicenseApplication_DAL.GetLicenseIDByLocalDrivingLicenseAppID(localDrivingLicenseApplicationID);
         }
     }
 }

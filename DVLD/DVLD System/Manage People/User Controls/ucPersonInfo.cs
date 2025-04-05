@@ -73,14 +73,7 @@ namespace DVLD.UserControl
             lblNationalNo.Text = person.NationalNo;
             lblPhone.Text = person.Phone;
 
-            if (person.ImageFile != null) // set image to pbProfile
-                pbProfile.Image = clsUtility.Image.ByteArrayToImage(person.ImageFile);
-            else if (person.Gender == clsPeople_BLL.enGender.Male)
-                pbProfile.Image = Resources.Man;
-            else if (person.Gender == clsPeople_BLL.enGender.Female)
-                pbProfile.Image = Resources.Woman;
-            else
-                pbProfile.Image = Resources.Question_Mark;
+            clsGlobal.FillPersonImage(person.ImageFile, person.Gender);
         }
 
         public void GetPersonID(int personID)
