@@ -94,5 +94,10 @@ namespace DVLD_DAL
 
             return testID;
         }
+
+        public static bool DeleteTestByAppointmentID(int testAppointmentID)
+        {
+            return clsUtility_DAL.DeleteRecord("Tests", "TestAppointmentID", testAppointmentID, true);
+        }
     }
 }

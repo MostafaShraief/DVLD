@@ -328,5 +328,39 @@ namespace DVLD_DAL
 
             return isLocked;
         }
+
+        public static bool DeleteTestAppointmentsByLocalAppID(int localDrivingLicenseApplicationID)
+        {
+            return clsUtility_DAL.DeleteRecord("TestAppointments", "LocalDrivingLicenseApplicationID",
+                                             localDrivingLicenseApplicationID, true);
+        }
+
+        public static DataTable GetTestAppointmentIDsByLocalAppID(int localDrivingLicenseApplicationID)
+        {
+            DataTable dt = new DataTable();
+
+            SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
+            string query = @"USE DVLD; 
+                    SELECT TestAppointmentID 
+                    FROM TestAppointments 
+                    WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", localDrivingLicenseApplicationID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                dt.Load(reader);
+                reader.Close();
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return dt;
+        }
     }
 }

@@ -99,30 +99,44 @@ namespace DVLD.Applications
         private void cancelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to cancel this local license?", "Cancel",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK &&
-                clsLocalDrivingLicenseApplication_BLL.CancelLocalLicenseOrder(GetLocalLicenseIdFromSelectedRow()))
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.OK)
             {
-                MessageBox.Show("Local license has been canceled.", "canceled",
+                MessageBox.Show("Cancel process has been terminated.", "Not Canceled",
+                    MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
+
+            if (clsLocalDrivingLicenseApplication_BLL.CancelLocalLicenseOrder(GetLocalLicenseIdFromSelectedRow()))
+            {
+                MessageBox.Show("Local license has been canceled.", "Canceled",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ucList1.RefreshDataSet();
             }
             else
-                MessageBox.Show("cancel process has been terminated.", "Not Canceled",
-                    MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("Local license has not been canceled, check data entered.", "Cancel Failed",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to delete this local license?", "Delete",
-                    MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.OK)
+            {
+                MessageBox.Show("delete process has been canceled.", "Canceled",
+                    MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
+
+            if (clsLocalDrivingLicenseApplication_BLL.DeleteLocalDrivingLicenseApplication(GetLocalLicenseIdFromSelectedRow(),
+                    clsLocalDrivingLicenseApplication_BLL.Find(GetLocalLicenseIdFromSelectedRow()).ApplicationID))
             {
                 MessageBox.Show("Local license has been deleted.", "Delted",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ucList1.RefreshDataSet();
             }
             else
-                MessageBox.Show("delete process has been canceled.", "Canceled",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Local license has not been deleted, check data intered.", "Deleted Failed",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void showUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -197,7 +211,7 @@ namespace DVLD.Applications
             {
                 DisableCmsItems();
                 // enable section.
-                cmsRow.Items[5].Enabled = false; // delete
+                cmsRow.Items[5].Enabled = true; // delete
             }
             else
             {

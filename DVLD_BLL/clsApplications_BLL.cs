@@ -108,5 +108,10 @@ namespace DVLD_BLL
         {
             return clsApplications_DAL.GetApplicationStatus(applicationID);
         }
+
+        public static bool DeleteApplication(int applicationID)
+        {
+            return clsApplications_DAL.DeleteApplication(applicationID);
+        }
     }
 }

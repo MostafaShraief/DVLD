@@ -250,6 +250,13 @@ namespace DVLD_DAL
             return licenseID;
         }
 
+        public static bool DeleteLocalDrivingLicenseApplication(int localDrivingLicenseApplicationID)
+        {
+            return clsUtility_DAL.DeleteRecord("LocalDrivingLicenseApplications",
+                            "LocalDrivingLicenseApplicationID",
+                            localDrivingLicenseApplicationID, true);
+        }
+
         //public static bool DeleteLocalLicense()
         //{
         //    bool IsDeleted = false;

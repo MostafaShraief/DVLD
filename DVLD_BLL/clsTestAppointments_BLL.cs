@@ -178,5 +178,30 @@ namespace DVLD_BLL
         {
             return clsTestAppointments_DAL.IsTestAppointmentLocked(testAppointmentID);
         }
+
+        public static List<int> GetTestAppointmentIDListByLocalAppID(int localDrivingLicenseApplicationID)
+        {
+            List<int> appointmentIDs = new List<int>();
+            DataTable dt = clsTestAppointments_DAL.GetTestAppointmentIDsByLocalAppID(localDrivingLicenseApplicationID);
+
+            foreach (DataRow row in dt.Rows)
+            {
+                appointmentIDs.Add(Convert.ToInt32(row["TestAppointmentID"]));
+            }
+
+            return appointmentIDs;
+        }
+
+        public static bool DeleteTestByLocalAppID(int LocalAppID)
+        {
+            List<int> testAppointments = GetTestAppointmentIDListByLocalAppID(LocalAppID);
+
+            foreach (int id in testAppointments)
+            {
+                clsTests_BLL.DeleteTestByAppointmentID(id);
+            }
+
+            return clsTestAppointments_DAL.DeleteTestAppointmentsByLocalAppID(LocalAppID);
+        }
     }
 }

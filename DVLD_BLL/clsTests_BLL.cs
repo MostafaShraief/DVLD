@@ -100,5 +100,10 @@ namespace DVLD_BLL
                 return new clsTests_BLL();
             }
         }
+
+        public static bool DeleteTestByAppointmentID(int testAppointmentID)
+        {
+            return clsTests_DAL.DeleteTestByAppointmentID(testAppointmentID);
+        }
     }
 }

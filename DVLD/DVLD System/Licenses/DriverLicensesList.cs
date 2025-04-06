@@ -112,14 +112,23 @@ namespace DVLD.DVLD_System.Licenses
 
         DataTable getInternationalLicenseByDriverId()
         {
-            return null;
+            return clsInternationalLicenses_BLL.GetInternationalLicensesByDriverID(DriverId);
         }
 
 
         void SwitchToInternational()
         {
-            clsUtility.ShowFeatureUnderDevelopmentMessage();
-            //ucList1.FillListObject(getInternationalLicenseByDriverId, null, null, null);
+            List<string> Ids = new List<string>()
+            {
+                "International License ID", "Application ID", "Local License ID"
+            };
+
+            Dictionary<string, List<string>> keyValuePairs = new Dictionary<string, List<string>>()
+            {
+                { "Is Active", new List<string> { "0", "1"} }
+            };
+
+            ucList1.FillListObject(getInternationalLicenseByDriverId, Ids, keyValuePairs, null);
         }
 
         private void rbLocal_CheckedChanged(object sender, EventArgs e)
