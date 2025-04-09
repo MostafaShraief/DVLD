@@ -250,11 +250,41 @@ namespace DVLD_DAL
             return licenseID;
         }
 
-        public static bool DeleteLocalDrivingLicenseApplication(int localDrivingLicenseApplicationID)
+        public static bool DeleteLocaWlDrivingLicenseApplication(int localDrivingLicenseApplicationID)
         {
             return clsUtility_DAL.DeleteRecord("LocalDrivingLicenseApplications",
                             "LocalDrivingLicenseApplicationID",
                             localDrivingLicenseApplicationID, true);
+        }
+
+        public static int GetLocalDrivingLicenseAppIDByApplicationID(int applicationID)
+        {
+            int localAppID = -1;
+
+            SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
+            string query = @"USE DVLD; 
+                    SELECT TOP 1 LocalDrivingLicenseApplicationID 
+                    FROM LocalDrivingLicenseApplications 
+                    WHERE ApplicationID = @ApplicationID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ApplicationID", applicationID);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+                if (result != null)
+                {
+                    localAppID = Convert.ToInt32(result);
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return localAppID;
         }
 
         //public static bool DeleteLocalLicense()

@@ -103,6 +103,54 @@
     <Compile Include="DVLD System\Applications\Local Driving License Application\User Controls\ucAddEditLocalLicense.Designer.cs">
       <DependentUpon>ucAddEditLocalLicense.cs</DependentUpon>
     </Compile>
+    <Compile Include="DVLD System\International Licenses\AddInternationalLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DVLD System\International Licenses\AddInternationalLicense.Designer.cs">
+      <DependentUpon>AddInternationalLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD System\International Licenses\InternationalLicenseInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DVLD System\International Licenses\InternationalLicenseInfo.Designer.cs">
+      <DependentUpon>InternationalLicenseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD System\International Licenses\InternationalLicensesList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DVLD System\International Licenses\InternationalLicensesList.Designer.cs">
+      <DependentUpon>InternationalLicensesList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD System\International Licenses\ManageInternationalLicenses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DVLD System\International Licenses\ManageInternationalLicenses.Designer.cs">
+      <DependentUpon>ManageInternationalLicenses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD System\International Licenses\User Controls\ucAddInternationalLicense.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DVLD System\International Licenses\User Controls\ucAddInternationalLicense.Designer.cs">
+      <DependentUpon>ucAddInternationalLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD System\International Licenses\User Controls\ucInternationalLicense.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DVLD System\International Licenses\User Controls\ucInternationalLicense.Designer.cs">
+      <DependentUpon>ucInternationalLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD System\International Licenses\User Controls\ucInternationalLicenseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DVLD System\International Licenses\User Controls\ucInternationalLicenseInfo.Designer.cs">
+      <DependentUpon>ucInternationalLicenseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD System\Licenses\User Control\ucFindLicense.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DVLD System\Licenses\User Control\ucFindLicense.Designer.cs">
+      <DependentUpon>ucFindLicense.cs</DependentUpon>
+    </Compile>
     <Compile Include="DVLD System\Applications\Local Driving License Application\User Controls\ucLocalLicenseInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -162,6 +210,12 @@
     </Compile>
     <Compile Include="DVLD System\Licenses\LicenseInfo.Designer.cs">
       <DependentUpon>LicenseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD System\Licenses\User Control\ucFindLicenseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DVLD System\Licenses\User Control\ucFindLicenseInfo.Designer.cs">
+      <DependentUpon>ucFindLicenseInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="DVLD System\Licenses\User Control\ucIssueLicense.cs">
       <SubType>UserControl</SubType>
@@ -372,6 +426,30 @@
     <EmbeddedResource Include="DVLD System\Applications\Local Driving License Application\User Controls\ucAddEditLocalLicense.resx">
       <DependentUpon>ucAddEditLocalLicense.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\International Licenses\AddInternationalLicense.resx">
+      <DependentUpon>AddInternationalLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\International Licenses\InternationalLicenseInfo.resx">
+      <DependentUpon>InternationalLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\International Licenses\InternationalLicensesList.resx">
+      <DependentUpon>InternationalLicensesList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\International Licenses\ManageInternationalLicenses.resx">
+      <DependentUpon>ManageInternationalLicenses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\International Licenses\User Controls\ucAddInternationalLicense.resx">
+      <DependentUpon>ucAddInternationalLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\International Licenses\User Controls\ucInternationalLicense.resx">
+      <DependentUpon>ucInternationalLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\International Licenses\User Controls\ucInternationalLicenseInfo.resx">
+      <DependentUpon>ucInternationalLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\Licenses\User Control\ucFindLicense.resx">
+      <DependentUpon>ucFindLicense.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DVLD System\Applications\Local Driving License Application\User Controls\ucLocalLicenseInfo.resx">
       <DependentUpon>ucLocalLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -401,6 +479,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD System\Licenses\LicenseInfo.resx">
       <DependentUpon>LicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\Licenses\User Control\ucFindLicenseInfo.resx">
+      <DependentUpon>ucFindLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD System\Licenses\User Control\ucIssueLicense.resx">
       <DependentUpon>ucIssueLicense.cs</DependentUpon>
@@ -754,6 +835,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Question-Mark2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\World.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

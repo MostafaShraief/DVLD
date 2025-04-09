@@ -1,5 +1,6 @@
 ﻿using DVLD.Applications;
 using DVLD.DVLD_System;
+using DVLD.DVLD_System.International_Licenses;
 using DVLD.Manage_People;
 using DVLD.Manage_Users;
 using DVLD.Manage_Users.User_Controls;
@@ -206,6 +207,11 @@ namespace DVLD
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             PushNewForm(new DriversList());
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            PushNewForm(new ManageInternationalLicenses());
         }
     }
 }

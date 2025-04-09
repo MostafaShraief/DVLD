@@ -125,5 +125,26 @@ namespace DVLD_DAL
             }
             return dt;
         }
+
+        public static int GetPersonIDByDriverID(int driverID)
+        {
+            // Using your utility class for cleaner code
+            string query = "USE DVLD; SELECT TOP 1 D.PersonID FROM Drivers D WHERE D.DriverID = @DriverID;";
+
+            SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@DriverID", driverID);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+                return clsUtility_DAL.ConvertObjectToIntID(result);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

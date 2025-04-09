@@ -222,8 +222,13 @@ namespace DVLD_BLL
         public static bool DeleteLocalDrivingLicenseApplication(int localDrivingLicenseApplicationID, int ApplicationID)
         {
             clsTestAppointments_BLL.DeleteTestByLocalAppID(localDrivingLicenseApplicationID);
-            return clsLocalDrivingLicenseApplication_DAL.DeleteLocalDrivingLicenseApplication(localDrivingLicenseApplicationID) &&
+            return clsLocalDrivingLicenseApplication_DAL.DeleteLocaWlDrivingLicenseApplication(localDrivingLicenseApplicationID) &&
                 clsApplications_BLL.DeleteApplication(ApplicationID);
+        }
+
+        public static int GetLocalDrivingLicenseAppIDByApplicationID(int applicationID)
+        {
+            return clsLocalDrivingLicenseApplication_DAL.GetLocalDrivingLicenseAppIDByApplicationID(applicationID);
         }
     }
 }

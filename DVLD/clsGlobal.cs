@@ -99,5 +99,11 @@ namespace DVLD
             else
                 return Resources.Question_Mark;
         }
+
+        public enum enApplicationType
+        {
+            NewLocalLicense = 1, Renew, LostReplacement,
+            DamagedReplacement, ReleaseDetained, NewInternational, RetakeTest = 8
+        }
     }
 }

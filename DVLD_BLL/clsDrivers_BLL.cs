@@ -107,5 +107,11 @@ namespace DVLD_BLL
         {
             return clsDrivers_DAL.IsPersonAlreadyDriver(PersonID);
         }
+
+        public static int GetPersonIDByDriverID(int driverID)
+        {
+            // Directly return the DAL result since this is a simple lookup
+            return clsDrivers_DAL.GetPersonIDByDriverID(driverID);
+        }
     }
 }

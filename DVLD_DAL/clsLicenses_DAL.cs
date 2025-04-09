@@ -345,5 +345,62 @@ namespace DVLD_DAL
 
             return dt;
         }
+
+        public static bool IsLicenseExist(int licenseID)
+        {
+            bool exists = false;
+
+            SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
+            string query = @"USE DVLD; 
+                    SELECT TOP 1 x = 1 
+                    FROM Licenses 
+                    WHERE LicenseID = @LicenseID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@LicenseID", licenseID);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+                exists = (result != null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return exists;
+        }
+
+        public static bool IsLicenseActiveAndBelongToLicenseClass(int licenseID, int licenseClass)
+        {
+            bool exists = false;
+
+            SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
+            string query = @"USE DVLD; 
+                    SELECT TOP 1 x = 1 
+                    FROM Licenses 
+                    WHERE LicenseID = @LicenseID 
+                    AND LicenseClass = @LicenseClass 
+                    AND IsActive = 1;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@LicenseID", licenseID);
+            command.Parameters.AddWithValue("@LicenseClass", licenseClass);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+                exists = (result != null);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return exists;
+        }
     }
 }

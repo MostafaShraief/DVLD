@@ -270,5 +270,26 @@ namespace DVLD_BLL
                 return "Detained";
             return "Active";
         }
+
+        public static bool IsLicenseExist(int licenseID)
+        {
+            return clsLicenses_DAL.IsLicenseExist(licenseID);
+        }
+
+        public static bool IsLicenseActiveAndBelongToLicenseClass(int licenseID, int licenseClass)
+        {
+            return clsLicenses_DAL.IsLicenseActiveAndBelongToLicenseClass(licenseID, licenseClass);
+        }
+
+        // Optional: Overload with enum if you have LicenseClass enum
+        public static bool IsLicenseActiveAndBelongToLicenseClass(int licenseID, clsLicenseClasses_DAL.enLicencsesClasses licenseClass)
+        {
+            return clsLicenses_DAL.IsLicenseActiveAndBelongToLicenseClass(licenseID, (int)licenseClass);
+        }
+
+        public static bool IsLicenseQualifiedToInternationalLicense(int licenseId)
+        {
+            return IsLicenseActiveAndBelongToLicenseClass(licenseId, clsLicenseClasses_DAL.enLicencsesClasses.Ordinary_Driving_License);
+        }
     }
 }
