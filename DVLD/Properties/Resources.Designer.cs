@@ -673,6 +673,16 @@ namespace DVLD.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap renew {
+            get {
+                object obj = ResourceManager.GetObject("renew", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Right_Arrow {
             get {
                 object obj = ResourceManager.GetObject("Right Arrow", resourceCulture);

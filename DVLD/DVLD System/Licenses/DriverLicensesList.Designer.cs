@@ -33,6 +33,12 @@
             this.rbLocal = new Guna.UI2.WinForms.Guna2RadioButton();
             this.rbInternational = new Guna.UI2.WinForms.Guna2RadioButton();
             this.lnklblPersonInfo = new System.Windows.Forms.LinkLabel();
+            this.cmsRowLocal = new ReaLTaiizor.Controls.CrownContextMenuStrip();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsRowInternational = new ReaLTaiizor.Controls.CrownContextMenuStrip();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsRowLocal.SuspendLayout();
+            this.cmsRowInternational.SuspendLayout();
             this.SuspendLayout();
             // 
             // ucList1
@@ -107,6 +113,46 @@
             this.lnklblPersonInfo.Text = "Person Info";
             this.lnklblPersonInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblPersonInfo_LinkClicked);
             // 
+            // cmsRowLocal
+            // 
+            this.cmsRowLocal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.cmsRowLocal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.cmsRowLocal.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmsRowLocal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editToolStripMenuItem});
+            this.cmsRowLocal.Name = "cmsRow";
+            this.cmsRowLocal.Size = new System.Drawing.Size(168, 30);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.editToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.editToolStripMenuItem.Image = global::DVLD.Properties.Resources.License;
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(167, 26);
+            this.editToolStripMenuItem.Text = "Show license";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            // 
+            // cmsRowInternational
+            // 
+            this.cmsRowInternational.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.cmsRowInternational.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.cmsRowInternational.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmsRowInternational.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2});
+            this.cmsRowInternational.Name = "cmsRow";
+            this.cmsRowInternational.Size = new System.Drawing.Size(250, 58);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.toolStripMenuItem2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.toolStripMenuItem2.Image = global::DVLD.Properties.Resources.World;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(249, 26);
+            this.toolStripMenuItem2.Text = "Show international license";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
             // DriverLicensesList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -121,6 +167,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DriverLicensesList";
             this.Text = "DriverLicensesList";
+            this.cmsRowLocal.ResumeLayout(false);
+            this.cmsRowInternational.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -133,5 +181,9 @@
         private Guna.UI2.WinForms.Guna2RadioButton rbLocal;
         private Guna.UI2.WinForms.Guna2RadioButton rbInternational;
         private System.Windows.Forms.LinkLabel lnklblPersonInfo;
+        private ReaLTaiizor.Controls.CrownContextMenuStrip cmsRowLocal;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private ReaLTaiizor.Controls.CrownContextMenuStrip cmsRowInternational;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
     }
 }

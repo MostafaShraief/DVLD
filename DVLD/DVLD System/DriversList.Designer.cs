@@ -30,6 +30,9 @@
         {
             this.ucList1 = new ucList();
             this.ucTitleScreen1 = new ucTitleScreen();
+            this.cmsRow = new ReaLTaiizor.Controls.CrownContextMenuStrip();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsRow.SuspendLayout();
             this.SuspendLayout();
             // 
             // ucList1
@@ -50,6 +53,26 @@
             this.ucTitleScreen1.Size = new System.Drawing.Size(1775, 145);
             this.ucTitleScreen1.TabIndex = 1;
             // 
+            // cmsRow
+            // 
+            this.cmsRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.cmsRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.cmsRow.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmsRow.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteToolStripMenuItem});
+            this.cmsRow.Name = "cmsRow";
+            this.cmsRow.Size = new System.Drawing.Size(233, 58);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.deleteToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.deleteToolStripMenuItem.Image = global::DVLD.Properties.Resources.History;
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
+            this.deleteToolStripMenuItem.Text = "Person licenses history";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
             // DriversList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -61,6 +84,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DriversList";
             this.Text = "Drivers";
+            this.cmsRow.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -69,5 +93,7 @@
 
         private ucList ucList1;
         private ucTitleScreen ucTitleScreen1;
+        private ReaLTaiizor.Controls.CrownContextMenuStrip cmsRow;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
     }
 }

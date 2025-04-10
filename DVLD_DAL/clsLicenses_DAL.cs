@@ -128,7 +128,7 @@ namespace DVLD_DAL
         }
 
         public static int AddNewLicense(int applicationID, int driverID, int licenseClass,
-            string notes, enIssueReason issueReason, int createdByUserID)
+            string notes, enIssueReason issueReason, int createdByUserID, float paidFees)
         {
             int licenseID = -1;
 
@@ -137,8 +137,8 @@ namespace DVLD_DAL
             int validityLength = clsLicenseClasses_DAL.GetLicenseClassValidityLength(licenseClass);
             DateTime expirationDate = issueDate.AddYears(validityLength);
             bool isActive = true;
-            float paidFees = issueReason == enIssueReason.New ? 0 :
-                clsApplicationTypes_DAL.GetApplicationTypeFees((clsApplicationTypes_DAL.enApplicationType)issueReason);
+            //float paidFees = issueReason == enIssueReason.New ? 0 :
+            //    clsApplicationTypes_DAL.GetApplicationTypeFees((clsApplicationTypes_DAL.enApplicationType)issueReason);
 
             SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
             string query = @"USE [DVLD]; 
@@ -282,34 +282,37 @@ namespace DVLD_DAL
             return isActive;
         }
 
-        public static bool IsLicenseExistForApplication(int applicationID)
+    public static bool IsQualifiedToIssueLicense(int applicationID)
+    {
+        string query = @"USE DVLD; SELECT TOP 1 x = 1 
+                    FROM Applications A 
+                    JOIN LocalDrivingLicenseApplications LD ON A.ApplicationID = LD.ApplicationID 
+                    LEFT JOIN Licenses L ON L.ApplicationID = A.ApplicationID 
+                    WHERE A.ApplicationID = @ApplicationID 
+                    AND A.ApplicationStatus = 1 And A.ApplicationTypeID = 1 
+                    AND L.LicenseID IS NULL And (SELECT COUNT(*) 
+                    FROM dbo.TestAppointments AS TA 
+                    INNER JOIN dbo.Tests AS T ON TA.TestAppointmentID = T.TestAppointmentID
+                    WHERE TA.LocalDrivingLicenseApplicationID = LD.LocalDrivingLicenseApplicationID 
+                    AND T.TestResult = 1) = 3";
+
+        SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
+        SqlCommand command = new SqlCommand(query, connection);
+        command.Parameters.AddWithValue("@ApplicationID", applicationID);
+
+        try
         {
-            bool exists = false;
-
-            SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
-            string query = @"USE DVLD; 
-                    SELECT TOP 1 x = 1 
-                    FROM Licenses 
-                    WHERE ApplicationID = @ApplicationID;";
-
-            SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@ApplicationID", applicationID);
-
-            try
-            {
-                connection.Open();
-                object result = command.ExecuteScalar();
-                exists = (result != null);
-            }
-            finally
-            {
-                connection.Close();
-            }
-
-            return exists;
+            connection.Open();
+            object result = command.ExecuteScalar();
+            return (result != null);
         }
+        finally
+        {
+            connection.Close();
+        }
+    }
 
-        public static DataTable GetLicensesByDriverID(int DriverID)
+    public static DataTable GetLicensesByDriverID(int DriverID)
         {
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
@@ -401,6 +404,58 @@ namespace DVLD_DAL
             }
 
             return exists;
+        }
+
+        public static bool DoesLicenseExist(int licenseID)
+        {
+            string query = "USE DVLD; SELECT TOP 1 x = 1 FROM Licenses WHERE LicenseID = @LicenseID";
+            SqlParameter parameter = new SqlParameter("@LicenseID", licenseID);
+            return clsUtility_DAL.ExecuteScalarToBool(query, parameter);
+        }
+
+        public static bool IsLicenseQualifiedForRenewal(int licenseID)
+        {
+            string query = @"USE DVLD; SELECT TOP 1 x = 1 FROM Licenses L 
+                            WHERE L.LicenseID = @LicenseID 
+                            AND L.IsActive = 0 
+                            AND (Select Top 1 x = 1 From DetainedLicenses D Where D.LicenseID = 
+                            L.LicenseID and D.IsReleased = 0) is null;";
+
+            SqlParameter parameter = new SqlParameter("@LicenseID", licenseID);
+            return clsUtility_DAL.ExecuteScalarToBool(query, parameter);
+        }
+
+        public static int GetLastLicenseIDForDriver(int driverID, int licenseClass)
+        {
+            string query = @"USE DVLD; SELECT TOP 1 LicenseID FROM Licenses 
+                          WHERE DriverID = @DriverID 
+                          AND LicenseClass = @LicenseClass 
+                          ORDER BY IssueDate DESC";
+
+            SqlParameter[] parameters = {
+                new SqlParameter("@DriverID", driverID),
+                new SqlParameter("@LicenseClass", licenseClass)
+            };
+
+            return clsUtility_DAL.ExecuteScalarToInt(query, parameters);
+        }
+
+        public static bool HasActiveOrDetainedLicense(int driverID, int licenseClass, int excludeLicenseID)
+        {
+            string query = @"USE DVLD; SELECT TOP 1 x = 1 FROM Licenses L 
+                          LEFT JOIN DetainedLicenses D ON L.LicenseID = D.LicenseID 
+                          WHERE L.LicenseID != @ExcludeLicenseID 
+                          AND L.DriverID = @DriverID 
+                          AND L.LicenseClass = @LicenseClass 
+                          AND (L.IsActive = 1 OR (D.DetainID IS NOT NULL AND D.IsReleased = 0))";
+
+            SqlParameter[] parameters = {
+                new SqlParameter("@DriverID", driverID),
+                new SqlParameter("@LicenseClass", licenseClass),
+                new SqlParameter("@ExcludeLicenseID", excludeLicenseID)
+            };
+
+            return clsUtility_DAL.ExecuteScalarToBool(query, parameters);
         }
     }
 }

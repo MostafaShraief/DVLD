@@ -1,4 +1,5 @@
 ﻿using DVLD.Applications.Test_Types;
+using DVLD.DVLD_System.Licenses;
 using DVLD_BLL;
 using ReaLTaiizor.Controls;
 using System;
@@ -51,5 +52,14 @@ namespace DVLD.Applications
         private void btnLocalLicense_MouseEnter(object sender, EventArgs e) =>
             lblDescription.Text = "Show list of local licenses that available in " +
             "the system, where you can add or find license.";
+
+        private void btnRenewLicense_Click(object sender, EventArgs e)
+        {
+            RenewLicense renewLicense = new RenewLicense();
+            renewLicense.ShowDialog();
+        }
+
+        private void btnRenewLicense_MouseEnter(object sender, EventArgs e) =>
+            lblDescription.Text = "Renew old license if it's expired with low cost.";
     }
 }

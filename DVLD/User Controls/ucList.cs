@@ -111,8 +111,13 @@ namespace DVLD
             return (int)dgvList.SelectedRows[0].Cells[0].Value;
         }
 
-        public object GetFromSelectedRow(int ColumnIndex) =>
-            dgvList.SelectedRows[0].Cells[ColumnIndex].Value;
+        public object GetFromSelectedRow(int ColumnIndex)
+        {
+            if (dgvList.SelectedRows.Count == 0)
+                return null;
+
+            return dgvList.SelectedRows[0].Cells[ColumnIndex].Value;
+        }
 
         private void btnRefreshAll_Click(object sender, EventArgs e)
         {

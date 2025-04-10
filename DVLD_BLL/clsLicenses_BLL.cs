@@ -31,6 +31,7 @@ namespace DVLD_BLL
         public enGender Gender { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string IssueReasonName { get; set; }
+        private static float RenewFees { get; } = 10;
 
         public clsLicenses_BLL()
         {
@@ -91,7 +92,7 @@ namespace DVLD_BLL
         private bool _AddLicense()
         {
             // check if licenes already added
-            if (IsLicenseExistForApplication(ApplicationID))
+            if (IsQualifiedToIssueLicense(ApplicationID) == false)
                 return false;
 
             // Add the new license to database
@@ -101,17 +102,14 @@ namespace DVLD_BLL
                 this.LicenseClassID,
                 this.Notes,
                 (clsLicenses_DAL.enIssueReason)this.IssueReason,
-                this.CreatedByUserID);
+                this.CreatedByUserID, 0);
 
             if (this.LicenseID == -1)
                 return false;
 
             if (clsApplications_BLL.UpdateApplication(ApplicationID,
                 (int)clsApplications_DAL.enStatus.Completed) == false)
-            {
-                // delete license.
                 return false;
-            }
 
             // Refresh all properties by finding the newly created license
             clsLicenses_BLL newLicense = Find(this.LicenseID);
@@ -257,9 +255,9 @@ namespace DVLD_BLL
             return clsLicenses_DAL.IsActiveByApplicationID(applicationID);
         }
 
-        public static bool IsLicenseExistForApplication(int applicationID)
+        public static bool IsQualifiedToIssueLicense(int applicationID)
         {
-            return clsLicenses_DAL.IsLicenseExistForApplication(applicationID);
+            return clsLicenses_DAL.IsQualifiedToIssueLicense(applicationID);
         }
 
         public string GetLicenseStatus()
@@ -290,6 +288,66 @@ namespace DVLD_BLL
         public static bool IsLicenseQualifiedToInternationalLicense(int licenseId)
         {
             return IsLicenseActiveAndBelongToLicenseClass(licenseId, clsLicenseClasses_DAL.enLicencsesClasses.Ordinary_Driving_License);
+        }
+
+        public static bool DoesLicenseExist(int licenseID)
+        {
+            return clsLicenses_DAL.DoesLicenseExist(licenseID);
+        }
+
+        public static bool IsLicenseQualifiedForRenewal(int licenseID)
+        {
+            return clsLicenses_DAL.IsLicenseQualifiedForRenewal(licenseID);
+        }
+
+        public static int GetLastLicenseIDForDriver(int driverID, int licenseClass)
+        {
+            return clsLicenses_DAL.GetLastLicenseIDForDriver(driverID, licenseClass);
+        }
+
+        public static bool HasActiveOrDetainedLicense(int driverID, int licenseClass, int excludeLicenseID)
+        {
+            return clsLicenses_DAL.HasActiveOrDetainedLicense(driverID, licenseClass, excludeLicenseID);
+        }
+
+        public static bool CanRenewLicense(int licenseID, int driverID, int licenseClass)
+        {
+            // Check renewal qualifications for license
+            if (!IsLicenseQualifiedForRenewal(licenseID))
+                return false;
+
+            // Verify no active/detained licenses of same class
+            return !HasActiveOrDetainedLicense(driverID, licenseClass, licenseID);
+        }
+
+        public static float GetRenewLicenseFees()
+        {
+            return RenewFees;
+        }
+
+        public bool RenewLicense(int OldLicenseId, int DriverId, int LicenseClassId, string notes, int UserId)
+        {
+            if (CanRenewLicense(OldLicenseId, DriverID, LicenseClassId) == false)
+                return false;
+
+            int PersonId = clsDrivers_BLL.GetPersonIDByDriverID(DriverId);
+
+            int ApplicationId = clsApplications_BLL.AddApplication(PersonId, clsApplicationTypes_DAL.enApplicationType.Renew, CreatedByUserID);
+            clsApplications_BLL.UpdateApplication(ApplicationId, (int)clsApplications_DAL.enStatus.Completed);
+
+            if (ApplicationId == -1)
+                return false;
+
+            LicenseID = clsLicenses_DAL.AddNewLicense(ApplicationId, DriverId, LicenseClassId,
+                notes, clsLicenses_DAL.enIssueReason.Renewal, UserId, RenewFees);
+
+            if (LicenseID == -1)
+            {
+                clsApplications_BLL.DeleteApplication(ApplicationId);
+                return false;
+            }
+
+            return true;
         }
     }
 }

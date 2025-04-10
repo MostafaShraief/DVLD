@@ -1,4 +1,5 @@
-﻿using DVLD_BLL;
+﻿using DVLD.DVLD_System.Licenses;
+using DVLD_BLL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,7 +24,20 @@ namespace DVLD.DVLD_System
                 "Dirver ID", "Person ID", "Active Licenses"
             };
 
-            ucList1.FillListObject(clsDrivers_BLL.GetAllDrivers, IdsColumns, null, null);
+            ucList1.FillListObject(clsDrivers_BLL.GetAllDrivers, IdsColumns, null, cmsRow);
+        }
+
+        int GetDriverId()
+        {
+            object result = ucList1.GetFromSelectedRow(0);
+            return (result == null) ? -1 : (int)result;
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DriverLicensesList driverLicensesList = new DriverLicensesList();
+            driverLicensesList.GetDriverId(GetDriverId());
+            clsGlobal.MainForm.PushNewForm(driverLicensesList);
         }
     }
 }

@@ -17,7 +17,7 @@ namespace DVLD.DVLD_System.International_Licenses
         public InternationalLicenseInfo()
         {
             InitializeComponent();
-            ucTopBar1.ChangeTitle("I.License Info");
+            ucTopBar1.ChangeTitle("International License Info");
             ucTopBar1.delClose += () => this.Close();
             ucTopBar1.delMinimize += () => this.WindowState = FormWindowState.Minimized;
             guna2ShadowForm1.SetShadowForm(this);

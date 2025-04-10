@@ -1,6 +1,6 @@
-﻿namespace DVLD.DVLD_System.International_Licenses
+﻿namespace DVLD.DVLD_System.Licenses
 {
-    partial class InternationalLicenseInfo
+    partial class RenewLicense
     {
         /// <summary>
         /// Required designer variable.
@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.ucTopBar1 = new User_Controls.ucTopBar();
-            this.ucInternationalLicenseInfo1 = new DVLD_System.International_Licenses.ucInternationalLicenseInfo();
+            this.ucRenewLicense1 = new DVLD_System.Licenses.User_Control.ucRenewLicense();
+            this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.SuspendLayout();
             // 
             // ucTopBar1
@@ -40,38 +40,38 @@
             this.ucTopBar1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ucTopBar1.Location = new System.Drawing.Point(0, 0);
             this.ucTopBar1.Name = "ucTopBar1";
-            this.ucTopBar1.Size = new System.Drawing.Size(1047, 52);
-            this.ucTopBar1.TabIndex = 128;
+            this.ucTopBar1.Size = new System.Drawing.Size(1042, 52);
+            this.ucTopBar1.TabIndex = 0;
             // 
-            // ucInternationalLicenseInfo1
+            // ucRenewLicense1
             // 
-            this.ucInternationalLicenseInfo1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ucInternationalLicenseInfo1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ucInternationalLicenseInfo1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ucInternationalLicenseInfo1.Location = new System.Drawing.Point(0, 52);
-            this.ucInternationalLicenseInfo1.Name = "ucInternationalLicenseInfo1";
-            this.ucInternationalLicenseInfo1.Size = new System.Drawing.Size(1047, 419);
-            this.ucInternationalLicenseInfo1.TabIndex = 0;
+            this.ucRenewLicense1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ucRenewLicense1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ucRenewLicense1.Location = new System.Drawing.Point(0, 52);
+            this.ucRenewLicense1.Name = "ucRenewLicense1";
+            this.ucRenewLicense1.Size = new System.Drawing.Size(1042, 948);
+            this.ucRenewLicense1.TabIndex = 1;
             // 
-            // InternationalLicenseInfo
+            // RenewLicense
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1047, 471);
+            this.ClientSize = new System.Drawing.Size(1042, 1000);
+            this.Controls.Add(this.ucRenewLicense1);
             this.Controls.Add(this.ucTopBar1);
-            this.Controls.Add(this.ucInternationalLicenseInfo1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "InternationalLicenseInfo";
-            this.Text = "InternationalLicenseInfo";
+            this.Name = "RenewLicense";
+            this.Text = "RenewLicense";
+            this.Load += new System.EventHandler(this.RenewLicense_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DVLD_System.International_Licenses.ucInternationalLicenseInfo ucInternationalLicenseInfo1;
         private User_Controls.ucTopBar ucTopBar1;
+        private DVLD_System.Licenses.User_Control.ucRenewLicense ucRenewLicense1;
         private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
     }
 }

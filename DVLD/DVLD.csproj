@@ -145,6 +145,24 @@
     <Compile Include="DVLD System\International Licenses\User Controls\ucInternationalLicenseInfo.Designer.cs">
       <DependentUpon>ucInternationalLicenseInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="DVLD System\Licenses\RenewLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DVLD System\Licenses\RenewLicense.Designer.cs">
+      <DependentUpon>RenewLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD System\Licenses\User Control\ucRenewLicense.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DVLD System\Licenses\User Control\ucRenewLicense.Designer.cs">
+      <DependentUpon>ucRenewLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD System\Licenses\User Control\ucRenewLicenseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DVLD System\Licenses\User Control\ucRenewLicenseInfo.Designer.cs">
+      <DependentUpon>ucRenewLicenseInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="DVLD System\Licenses\User Control\ucFindLicense.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -446,6 +464,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD System\International Licenses\User Controls\ucInternationalLicenseInfo.resx">
       <DependentUpon>ucInternationalLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\Licenses\RenewLicense.resx">
+      <DependentUpon>RenewLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\Licenses\User Control\ucRenewLicense.resx">
+      <DependentUpon>ucRenewLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\Licenses\User Control\ucRenewLicenseInfo.resx">
+      <DependentUpon>ucRenewLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD System\Licenses\User Control\ucFindLicense.resx">
       <DependentUpon>ucFindLicense.cs</DependentUpon>
@@ -838,6 +865,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\World.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\renew.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

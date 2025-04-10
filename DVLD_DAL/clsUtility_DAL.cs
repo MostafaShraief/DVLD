@@ -206,5 +206,37 @@ namespace DVLD_DAL
 
             return result;
         }
+
+        // Helper methods
+        public static bool ExecuteScalarToBool(string query, params SqlParameter[] parameters)
+        {
+            object result = ExecuteScalar(query, parameters);
+            return result != null && Convert.ToInt32(result) == 1;
+        }
+
+        public static int ExecuteScalarToInt(string query, params SqlParameter[] parameters)
+        {
+            object result = ExecuteScalar(query, parameters);
+            return result != null ? Convert.ToInt32(result) : -1;
+        }
+
+        public static object ExecuteScalar(string query, params SqlParameter[] parameters)
+        {
+            using (SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddRange(parameters);
+
+                try
+                {
+                    connection.Open();
+                    return command.ExecuteScalar();
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+        }
     }
 }
