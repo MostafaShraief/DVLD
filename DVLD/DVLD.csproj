@@ -151,6 +151,12 @@
     <Compile Include="DVLD System\Licenses\RenewLicense.Designer.cs">
       <DependentUpon>RenewLicense.cs</DependentUpon>
     </Compile>
+    <Compile Include="DVLD System\Licenses\ReplaceLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DVLD System\Licenses\ReplaceLicense.Designer.cs">
+      <DependentUpon>ReplaceLicense.cs</DependentUpon>
+    </Compile>
     <Compile Include="DVLD System\Licenses\User Control\ucRenewLicense.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -246,6 +252,12 @@
     </Compile>
     <Compile Include="DVLD System\Licenses\User Control\ucLicenseInfo.Designer.cs">
       <DependentUpon>ucLicenseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD System\Licenses\User Control\ucReplacementLicense.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DVLD System\Licenses\User Control\ucReplacementLicense.Designer.cs">
+      <DependentUpon>ucReplacementLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="ListScreen.cs">
       <SubType>Form</SubType>
@@ -468,6 +480,9 @@
     <EmbeddedResource Include="DVLD System\Licenses\RenewLicense.resx">
       <DependentUpon>RenewLicense.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\Licenses\ReplaceLicense.resx">
+      <DependentUpon>ReplaceLicense.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DVLD System\Licenses\User Control\ucRenewLicense.resx">
       <DependentUpon>ucRenewLicense.cs</DependentUpon>
     </EmbeddedResource>
@@ -515,6 +530,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD System\Licenses\User Control\ucLicenseInfo.resx">
       <DependentUpon>ucLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\Licenses\User Control\ucReplacementLicense.resx">
+      <DependentUpon>ucReplacementLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListScreen.resx">
       <DependentUpon>ListScreen.cs</DependentUpon>

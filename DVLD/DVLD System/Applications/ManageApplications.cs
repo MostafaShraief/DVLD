@@ -61,5 +61,14 @@ namespace DVLD.Applications
 
         private void btnRenewLicense_MouseEnter(object sender, EventArgs e) =>
             lblDescription.Text = "Renew old license if it's expired with low cost.";
+
+        private void btnReplaceLicense_Click(object sender, EventArgs e)
+        {
+            ReplaceLicense replaceLicense = new ReplaceLicense();
+            clsGlobal.MainForm.PushNewForm(replaceLicense);
+        }
+
+        private void btnReplaceLicense_MouseEnter(object sender, EventArgs e) =>
+            lblDescription.Text = "Replace license that has been damaged or lost.";
     }
 }

@@ -32,6 +32,8 @@ namespace DVLD_BLL
         public DateTime DateOfBirth { get; set; }
         public string IssueReasonName { get; set; }
         private static float RenewFees { get; } = 10;
+        private static float DamageReplaceFees { get; } = 5;
+        private static float LostReplaceFees { get; } = 10;
 
         public clsLicenses_BLL()
         {
@@ -300,6 +302,11 @@ namespace DVLD_BLL
             return clsLicenses_DAL.IsLicenseQualifiedForRenewal(licenseID);
         }
 
+        public static bool IsLicenseQualifiedForReplacement(int licenseID)
+        {
+            return clsLicenses_DAL.IsLicenseQualifiedForReplacement(licenseID);
+        }
+
         public static int GetLastLicenseIDForDriver(int driverID, int licenseClass)
         {
             return clsLicenses_DAL.GetLastLicenseIDForDriver(driverID, licenseClass);
@@ -325,12 +332,14 @@ namespace DVLD_BLL
             return RenewFees;
         }
 
-        public bool RenewLicense(int OldLicenseId, int DriverId, int LicenseClassId, string notes, int UserId)
+        public bool RenewLicense(int OldLicenseId, string notes, int UserId)
         {
-            if (CanRenewLicense(OldLicenseId, DriverID, LicenseClassId) == false)
+            clsLicenses_BLL oldLicenseObj = Find(OldLicenseId);
+
+            if (IsLicenseQualifiedForRenewal(OldLicenseId) == false)
                 return false;
 
-            int PersonId = clsDrivers_BLL.GetPersonIDByDriverID(DriverId);
+            int PersonId = clsDrivers_BLL.GetPersonIDByDriverID(oldLicenseObj.DriverID);
 
             int ApplicationId = clsApplications_BLL.AddApplication(PersonId, clsApplicationTypes_DAL.enApplicationType.Renew, CreatedByUserID);
             clsApplications_BLL.UpdateApplication(ApplicationId, (int)clsApplications_DAL.enStatus.Completed);
@@ -338,7 +347,7 @@ namespace DVLD_BLL
             if (ApplicationId == -1)
                 return false;
 
-            LicenseID = clsLicenses_DAL.AddNewLicense(ApplicationId, DriverId, LicenseClassId,
+            LicenseID = clsLicenses_DAL.AddNewLicense(ApplicationId, oldLicenseObj.DriverID, oldLicenseObj.LicenseClassID,
                 notes, clsLicenses_DAL.enIssueReason.Renewal, UserId, RenewFees);
 
             if (LicenseID == -1)
@@ -346,6 +355,76 @@ namespace DVLD_BLL
                 clsApplications_BLL.DeleteApplication(ApplicationId);
                 return false;
             }
+
+            return true;
+        }
+
+        public static float GetDamageLicenseFees()
+        {
+            return DamageReplaceFees;
+        }
+
+        public bool ReplaceLicenseForDamage(int OldLicenseId, string notes, int UserId)
+        {
+            clsLicenses_BLL oldLicenseObj = Find(OldLicenseId);
+
+            if (IsLicenseQualifiedForReplacement(OldLicenseId) == false)
+                return false;
+
+            int PersonId = clsDrivers_BLL.GetPersonIDByDriverID(oldLicenseObj.DriverID);
+
+            int ApplicationId = clsApplications_BLL.AddApplication(PersonId, clsApplicationTypes_DAL.enApplicationType.DamagedReplacement, CreatedByUserID);
+            clsApplications_BLL.UpdateApplication(ApplicationId, (int)clsApplications_DAL.enStatus.Completed);
+
+            if (ApplicationId == -1)
+                return false;
+
+            LicenseID = clsLicenses_DAL.AddNewLicense(ApplicationId, oldLicenseObj.DriverID, oldLicenseObj.LicenseClassID,
+                notes, clsLicenses_DAL.enIssueReason.DamagedReplacement, UserId, DamageReplaceFees);
+
+            if (LicenseID == -1)
+            {
+                clsApplications_BLL.DeleteApplication(ApplicationId);
+                return false;
+            }
+
+            if (!DeactivateLicense(OldLicenseId))
+                return false;
+
+            return true;
+        }
+
+        public static float GetLostLicenseFees()
+        {
+            return LostReplaceFees;
+        }
+
+        public bool ReplaceLicenseForLost(int OldLicenseId, string notes, int UserId)
+        {
+            clsLicenses_BLL oldLicenseObj = Find(OldLicenseId);
+
+            if (IsLicenseQualifiedForReplacement(OldLicenseId) == false)
+                return false;
+
+            int PersonId = clsDrivers_BLL.GetPersonIDByDriverID(oldLicenseObj.DriverID);
+
+            int ApplicationId = clsApplications_BLL.AddApplication(PersonId, clsApplicationTypes_DAL.enApplicationType.LostReplacement, CreatedByUserID);
+            clsApplications_BLL.UpdateApplication(ApplicationId, (int)clsApplications_DAL.enStatus.Completed);
+
+            if (ApplicationId == -1)
+                return false;
+
+            LicenseID = clsLicenses_DAL.AddNewLicense(ApplicationId, oldLicenseObj.DriverID, oldLicenseObj.LicenseClassID,
+                notes, clsLicenses_DAL.enIssueReason.LostReplacement, UserId, LostReplaceFees);
+
+            if (LicenseID == -1)
+            {
+                clsApplications_BLL.DeleteApplication(ApplicationId);
+                return false;
+            }
+
+            if (!DeactivateLicense(OldLicenseId))
+                return false;
 
             return true;
         }

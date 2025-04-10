@@ -79,7 +79,7 @@ namespace DVLD.DVLD_System.Licenses.User_Control
             lblNewLicenseId.Text = newLicenseObj.LicenseID.ToString();
             lblIssueDate.Text = newLicenseObj.IssueDate.ToShortDateString();
             lblExpirationDate.Text = newLicenseObj.ExpirationDate.ToShortDateString();
-            lblCreatedByValue.Text = clsUsers_BLL.FindByNationalNumber(newLicenseObj.NationalNumber).UserName;
+            lblCreatedByValue.Text = clsUsers_BLL.FindByUserID(newLicenseObj.CreatedByUserID).UserName;
 
             // Fees Information
             float applicationFees = clsApplications_BLL.GetApplicationFees(newLicenseObj.ApplicationID);

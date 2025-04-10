@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace DVLD.DVLD_System.Licenses.User_Control
 {
-    public partial class ucRenewLicense : System.Windows.Forms.UserControl
+    public partial class ucReplacementLicense : System.Windows.Forms.UserControl
     {
-        public ucRenewLicense()
+        public ucReplacementLicense()
         {
             InitializeComponent();
             ucFindLicenseInfo1.LincenseLinker += SetOldLicenseObj;
@@ -37,49 +37,57 @@ namespace DVLD.DVLD_System.Licenses.User_Control
 
             oldLicenseObj = OldLicenseObj;
 
-            if (IsRenewLicenesQualified())
+            if (IsLicenseQualified())
             {
-                btnRenewLicense.Enabled = true;
+                btnReplaceLicense.Enabled = true;
                 ucrenewLicenseInfo1.SetLicensesObject(oldLicenseObj, null);
                 ucrenewLicenseInfo1.Visible = true;
             }
             else
             {
                 ucrenewLicenseInfo1.Visible = false;
-                btnRenewLicense.Enabled = false;
+                btnReplaceLicense.Enabled = false;
                 btnShowLicense.Enabled = false;
             }
 
             btnShowHistory.Enabled = true;
         }
 
-        bool IsRenewLicenesQualified()
+        bool IsLicenseQualified()
         {
-            if (clsLicenses_BLL.IsLicenseQualifiedForRenewal(oldLicenseObj.LicenseID) == false)
+            if (clsLicenses_BLL.IsLicenseQualifiedForReplacement(oldLicenseObj.LicenseID) == false)
             {
-                MessageBox.Show("this license is not qualified to renew it, maybe is not expired or it's detained.",
+                MessageBox.Show("this license is not qualified to replace it, maybe is not expired or it's detained.",
                     "Not Qualified", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                return false;
-            }
-
-            if (clsLicenses_BLL.HasActiveOrDetainedLicense(oldLicenseObj.DriverID,
-                oldLicenseObj.LicenseClassID, oldLicenseObj.LicenseID))
-            {
-                MessageBox.Show("this license is not qualified to renew it, " +
-                    "driver allready has an active license or detained license in the system", "Not Qualified",
-                    MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return false;
             }
 
             return true;
         }
 
-        public bool RenewLicense()
+        void SavedProcesss()
         {
-            if (MessageBox.Show("Are you sure you want to renew license?", "Renew License",
+            MessageBox.Show("License replaced successfully.", "Saved",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            btnShowLicense.Enabled = true;
+            btnReplaceLicense.Enabled = false;
+            newLicenseObj = clsLicenses_BLL.Find(newLicenseObj.LicenseID);
+            ucrenewLicenseInfo1.SetLicensesObject(oldLicenseObj, newLicenseObj);
+        }
+
+        public bool replaceLicense()
+        {
+            if (rbDamage.Checked == rbLost.Checked)
+            {
+                MessageBox.Show("Please choocse replacement reason.", "No Replacement Reason",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (MessageBox.Show("Are you sure you want to replace license?", "replace License",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
             {
-                MessageBox.Show("Renew licenes cancelled.", "Cancelled",
+                MessageBox.Show("replace licenes cancelled.", "Cancelled",
                     MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return true;
             }
@@ -87,29 +95,30 @@ namespace DVLD.DVLD_System.Licenses.User_Control
             newLicenseObj.Notes = ucrenewLicenseInfo1.tbNote.Text;
             newLicenseObj.CreatedByUserID = clsGlobal.user.UserID;
 
-            if (newLicenseObj.RenewLicense(oldLicenseObj.LicenseID,
+            if (rbDamage.Checked && newLicenseObj.ReplaceLicenseForDamage(oldLicenseObj.LicenseID,
                 newLicenseObj.Notes, newLicenseObj.CreatedByUserID))
             {
-                MessageBox.Show("License renewed successfully.", "Saved",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                btnShowLicense.Enabled = true;
-                btnRenewLicense.Enabled = false;
-                newLicenseObj = clsLicenses_BLL.Find(newLicenseObj.LicenseID);
-                ucrenewLicenseInfo1.SetLicensesObject(oldLicenseObj, newLicenseObj);
+                SavedProcesss();
+                return true;
+            }
+            else if (rbLost.Checked && newLicenseObj.ReplaceLicenseForLost(oldLicenseObj.LicenseID,
+                newLicenseObj.Notes, newLicenseObj.CreatedByUserID))
+            {
+                SavedProcesss();
                 return true;
             }
             else
             {
                 MessageBox.Show("License can not be saved, please check data intered again.", "Not Saved",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-                btnRenewLicense.Enabled = false;
+                btnReplaceLicense.Enabled = false;
                 return false;
             }
         }
 
-        private void btnRenewLicense_Click(object sender, EventArgs e)
+        private void btnReplaceLicense_Click(object sender, EventArgs e)
         {
-            RenewLicense();
+            replaceLicense();
         }
 
         private void btnShowLicenes_Click(object sender, EventArgs e)

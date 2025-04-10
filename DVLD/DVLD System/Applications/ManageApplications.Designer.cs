@@ -31,11 +31,12 @@
             this.lblDescription = new System.Windows.Forms.Label();
             this.lblDescriptionTitle = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.ucTitleScreen1 = new ucTitleScreen();
             this.btnLocalLicense = new Guna.UI2.WinForms.Guna2Button();
             this.btnListUsers = new Guna.UI2.WinForms.Guna2Button();
             this.btnTestTypes = new Guna.UI2.WinForms.Guna2Button();
-            this.ucTitleScreen1 = new ucTitleScreen();
             this.btnRenewLicense = new Guna.UI2.WinForms.Guna2Button();
+            this.btnReplaceLicense = new Guna.UI2.WinForms.Guna2Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,10 +68,20 @@
             this.flowLayoutPanel1.Controls.Add(this.btnListUsers);
             this.flowLayoutPanel1.Controls.Add(this.btnTestTypes);
             this.flowLayoutPanel1.Controls.Add(this.btnRenewLicense);
+            this.flowLayoutPanel1.Controls.Add(this.btnReplaceLicense);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(52, 200);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(922, 629);
             this.flowLayoutPanel1.TabIndex = 11;
+            // 
+            // ucTitleScreen1
+            // 
+            this.ucTitleScreen1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ucTitleScreen1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ucTitleScreen1.Location = new System.Drawing.Point(0, 0);
+            this.ucTitleScreen1.Name = "ucTitleScreen1";
+            this.ucTitleScreen1.Size = new System.Drawing.Size(1775, 145);
+            this.ucTitleScreen1.TabIndex = 10;
             // 
             // btnLocalLicense
             // 
@@ -150,15 +161,6 @@
             this.btnTestTypes.MouseEnter += new System.EventHandler(this.btnTestTypes_MouseEnter);
             this.btnTestTypes.MouseLeave += new System.EventHandler(this.btnOption_MouseLeave);
             // 
-            // ucTitleScreen1
-            // 
-            this.ucTitleScreen1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ucTitleScreen1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ucTitleScreen1.Location = new System.Drawing.Point(0, 0);
-            this.ucTitleScreen1.Name = "ucTitleScreen1";
-            this.ucTitleScreen1.Size = new System.Drawing.Size(1775, 145);
-            this.ucTitleScreen1.TabIndex = 10;
-            // 
             // btnRenewLicense
             // 
             this.btnRenewLicense.Animated = true;
@@ -184,6 +186,32 @@
             this.btnRenewLicense.Click += new System.EventHandler(this.btnRenewLicense_Click);
             this.btnRenewLicense.MouseEnter += new System.EventHandler(this.btnRenewLicense_MouseEnter);
             this.btnRenewLicense.MouseLeave += new System.EventHandler(this.btnOption_MouseLeave);
+            // 
+            // btnReplaceLicense
+            // 
+            this.btnReplaceLicense.Animated = true;
+            this.btnReplaceLicense.BackColor = System.Drawing.Color.Transparent;
+            this.btnReplaceLicense.CheckedState.Parent = this.btnReplaceLicense;
+            this.btnReplaceLicense.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btnReplaceLicense.CustomImages.Parent = this.btnReplaceLicense;
+            this.btnReplaceLicense.FillColor = System.Drawing.Color.Transparent;
+            this.btnReplaceLicense.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
+            this.btnReplaceLicense.ForeColor = System.Drawing.Color.Black;
+            this.btnReplaceLicense.HoverState.Parent = this.btnReplaceLicense;
+            this.btnReplaceLicense.Image = global::DVLD.Properties.Resources.renew;
+            this.btnReplaceLicense.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnReplaceLicense.ImageOffset = new System.Drawing.Point(40, -20);
+            this.btnReplaceLicense.ImageSize = new System.Drawing.Size(200, 200);
+            this.btnReplaceLicense.Location = new System.Drawing.Point(309, 309);
+            this.btnReplaceLicense.Name = "btnReplaceLicense";
+            this.btnReplaceLicense.ShadowDecoration.Parent = this.btnReplaceLicense;
+            this.btnReplaceLicense.Size = new System.Drawing.Size(300, 300);
+            this.btnReplaceLicense.TabIndex = 5;
+            this.btnReplaceLicense.Text = "Replace License";
+            this.btnReplaceLicense.TextOffset = new System.Drawing.Point(0, 100);
+            this.btnReplaceLicense.Click += new System.EventHandler(this.btnReplaceLicense_Click);
+            this.btnReplaceLicense.MouseEnter += new System.EventHandler(this.btnReplaceLicense_MouseEnter);
+            this.btnReplaceLicense.MouseLeave += new System.EventHandler(this.btnOption_MouseLeave);
             // 
             // ManageApplications
             // 
@@ -214,5 +242,6 @@
         private Guna.UI2.WinForms.Guna2Button btnTestTypes;
         private Guna.UI2.WinForms.Guna2Button btnLocalLicense;
         private Guna.UI2.WinForms.Guna2Button btnRenewLicense;
+        private Guna.UI2.WinForms.Guna2Button btnReplaceLicense;
     }
 }

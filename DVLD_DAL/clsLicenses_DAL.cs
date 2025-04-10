@@ -425,6 +425,18 @@ namespace DVLD_DAL
             return clsUtility_DAL.ExecuteScalarToBool(query, parameter);
         }
 
+        public static bool IsLicenseQualifiedForReplacement(int licenseID)
+        {
+            string query = @"USE DVLD; SELECT TOP 1 x = 1 FROM Licenses L 
+                            WHERE L.LicenseID = @LicenseID 
+                            AND L.IsActive = 1
+                            AND (Select Top 1 x = 1 From DetainedLicenses D Where D.LicenseID = 
+                            L.LicenseID and D.IsReleased = 0) is null;";
+
+            SqlParameter parameter = new SqlParameter("@LicenseID", licenseID);
+            return clsUtility_DAL.ExecuteScalarToBool(query, parameter);
+        }
+
         public static int GetLastLicenseIDForDriver(int driverID, int licenseClass)
         {
             string query = @"USE DVLD; SELECT TOP 1 LicenseID FROM Licenses 
