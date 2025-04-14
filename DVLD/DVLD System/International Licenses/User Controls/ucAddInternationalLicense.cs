@@ -119,7 +119,7 @@ namespace DVLD.DVLD_System.International_License
                 btnIssueInternationalLicense.Enabled = false;
             }
             else
-                MessageBox.Show("International license has been failed to issued, please check data intered", "Failed To Issue",
+                MessageBox.Show("International license has been failed to issued, please check data entered", "Failed To Issue",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 

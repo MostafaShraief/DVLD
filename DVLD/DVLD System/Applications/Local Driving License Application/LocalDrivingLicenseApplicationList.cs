@@ -135,7 +135,7 @@ namespace DVLD.Applications
                 ucList1.RefreshDataSet();
             }
             else
-                MessageBox.Show("Local license has not been deleted, check data intered.", "Deleted Failed",
+                MessageBox.Show("Local license has not been deleted, check data entered.", "Deleted Failed",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 

@@ -37,5 +37,12 @@ namespace DVLD.DVLD_System.Licenses.User_Control
             licenseObj = LicenseObj;
             ucLicenseInfo1.SetLicenseObj(LicenseObj);
         }
+
+        public void SwitchDetainLicenseStatus(bool IsDetained)
+        {
+            licenseObj.IsDetained = IsDetained;
+            licenseObj.IsActive = !IsDetained;
+            ucLicenseInfo1.SetLicenseObj(licenseObj);
+        }
     }
 }

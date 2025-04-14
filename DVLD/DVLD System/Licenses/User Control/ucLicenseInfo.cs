@@ -70,5 +70,15 @@ namespace DVLD.DVLD_System.Licenses.User_Control
             lblIsActive.ForeColor = licenseObj.IsActive ? Color.Green : Color.Red;
             lblIsDetained.ForeColor = licenseObj.IsDetained ? Color.Red : Color.Green;
         }
+
+        public void ConvertToDetainedLicense()
+        {
+            // Status Information
+            lblIsActive.Text = licenseObj.IsActive ? "Active" : "Inactive";
+            lblIsDetained.Text = licenseObj.IsDetained ? "Yes" : "No";
+            // Formatting for status labels
+            lblIsActive.ForeColor = licenseObj.IsActive ? Color.Green : Color.Red;
+            lblIsDetained.ForeColor = licenseObj.IsDetained ? Color.Red : Color.Green;
+        }
     }
 }

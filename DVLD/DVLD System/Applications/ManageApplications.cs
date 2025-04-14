@@ -1,4 +1,5 @@
 ﻿using DVLD.Applications.Test_Types;
+using DVLD.DVLD_System.Applications;
 using DVLD.DVLD_System.Licenses;
 using DVLD_BLL;
 using ReaLTaiizor.Controls;
@@ -70,5 +71,15 @@ namespace DVLD.Applications
 
         private void btnReplaceLicense_MouseEnter(object sender, EventArgs e) =>
             lblDescription.Text = "Replace license that has been damaged or lost.";
+
+        private void btnReleaseLicense_Click(object sender, EventArgs e)
+        {
+            ReleaseLicense releaseLicense = new ReleaseLicense();
+            clsGlobal.MainForm.PushNewForm(releaseLicense);
+        }
+
+        private void btnReleaseLicense_MouseEnter(object sender, EventArgs e) =>
+            lblDescription.Text = "Release detained license service, enter license id then ask driver to " +
+            "pay the fees then release it";
     }
 }

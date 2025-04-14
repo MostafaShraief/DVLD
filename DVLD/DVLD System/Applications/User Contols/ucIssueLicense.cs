@@ -86,7 +86,7 @@ namespace DVLD.DVLD_System.Licenses.User_Control
                 clsGlobal.MainForm.PopFormForever();
             }
             else
-                MessageBox.Show("License has not been issued, please check data intered", "License not issued",
+                MessageBox.Show("License has not been issued, please check data entered", "License not issued",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }

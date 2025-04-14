@@ -425,7 +425,7 @@ namespace DVLD_DAL
             return clsUtility_DAL.ExecuteScalarToBool(query, parameter);
         }
 
-        public static bool IsLicenseQualifiedForReplacement(int licenseID)
+        public static bool IsLicenseActiveAndNotDetained(int licenseID)
         {
             string query = @"USE DVLD; SELECT TOP 1 x = 1 FROM Licenses L 
                             WHERE L.LicenseID = @LicenseID 

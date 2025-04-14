@@ -100,7 +100,7 @@ namespace DVLD.DVLD_System.Licenses.User_Control
             }
             else
             {
-                MessageBox.Show("License can not be saved, please check data intered again.", "Not Saved",
+                MessageBox.Show("License can not be saved, please check data entered again.", "Not Saved",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 btnRenewLicense.Enabled = false;
                 return false;

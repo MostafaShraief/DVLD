@@ -118,7 +118,7 @@ namespace DVLD.DVLD_System.Applications.Tests
             }
             else
             {
-                MessageBox.Show("Test apppintment not saved, please check data intered.", "Not Saved",
+                MessageBox.Show("Test apppintment not saved, please check data entered.", "Not Saved",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

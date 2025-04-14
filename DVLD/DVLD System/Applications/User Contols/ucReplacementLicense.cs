@@ -55,7 +55,7 @@ namespace DVLD.DVLD_System.Licenses.User_Control
 
         bool IsLicenseQualified()
         {
-            if (clsLicenses_BLL.IsLicenseQualifiedForReplacement(oldLicenseObj.LicenseID) == false)
+            if (clsLicenses_BLL.IsLicenseActiveAndNotDetained(oldLicenseObj.LicenseID) == false)
             {
                 MessageBox.Show("this license is not qualified to replace it, maybe is not expired or it's detained.",
                     "Not Qualified", MessageBoxButtons.OK, MessageBoxIcon.Stop);
@@ -109,7 +109,7 @@ namespace DVLD.DVLD_System.Licenses.User_Control
             }
             else
             {
-                MessageBox.Show("License can not be saved, please check data intered again.", "Not Saved",
+                MessageBox.Show("License can not be saved, please check data entered again.", "Not Saved",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 btnReplaceLicense.Enabled = false;
                 return false;

@@ -238,5 +238,82 @@ namespace DVLD_DAL
                 }
             }
         }
+
+        public static bool ExecuteNonQuery(string query, params SqlParameter[] parameters)
+        {
+            using (SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddRange(parameters);
+
+                try
+                {
+                    connection.Open();
+                    return command.ExecuteNonQuery() > 0;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
+
+        public static DataTable GetAllItems(string query, params SqlParameter[] parameters)
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddRange(parameters);
+
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    dt.Load(reader);
+                    reader.Close();
+                }
+                catch
+                {
+                    // Return empty DataTable on error
+                }
+            }
+
+            return dt;
+        }
+
+        public static DataRow ExecuteRow(string query, params SqlParameter[] parameters)
+        {
+            using (SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddRange(parameters);
+
+                try
+                {
+                    connection.Open();
+
+                    // Create a reader with SingleRow command behavior
+                    using (SqlDataReader reader = command.ExecuteReader(CommandBehavior.SingleRow))
+                    {
+                        if (!reader.HasRows)
+                            return null;
+
+                        // Create a minimal DataTable with correct schema
+                        DataTable tempTable = new DataTable();
+                        tempTable.Load(reader);
+
+                        return tempTable.Rows.Count > 0 ? tempTable.Rows[0] : null;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Log error if needed
+                    // clsLogger.LogError(ex);
+                    return null;
+                }
+            }
+        }
     }
 }

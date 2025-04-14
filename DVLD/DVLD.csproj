@@ -79,6 +79,36 @@
     <Compile Include="DVLD System\Applications\Application Types\EditApplicationType.Designer.cs">
       <DependentUpon>EditApplicationType.cs</DependentUpon>
     </Compile>
+    <Compile Include="DVLD System\Applications\ReleaseLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DVLD System\Applications\ReleaseLicense.Designer.cs">
+      <DependentUpon>ReleaseLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD System\Detain Licenses\DetainedLicensesList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DVLD System\Detain Licenses\DetainedLicensesList.Designer.cs">
+      <DependentUpon>DetainedLicensesList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD System\Detain Licenses\DetainLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DVLD System\Detain Licenses\DetainLicense.Designer.cs">
+      <DependentUpon>DetainLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD System\Detain Licenses\ManageDetainLicenses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DVLD System\Detain Licenses\ManageDetainLicenses.Designer.cs">
+      <DependentUpon>ManageDetainLicenses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD System\Detain Licenses\User Controls\ucAddDetainLicense.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DVLD System\Detain Licenses\User Controls\ucAddDetainLicense.Designer.cs">
+      <DependentUpon>ucAddDetainLicense.cs</DependentUpon>
+    </Compile>
     <Compile Include="DVLD System\Applications\Local Driving License Application\AddLocalLicense.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +132,12 @@
     </Compile>
     <Compile Include="DVLD System\Applications\Local Driving License Application\User Controls\ucAddEditLocalLicense.Designer.cs">
       <DependentUpon>ucAddEditLocalLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD System\Detain Licenses\User Controls\ucDetainLicenseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DVLD System\Detain Licenses\User Controls\ucDetainLicenseInfo.Designer.cs">
+      <DependentUpon>ucDetainLicenseInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="DVLD System\International Licenses\AddInternationalLicense.cs">
       <SubType>Form</SubType>
@@ -145,28 +181,28 @@
     <Compile Include="DVLD System\International Licenses\User Controls\ucInternationalLicenseInfo.Designer.cs">
       <DependentUpon>ucInternationalLicenseInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="DVLD System\Licenses\RenewLicense.cs">
+    <Compile Include="DVLD System\Applications\RenewLicense.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DVLD System\Licenses\RenewLicense.Designer.cs">
+    <Compile Include="DVLD System\Applications\RenewLicense.Designer.cs">
       <DependentUpon>RenewLicense.cs</DependentUpon>
     </Compile>
-    <Compile Include="DVLD System\Licenses\ReplaceLicense.cs">
+    <Compile Include="DVLD System\Applications\ReplaceLicense.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DVLD System\Licenses\ReplaceLicense.Designer.cs">
+    <Compile Include="DVLD System\Applications\ReplaceLicense.Designer.cs">
       <DependentUpon>ReplaceLicense.cs</DependentUpon>
     </Compile>
-    <Compile Include="DVLD System\Licenses\User Control\ucRenewLicense.cs">
+    <Compile Include="DVLD System\Applications\User Contols\ucRenewLicense.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DVLD System\Licenses\User Control\ucRenewLicense.Designer.cs">
+    <Compile Include="DVLD System\Applications\User Contols\ucRenewLicense.Designer.cs">
       <DependentUpon>ucRenewLicense.cs</DependentUpon>
     </Compile>
-    <Compile Include="DVLD System\Licenses\User Control\ucRenewLicenseInfo.cs">
+    <Compile Include="DVLD System\Applications\User Contols\ucRenewLicenseInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DVLD System\Licenses\User Control\ucRenewLicenseInfo.Designer.cs">
+    <Compile Include="DVLD System\Applications\User Contols\ucRenewLicenseInfo.Designer.cs">
       <DependentUpon>ucRenewLicenseInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="DVLD System\Licenses\User Control\ucFindLicense.cs">
@@ -223,10 +259,10 @@
     <Compile Include="DVLD System\Licenses\DriverLicensesList.Designer.cs">
       <DependentUpon>DriverLicensesList.cs</DependentUpon>
     </Compile>
-    <Compile Include="DVLD System\Licenses\IssueLicense.cs">
+    <Compile Include="DVLD System\Applications\IssueLicense.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DVLD System\Licenses\IssueLicense.Designer.cs">
+    <Compile Include="DVLD System\Applications\IssueLicense.Designer.cs">
       <DependentUpon>IssueLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="DVLD System\Licenses\LicenseInfo.cs">
@@ -241,10 +277,10 @@
     <Compile Include="DVLD System\Licenses\User Control\ucFindLicenseInfo.Designer.cs">
       <DependentUpon>ucFindLicenseInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="DVLD System\Licenses\User Control\ucIssueLicense.cs">
+    <Compile Include="DVLD System\Applications\User Contols\ucIssueLicense.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DVLD System\Licenses\User Control\ucIssueLicense.Designer.cs">
+    <Compile Include="DVLD System\Applications\User Contols\ucIssueLicense.Designer.cs">
       <DependentUpon>ucIssueLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="DVLD System\Licenses\User Control\ucLicenseInfo.cs">
@@ -253,10 +289,10 @@
     <Compile Include="DVLD System\Licenses\User Control\ucLicenseInfo.Designer.cs">
       <DependentUpon>ucLicenseInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="DVLD System\Licenses\User Control\ucReplacementLicense.cs">
+    <Compile Include="DVLD System\Applications\User Contols\ucReplacementLicense.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DVLD System\Licenses\User Control\ucReplacementLicense.Designer.cs">
+    <Compile Include="DVLD System\Applications\User Contols\ucReplacementLicense.Designer.cs">
       <DependentUpon>ucReplacementLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="ListScreen.cs">
@@ -444,6 +480,21 @@
     <EmbeddedResource Include="DVLD System\Applications\Application Types\EditApplicationType.resx">
       <DependentUpon>EditApplicationType.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\Applications\ReleaseLicense.resx">
+      <DependentUpon>ReleaseLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\Detain Licenses\DetainedLicensesList.resx">
+      <DependentUpon>DetainedLicensesList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\Detain Licenses\DetainLicense.resx">
+      <DependentUpon>DetainLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\Detain Licenses\ManageDetainLicenses.resx">
+      <DependentUpon>ManageDetainLicenses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\Detain Licenses\User Controls\ucAddDetainLicense.resx">
+      <DependentUpon>ucAddDetainLicense.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DVLD System\Applications\Local Driving License Application\AddLocalLicense.resx">
       <DependentUpon>AddLocalLicense.cs</DependentUpon>
     </EmbeddedResource>
@@ -455,6 +506,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD System\Applications\Local Driving License Application\User Controls\ucAddEditLocalLicense.resx">
       <DependentUpon>ucAddEditLocalLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD System\Detain Licenses\User Controls\ucDetainLicenseInfo.resx">
+      <DependentUpon>ucDetainLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD System\International Licenses\AddInternationalLicense.resx">
       <DependentUpon>AddInternationalLicense.cs</DependentUpon>
@@ -477,16 +531,16 @@
     <EmbeddedResource Include="DVLD System\International Licenses\User Controls\ucInternationalLicenseInfo.resx">
       <DependentUpon>ucInternationalLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DVLD System\Licenses\RenewLicense.resx">
+    <EmbeddedResource Include="DVLD System\Applications\RenewLicense.resx">
       <DependentUpon>RenewLicense.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DVLD System\Licenses\ReplaceLicense.resx">
+    <EmbeddedResource Include="DVLD System\Applications\ReplaceLicense.resx">
       <DependentUpon>ReplaceLicense.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DVLD System\Licenses\User Control\ucRenewLicense.resx">
+    <EmbeddedResource Include="DVLD System\Applications\User Contols\ucRenewLicense.resx">
       <DependentUpon>ucRenewLicense.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DVLD System\Licenses\User Control\ucRenewLicenseInfo.resx">
+    <EmbeddedResource Include="DVLD System\Applications\User Contols\ucRenewLicenseInfo.resx">
       <DependentUpon>ucRenewLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD System\Licenses\User Control\ucFindLicense.resx">
@@ -516,7 +570,7 @@
     <EmbeddedResource Include="DVLD System\Licenses\DriverLicensesList.resx">
       <DependentUpon>DriverLicensesList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DVLD System\Licenses\IssueLicense.resx">
+    <EmbeddedResource Include="DVLD System\Applications\IssueLicense.resx">
       <DependentUpon>IssueLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD System\Licenses\LicenseInfo.resx">
@@ -525,13 +579,13 @@
     <EmbeddedResource Include="DVLD System\Licenses\User Control\ucFindLicenseInfo.resx">
       <DependentUpon>ucFindLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DVLD System\Licenses\User Control\ucIssueLicense.resx">
+    <EmbeddedResource Include="DVLD System\Applications\User Contols\ucIssueLicense.resx">
       <DependentUpon>ucIssueLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD System\Licenses\User Control\ucLicenseInfo.resx">
       <DependentUpon>ucLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DVLD System\Licenses\User Control\ucReplacementLicense.resx">
+    <EmbeddedResource Include="DVLD System\Applications\User Contols\ucReplacementLicense.resx">
       <DependentUpon>ucReplacementLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListScreen.resx">
@@ -886,6 +940,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\renew.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Unlock.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

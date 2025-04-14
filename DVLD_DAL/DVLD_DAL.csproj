@@ -44,6 +44,7 @@
     <Compile Include="clsApplications_DAL.cs" />
     <Compile Include="clsApplicationTypes_DAL.cs" />
     <Compile Include="clsCountry_DAL.cs" />
+    <Compile Include="clsDetainedLicenses_DAL.cs" />
     <Compile Include="clsDrivers_DAL.cs" />
     <Compile Include="clsInternationalLicenses_DAL.cs" />
     <Compile Include="clsLicenseClasses_DAL.cs" />

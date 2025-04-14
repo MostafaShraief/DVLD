@@ -302,9 +302,9 @@ namespace DVLD_BLL
             return clsLicenses_DAL.IsLicenseQualifiedForRenewal(licenseID);
         }
 
-        public static bool IsLicenseQualifiedForReplacement(int licenseID)
+        public static bool IsLicenseActiveAndNotDetained(int licenseID)
         {
-            return clsLicenses_DAL.IsLicenseQualifiedForReplacement(licenseID);
+            return clsLicenses_DAL.IsLicenseActiveAndNotDetained(licenseID);
         }
 
         public static int GetLastLicenseIDForDriver(int driverID, int licenseClass)
@@ -368,7 +368,7 @@ namespace DVLD_BLL
         {
             clsLicenses_BLL oldLicenseObj = Find(OldLicenseId);
 
-            if (IsLicenseQualifiedForReplacement(OldLicenseId) == false)
+            if (IsLicenseActiveAndNotDetained(OldLicenseId) == false)
                 return false;
 
             int PersonId = clsDrivers_BLL.GetPersonIDByDriverID(oldLicenseObj.DriverID);
@@ -403,7 +403,7 @@ namespace DVLD_BLL
         {
             clsLicenses_BLL oldLicenseObj = Find(OldLicenseId);
 
-            if (IsLicenseQualifiedForReplacement(OldLicenseId) == false)
+            if (IsLicenseActiveAndNotDetained(OldLicenseId) == false)
                 return false;
 
             int PersonId = clsDrivers_BLL.GetPersonIDByDriverID(oldLicenseObj.DriverID);

@@ -249,7 +249,7 @@ namespace DVLD.Manage_Users.User_Controls
             else
             {
                 MessageBox.Show("User Not Saved," +
-                    " Please Check Data Intered And Try Again.", "Failed To Save",
+                    " Please Check Data entered And Try Again.", "Failed To Save",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

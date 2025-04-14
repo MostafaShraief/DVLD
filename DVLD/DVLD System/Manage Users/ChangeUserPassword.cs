@@ -83,7 +83,7 @@ namespace DVLD.Manage_Users
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
                     MessageBox.Show("User Pasword Not Saved," +
-                        " Please Check Data Intered And Try Again.", "Failed To Save",
+                        " Please Check Data entered And Try Again.", "Failed To Save",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (String.IsNullOrEmpty(tbPassword.Text))

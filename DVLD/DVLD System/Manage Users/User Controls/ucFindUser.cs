@@ -78,7 +78,7 @@ namespace DVLD.Manage_Users.User_Controls
             if (user == null || user.UserID == -1)
             {
                 IsFind = false;
-                MessageBox.Show("User not found, check data intered again.", "User Not Found",
+                MessageBox.Show("User not found, check data entered again.", "User Not Found",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 

@@ -1,5 +1,6 @@
 ﻿using DVLD.Applications;
 using DVLD.DVLD_System;
+using DVLD.DVLD_System.Detain_Licenses;
 using DVLD.DVLD_System.International_Licenses;
 using DVLD.Manage_People;
 using DVLD.Manage_Users;
@@ -212,6 +213,12 @@ namespace DVLD
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             PushNewForm(new ManageInternationalLicenses());
+        }
+
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+            ManageDetainLicenses manageDetainLicenses = new ManageDetainLicenses();
+            PushNewForm(manageDetainLicenses);
         }
     }
 }
