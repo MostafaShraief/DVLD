@@ -80,7 +80,7 @@ namespace DVLD.DVLD_System.Applications.Tests
             lblRetakeFees.Text = testAppointmentObj.RetakeFees.ToString("0.00");
 
             // date
-            dtpDate.Value = testAppointmentObj.AppointmentDate;
+            dtpDate.Value = testAppointmentObj.AppointmentDate < dtpDate.MinDate ? dtpDate.MinDate : testAppointmentObj.AppointmentDate;
 
             // Total Fees (Test Fees + Retake Fees)
             lblTotalFees.Text = (testAppointmentObj.TestFees + testAppointmentObj.RetakeFees).ToString("0.00");

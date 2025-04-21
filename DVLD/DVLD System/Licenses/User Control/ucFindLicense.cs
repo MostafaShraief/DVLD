@@ -47,5 +47,10 @@ namespace DVLD.DVLD_System.Applications.Local_Driving_License_Application.User_C
         {
             _Find();
         }
+
+        private void tbFind_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            clsUtility.InputValidator.ValidateKeyPress(sender, e, clsUtility.InputValidator.ValidationType.OnlyNumbers, errorProvider);
+        }
     }
 }

@@ -16,55 +16,21 @@ namespace DVLD.Applications.Test_Types
         public TestTypesList()
         {
             InitializeComponent();
-            clsDataTable = new clsUtility.clsDataTable(lblNumberOfRecords,
-                dgvTestTypesList, clsTestTypes_BLL.GetListOfTestTypes);
-            clsDataTable.LoadData();
-            clsDataTable.LoadColumnsToComboBox(cbFilter);
-
-            clsFilterProcess = new clsUtility.clsFilterProcess(cbFilter, tbFilter, clsDataTable);
-            clsFilterProcess.AddColumnIdName("ID");
-            clsFilterProcess.AddColumnIdName("Fees");
-        }
-
-        clsUtility.clsDataTable clsDataTable;
-        clsUtility.clsFilterProcess clsFilterProcess;
-
-        private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            tbFilter.Text = string.Empty;
-            if (clsFilterProcess != null)
-                clsFilterProcess.ComboBoxFilterChange();
-        }
-
-        private void tbFilter_TextChanged(object sender, EventArgs e)
-        {
-            if (clsFilterProcess != null)
-                clsFilterProcess.TextBoxFilterChange();
-        }
-
-        private void cbFilter_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
+            ucTitleScreen1.ChangeTitle("Test Types List");
+            List<string> numericColumns = new List<string>()
             {
-                if (tbFilter.Visible)
-                    tbFilter.Focus();
-            }
+                "ID", "Fees"
+            };
+            ucList1.FillListObject(clsTestTypes_BLL.GetListOfTestTypes, numericColumns, null, cmsRow, null);
         }
 
-        private void tbFilter_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (clsFilterProcess._DigitColumns.Contains(cbFilter.Text))
-                clsUtility.InputValidator.ValidateKeyPress(sender, e,
-                    clsUtility.InputValidator.ValidationType.OnlyNumbers, errorProvider);
-        }
-
-        int GetIdFromSelectedRow() => ((int)dgvTestTypesList.SelectedRows[0].Cells[0].Value);
+        int GetIdFromSelectedRow() => ((int)ucList1.GetFromSelectedRow(0));
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EditTestType editTestType = new EditTestType(GetIdFromSelectedRow());
             editTestType.ShowDialog();
-            clsDataTable.LoadData();
+            ucList1.RefreshDataSet();
         }
     }
 }

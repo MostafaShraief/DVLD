@@ -17,55 +17,21 @@ namespace DVLD.Applications
         public ApplicationTypesList()
         {
             InitializeComponent();
-            clsDataTable = new clsUtility.clsDataTable(lblNumberOfRecords, 
-                dgvApplicationTypesList, clsApplicationType_BLL.GetListOfApplicationTypes);
-            clsDataTable.LoadData();
-            clsDataTable.LoadColumnsToComboBox(cbFilter);
-
-            clsFilterProcess = new clsUtility.clsFilterProcess(cbFilter, tbFilter, clsDataTable);
-            clsFilterProcess.AddColumnIdName("ID");
-            clsFilterProcess.AddColumnIdName("Fees");
-        }
-
-        clsUtility.clsDataTable clsDataTable;
-        clsUtility.clsFilterProcess clsFilterProcess;
-
-        private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            tbFilter.Text = string.Empty;
-            if (clsFilterProcess != null)
-                clsFilterProcess.ComboBoxFilterChange();
-        }
-
-        private void tbFilter_TextChanged(object sender, EventArgs e)
-        {
-            if (clsFilterProcess != null)
-                clsFilterProcess.TextBoxFilterChange();
-        }
-
-        private void cbFilter_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
+            ucTitleScreen1.ChangeTitle("Application Types List");
+            List<string> numericColumns = new List<string>()
             {
-                if (tbFilter.Visible)
-                    tbFilter.Focus();
-            }
+                "ID", "Fees"
+            };
+            ucList1.FillListObject(clsApplicationType_BLL.GetListOfApplicationTypes, numericColumns, null, cmsRow, null);
         }
 
-        private void tbFilter_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (clsFilterProcess._DigitColumns.Contains(cbFilter.Text))
-                clsUtility.InputValidator.ValidateKeyPress(sender, e,
-                    clsUtility.InputValidator.ValidationType.OnlyNumbers, errorProvider);
-        }
-
-        int GetIdFromSelectedRow() => ((int)dgvApplicationTypesList.SelectedRows[0].Cells[0].Value);
+        int GetIdFromSelectedRow() => ((int)ucList1.GetFromSelectedRow(0));
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EditApplicationType applicationType = new EditApplicationType(GetIdFromSelectedRow());
             applicationType.ShowDialog();
-            clsDataTable.LoadData();
+            ucList1.RefreshDataSet();
         }
     }
 }

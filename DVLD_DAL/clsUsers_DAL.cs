@@ -242,6 +242,7 @@ namespace DVLD_DAL
                     IsFound = true;
                     UserID = Convert.ToInt32(reader["User ID"]);
                     PersonID = Convert.ToInt32(reader["Person ID"]);
+                    UserName = (reader["UserName"].ToString());
                     FullName = reader["Full Name"].ToString();
                     Password = reader["Password"].ToString();
                     IsActive = Convert.ToBoolean(reader["Is Active"]);

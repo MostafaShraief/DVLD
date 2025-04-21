@@ -57,5 +57,11 @@ namespace DVLD.Manage_People.User_Controls
         }
 
         private void btnFind_Click(object sender, EventArgs e) => _Find();
+
+        private void tbFind_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (rbID.Checked)
+                clsUtility.InputValidator.ValidateKeyPress(sender, e, clsUtility.InputValidator.ValidationType.OnlyNumbers, errorProvider);
+        }
     }
 }

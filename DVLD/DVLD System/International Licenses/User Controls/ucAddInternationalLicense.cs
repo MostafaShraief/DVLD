@@ -51,16 +51,21 @@ namespace DVLD.DVLD_System.International_License
 
         void FillLicenseInfo()
         {
-            ucInternationalLicense1.Visible = false;
             ucFindLicenseInfo1.SetLicenseObj(licenseObj);
 
             if (clsLicenses_BLL.IsLicenseQualifiedToInternationalLicense(licenseObj.LicenseID))
+            {
+
+                ucInternationalLicense1.ResetDeffault();
+                ucInternationalLicense1.Visible = true;
                 btnIssueInternationalLicense.Enabled = true;
+            }
             else
             {
                 MessageBox.Show("This licenese" +
                     "is not ordinary vehicle license class or it's not activated.", "Not Qualified",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ucInternationalLicense1.Visible = false;
                 btnIssueInternationalLicense.Enabled = false;
             }
         }
@@ -114,7 +119,7 @@ namespace DVLD.DVLD_System.International_License
             {
                 MessageBox.Show("International license has been issued.", "Issued",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
-                internationalLicenseObj = clsInternationalLicenses_BLL.FindSammurizedByApplicationID(licenseObj.ApplicationID);
+                internationalLicenseObj = clsInternationalLicenses_BLL.FindSammurizedByApplicationID(internationalLicenseObj.ApplicationID);
                 FillInternationalLicenseInfo();
                 btnIssueInternationalLicense.Enabled = false;
             }

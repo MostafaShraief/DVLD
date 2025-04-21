@@ -28,13 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucFindPerson));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnFind = new Guna.UI2.WinForms.Guna2Button();
             this.tbFind = new Guna.UI2.WinForms.Guna2TextBox();
             this.rbNationalNumebr = new Guna.UI2.WinForms.Guna2RadioButton();
             this.rbID = new Guna.UI2.WinForms.Guna2RadioButton();
             this.lblDescriptionTitle = new System.Windows.Forms.Label();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -103,6 +107,7 @@
             this.tbFind.Size = new System.Drawing.Size(321, 44);
             this.tbFind.TabIndex = 62;
             this.tbFind.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbFind_KeyDown);
+            this.tbFind.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbFind_KeyPress);
             // 
             // rbNationalNumebr
             // 
@@ -158,6 +163,11 @@
             this.lblDescriptionTitle.Text = "Find Person By:";
             this.lblDescriptionTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            this.errorProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider.Icon")));
+            // 
             // ucFindPerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -168,6 +178,7 @@
             this.Size = new System.Drawing.Size(484, 198);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -180,5 +191,6 @@
         private Guna.UI2.WinForms.Guna2RadioButton rbNationalNumebr;
         private Guna.UI2.WinForms.Guna2RadioButton rbID;
         private System.Windows.Forms.Label lblDescriptionTitle;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

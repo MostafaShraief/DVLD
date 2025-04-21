@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DVLD.User_Controls;
 
 namespace DVLD.Manage_Users
 {
@@ -17,7 +18,9 @@ namespace DVLD.Manage_Users
         public ChangeUserPassword(int UserID)
         {
             InitializeComponent();
-            ucTitleScreen1.ChangeTitle("Change Password");
+            ucTopBar1.ChangeTitle("Ch.Password");
+            ucTopBar1.delClose += () => this.Close();
+            ucTopBar1.delMinimize += () => this.WindowState = FormWindowState.Minimized;
             user = clsUsers_BLL.FindByUserID(UserID);
             FillUserForm();
         }
@@ -95,6 +98,16 @@ namespace DVLD.Manage_Users
             else
                 MessageBox.Show("Old password is not correct!",
                     "Password Not Match", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, ClientRectangle, Color.Black, ButtonBorderStyle.Solid);
+        }
+
+        private void ChangeUserPassword_Load(object sender, EventArgs e)
+        {
+            guna2ShadowForm1.SetShadowForm(this);
         }
     }
 }

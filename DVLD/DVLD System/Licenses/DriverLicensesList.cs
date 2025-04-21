@@ -109,13 +109,19 @@ namespace DVLD.DVLD_System.Licenses
                 "Is Active"
             };
 
+            Dictionary<string, List<string>> dctComboBoxItems = new Dictionary<string, List<string>>()
+            {
+                { "Class Name", new List<string> { "Class 1", "Class 2", "Class 3", "Class 4",
+                    "Class 5", "Class 6", "Class 7" } }
+            };
+
             List<string> DateColumns = new List<string>()
             {
                 "Issue Date",
                 "Expiration Date"
             };
 
-            ucList1.FillListObject(getLocalLicenseByDriverId, numericColumns, null, cmsRowLocal, DateColumns, boolColummns);
+            ucList1.FillListObject(getLocalLicenseByDriverId, numericColumns, dctComboBoxItems, cmsRowLocal, DateColumns, boolColummns);
         }
 
         DataTable getInternationalLicenseByDriverId()

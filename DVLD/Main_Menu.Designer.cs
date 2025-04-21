@@ -133,7 +133,7 @@ namespace DVLD
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox6.Image = global::DVLD.Properties.Resources.pick_up_car1;
-            this.pictureBox6.Location = new System.Drawing.Point(847, 209);
+            this.pictureBox6.Location = new System.Drawing.Point(477, 209);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(60, 60);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -170,9 +170,9 @@ namespace DVLD
             this.label1.Font = new System.Drawing.Font("Gadugi", 30F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(543, 209);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(688, 60);
+            this.label1.Size = new System.Drawing.Size(632, 60);
             this.label1.TabIndex = 12;
-            this.label1.Text = "Welcome to     DVLD system";
+            this.label1.Text = "Welcome to DVLD system";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ucTitleScreen1

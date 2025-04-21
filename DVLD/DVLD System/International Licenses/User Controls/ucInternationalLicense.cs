@@ -63,5 +63,13 @@ namespace DVLD.DVLD_System.International_License
             lblCreatedDateValue.Text = internationalLicenseObj.ApplicationCreatedDate.ToString("yyyy-MM-dd");
             lblFeesValue.Text = internationalLicenseObj.Fees.ToString();
         }
+
+        public void ResetDeffault()
+        {
+            lblFeesValue.Text = 
+                clsApplicationType_BLL.GetApplicationTypeFees((int)clsGlobal.enApplicationType.NewInternational).ToString();
+            lblApplicationID.Text = lblInternationalLicenseID.Text = lblLocalLicenseID.Text = lblIsActive.Text = "-1";
+            lblCreatedByValue.Text = lblCreatedDateValue.Text = lblApplicationDate.Text = lblExpirationDate.Text = "None";
+        }
     }
 }
