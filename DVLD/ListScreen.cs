@@ -72,7 +72,7 @@ namespace DVLD
 
         private void tbFilter_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (_clsFilterProcess._columnIdNames.Contains(cbFilter.Text))
+            if (_clsFilterProcess._DigitColumns.Contains(cbFilter.Text))
             {
                 clsUtility.InputValidator.ValidateKeyPress(sender, e, clsUtility.InputValidator.ValidationType.OnlyNumbers, errorProvider);
             }

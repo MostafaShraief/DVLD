@@ -104,7 +104,7 @@ namespace DVLD_BLL
                 this.LicenseClassID,
                 this.Notes,
                 (clsLicenses_DAL.enIssueReason)this.IssueReason,
-                this.CreatedByUserID, 0);
+                this.CreatedByUserID, (float)clsLicenseClasses_BLL.GetLicenseClassFees(LicenseClassID));
 
             if (this.LicenseID == -1)
                 return false;

@@ -99,17 +99,23 @@ namespace DVLD.DVLD_System.Licenses
 
         void SwitchToLocal()
         {
-            List<string> Ids = new List<string>()
+            List<string> numericColumns = new List<string>()
             {
                 "Lic.ID", "App.ID"
             };
 
-            Dictionary<string, List<string>> keyValuePairs = new Dictionary<string, List<string>>()
+            List<string> boolColummns = new List<string>()
             {
-                { "Is Active", new List<string> { "0", "1"} }
+                "Is Active"
             };
 
-            ucList1.FillListObject(getLocalLicenseByDriverId, Ids, keyValuePairs, cmsRowLocal);
+            List<string> DateColumns = new List<string>()
+            {
+                "Issue Date",
+                "Expiration Date"
+            };
+
+            ucList1.FillListObject(getLocalLicenseByDriverId, numericColumns, null, cmsRowLocal, DateColumns, boolColummns);
         }
 
         DataTable getInternationalLicenseByDriverId()
@@ -120,17 +126,23 @@ namespace DVLD.DVLD_System.Licenses
 
         void SwitchToInternational()
         {
-            List<string> Ids = new List<string>()
+            List<string> numericColumns = new List<string>()
             {
                 "International License ID", "Application ID", "Local License ID"
             };
 
-            Dictionary<string, List<string>> keyValuePairs = new Dictionary<string, List<string>>()
+            List<string> boolColummns = new List<string>()
             {
-                { "Is Active", new List<string> { "0", "1"} }
+                "Is Active"
             };
 
-            ucList1.FillListObject(getInternationalLicenseByDriverId, Ids, keyValuePairs, cmsRowInternational);
+            List<string> DateColumns = new List<string>()
+            {
+                "Issue Date",
+                "Expiration Date"
+            };
+
+            ucList1.FillListObject(getInternationalLicenseByDriverId, numericColumns, null, cmsRowInternational, DateColumns, boolColummns);
         }
 
         private void rbLocal_CheckedChanged(object sender, EventArgs e)

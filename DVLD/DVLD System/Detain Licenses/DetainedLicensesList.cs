@@ -22,12 +22,22 @@ namespace DVLD.DVLD_System.Applications.Detain_Licenses
             InitializeComponent();
             ucTitleScreen1.ChangeTitle("Detained Licenses List");
 
-            List<string> Ids = new List<string>()
+            List<string> numericColumns = new List<string>()
             {
-                "D.ID", "L.ID", "Release App.ID"
+                "D.ID", "L.ID", "Release App.ID", "Fine Fees"
             };
 
-            ucList1.FillListObject(clsDetainedLicenses_BLL.GetAllDetainedLicenses, Ids, null, cmsRow);
+            List<string> DateColumns = new List<string>()
+            {
+                "D.Date", "Release Date"
+            };
+
+            List<string> booleanColumns = new List<string>()
+            {
+                "Is Released"
+            };
+
+            ucList1.FillListObject(clsDetainedLicenses_BLL.GetAllDetainedLicenses, numericColumns, null, cmsRow, DateColumns, booleanColumns);
         }
 
         int GetLicenseId() =>

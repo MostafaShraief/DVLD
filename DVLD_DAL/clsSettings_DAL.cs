@@ -8,6 +8,6 @@ namespace DVLD_DAL
 {
     internal class clsSettings_DAL
     {
-        public static string ConStr = "Server=.;Database=ContactsDB;User Id=sa;Password=123456;";
+        public static string ConStr = "Server=.;Database=DVLD;User Id=sa;Password=123456;";
     }
 }

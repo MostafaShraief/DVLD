@@ -38,7 +38,11 @@
             this.label13 = new System.Windows.Forms.Label();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.ucLocalLicenseInfoWithApplication1 = new DVLD_System.Applications.Local_Driving_License_Application.User_Controls.ucLocalLicenseInfoWithApplication();
+            this.lblIssueFees = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Separator1
@@ -166,7 +170,7 @@
             this.btnSave.ShadowDecoration.Parent = this.btnSave;
             this.btnSave.Size = new System.Drawing.Size(133, 38);
             this.btnSave.TabIndex = 106;
-            this.btnSave.Text = "Save";
+            this.btnSave.Text = "Issue";
             this.btnSave.TextOffset = new System.Drawing.Point(10, 0);
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -178,11 +182,49 @@
             this.ucLocalLicenseInfoWithApplication1.Size = new System.Drawing.Size(1229, 427);
             this.ucLocalLicenseInfoWithApplication1.TabIndex = 1;
             // 
+            // lblIssueFees
+            // 
+            this.lblIssueFees.BackColor = System.Drawing.Color.Transparent;
+            this.lblIssueFees.Font = new System.Drawing.Font("Gadugi", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIssueFees.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lblIssueFees.Location = new System.Drawing.Point(223, 572);
+            this.lblIssueFees.Name = "lblIssueFees";
+            this.lblIssueFees.Size = new System.Drawing.Size(159, 29);
+            this.lblIssueFees.TabIndex = 268;
+            this.lblIssueFees.Text = "0";
+            this.lblIssueFees.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.Image = global::DVLD.Properties.Resources.Money;
+            this.pictureBox3.Location = new System.Drawing.Point(29, 566);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 267;
+            this.pictureBox3.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Gadugi", 15F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(79, 571);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(138, 30);
+            this.label5.TabIndex = 266;
+            this.label5.Text = "Issue Fees:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ucIssueLicense
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Controls.Add(this.lblIssueFees);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.label13);
@@ -196,6 +238,7 @@
             this.Name = "ucIssueLicense";
             this.Size = new System.Drawing.Size(1239, 616);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,5 +256,8 @@
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Label label13;
         private Guna.UI2.WinForms.Guna2Button btnSave;
+        private System.Windows.Forms.Label lblIssueFees;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label label5;
     }
 }

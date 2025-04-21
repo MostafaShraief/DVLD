@@ -160,8 +160,8 @@ namespace DVLD_DAL
             bool IsExist = false;
 
             SqlConnection connection = new SqlConnection(clsSettings_DAL.ConStr);
-            string query = $"use dvld; select top 1 x = 1 From {Table} " +
-                $"where {ValueName} = @{ValueName} and {IDName} != @{IDName};";
+            string query = $"use dvld; select top 1 x = 1 From {Table}" +
+                $" where {ValueName} = @{ValueName} and {IDName} != @{IDName};";
             SqlCommand command = new SqlCommand(query, connection);
 
             command.Parameters.AddWithValue("@" + ValueName, Value);

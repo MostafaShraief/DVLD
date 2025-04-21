@@ -42,10 +42,11 @@ namespace DVLD
         }
 
         public void FillListObject(Func<DataTable> getAllLocalLicensesFunction,
-            List<string> columnIdNames, Dictionary<string, List<string>> dctFilterCriterion = null, CrownContextMenuStrip cmsRow = null)
+            List<string> columnIdNames, Dictionary<string, List<string>> dctFilterCriterion = null,
+            CrownContextMenuStrip cmsRow = null, List<string> DateColumns = null, List<string> BooleanColumns = null)
         {
             InitializeDataTable(getAllLocalLicensesFunction);
-            InitializeFilterProcess(columnIdNames, dctFilterCriterion);
+            InitializeFilterProcess(columnIdNames, dctFilterCriterion, DateColumns, BooleanColumns);
 
             // Attach the context menu strip to the DataGridView if provided
             if (cmsRow != null)
@@ -58,16 +59,13 @@ namespace DVLD
         private void InitializeDataTable(Func<DataTable> getAllLocalLicensesFunction)
         {
             _clsDataTable = new clsUtility.clsDataTable(lblNumberOfRecords, dgvList, getAllLocalLicensesFunction.Invoke);
-            _clsDataTable.LoadData();
-
-            _clsDataTable.LoadColumnsToComboBox(cbFilter);
         }
 
         // Initialize the filter process
         private void InitializeFilterProcess(List<string> columnIdNames,
-            Dictionary<string, List<string>> dctFilterCriterion)
+            Dictionary<string, List<string>> dctFilterCriterion, List<string> DateColumns, List<string> BooleanColumns)
         {
-            _clsFilterProcess = new clsUtility.clsFilterProcess(cbFilter, tbFilter, cbFilterCriterion, _clsDataTable);
+            _clsFilterProcess = new clsUtility.clsFilterProcess(cbFilter, tbFilter, cbFilterCriterion, _clsDataTable, dtpDate);
             foreach (var columnName in columnIdNames)
             {
                 _clsFilterProcess.AddColumnIdName(columnName);
@@ -75,6 +73,18 @@ namespace DVLD
 
             if (dctFilterCriterion != null)
                 _clsFilterProcess.AddCriterion(dctFilterCriterion);
+
+            if (DateColumns != null)
+            {
+                foreach (string dateColumnName in DateColumns)
+                    _clsFilterProcess.AddDateColumn(dateColumnName);
+            }
+
+            if (BooleanColumns != null)
+            {
+                foreach (string boolColumnName in BooleanColumns)
+                    _clsFilterProcess.AddBooleanColumns(boolColumnName);
+            }
         }
 
         // Event handlers for filtering
@@ -99,7 +109,7 @@ namespace DVLD
 
         private void tbFilter_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (_clsFilterProcess._columnIdNames.Contains(cbFilter.Text))
+            if (_clsFilterProcess._DigitColumns.Contains(cbFilter.Text))
             {
                 clsUtility.InputValidator.ValidateKeyPress(sender, e, clsUtility.InputValidator.ValidationType.OnlyNumbers, errorProvider);
             }
@@ -133,6 +143,11 @@ namespace DVLD
         private void cbFilterCriterion_SelectedIndexChanged(object sender, EventArgs e)
         {
             _clsFilterProcess?.ComboBoxFilterCriterionChange();
+        }
+
+        private void dtpDate_ValueChanged(object sender, EventArgs e)
+        {
+            _clsFilterProcess?.DatePickerChange();
         }
     }
 }

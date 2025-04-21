@@ -16,19 +16,6 @@ namespace DVLD.DVLD_System.Licenses
         public RenewLicense()
         {
             InitializeComponent();
-            ucTopBar1.ChangeTitle("Renew License");
-            ucTopBar1.delClose += this.Close;
-            ucTopBar1.delMinimize += () => this.WindowState = FormWindowState.Minimized;
-        }
-
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            ControlPaint.DrawBorder(e.Graphics, ClientRectangle, Color.Black, ButtonBorderStyle.Solid);
-        }
-
-        private void RenewLicense_Load(object sender, EventArgs e)
-        {
-            guna2ShadowForm1.SetShadowForm(this);
         }
     }
 }

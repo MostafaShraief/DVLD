@@ -25,7 +25,7 @@ namespace DVLD.Applications
             InitializeComponent();
             ucTitleScreen1.ChangeTitle("Local Licenses List");
 
-            List<string> columnIdNames = new List<string>
+            List<string> numericColumnNames = new List<string>
             {
                 "L.D.L.AppID",
                 "Passed Tests"
@@ -38,9 +38,14 @@ namespace DVLD.Applications
                     "Class 5", "Class 6", "Class 7" } }
             };
 
+            List<string> DateColumns = new List<string>()
+            {
+                "Application Date"
+            };
+
             ucList1.FillListObject(
                 clsLocalDrivingLicenseApplication_BLL.GetAllLocalLicenses,
-                columnIdNames, dctComboBoxItems, cmsRow);
+                numericColumnNames, dctComboBoxItems, cmsRow, DateColumns);
         }
 
         private void btnAddLocalLicense_Click(object sender, EventArgs e)
@@ -165,7 +170,7 @@ namespace DVLD.Applications
             }
         }
 
-        void DisableCmsItems()
+        void DisableSomeCmsItems()
         {
             EnableOrDisableLocalLicenseInfo(false, 2, 0); // edit local license
             cmsRow.Items[4].Enabled = false; // cancel
@@ -183,10 +188,10 @@ namespace DVLD.Applications
         {
             clsGlobal.enApplicationStatus applicationStatus = GetApplicationStatusFromSelectedRow();
 
+            DisableSomeCmsItems();
+
             if (applicationStatus == clsGlobal.enApplicationStatus.New)
             {
-                DisableCmsItems();
-
                 // global enable section.
                 EnableOrDisableLocalLicenseInfo(true, 2, 0); // edit local license
                 cmsRow.Items[7].Enabled = true; // schedule
@@ -209,13 +214,11 @@ namespace DVLD.Applications
             }
             else if (applicationStatus == clsGlobal.enApplicationStatus.Cancelled)
             {
-                DisableCmsItems();
                 // enable section.
                 cmsRow.Items[5].Enabled = true; // delete
             }
             else
             {
-                DisableCmsItems();
                 // enable
                 cmsRow.Items[11].Enabled = true; // show license
             }

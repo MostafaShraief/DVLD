@@ -94,5 +94,11 @@ namespace DVLD_BLL
         {
             return clsLicenseClasses_DAL.GetLicenseClassValidityLength(licenseClassID);
         }
+
+        public static decimal GetLicenseClassFees(int licenseClassID)
+        {
+            // Returns 0 if license class not found
+            return clsLicenseClasses_DAL.GetLicenseClassFees(licenseClassID);
+        }
     }
 }

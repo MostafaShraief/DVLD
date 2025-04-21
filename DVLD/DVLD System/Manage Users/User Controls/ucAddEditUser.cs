@@ -83,7 +83,8 @@ namespace DVLD.Manage_Users.User_Controls
             }
             else
             {
-                ucfindAndShowInfoPerson.GetPersonID(person.PersonID);
+                if (ucfindAndShowInfoPerson.person.PersonID != person.PersonID)
+                    ucfindAndShowInfoPerson.GetPersonID(person.PersonID);
                 user.PersonID = person.PersonID;
                 pnlUser.Visible = true;
                 btnSave.Visible = true;

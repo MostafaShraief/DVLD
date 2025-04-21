@@ -124,5 +124,17 @@ namespace DVLD_DAL
 
             return validityLength;
         }
+
+        public static decimal GetLicenseClassFees(int licenseClassID)
+        {
+            string query = @"USE DVLD; SELECT TOP 1 LC.ClassFees 
+                           FROM LicenseClasses LC 
+                           WHERE LC.LicenseClassID = @LicenseClassID";
+
+            SqlParameter parameter = new SqlParameter("@LicenseClassID", licenseClassID);
+            object result = clsUtility_DAL.ExecuteScalar(query, parameter);
+
+            return result != null ? Convert.ToDecimal(result) : 0m;
+        }
     }
 }

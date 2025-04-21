@@ -69,6 +69,9 @@
             this.guna2Separator3 = new Guna.UI2.WinForms.Guna2Separator();
             this.guna2VSeparator1 = new Guna.UI2.WinForms.Guna2VSeparator();
             this.guna2VSeparator2 = new Guna.UI2.WinForms.Guna2VSeparator();
+            this.lblIssueReason = new System.Windows.Forms.Label();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.lbll = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfileImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -82,6 +85,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbLicenseClass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbApplicationID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.SuspendLayout();
             // 
             // lblDateOfBirth
@@ -153,7 +157,7 @@
             this.lblFullName.Size = new System.Drawing.Size(259, 29);
             this.lblFullName.TabIndex = 107;
             this.lblFullName.Text = "None";
-            this.lblFullName.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.lblFullName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label5
             // 
@@ -204,12 +208,11 @@
             // 
             // lblLicenseClass
             // 
-            this.lblLicenseClass.AutoSize = true;
             this.lblLicenseClass.BackColor = System.Drawing.Color.Transparent;
-            this.lblLicenseClass.Font = new System.Drawing.Font("Gadugi", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLicenseClass.Font = new System.Drawing.Font("Gadugi", 10F);
             this.lblLicenseClass.Location = new System.Drawing.Point(250, 39);
             this.lblLicenseClass.Name = "lblLicenseClass";
-            this.lblLicenseClass.Size = new System.Drawing.Size(74, 29);
+            this.lblLicenseClass.Size = new System.Drawing.Size(227, 29);
             this.lblLicenseClass.TabIndex = 112;
             this.lblLicenseClass.Text = "None";
             this.lblLicenseClass.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -556,11 +559,48 @@
             this.guna2VSeparator2.Size = new System.Drawing.Size(5, 542);
             this.guna2VSeparator2.TabIndex = 136;
             // 
+            // lblIssueReason
+            // 
+            this.lblIssueReason.BackColor = System.Drawing.Color.Transparent;
+            this.lblIssueReason.Font = new System.Drawing.Font("Gadugi", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIssueReason.Location = new System.Drawing.Point(717, 40);
+            this.lblIssueReason.Name = "lblIssueReason";
+            this.lblIssueReason.Size = new System.Drawing.Size(159, 29);
+            this.lblIssueReason.TabIndex = 139;
+            this.lblIssueReason.Text = "None";
+            this.lblIssueReason.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox10.Image = global::DVLD.Properties.Resources.Info;
+            this.pictureBox10.Location = new System.Drawing.Point(496, 34);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox10.TabIndex = 138;
+            this.pictureBox10.TabStop = false;
+            // 
+            // lbll
+            // 
+            this.lbll.AutoSize = true;
+            this.lbll.BackColor = System.Drawing.Color.Transparent;
+            this.lbll.Font = new System.Drawing.Font("Gadugi", 15F, System.Drawing.FontStyle.Bold);
+            this.lbll.Location = new System.Drawing.Point(540, 39);
+            this.lbll.Name = "lbll";
+            this.lbll.Size = new System.Drawing.Size(170, 30);
+            this.lbll.TabIndex = 137;
+            this.lbll.Text = "Issue Reason:";
+            this.lbll.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ucLicenseInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Controls.Add(this.lblIssueReason);
+            this.Controls.Add(this.pictureBox10);
+            this.Controls.Add(this.lbll);
             this.Controls.Add(this.guna2VSeparator2);
             this.Controls.Add(this.guna2VSeparator1);
             this.Controls.Add(this.guna2Separator3);
@@ -617,6 +657,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbLicenseClass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbApplicationID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -665,5 +706,8 @@
         private Guna.UI2.WinForms.Guna2Separator guna2Separator3;
         private Guna.UI2.WinForms.Guna2VSeparator guna2VSeparator1;
         private Guna.UI2.WinForms.Guna2VSeparator guna2VSeparator2;
+        private System.Windows.Forms.Label lblIssueReason;
+        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.Label lbll;
     }
 }

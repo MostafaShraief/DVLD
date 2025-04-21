@@ -5,12 +5,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static DVLD.clsUtility;
 
 namespace DVLD
 {
@@ -305,6 +307,7 @@ namespace DVLD
                 this.dataGridView = dataGridView;
                 this.lblRecordsCounter = lblRecordsCounter;
                 this.loadDataTable = loadDataTable;
+                LoadData();
             }
 
             public void RefreshTable()
@@ -323,6 +326,7 @@ namespace DVLD
 
             public void LoadColumnsToComboBox(Guna2ComboBox comboBox)
             {
+                comboBox.Items.Clear();
                 comboBox.Items.Add("None");
                 foreach (DataColumn col in dataTable.Columns)
                     comboBox.Items.Add(col.ColumnName);
@@ -353,10 +357,25 @@ namespace DVLD
             Guna2ComboBox _cbFilter { get; set; }
             Guna2TextBox _tbFilter { get; set; }
             Guna2ComboBox _cbFilterCriterion { get; set; }
+            Guna2DateTimePicker _dpFilter { get; set; }
             clsUtility.clsDataTable _DataTable { get; set; }
             List<string> _columnNames = new List<string>();
-            public List<string> _columnIdNames = new List<string>();
+            public List<string> _DigitColumns = new List<string>();
             Dictionary<string, List<string>> _FilterCriterionDictionery = new Dictionary<string, List<string>>();
+            List<string> _DatesColumns = new List<string>();
+            List<string> _BooleanColumns = new List<string>();
+
+            public void ResetAll()
+            {
+                _columnNames = new List<string>();
+                _DigitColumns = new List<string>();
+                _DatesColumns = new List<string>();
+                _BooleanColumns = new List<string>();
+                _FilterCriterionDictionery = new Dictionary<string, List<string>>();
+                _cbFilter.Items.Clear();
+                _cbFilterCriterion.Items.Clear();
+                _tbFilter.Text = string.Empty;
+            }
 
             public void FillListWithItems()
             {
@@ -365,27 +384,39 @@ namespace DVLD
             }
 
             public clsFilterProcess(Guna2ComboBox cbFilter, Guna2TextBox tbFilter,
-                Guna2ComboBox cbFilterCriterion, clsUtility.clsDataTable DataTable)
+                Guna2ComboBox cbFilterCriterion, clsUtility.clsDataTable DataTable, Guna2DateTimePicker dpFilter = null,
+                List<string> booleanColumns = null)
             {
                 _cbFilter = cbFilter;
                 _tbFilter = tbFilter;
                 _cbFilterCriterion = cbFilterCriterion;
                 _DataTable = DataTable;
+                ResetAll();
+                _DataTable.LoadColumnsToComboBox(cbFilter);
                 FillListWithItems();
+                if (dpFilter != null)
+                    _dpFilter = dpFilter;
+                else
+                    _dpFilter = new Guna2DateTimePicker();
             }
 
             public clsFilterProcess(Guna2ComboBox cbFilter, Guna2TextBox tbFilter,
-                clsUtility.clsDataTable DataTable)
+                clsUtility.clsDataTable DataTable, Guna2DateTimePicker dpFilter = null)
             {
                 _cbFilter = cbFilter;
                 _tbFilter = tbFilter;
                 _cbFilterCriterion = new Guna2ComboBox();
                 _DataTable = DataTable;
+                ResetAll();
                 FillListWithItems();
+                if (dpFilter != null)
+                    _dpFilter = dpFilter;
+                else
+                    _dpFilter = new Guna2DateTimePicker();
             }
 
             public void AddColumnIdName(string Column) =>
-                _columnIdNames.Add(Column);
+                _DigitColumns.Add(Column);
 
             public void AddCriterion(
                 Dictionary<string, List<string>> dctFilterCriterionColumn)
@@ -394,30 +425,11 @@ namespace DVLD
                     _FilterCriterionDictionery = dctFilterCriterionColumn;
             }
 
-            void TextBoxChange()
-            {
-                string ColumnName = _cbFilter.Text;
-                string FilterValue = _tbFilter.Text;
+            public void AddDateColumn(string Column) =>
+                _DatesColumns.Add(Column);
 
-                if (String.IsNullOrEmpty(FilterValue) || FilterValue.Trim() == string.Empty)
-                    _DataTable.RefreshTable();
-                else if (_columnIdNames.Contains(ColumnName) &&
-                    int.TryParse(FilterValue, out int ID))
-                    _DataTable.ChangeFilter(String.Format(@"[{0}] = {1}", ColumnName, ID));
-                else
-                    _DataTable.ChangeFilter(String.Format(@"[{0}] like '{1}%'", ColumnName, FilterValue));
-            }
-
-            void FilterCriterionChange()
-            {
-                string ColumnName = _cbFilter.Text;
-                string FilterValue = _cbFilterCriterion.Text;
-
-                if (_cbFilterCriterion.Text == "All")
-                    _DataTable.RefreshTable();
-                else
-                    _DataTable.ChangeFilter(String.Format(@"[{0}] like '{1}%'", ColumnName, FilterValue));
-            }
+            public void AddBooleanColumns(string Column) =>
+                _BooleanColumns.Add(Column);
 
             void InitializeComboBoxFilter()
             {
@@ -425,9 +437,21 @@ namespace DVLD
                 _cbFilterCriterion.Items.Add("All");
                 _cbFilterCriterion.SelectedIndex = 0;
                 foreach (var Value in _FilterCriterionDictionery[_cbFilter.Text])
-                        _cbFilterCriterion.Items.Add(Value);
+                    _cbFilterCriterion.Items.Add(Value);
             }
 
+            void InitializeComboBoxFilterWithBooleans()
+            {
+                _cbFilterCriterion.Items.Clear();
+                _cbFilterCriterion.Items.Add("All");
+                _cbFilterCriterion.SelectedIndex = 0;
+                _cbFilterCriterion.Items.Add("Yes");
+                _cbFilterCriterion.Items.Add("No");
+            }
+
+            // there are 2 stepe for filteration.
+
+            // step 1: these 4 funcs below are for user changing in the screen.
             public void ComboBoxFilterChange()
             {
                 if (_cbFilter == null)
@@ -439,19 +463,36 @@ namespace DVLD
                 {
                     _tbFilter.Visible = false;
                     _cbFilterCriterion.Visible = false;
+                    _dpFilter.Visible = false;
                     _DataTable.RefreshTable();
                 }
                 else if (_cbFilterCriterion != null && _FilterCriterionDictionery.ContainsKey(ColumnName))
                 {
                     _cbFilterCriterion.Visible = true;
                     _tbFilter.Visible = false;
+                    _dpFilter.Visible = false;
                     InitializeComboBoxFilter();
+                }
+                else if (_dpFilter != null && _DatesColumns.Contains(ColumnName))
+                {
+                    _dpFilter.Visible = true;
+                    _tbFilter.Visible = false;
+                    _cbFilterCriterion.Visible = false;
+                    DatePickerChange();
+                }
+                else if (_cbFilter != null && _BooleanColumns.Contains(ColumnName))
+                {
+                    _cbFilterCriterion.Visible = true;
+                    _tbFilter.Visible = false;
+                    _dpFilter.Visible = false;
+                    InitializeComboBoxFilterWithBooleans();
                 }
                 else if (_columnNames.Contains(ColumnName))
                 {
                     _tbFilter.Text = string.Empty;
                     _tbFilter.Visible = true;
                     _cbFilterCriterion.Visible = false;
+                    _dpFilter.Visible = false;
                 }
             }
 
@@ -465,7 +506,7 @@ namespace DVLD
                 if (String.IsNullOrEmpty(ColumnName) || ColumnName == "None")
                     _DataTable.RefreshTable();
                 else
-                    TextBoxChange();
+                    TextBoxFilteration();
             }
 
             public void ComboBoxFilterCriterionChange()
@@ -475,24 +516,77 @@ namespace DVLD
 
                 string ColumnName = _cbFilter.Text;
 
-                if (_FilterCriterionDictionery.ContainsKey(ColumnName))
-                    FilterCriterionChange();
+                if (_BooleanColumns.Contains(ColumnName))
+                    BooleanFilteration();
+                else if (_FilterCriterionDictionery.ContainsKey(ColumnName))
+                    FilterCriterionFilteration();
             }
 
-            //public void FilterChange()
-            //{
-            //    string ColumnName = _cbFilter.Text;
+            public void DatePickerChange()
+            {
+                if (_dpFilter == null)
+                    return;
 
-            //    if (String.IsNullOrEmpty(ColumnName) || ColumnName == "None")
-            //        _DataTable.RefreshTable();
-            //    else
-            //    {
-            //        if (_cbFilterCriterion != null && _FilterCriterionDictionery.ContainsKey(ColumnName))
-            //            FilterCriterionChange();
-            //        else
-            //            TextBoxChange();
-            //    }
-            //}
+                DateTime Date = _dpFilter.Value;
+
+                if (_DatesColumns != null && _DatesColumns.Contains(_cbFilter.Text))
+                    DateFilteration();
+            }
+
+            // step 2: these 3 funcs below are for data table filteration process changing.
+            void TextBoxFilteration()
+            {
+                string ColumnName = _cbFilter.Text;
+                string FilterValue = _tbFilter.Text;
+
+                if (String.IsNullOrEmpty(FilterValue) || FilterValue.Trim() == string.Empty)
+                    _DataTable.RefreshTable();
+                else if (_DigitColumns.Contains(ColumnName) &&
+                    int.TryParse(FilterValue, out int Number))
+                    _DataTable.ChangeFilter(String.Format(@"[{0}] = {1}", ColumnName, Number));
+                else
+                    _DataTable.ChangeFilter(String.Format(@"[{0}] like '{1}%'", ColumnName, FilterValue));
+            }
+
+            void DateFilteration()
+            {
+                string ColumnName = _cbFilter.Text;
+                DateTime dateTime = _dpFilter.Value;
+
+                // Get the start of the day (00:00:00)
+                DateTime startDate = dateTime.Date;
+                // Get the end of the day (23:59:59)
+                DateTime endDate = startDate.AddDays(1).AddSeconds(-1);
+
+                _DataTable.ChangeFilter(string.Format(
+                    "[{0}] >= #{1:MM/dd/yyyy HH:mm:ss}# AND [{0}] <= #{2:MM/dd/yyyy HH:mm:ss}#",
+                    ColumnName, startDate, endDate
+                ));
+            }
+
+            void FilterCriterionFilteration()
+            {
+                string ColumnName = _cbFilter.Text;
+                string FilterValue = _cbFilterCriterion.Text;
+
+                if (FilterValue == "All")
+                    _DataTable.RefreshTable();
+                else
+                    _DataTable.ChangeFilter(String.Format(@"[{0}] like '{1}%'", ColumnName, FilterValue));
+            }
+
+            void BooleanFilteration()
+            {
+                string ColumnName = _cbFilter.Text;
+                string FilterValue = _cbFilterCriterion.Text;
+
+                if (FilterValue[0] == 'A')
+                    _DataTable.RefreshTable();
+                else if (FilterValue[0] == 'Y')
+                    _DataTable.ChangeFilter(String.Format(@"[{0}] = 1", ColumnName, FilterValue));
+                else
+                    _DataTable.ChangeFilter(String.Format(@"[{0}] = 0", ColumnName, FilterValue));
+            }
         }
 
         /// <summary>

@@ -41,6 +41,8 @@ namespace DVLD.DVLD_System.Licenses.User_Control
             licenseObj.LicenseClassID = localLicenseObj.LicenseClassID;
             licenseObj.IssueReason = clsLicenses_BLL.enIssueReason.New;
             licenseObj.CreatedByUserID = clsGlobal.user.UserID;
+            licenseObj.PaidFees = (float)clsLicenseClasses_BLL.GetLicenseClassFees(licenseObj.LicenseClassID);
+            lblIssueFees.Text = licenseObj.PaidFees.ToString("C");
         }
 
         int GetDriverID()
@@ -58,7 +60,7 @@ namespace DVLD.DVLD_System.Licenses.User_Control
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to issue licenes?", "Issue License",
+            if (MessageBox.Show($"Are you sure you want to issue licenes for {licenseObj.PaidFees}$?", "Issue License",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
             {
 

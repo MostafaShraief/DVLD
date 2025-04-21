@@ -22,12 +22,23 @@ namespace DVLD.DVLD_System.International_Licenses
             InitializeComponent();
             ucTitleScreen1.ChangeTitle("International Licenses List");
 
-            List<string> ids = new List<string>()
+            List<string> numericColumns = new List<string>()
             {
                 "International License ID", "Application ID", "License ID", "Driver ID"
             };
 
-            ucList1.FillListObject(clsInternationalLicenses_BLL.GetAllSammurizedInternationicenses, ids, null, cmsRow);
+            List<string> DateColumns = new List<string>()
+            {
+                "Issue Date",
+                "Expiration Date"
+            };
+
+            List<string> boolColummns = new List<string>()
+            {
+                "Is Active"
+            };
+
+            ucList1.FillListObject(clsInternationalLicenses_BLL.GetAllSammurizedInternationicenses, numericColumns, null, cmsRow, DateColumns, boolColummns);
         }
 
         int GetInternationalLicenseID() =>

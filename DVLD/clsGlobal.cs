@@ -30,7 +30,7 @@ namespace DVLD
                 if (value != null && value.UserID != -1)
                 {
                     private_user = value;
-                    userPerson = clsPeople_BLL.Find(clsGlobal.user.PersonID);
+                    userPerson = clsPeople_BLL.Find(user.PersonID);
                     MainForm.RefreshUserInfo();
                 }
             }

@@ -41,7 +41,7 @@
             // 
             this.lblDescription.BackColor = System.Drawing.Color.Transparent;
             this.lblDescription.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
-            this.lblDescription.Location = new System.Drawing.Point(1042, 409);
+            this.lblDescription.Location = new System.Drawing.Point(1042, 259);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(680, 570);
             this.lblDescription.TabIndex = 21;
@@ -52,7 +52,7 @@
             this.lblDescriptionTitle.AutoSize = true;
             this.lblDescriptionTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblDescriptionTitle.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
-            this.lblDescriptionTitle.Location = new System.Drawing.Point(1042, 350);
+            this.lblDescriptionTitle.Location = new System.Drawing.Point(1042, 200);
             this.lblDescriptionTitle.Name = "lblDescriptionTitle";
             this.lblDescriptionTitle.Size = new System.Drawing.Size(233, 40);
             this.lblDescriptionTitle.TabIndex = 20;
@@ -63,7 +63,7 @@
             // 
             this.flowLayoutPanel1.Controls.Add(this.btnDetainLicensesList);
             this.flowLayoutPanel1.Controls.Add(this.btnDetainLicense);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(52, 350);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(52, 200);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(922, 629);
             this.flowLayoutPanel1.TabIndex = 19;

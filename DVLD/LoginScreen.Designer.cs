@@ -35,12 +35,17 @@
             this.tbPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.icbPassword = new Guna.UI2.WinForms.Guna2ImageCheckBox();
-            this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
             this.cbRememberMe = new Guna.UI2.WinForms.Guna2CheckBox();
             this.ucTopBar1 = new User_Controls.ucTopBar();
             this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.pbPasswordpbPassword = new System.Windows.Forms.PictureBox();
+            this.pbUsername = new System.Windows.Forms.PictureBox();
+            this.icbPassword = new Guna.UI2.WinForms.Guna2ImageCheckBox();
+            this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPasswordpbPassword)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUsername)).BeginInit();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -67,7 +72,7 @@
             this.tbUserName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbUserName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.tbUserName.FocusedState.Parent = this.tbUserName;
-            this.tbUserName.Font = new System.Drawing.Font("Gadugi", 15F, System.Drawing.FontStyle.Bold);
+            this.tbUserName.Font = new System.Drawing.Font("Gadugi", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbUserName.ForeColor = System.Drawing.Color.Black;
             this.tbUserName.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.tbUserName.HoverState.Parent = this.tbUserName;
@@ -94,7 +99,7 @@
             this.tbPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.tbPassword.FocusedState.Parent = this.tbPassword;
-            this.tbPassword.Font = new System.Drawing.Font("Gadugi", 15F, System.Drawing.FontStyle.Bold);
+            this.tbPassword.Font = new System.Drawing.Font("Gadugi", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPassword.ForeColor = System.Drawing.Color.Black;
             this.tbPassword.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.tbPassword.HoverState.Parent = this.tbPassword;
@@ -115,7 +120,7 @@
             this.lblPassword.AutoSize = true;
             this.lblPassword.BackColor = System.Drawing.Color.Transparent;
             this.lblPassword.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
-            this.lblPassword.Location = new System.Drawing.Point(184, 397);
+            this.lblPassword.Location = new System.Drawing.Point(176, 397);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(178, 40);
             this.lblPassword.TabIndex = 41;
@@ -126,6 +131,69 @@
             // 
             this.errorProvider.ContainerControl = this;
             this.errorProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider.Icon")));
+            // 
+            // cbRememberMe
+            // 
+            this.cbRememberMe.AutoSize = true;
+            this.cbRememberMe.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbRememberMe.CheckedState.BorderRadius = 2;
+            this.cbRememberMe.CheckedState.BorderThickness = 0;
+            this.cbRememberMe.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.cbRememberMe.Font = new System.Drawing.Font("Gadugi", 10F);
+            this.cbRememberMe.Location = new System.Drawing.Point(580, 444);
+            this.cbRememberMe.Name = "cbRememberMe";
+            this.cbRememberMe.Size = new System.Drawing.Size(143, 24);
+            this.cbRememberMe.TabIndex = 67;
+            this.cbRememberMe.Text = "Remember me";
+            this.cbRememberMe.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.cbRememberMe.UncheckedState.BorderRadius = 2;
+            this.cbRememberMe.UncheckedState.BorderThickness = 0;
+            this.cbRememberMe.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.cbRememberMe.UseVisualStyleBackColor = true;
+            // 
+            // ucTopBar1
+            // 
+            this.ucTopBar1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ucTopBar1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ucTopBar1.Location = new System.Drawing.Point(0, 0);
+            this.ucTopBar1.Name = "ucTopBar1";
+            this.ucTopBar1.Size = new System.Drawing.Size(1092, 52);
+            this.ucTopBar1.TabIndex = 68;
+            this.ucTopBar1.Load += new System.EventHandler(this.ucTopBar1_Load);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Gadugi", 30F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(319, 94);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(455, 60);
+            this.label1.TabIndex = 71;
+            this.label1.Text = "Welcome to DVLD";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pbPasswordpbPassword
+            // 
+            this.pbPasswordpbPassword.BackColor = System.Drawing.Color.Transparent;
+            this.pbPasswordpbPassword.Image = global::DVLD.Properties.Resources.Password;
+            this.pbPasswordpbPassword.Location = new System.Drawing.Point(120, 392);
+            this.pbPasswordpbPassword.Name = "pbPasswordpbPassword";
+            this.pbPasswordpbPassword.Size = new System.Drawing.Size(50, 50);
+            this.pbPasswordpbPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPasswordpbPassword.TabIndex = 70;
+            this.pbPasswordpbPassword.TabStop = false;
+            // 
+            // pbUsername
+            // 
+            this.pbUsername.BackColor = System.Drawing.Color.Transparent;
+            this.pbUsername.Image = global::DVLD.Properties.Resources.User;
+            this.pbUsername.Location = new System.Drawing.Point(120, 236);
+            this.pbUsername.Name = "pbUsername";
+            this.pbUsername.Size = new System.Drawing.Size(50, 50);
+            this.pbUsername.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbUsername.TabIndex = 69;
+            this.pbUsername.TabStop = false;
             // 
             // icbPassword
             // 
@@ -164,41 +232,15 @@
             this.btnLogin.TextOffset = new System.Drawing.Point(10, 0);
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // cbRememberMe
-            // 
-            this.cbRememberMe.AutoSize = true;
-            this.cbRememberMe.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbRememberMe.CheckedState.BorderRadius = 2;
-            this.cbRememberMe.CheckedState.BorderThickness = 0;
-            this.cbRememberMe.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.cbRememberMe.Font = new System.Drawing.Font("Gadugi", 10F);
-            this.cbRememberMe.Location = new System.Drawing.Point(580, 444);
-            this.cbRememberMe.Name = "cbRememberMe";
-            this.cbRememberMe.Size = new System.Drawing.Size(143, 24);
-            this.cbRememberMe.TabIndex = 67;
-            this.cbRememberMe.Text = "Remember me";
-            this.cbRememberMe.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.cbRememberMe.UncheckedState.BorderRadius = 2;
-            this.cbRememberMe.UncheckedState.BorderThickness = 0;
-            this.cbRememberMe.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.cbRememberMe.UseVisualStyleBackColor = true;
-            // 
-            // ucTopBar1
-            // 
-            this.ucTopBar1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ucTopBar1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ucTopBar1.Location = new System.Drawing.Point(0, 0);
-            this.ucTopBar1.Name = "ucTopBar1";
-            this.ucTopBar1.Size = new System.Drawing.Size(1092, 52);
-            this.ucTopBar1.TabIndex = 68;
-            this.ucTopBar1.Load += new System.EventHandler(this.ucTopBar1_Load);
-            // 
             // LoginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1092, 724);
+            this.ClientSize = new System.Drawing.Size(1092, 639);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pbPasswordpbPassword);
+            this.Controls.Add(this.pbUsername);
             this.Controls.Add(this.ucTopBar1);
             this.Controls.Add(this.cbRememberMe);
             this.Controls.Add(this.icbPassword);
@@ -214,6 +256,8 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LoginScreen_FormClosed);
             this.Load += new System.EventHandler(this.LoginScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPasswordpbPassword)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUsername)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,5 +275,8 @@
         private Guna.UI2.WinForms.Guna2CheckBox cbRememberMe;
         private User_Controls.ucTopBar ucTopBar1;
         private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
+        private System.Windows.Forms.PictureBox pbPasswordpbPassword;
+        private System.Windows.Forms.PictureBox pbUsername;
+        private System.Windows.Forms.Label label1;
     }
 }

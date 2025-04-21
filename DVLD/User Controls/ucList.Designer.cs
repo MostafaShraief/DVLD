@@ -41,9 +41,10 @@
             this.cbFilter = new Guna.UI2.WinForms.Guna2ComboBox();
             this.tbFilter = new Guna.UI2.WinForms.Guna2TextBox();
             this.cbFilterCriterion = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.dtpDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.btnRefreshAll = new Guna.UI2.WinForms.Guna2Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.dgvList = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.btnRefreshAll = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             this.flpTools.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -94,6 +95,7 @@
             this.flpTools.Controls.Add(this.cbFilter);
             this.flpTools.Controls.Add(this.tbFilter);
             this.flpTools.Controls.Add(this.cbFilterCriterion);
+            this.flpTools.Controls.Add(this.dtpDate);
             this.flpTools.Controls.Add(this.btnRefreshAll);
             this.flpTools.Dock = System.Windows.Forms.DockStyle.Top;
             this.flpTools.Location = new System.Drawing.Point(0, 0);
@@ -186,6 +188,51 @@
             this.cbFilterCriterion.Visible = false;
             this.cbFilterCriterion.SelectedIndexChanged += new System.EventHandler(this.cbFilterCriterion_SelectedIndexChanged);
             // 
+            // dtpDate
+            // 
+            this.dtpDate.Animated = true;
+            this.dtpDate.BorderThickness = 1;
+            this.dtpDate.CheckedState.Parent = this.dtpDate;
+            this.dtpDate.FillColor = System.Drawing.Color.White;
+            this.dtpDate.Font = new System.Drawing.Font("Gadugi", 10F, System.Drawing.FontStyle.Bold);
+            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtpDate.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.dtpDate.HoverState.Parent = this.dtpDate;
+            this.dtpDate.Location = new System.Drawing.Point(934, 3);
+            this.dtpDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.ShadowDecoration.Parent = this.dtpDate;
+            this.dtpDate.Size = new System.Drawing.Size(292, 35);
+            this.dtpDate.TabIndex = 62;
+            this.dtpDate.Value = new System.DateTime(2025, 1, 27, 23, 33, 22, 811);
+            this.dtpDate.Visible = false;
+            this.dtpDate.ValueChanged += new System.EventHandler(this.dtpDate_ValueChanged);
+            // 
+            // btnRefreshAll
+            // 
+            this.btnRefreshAll.Animated = true;
+            this.btnRefreshAll.BackColor = System.Drawing.Color.Transparent;
+            this.btnRefreshAll.BorderThickness = 2;
+            this.btnRefreshAll.CheckedState.Parent = this.btnRefreshAll;
+            this.btnRefreshAll.CustomImages.Parent = this.btnRefreshAll;
+            this.btnRefreshAll.FillColor = System.Drawing.Color.Transparent;
+            this.btnRefreshAll.Font = new System.Drawing.Font("Gadugi", 9F, System.Drawing.FontStyle.Bold);
+            this.btnRefreshAll.ForeColor = System.Drawing.Color.Black;
+            this.btnRefreshAll.HoverState.Parent = this.btnRefreshAll;
+            this.btnRefreshAll.Image = global::DVLD.Properties.Resources.Refresh;
+            this.btnRefreshAll.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnRefreshAll.ImageOffset = new System.Drawing.Point(-8, 0);
+            this.btnRefreshAll.ImageSize = new System.Drawing.Size(28, 28);
+            this.btnRefreshAll.Location = new System.Drawing.Point(1232, 3);
+            this.btnRefreshAll.Name = "btnRefreshAll";
+            this.btnRefreshAll.ShadowDecoration.Parent = this.btnRefreshAll;
+            this.btnRefreshAll.Size = new System.Drawing.Size(133, 38);
+            this.btnRefreshAll.TabIndex = 61;
+            this.btnRefreshAll.Text = "Refresh All";
+            this.btnRefreshAll.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnRefreshAll.Click += new System.EventHandler(this.btnRefreshAll_Click);
+            // 
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
@@ -259,30 +306,6 @@
             this.dgvList.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvList.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // btnRefreshAll
-            // 
-            this.btnRefreshAll.Animated = true;
-            this.btnRefreshAll.BackColor = System.Drawing.Color.Transparent;
-            this.btnRefreshAll.BorderThickness = 2;
-            this.btnRefreshAll.CheckedState.Parent = this.btnRefreshAll;
-            this.btnRefreshAll.CustomImages.Parent = this.btnRefreshAll;
-            this.btnRefreshAll.FillColor = System.Drawing.Color.Transparent;
-            this.btnRefreshAll.Font = new System.Drawing.Font("Gadugi", 9F, System.Drawing.FontStyle.Bold);
-            this.btnRefreshAll.ForeColor = System.Drawing.Color.Black;
-            this.btnRefreshAll.HoverState.Parent = this.btnRefreshAll;
-            this.btnRefreshAll.Image = global::DVLD.Properties.Resources.Refresh;
-            this.btnRefreshAll.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnRefreshAll.ImageOffset = new System.Drawing.Point(-8, 0);
-            this.btnRefreshAll.ImageSize = new System.Drawing.Size(28, 28);
-            this.btnRefreshAll.Location = new System.Drawing.Point(934, 3);
-            this.btnRefreshAll.Name = "btnRefreshAll";
-            this.btnRefreshAll.ShadowDecoration.Parent = this.btnRefreshAll;
-            this.btnRefreshAll.Size = new System.Drawing.Size(133, 38);
-            this.btnRefreshAll.TabIndex = 61;
-            this.btnRefreshAll.Text = "Refresh All";
-            this.btnRefreshAll.TextOffset = new System.Drawing.Point(10, 0);
-            this.btnRefreshAll.Click += new System.EventHandler(this.btnRefreshAll_Click);
-            // 
             // ucList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -316,5 +339,6 @@
         private Guna.UI2.WinForms.Guna2DataGridView dgvList;
         private Guna.UI2.WinForms.Guna2Button btnRefreshAll;
         private Guna.UI2.WinForms.Guna2ComboBox cbFilterCriterion;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpDate;
     }
 }

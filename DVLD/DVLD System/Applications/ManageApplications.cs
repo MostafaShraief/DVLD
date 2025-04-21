@@ -57,7 +57,7 @@ namespace DVLD.Applications
         private void btnRenewLicense_Click(object sender, EventArgs e)
         {
             RenewLicense renewLicense = new RenewLicense();
-            renewLicense.ShowDialog();
+            clsGlobal.MainForm.PushNewForm(renewLicense);
         }
 
         private void btnRenewLicense_MouseEnter(object sender, EventArgs e) =>

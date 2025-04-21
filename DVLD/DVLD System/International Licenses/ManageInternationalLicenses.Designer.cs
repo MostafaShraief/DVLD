@@ -31,9 +31,9 @@
             this.lblDescription = new System.Windows.Forms.Label();
             this.lblDescriptionTitle = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnInternationalLicensesList = new Guna.UI2.WinForms.Guna2Button();
             this.btnLocalLicense = new Guna.UI2.WinForms.Guna2Button();
             this.ucTitleScreen1 = new ucTitleScreen();
-            this.btnInternationalLicensesList = new Guna.UI2.WinForms.Guna2Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,7 +41,7 @@
             // 
             this.lblDescription.BackColor = System.Drawing.Color.Transparent;
             this.lblDescription.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
-            this.lblDescription.Location = new System.Drawing.Point(1042, 359);
+            this.lblDescription.Location = new System.Drawing.Point(1042, 259);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(680, 570);
             this.lblDescription.TabIndex = 17;
@@ -52,7 +52,7 @@
             this.lblDescriptionTitle.AutoSize = true;
             this.lblDescriptionTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblDescriptionTitle.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
-            this.lblDescriptionTitle.Location = new System.Drawing.Point(1042, 300);
+            this.lblDescriptionTitle.Location = new System.Drawing.Point(1042, 200);
             this.lblDescriptionTitle.Name = "lblDescriptionTitle";
             this.lblDescriptionTitle.Size = new System.Drawing.Size(233, 40);
             this.lblDescriptionTitle.TabIndex = 16;
@@ -63,10 +63,36 @@
             // 
             this.flowLayoutPanel1.Controls.Add(this.btnInternationalLicensesList);
             this.flowLayoutPanel1.Controls.Add(this.btnLocalLicense);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(52, 300);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(52, 200);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(922, 629);
             this.flowLayoutPanel1.TabIndex = 15;
+            // 
+            // btnInternationalLicensesList
+            // 
+            this.btnInternationalLicensesList.Animated = true;
+            this.btnInternationalLicensesList.BackColor = System.Drawing.Color.Transparent;
+            this.btnInternationalLicensesList.CheckedState.Parent = this.btnInternationalLicensesList;
+            this.btnInternationalLicensesList.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btnInternationalLicensesList.CustomImages.Parent = this.btnInternationalLicensesList;
+            this.btnInternationalLicensesList.FillColor = System.Drawing.Color.Transparent;
+            this.btnInternationalLicensesList.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
+            this.btnInternationalLicensesList.ForeColor = System.Drawing.Color.Black;
+            this.btnInternationalLicensesList.HoverState.Parent = this.btnInternationalLicensesList;
+            this.btnInternationalLicensesList.Image = global::DVLD.Properties.Resources.License;
+            this.btnInternationalLicensesList.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnInternationalLicensesList.ImageOffset = new System.Drawing.Point(40, -20);
+            this.btnInternationalLicensesList.ImageSize = new System.Drawing.Size(200, 200);
+            this.btnInternationalLicensesList.Location = new System.Drawing.Point(3, 3);
+            this.btnInternationalLicensesList.Name = "btnInternationalLicensesList";
+            this.btnInternationalLicensesList.ShadowDecoration.Parent = this.btnInternationalLicensesList;
+            this.btnInternationalLicensesList.Size = new System.Drawing.Size(300, 300);
+            this.btnInternationalLicensesList.TabIndex = 4;
+            this.btnInternationalLicensesList.Text = "I.Licenses List";
+            this.btnInternationalLicensesList.TextOffset = new System.Drawing.Point(0, 100);
+            this.btnInternationalLicensesList.Click += new System.EventHandler(this.btnInternationalLicensesList_Click);
+            this.btnInternationalLicensesList.MouseEnter += new System.EventHandler(this.btnInternationalLicensesList_MouseEnter);
+            this.btnInternationalLicensesList.MouseLeave += new System.EventHandler(this.btnLocalLicense_MouseLeave);
             // 
             // btnLocalLicense
             // 
@@ -102,32 +128,6 @@
             this.ucTitleScreen1.Name = "ucTitleScreen1";
             this.ucTitleScreen1.Size = new System.Drawing.Size(1775, 145);
             this.ucTitleScreen1.TabIndex = 14;
-            // 
-            // btnInternationalLicensesList
-            // 
-            this.btnInternationalLicensesList.Animated = true;
-            this.btnInternationalLicensesList.BackColor = System.Drawing.Color.Transparent;
-            this.btnInternationalLicensesList.CheckedState.Parent = this.btnInternationalLicensesList;
-            this.btnInternationalLicensesList.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.btnInternationalLicensesList.CustomImages.Parent = this.btnInternationalLicensesList;
-            this.btnInternationalLicensesList.FillColor = System.Drawing.Color.Transparent;
-            this.btnInternationalLicensesList.Font = new System.Drawing.Font("Gadugi", 20F, System.Drawing.FontStyle.Bold);
-            this.btnInternationalLicensesList.ForeColor = System.Drawing.Color.Black;
-            this.btnInternationalLicensesList.HoverState.Parent = this.btnInternationalLicensesList;
-            this.btnInternationalLicensesList.Image = global::DVLD.Properties.Resources.License;
-            this.btnInternationalLicensesList.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnInternationalLicensesList.ImageOffset = new System.Drawing.Point(40, -20);
-            this.btnInternationalLicensesList.ImageSize = new System.Drawing.Size(200, 200);
-            this.btnInternationalLicensesList.Location = new System.Drawing.Point(3, 3);
-            this.btnInternationalLicensesList.Name = "btnInternationalLicensesList";
-            this.btnInternationalLicensesList.ShadowDecoration.Parent = this.btnInternationalLicensesList;
-            this.btnInternationalLicensesList.Size = new System.Drawing.Size(300, 300);
-            this.btnInternationalLicensesList.TabIndex = 4;
-            this.btnInternationalLicensesList.Text = "I.Licenses List";
-            this.btnInternationalLicensesList.TextOffset = new System.Drawing.Point(0, 100);
-            this.btnInternationalLicensesList.Click += new System.EventHandler(this.btnInternationalLicensesList_Click);
-            this.btnInternationalLicensesList.MouseEnter += new System.EventHandler(this.btnInternationalLicensesList_MouseEnter);
-            this.btnInternationalLicensesList.MouseLeave += new System.EventHandler(this.btnLocalLicense_MouseLeave);
             // 
             // ManageInternationalLicenses
             // 

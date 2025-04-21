@@ -42,6 +42,7 @@ namespace DVLD.DVLD_System.Licenses.User_Control
             // License Information
             lblLicenseID.Text = licenseObj.LicenseID.ToString();
             lblLicenseClass.Text = licenseObj.LicenseClassName;
+            lblIssueReason.Text = licenseObj.IssueReason.ToString();
 
             // Personal Information
             lblFullName.Text = licenseObj.FullName;

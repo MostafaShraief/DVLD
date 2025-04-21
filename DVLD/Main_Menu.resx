@@ -117,4 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label2.Text" xml:space="preserve">
+    <value>This project is a backend project from 19th Programming Advices course. I focused on user experience, a robust backend, high performance, and security through comprehensive validation. This system took 4 months to complete while taking university exams, participating in hackathon, and learning new things.
+</value>
+  </data>
 </root>

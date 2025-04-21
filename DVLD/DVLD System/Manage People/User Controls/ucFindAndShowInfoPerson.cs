@@ -47,11 +47,8 @@ namespace DVLD.Manage_People.User_Controls
 
         public void GetPersonID(int PersonID)
         {
-            if (LinkerFound != null)
-                LinkerFound();
-            if (LinkerGetPerson != null)
-                LinkerGetPerson(person);
-            ucPersonInfo.GetPersonID(PersonID);
+            clsPeople_BLL Person = clsPeople_BLL.Find(PersonID);
+            GetPerson(Person);
         }
 
         public void GetPerson(clsPeople_BLL Person)
